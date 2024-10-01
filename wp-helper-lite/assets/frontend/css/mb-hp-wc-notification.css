@@ -1,0 +1,65 @@
+#mbwp-message-purchased{
+    position: fixed;
+    bottom: -100px;
+    opacity: 0;
+    left: 10px;
+    background-color: #fff;
+    z-index: 1000;
+    -webkit-transition:all 1s ease;
+    -moz-transition:all 1s ease;
+    -ms-transition:all 1s ease;
+    -o-transition:all 1s ease;
+    transition:all 1s ease;
+}
+#mbwp-message-purchased.show-effect{
+    bottom: 40px;
+    opacity: 1;
+}
+.mbwp-message-purchase-main.hide{
+    display: none;
+}
+.mbwp-message-purchase-main{
+    display: flex;
+    width: 400px;
+    box-shadow: 0 0 4px 0 rgb(0 0 0 / 40%);
+    position: relative;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.mbwp-notifi-image{
+    width: 100px;
+    height: 100px;
+}
+.mbwp-notifi-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.mbwp-notifi-message-container{
+    display: flex;
+    flex-direction: column;
+    width:calc(100% - 100px) ;
+    padding: 10px;
+}
+.mbwp-notifi-message-container span{
+    text-transform: capitalize;
+}
+.mbwp-notifi-message-container span,
+.mbwp-notifi-message-container small{
+    color: #212121;
+}
+.mbwp-notifi-message-container a{
+    font-weight: bold;
+    font-size: 16px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    width: 100%;
+    color: rgb(36,36,36);
+}
+.mbwp-notifi-name{
+    
+}

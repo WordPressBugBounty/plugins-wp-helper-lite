@@ -1,0 +1,28 @@
+@media screen and (max-width: 767.98px) {
+  .whp-tab-title {
+    width: 100%;
+  }
+
+  .whp-body {
+    flex-wrap: wrap;
+  }
+
+  .whp-body > *:not(:last-child) {
+    margin-bottom: 30px;
+  }
+
+  .whp-body > *:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .whp-wrap {
+    margin-right: 15px;
+  }
+  .whp-sidebar {
+    width: 100%;
+  }
+  .whp-setting-content-item > *:last-child {
+    width: 70%;
+    flex: 1;
+  }
+}
