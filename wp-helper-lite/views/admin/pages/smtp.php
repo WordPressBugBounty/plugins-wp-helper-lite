@@ -167,7 +167,7 @@
                             <div class="whp-setting-content-item">
                                 <label for=""><?php echo esc_html(__('Mail nhận thử', 'whp')); ?></label>
                                 <div class="form-group">
-                                    <input id="whp_smtp_email_receive" type="text" class="form-control" placeholder="<?php echo esc_attr(__('Vd: support@gmail.com', 'whp')); ?>" name="whp_smtp_email_receive" value="<?php echo esc_attr($whp_smtp_email_receive); ?>">
+                                    <input id="whp_smtp_email_receive" type="text" class="form-control" placeholder="<?php echo esc_attr(__('Vd: support@gmail.com', 'whp')); ?>" name="whp_smtp_email_receive" value="">
                                     <p><?php echo __('Bạn vui lòng điền mail nhận nếu chạy thử.', 'whp') ?>
                                     </p>
                                 </div>
@@ -202,11 +202,20 @@
 
 <script>
     jQuery('#test_mail').on('click', function(e) {
+
+
         e.preventDefault();
         let wp_ajax_url = '<?php echo admin_url('admin-ajax.php'); ?>';
         let email = jQuery('#whp_smtp_email_receive').val();
         let content = jQuery('#whp_smtp_email_content').val();
-
+        let nonce = '<?php echo wp_create_nonce('whp_smtp_send_mail_test_nonce'); ?>'; // Tạo nonce để bảo vệ AJAX
+        let $button = jQuery(this);
+        // Kiểm tra dữ liệu đầu vào trước khi gửi AJAX
+        if (!email || !content) {
+            alert('Vui lòng nhập email và nội dung.');
+            return;
+        }
+        $button.prop('disabled', true).text('Đang gửi...');
         jQuery.ajax({
             type: "post",
             url: wp_ajax_url,
@@ -214,19 +223,23 @@
                 'action': 'whp_smtp_send_mail_test',
                 'email': email,
                 'content': content,
+                'nonce': nonce
             },
             dataType: "json",
             success: function(res) {
-
                 if (res['status'] == 200) {
                     alert('Bạn đã gửi mail thành công');
                 } else {
-                    alert('Bạn đã gửi mail thất bại');
+                    alert('Bạn đã gửi mail thất bại: ' + res['message']);
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                alert('Bạn đã gửi mail thất bại');
+                alert('Đã xảy ra lỗi khi gửi mail. Vui lòng thử lại.');
+            },
+            complete: function() {
+                // Enable lại nút sau khi hoàn thành AJAX
+                $button.prop('disabled', false).text('Gửi');
             }
         });
-    })
+    });
 </script>

@@ -54,16 +54,27 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
         }
         public function whp_smtp_send_mail_test()
         {
+            // Kiểm tra quyền hạn
+            if (!current_user_can('manage_options')) {
+                echo json_encode(['status' => 403, 'message' => 'Unauthorized']);
+                exit();
+            }
+
+            // Kiểm tra xác thực nonce
+            if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'whp_smtp_send_mail_test_nonce')) {
+                echo json_encode(['status' => 400, 'message' => 'Invalid nonce']);
+                exit();
+            }
 
             $to = sanitize_text_field($_POST['email']);
-
             $message = sanitize_text_field($_POST['content']);
             $subject = 'WP Helper - Cấu hình SMTP thành công';
-            $headers = 'From: My Name <from@example.com>' . "\r\n";
-            $mail = wp_mail($to, $subject, $message, $headers);
+            $mail = wp_mail($to, $subject, $message);
 
             if ($mail) {
-                echo   json_encode(['status' => 200]);
+                echo json_encode(['status' => 200, 'message' => 'Email sent successfully']);
+            } else {
+                echo json_encode(['status' => 500, 'message' => 'Failed to send email']);
             }
             exit();
         }
