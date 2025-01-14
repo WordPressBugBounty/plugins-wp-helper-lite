@@ -2,7 +2,7 @@
 Contributors: Mat Bao Corp
 Tags: contact button, hide login, SMTP, header footer, All in one, Woocommerce, cart button, e-commerce platforms, order optimization, payment, pop-up, filter order bu phone, upload svg, custom url login.
 Requires at least: 5.6
-Tested up to: 6.4.3
+Tested up to: 6.6.2
 Requires PHP: 7.0
 Stable tag: 4.5.5
 License: GPLv2 or later
