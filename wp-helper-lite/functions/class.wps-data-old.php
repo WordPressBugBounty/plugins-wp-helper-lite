@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 if (!class_exists('MB_WHP_Data_Old')) {
     class MB_WHP_Data_Old
     {
@@ -61,31 +62,31 @@ if (!class_exists('MB_WHP_Data_Old')) {
             $optionOld = $optionOld['mbwp-opt-smtp'] ?? [];
             switch ($field) {
                 case 'whp_smtp_active':
-                    $result = $optionOld['mbwp-smtp-active'] ?? 0;
+                    $result = $optionOld['mbwp-smtp-active'] ?? null;
                     break;
                 case 'whp_smtp_setting':
-                    $result = $optionOld['mbwp-smtp-setting'] ?? 0;
+                    $result = $optionOld['mbwp-smtp-setting'] ?? null;
                     break;
                 case 'whp_smtp_email':
-                    $result = $optionOld['mbwp-smtp-email'] ?? 0;
+                    $result = $optionOld['mbwp-smtp-email'] ?? null;
                     break;
                 case 'whp_smtp_from_name':
-                    $result = $optionOld['mbwp-smtp-fromName'] ?? 0;
+                    $result = $optionOld['mbwp-smtp-fromName'] ?? null;
                     break;
                 case 'whp_smtp_host':
-                    $result = $optionOld['mbwp-smtp-host'] ?? 0;
+                    $result = $optionOld['mbwp-smtp-host'] ?? null;
                     break;
                 case 'whp_smtp_security':
-                    $result = $optionOld['mbwp-smtp-security'] ?? 0;
+                    $result = $optionOld['mbwp-smtp-security'] ?? null;
                     break;
                 case 'whp_smtp_port':
-                    $result = $optionOld['mbwp-smtp-port'] ?? 0;
+                    $result = $optionOld['mbwp-smtp-port'] ?? null;
                     break;
                 case 'whp_smtp_user':
-                    $result = $optionOld['mbwp-smtp-user'] ?? 0;
+                    $result = $optionOld['mbwp-smtp-user'] ?? null;
                     break;
                 case 'whp_smtp_password':
-                    $result = $optionOld['mbwp-smtp-password'] ?? 0;
+                    $result = $optionOld['mbwp-smtp-password'] ?? null;
                     break;
                 default:
                     # code...
@@ -285,15 +286,6 @@ if (!class_exists('MB_WHP_Data_Old')) {
                     break;
                 case 'whp_woocommerce_advance_enable_compact_desc':
                     $result = get_option('compact', '');
-                    break;
-                case 'whp_woocommerce_advance_enable_notify_telegram':
-                    $result = get_option('telegram', '');
-                    break;
-                case 'whp_woocommerce_advance_telegram_token':
-                    $result = get_option('telegramToken', '');
-                    break;
-                case 'whp_woocommerce_advance_telegram_chatid':
-                    $result = get_option('telegramChatid', '');
                     break;
                 default:
                     # code...

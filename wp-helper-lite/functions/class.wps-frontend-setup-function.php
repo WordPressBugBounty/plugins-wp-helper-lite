@@ -1,6 +1,5 @@
 <?php
-
-use Symfony\Component\CssSelector\XPath\XPathExpr;
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
     class MB_WHP_Frontend_Setup_Function
@@ -15,6 +14,7 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
         function __construct()
         {
 
+            add_action('template_redirect', [$this, 'whp_popup_preview'], 1);
             add_action('wp_enqueue_scripts', [$this, 'include_style']);
             add_action('wp_enqueue_scripts', [$this, 'include_script']);
             $this->include_header();
@@ -22,22 +22,24 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
             $this->include_footer();
             $this->whp_smtp();
             $this->whp_security();
-            $this->whp_woo_cta();
-            $this->whp_ecommerce();
-            $this->whp_advance();
             $this->whp_extention();
-            $this->whp_woo_admin_ecommerce();
-            $this->whp_checkout();
-            $this->whp_gateway_wallet();
+            if ( class_exists( 'WooCommerce' ) ) {
+                $this->whp_woo_cta();
+                $this->whp_ecommerce();
+                $this->whp_advance();
+                $this->whp_woo_admin_ecommerce();
+                $this->whp_checkout();
+                $this->whp_gateway_wallet();
+                $this->whp_woo_thankyou();
+            }
             // $this->whp_maintenance();
             $this->whp_popup();
             $this->whp_reponsive();
 
             add_action('wp_ajax_whp_smtp_send_mail_test', [$this, 'whp_smtp_send_mail_test']);
-            add_action('wp_ajax_nopriv_whp_smtp_send_mail_test', [$this, 'whp_smtp_send_mail_test']);
             //  add_filter('template_include', [$this, 'whp_wallet_thanhyou_page'], 10, 2);
             //  add_action('get_header', [$this, 'whp_maintenance']);
-            add_action('wp', [$this, 'whp_maintenance']);
+            add_action('init', [$this, 'whp_maintenance'], 999);
         }
         public function whp_wallet_thanhyou_page($template)
         {
@@ -66,10 +68,11 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
                 exit();
             }
 
-            $to = sanitize_text_field($_POST['email']);
-            $message = sanitize_text_field($_POST['content']);
+            $to      = sanitize_email($_POST['email']);
+            $message = wp_kses_post($_POST['content']);
             $subject = 'WP Helper - Cấu hình SMTP thành công';
-            $mail = wp_mail($to, $subject, $message);
+            $headers = ['Content-Type: text/html; charset=UTF-8'];
+            $mail    = wp_mail($to, $subject, $message, $headers);
 
             if ($mail) {
                 echo json_encode(['status' => 200, 'message' => 'Email sent successfully']);
@@ -80,24 +83,62 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
         }
         public function include_style()
         {
-            wp_enqueue_style('app', $this->pathAsset . 'css/app.css', array(), time(), 'all');
-            wp_enqueue_style('app', $this->pathAsset . 'css/popup.css', array(), time(), 'all');
+            wp_enqueue_style('whp-frontend-app', $this->pathAsset . 'css/app.css', array(), time(), 'all');
+            wp_enqueue_style('whp-popup', $this->pathAsset . 'css/popup.css', array(), time(), 'all');
             $whp_contact_design_position_y = whp_get_setting('whp_contact_design_position_y');
-            $whp_contact_design_color = whp_get_setting('whp_contact_design_color');
-            $custom_css = "
-                    #mb-whp-contact{
-                            bottom: {$whp_contact_design_position_y}px;
-                    }
-                    .whp-contact-icon, .whp-contact-icon:before, .whp-contact-icon:after, .whp-contact-icon:before, .whp-contact-icon:before, .whp-contact-content-head {
-                        background: {$whp_contact_design_color}
-                    }
-                    ";
-            wp_add_inline_style('app', $custom_css);
+            // Giá trị lưu là % (0-100). Nếu chưa set dùng mặc định 5% (≈ cạnh dưới)
+            $pos_y = (is_numeric($whp_contact_design_position_y) && $whp_contact_design_position_y !== '')
+                ? intval($whp_contact_design_position_y)
+                : 5;
+            $whp_contact_design_color      = whp_get_setting('whp_contact_design_color') ?: '#00c217';
+            $whp_contact_design_position_x = whp_get_setting('whp_contact_design_position_x') ?: 'left';
+            $is_right = in_array($whp_contact_design_position_x, ['right', 'mbwp-ct-right']);
+            $pos_css  = $is_right
+                ? 'right:20px;left:auto;'
+                : 'left:20px;right:auto;';
+            
+            $bottom_dist = whp_get_setting('whp_contact_bottom_distance');
+            $bottom_css  = ($bottom_dist !== '' && is_numeric($bottom_dist)) ? intval($bottom_dist) . 'px' : $pos_y . '%';
+            
+            $custom_css = '#mb-whp-contact{bottom:' . $bottom_css . ';' . $pos_css . '}'
+                        . '.whp-contact-icon,.whp-contact-icon:before,.whp-contact-icon:after,.whp-contact-content-head,.whp-v2-header,.whp-v2-call-btn{background:' . esc_attr($whp_contact_design_color) . '}'
+                        . '.whp-v2-header-icon,.whp-v2-call-icon{color:' . esc_attr($whp_contact_design_color) . '}'
+                        . '.whp-v2-call-btn{padding:15px 14px !important; margin-top: 15px !important; margin-bottom: 15px !important;}';
+            
+            $display_desktop = whp_get_setting('whp_contact_display_desktop');
+            if ($display_desktop === '0') {
+                $custom_css .= '@media (min-width: 768px) { #mb-whp-contact { display: none !important; } }';
+            }
+            $display_mobile = whp_get_setting('whp_contact_display_mobile');
+            if ($display_mobile === '0') {
+                $custom_css .= '@media (max-width: 767px) { #mb-whp-contact { display: none !important; } }';
+            }
+            
+            $popup_effect = whp_get_setting('whp_contact_popup_effect') ?: 'zoom-in';
+            if ($popup_effect === 'fade-in') {
+                $custom_css .= '#mb-whp-contact .whp-contact-content { transform: none !important; }';
+            } elseif ($popup_effect === 'slide-up') {
+                $custom_css .= '#mb-whp-contact .whp-contact-content { transform: translateY(30px) !important; }'
+                            . '#mb-whp-contact .whp-contact-content.active { transform: translateY(0) !important; }';
+            }
+            
+            wp_add_inline_style('whp-frontend-app', $custom_css);
+
+            // Nút Mua ngay cùng hàng với Thêm vào giỏ hàng
+            if (whp_get_setting('whp_woocommerce_cta_show_buynow_button')) {
+                wp_add_inline_style('whp-frontend-app',
+                    '.woocommerce div.product form.cart{display:flex;flex-wrap:nowrap;align-items:stretch;gap:8px;}'
+                    . '.woocommerce div.product form.cart .quantity{float:none;margin:0;flex-shrink:0;}'
+                    . '.woocommerce div.product form.cart .single_add_to_cart_button{flex:1;width:auto!important;min-width:0;}'
+                    . '.woocommerce div.product form.cart a.buy-now{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex:1;min-width:0;}'
+                );
+            }
         }
 
         public function include_script()
         {
-            wp_enqueue_script('app', $this->pathAsset . 'js/app.js', array('jquery'), time(), true);
+            wp_enqueue_script('whp-cookie', $this->pathAsset . 'js/cookie.js', array('jquery'), time(), true);
+            wp_enqueue_script('whp-frontend-js', $this->pathAsset . 'js/app.js', array('jquery', 'whp-cookie'), time(), true);
         }
         public function include_header()
         {
@@ -114,18 +155,18 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
         }
         public function whp_header_code()
         {
-            $code = whp_get_setting('whp_code_header');
-            echo stripslashes($code);
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- intentional raw output for admin-configured header scripts
+            echo wp_unslash( whp_get_setting( 'whp_code_header' ) );
         }
         public function whp_body_code()
         {
-            $code = whp_get_setting('whp_code_body');
-            echo stripslashes($code);
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- intentional raw output for admin-configured body scripts
+            echo wp_unslash( whp_get_setting( 'whp_code_body' ) );
         }
         public function whp_footer_code()
         {
-            $code = whp_get_setting('whp_code_footer');
-            echo stripslashes($code);
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- intentional raw output for admin-configured footer scripts
+            echo wp_unslash( whp_get_setting( 'whp_code_footer' ) );
         }
         // start contact
         public function whp_contact()
@@ -154,6 +195,27 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
         {
             add_action('phpmailer_init', [$this, 'whp_smtp_send_mail']);
             add_filter('wp_mail_content_type', [$this, 'whp_mail_content_type']);
+            // Log SMTP state và lỗi — CHỈ khi WP_DEBUG bật
+            if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+                add_action('phpmailer_init', function($pm) {
+                    $log = WP_CONTENT_DIR . '/smtp-debug.log';
+                    $line = '[' . date('Y-m-d H:i:s') . '] PHPMAILER_INIT'
+                        . ' Host=' . $pm->Host
+                        . ' Port=' . $pm->Port
+                        . ' Secure=' . $pm->SMTPSecure
+                        . ' Auth=' . ($pm->SMTPAuth ? 'yes' : 'no')
+                        . ' From=' . $pm->From
+                        . ' To=' . implode(',', array_column($pm->getToAddresses(), 0))
+                        . "\n";
+                    file_put_contents($log, $line, FILE_APPEND | LOCK_EX);
+                }, 9999);
+                add_action('wp_mail_failed', function($error) {
+                    $log = WP_CONTENT_DIR . '/smtp-debug.log';
+                    $msg = $error instanceof WP_Error ? $error->get_error_message() : wp_json_encode( $error );
+                    $line = '[' . date('Y-m-d H:i:s') . '] WP_MAIL_FAILED: ' . $msg . "\n";
+                    file_put_contents($log, $line, FILE_APPEND | LOCK_EX);
+                }, 1);
+            }
         }
         public function whp_smtp_send_mail($phpmailer)
         {
@@ -163,15 +225,21 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
             }
             if ($whp_smtp_active) {
                 $phpmailer->isSMTP();
-                $phpmailer->FromName = $whp_smtp_from_name ?? "";
-                $phpmailer->Host = $whp_smtp_host ?? "";
-                $phpmailer->Port = $whp_smtp_port ?? "";
+                $phpmailer->Host     = $whp_smtp_host ?? "";
+                $phpmailer->Port     = $whp_smtp_port ?? "";
                 $phpmailer->SMTPSecure = $whp_smtp_security ?? "";
-                $phpmailer->From = $whp_smtp_email ?? "";
-                $phpmailer->SMTPAuth = true;
+                $phpmailer->SMTPAuth = ($whp_smtp_auth !== '0');
                 $phpmailer->Username = $whp_smtp_user ?? "";
                 $phpmailer->Password = $whp_smtp_password ?? "";
-                $phpmailer->AddReplyTo($phpmailer->From, $phpmailer->FromName);
+
+                $smtp_email = trim($whp_smtp_email ?? "");
+                $smtp_name  = trim($whp_smtp_from_name ?? "");
+                if ($smtp_email) {
+                    $phpmailer->setFrom($smtp_email, $smtp_name, false);
+                    $phpmailer->Sender = $smtp_email;
+                }
+                $phpmailer->clearReplyTos();
+                $phpmailer->addReplyTo($phpmailer->From, $phpmailer->FromName);
             }
         }
         public function whp_mail_content_type()
@@ -203,37 +271,63 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
                 $this->whp_security_hide_theme_plugin();
             }
 
-            if ($whp_new_login_url) {
+            if ($whp_security_change_login_url && $whp_new_login_url) {
+                $login_slug = trim($whp_new_login_url, '/');
 
-                $site_url = site_url();
+                // Hook login_init: fire trong wp-login.php TRƯỚC khi render bất kỳ output
+                // Dùng login_init thay vì init để đảm bảo intercept đúng context
+                add_action('login_init', function () use ($login_slug) {
+                    $action       = sanitize_key( $_GET['action'] ?? '' );
+                    $skip_actions = [ 'logout', 'lostpassword', 'retrievepassword', 'resetpass', 'rp', 'postpass', 'register', 'confirm_admin_email' ];
+                    if ( in_array( $action, $skip_actions, true ) ) return;
 
-                define('site_url', $site_url);
+                    if ( is_user_logged_in() ) {
+                        // Đã đăng nhập → về admin
+                        wp_safe_redirect( admin_url() );
+                        exit;
+                    }
 
-                add_action('init', function () use ($whp_new_login_url) {
+                    if ( empty( $_COOKIE['_wph_ok'] ) ) {
+                        // Không có cookie gate (không đến từ custom URL) → về trang chủ
+                        wp_safe_redirect( home_url( '/' ) );
+                        exit;
+                    }
+                    // Có cookie → cho qua, xóa cookie sau khi load xong
+                });
 
-                    $current_url   = str_replace('/', '', $_SERVER['REQUEST_URI']);
+                // Hook init: xử lý custom login URL + chặn wp-admin
+                add_action('init', function () use ($login_slug) {
+                    $uri          = $_SERVER['REQUEST_URI'] ?? '/';
+                    $path         = trim( parse_url( $uri, PHP_URL_PATH ) ?? '/', '/' );
+                    $action       = sanitize_key( $_GET['action'] ?? '' );
+                    $skip_actions = [ 'logout', 'lostpassword', 'retrievepassword', 'resetpass', 'rp', 'postpass', 'register', 'confirm_admin_email' ];
+                    $is_wp_admin  = ( $path === 'wp-admin' || strpos( $path, 'wp-admin/' ) === 0 );
 
-                    $url_new = $whp_new_login_url;
+                    if ( ! is_user_logged_in() ) {
 
-                    $redirectNaTo  = site_url . '/wp-admin/';
-                    $adminToCheck = [
-                        'wp-admin',
-                        'login',
-                        'wp-admin.php',
-                        'wp-login.php'
-                    ];
-                    if (!is_user_logged_in()) {
-                        if ($current_url == $url_new) {
-                            wp_redirect('/wp-login.php?redirect_to=' . $redirectNaTo);
+                        // 1. Custom URL → set cookie gate + chuyển sang wp-login.php thực
+                        if ( $path === $login_slug ) {
+                            if ( ! isset( $_COOKIE['_wph_ok'] ) ) {
+                                setcookie( '_wph_ok', '1', 0, COOKIEPATH, COOKIE_DOMAIN, is_ssl(), true );
+                                $_COOKIE['_wph_ok'] = '1';
+                            }
+                            $redirect_to = isset( $_GET['redirect_to'] ) ? $_GET['redirect_to'] : admin_url();
+                            $login_url   = site_url( 'wp-login.php' ) . '?redirect_to=' . rawurlencode( $redirect_to );
+                            if ( ! empty( $_GET['reauth'] ) ) $login_url .= '&reauth=1';
+                            wp_safe_redirect( $login_url );
                             exit;
                         }
-                        if (in_array($current_url, $adminToCheck) && $current_url  !== 'wp-login.php') {
-                            wp_redirect(site_url);
+
+                        // 2. /wp-admin và mọi sub-path → chuyển về custom login URL
+                        if ( $is_wp_admin ) {
+                            wp_safe_redirect( home_url( '/' . $login_slug . '/' ) );
                             exit;
                         }
+
                     } else {
-                        if ($current_url == $url_new || $current_url == 'wp-login.php') {
-                            wp_redirect($redirectNaTo);
+                        // Đã đăng nhập: vào custom URL → về admin
+                        if ( $path === $login_slug && ! in_array( $action, $skip_actions, true ) ) {
+                            wp_safe_redirect( admin_url() );
                             exit;
                         }
                     }
@@ -306,7 +400,9 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
             foreach ($fields as $field) {
                 $$field = whp_get_setting($field);
             }
-            if ($whp_woocommerce_cta_text) {
+            if ($whp_woocommerce_cta_text && !$whp_woocommerce_cta_show_buynow_button) {
+                // Chỉ đổi text nút gốc khi KHÔNG có nút Buy-Now riêng
+                // (tránh 2 nút cùng label "Mua ngay")
                 add_filter(
                     'woocommerce_product_single_add_to_cart_text',
                     function () use ($whp_woocommerce_cta_text) {
@@ -320,37 +416,61 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
                 }, 10, 2);
             }
             if ($whp_woocommerce_cta_convert_zero_to_contact) {
-
                 add_filter('woocommerce_get_price_html', [$this, 'whp_woo_cta_convert_zero_to_contact'], 99, 2);
             }
             if ($whp_woocommerce_cta_show_buynow_button) {
-
                 add_action('woocommerce_after_add_to_cart_button', [$this, 'whp_woo_cta_show_buynow_button']);
+                add_action('wp', [$this, 'whp_handle_buy_now']);
             }
         }
-        public  function whp_woo_cta_show_buynow_button()
+
+        public function whp_handle_buy_now()
         {
+            if (empty($_GET['whp_buy_now'])) return;
 
+            $product_id = absint($_GET['whp_buy_now']);
+            if (!$product_id || !function_exists('WC')) return;
+
+            $quantity = isset($_GET['quantity']) ? max(1, absint($_GET['quantity'])) : 1;
+
+            WC()->cart->add_to_cart($product_id, $quantity);
+
+            wp_safe_redirect(wc_get_checkout_url());
+            exit;
+        }
+
+        public function whp_woo_cta_show_buynow_button()
+        {
             $current_product_id = get_the_ID();
-
             $product = wc_get_product($current_product_id);
 
-            $checkout_url = WC()->cart->get_checkout_url();
+            if (!$product || !$product->is_type('simple')) return;
 
-            if ($product->is_type('simple')) {
-                $url =   esc_url($checkout_url . '?add-to-cart=' . $current_product_id);
-                $title = esc_html('Mua ngay');
-                $class = esc_html('buy-now button');
-                $xhtml = sprintf('<a href="%s" class="%s">%s</a>', $url, $class, $title);
-                $allowed_html = [
-                    'a' => [
-                        'href' => [],
-                        'class' => []
-                    ]
-                ];
+            // Dùng text từ settings, fallback về "Mua ngay"
+            $btn_label = whp_get_setting('whp_woocommerce_cta_text') ?: 'Mua ngay';
 
-                echo wp_kses($xhtml, $allowed_html);
-            }
+            $base_url = esc_url(add_query_arg('whp_buy_now', $current_product_id, get_permalink($current_product_id)));
+            printf(
+                '<a href="%s" class="buy-now button alt" data-buynow="%d">%s</a>',
+                $base_url,
+                $current_product_id,
+                esc_html($btn_label)
+            );
+            ?>
+            <script>
+            (function(){
+                var btn = document.querySelector('a.buy-now[data-buynow="<?php echo (int)$current_product_id; ?>"]');
+                if (!btn) return;
+                var base = btn.href;
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var qtyInput = document.querySelector('form.cart input.qty');
+                    var qty = qtyInput ? Math.max(1, parseInt(qtyInput.value, 10) || 1) : 1;
+                    window.location.href = base + '&quantity=' + qty;
+                });
+            })();
+            </script>
+            <?php
         }
         public function whp_woo_cta_convert_zero_to_contact($price, $product)
         {
@@ -418,23 +538,56 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
                 });
             }
 
+            // Heartbeat: tắt hoàn toàn trên frontend (không ảnh hưởng admin)
+            if ( ! empty( $whp_extention_disable_heartbeat_frontend ) ) {
+                add_action( 'init', function () {
+                    if ( ! is_admin() ) {
+                        wp_deregister_script( 'heartbeat' );
+                    }
+                }, 1 );
+            }
+
+            // Heartbeat: giảm tần suất admin 15s → 60s
+            if ( ! empty( $whp_extention_heartbeat_limit_admin ) ) {
+                add_filter( 'heartbeat_settings', function ( $settings ) {
+                    $settings['interval'] = 60;
+                    return $settings;
+                } );
+            }
+
             if ($whp_extention_custom_login_theme) {
 
                 if ($whp_extention_custom_login_logo) {
 
                     add_action('login_head', function () use ($whp_extention_custom_login_logo) {
                         $url = esc_url($whp_extention_custom_login_logo);
-                        $custom_css = "#login h1 a {
-
-                            background: url('" . $url . "') ;
-                            }";
-
-                        echo '<style type="text/css"> ' . $custom_css . ' </style>';
+                        echo '<style type="text/css">
+#login h1 a, .login h1 a {
+    background-image: url(\'' . $url . '\') !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    background-position: center bottom !important;
+    width: 320px !important;
+    height: 80px !important;
+    display: block !important;
+}
+body.login { background-color: #f0f0f1; }
+</style>';
                     });
                 }
                 if ($whp_extention_custom_link) {
                     add_filter('login_headerurl', function () use ($whp_extention_custom_link) {
-                        //  echo esc_url($whp_extention_custom_link);
+                        return esc_url($whp_extention_custom_link);
+                    });
+                }
+                $new_tab = whp_get_option('whp_extention_custom_link_new_tab');
+                if ($new_tab === '1') {
+                    add_filter('login_headertext', function ($text) {
+                        return $text;
+                    });
+                    add_action('login_head', function () {
+                        echo '<style>.login h1 a { target-new: tab; }</style>
+<script>document.addEventListener("DOMContentLoaded",function(){var a=document.querySelector(".login h1 a");if(a)a.setAttribute("target","_blank");});</script>';
                     });
                 }
             }
@@ -452,16 +605,16 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
                 add_action('admin_init', [$this, 'whp_disable_notification']);
             }
 
-            if ($whp_extention_filter_order_by_phone) {
-                add_filter('manage_edit-shop_order_columns', [$this, 'whp_extention_field_filter_order'], 10, 1);
-                add_action('pre_get_posts', [$this, 'whp_extention_filter_order_in_table'], 99, 1);
-                add_action('manage_shop_order_posts_custom_column', [$this, 'whp_extention_display_order'], 10, 1);
-                add_action('restrict_manage_posts', [$this, 'whp_extention_show_field_order']);
-            }
+            // Phone filter hooks moved to whp_advance() — key lives in whp_get_woo_advance_fields()
 
             if ($whp_extention_svg) {
 
                 add_filter('upload_mimes', [$this, 'whp_extention_allow_svg_upload']);
+
+                // WordPress 5.1+ uses finfo/mime_content_type to verify actual file type,
+                // which returns 'image/svg+xml' but WP's internal allowlist rejects it.
+                // This filter bypasses that check for SVG files specifically.
+                add_filter('wp_check_filetype_and_ext', [$this, 'whp_fix_svg_filetype_check'], 10, 4);
 
                 add_filter('wp_handle_upload_prefilter', [$this, 'whp_validate_uploaded_svg']);
 
@@ -476,22 +629,38 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
         }
         function whp_validate_uploaded_svg($file)
         {
+            // Only validate if it is an SVG file
+            $file_type = isset($file['type']) ? $file['type'] : '';
+            $file_name = isset($file['name']) ? $file['name'] : '';
+            $is_svg = (strpos($file_type, 'image/svg') !== false || strtolower(pathinfo($file_name, PATHINFO_EXTENSION)) === 'svg');
+
+            if (!$is_svg) {
+                return $file;
+            }
+
+            if (!isset($file['tmp_name']) || !file_exists($file['tmp_name']) || !is_readable($file['tmp_name'])) {
+                return $file;
+            }
 
             $file_content = file_get_contents($file['tmp_name']);
 
             if (empty($file_content)) {
-                return false;
-            }
-            if (strpos($file_content, '<?xml') !== 0) {
-                return false;
-            }
-            if (strpos($file_content, '<script') !== false) {
-                return false;
+                $file['error'] = __('Tập tin SVG không có nội dung.', 'wp-helper-lite');
+                return $file;
             }
 
-            if (strpos($file_content, '</svg>') !== (strlen($file_content) - strlen('</svg>'))) {
-                return false;
+            $trimmed_content = trim($file_content);
+
+            if (stripos($trimmed_content, '<svg') === false) {
+                $file['error'] = __('Tập tin không phải là định dạng SVG hợp lệ.', 'wp-helper-lite');
+                return $file;
             }
+
+            if (strpos($file_content, '<script') !== false) {
+                $file['error'] = __('Tập tin SVG chứa mã script không hợp lệ.', 'wp-helper-lite');
+                return $file;
+            }
+
             return $file;
         }
         public function whp_extention_allow_svg_upload($mimes)
@@ -500,10 +669,18 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
             return $mimes;
         }
 
+        public function whp_fix_svg_filetype_check($data, $file, $filename, $mimes)
+        {
+            if (strtolower(pathinfo($filename, PATHINFO_EXTENSION)) === 'svg') {
+                $data['ext']  = 'svg';
+                $data['type'] = 'image/svg+xml';
+            }
+            return $data;
+        }
+
         public function whp_extention_field_filter_order($field)
         {
-            // Đổi "Số điện thoại" thành "Phone Number" để hiển thị trên trang quản lý đơn hàng
-            $field['phone'] = __('Phone Number', 'text-domain');
+            $field['phone'] = __('Số điện thoại', 'whp');
             return $field;
         }
 
@@ -544,19 +721,55 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
             if (!isset($_GET['post_type']) || $_GET['post_type'] !== 'shop_order') {
                 return;
             }
-
-            $phone = '';
-
-            if (isset($_GET['phone']) && $_GET['phone'] !== '') {
-                // Làm sạch giá trị số điện thoại trước khi hiển thị trong trường nhập
-                $phone = sanitize_text_field($_GET['phone']);
-            }
-
-?>
-            <input type="text" name="phone" value="<?php echo esc_attr($phone); ?>" placeholder="<?php esc_attr_e('Tìm kiếm bằng số điện thoại', 'text-domain'); ?>">
+            $phone = isset($_GET['phone']) ? sanitize_text_field($_GET['phone']) : '';
+            ?>
+            <input type="text" name="phone" value="<?php echo esc_attr($phone); ?>"
+                   placeholder="<?php esc_attr_e('Lọc theo số điện thoại', 'whp'); ?>"
+                   style="min-width:160px;">
             <?php
         }
 
+        // ── HPOS-compatible methods ─────────────────────────────────────────────
+
+        public function whp_extention_display_order_hpos($column_name, $order)
+        {
+            if ('phone' !== $column_name) {
+                return;
+            }
+            echo esc_html($order->get_billing_phone());
+        }
+
+        public function whp_extention_show_field_order_hpos()
+        {
+            $phone = isset($_GET['phone']) ? sanitize_text_field($_GET['phone']) : '';
+            ?>
+            <input type="text" id="whp-order-phone-filter" name="phone"
+                   value="<?php echo esc_attr($phone); ?>"
+                   placeholder="<?php esc_attr_e('Lọc theo số điện thoại', 'whp'); ?>"
+                   style="min-width:160px;">
+            <?php
+        }
+
+        public function whp_extention_filter_order_hpos_clauses($clauses, $query, $query_args)
+        {
+            if (!is_admin() || empty($_GET['phone'])) {
+                return $clauses;
+            }
+            // Only apply on the HPOS orders list page
+            if (!isset($_GET['page']) || $_GET['page'] !== 'wc-orders') {
+                return $clauses;
+            }
+            global $wpdb;
+            $phone = sanitize_text_field($_GET['phone']);
+            $like  = '%' . $wpdb->esc_like($phone) . '%';
+            $clauses['where'] .= $wpdb->prepare(
+                " AND {$wpdb->prefix}wc_orders.billing_phone LIKE %s",
+                $like
+            );
+            return $clauses;
+        }
+
+        // ── end phone filter ────────────────────────────────────────────────────
 
         // start extention duplicate menu
         public function whp_extention_duplicate_menu_add_menu()
@@ -891,11 +1104,22 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
         // start ecommerce
         function whp_ecommerce()
         {
+            // Hook chính: cuối meta section (theme chuẩn)
             add_action('woocommerce_product_meta_end', [$this, 'whp_ecommerce_show']);
+            // Fallback: Elementor / Astra đôi khi không gọi meta.php → dùng summary hook (sau add-to-cart priority 30)
+            add_action('woocommerce_single_product_summary', [$this, 'whp_ecommerce_show'], 35);
         }
         public function whp_ecommerce_show()
         {
+            static $already_shown = false;
+            if ($already_shown) return;
+            $already_shown = true;
+
             global $product;
+            if (!$product || !is_a($product, 'WC_Product')) {
+                $product = wc_get_product(get_the_ID());
+            }
+            if (!$product) return;
             $product_id = $product->get_id();
             $fields = whp_get_woo_ecommerce_fields();
             $arr = [];
@@ -905,40 +1129,62 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
                     array_push($arr, $field);
                 }
             }
-            $xhtml = "<span class='tagged_as'><span class='sub_title'>Xem trên: </span>";
-            $xhtml .= "<ul class = 'mb-ecommerce-buttons lst-n'>";
 
+            $brand_colors = [
+                'Tiki'   => '#189eff',
+                'Shopee' => '#ee4d2d',
+                'Lazada' => '#f57224',
+                'Sendo'  => '#d0021b',
+            ];
+
+            $items_html = '';
             foreach ($arr as $key => $item) {
                 $brand = explode('_', $item);
                 $brand_uc = ucfirst($brand[3]);
-                $icon = whp_get_image_url($brand_uc) . '.svg';
-                $icon = esc_url($icon);
+                $icon = esc_url(whp_get_image_url($brand_uc) . '.svg');
                 if (!empty($product_meta = get_post_meta($product_id, 'product-ecommerce-' . $item, true))) {
-                    $link = esc_url($product_meta);
-                    $name = esc_html($brand_uc);
-                    $xhtml .= sprintf('<li><a href = "%s" target = "_blank"><img src="%s" alt="%s"></a></li>', $link, $icon, $name,  $name,);
+                    $link  = esc_url($product_meta);
+                    $name  = esc_html($brand_uc);
+                    $color = isset($brand_colors[$brand_uc]) ? $brand_colors[$brand_uc] : '#555';
+                    $items_html .= sprintf(
+                        '<li><a href="%s" target="_blank" class="whp-eco-btn" style="background:%s;" title="%s">
+                            <img src="%s" alt="%s">
+                        </a></li>',
+                        $link, $color, $name, $icon, $name
+                    );
                 }
             }
-            $xhtml .= ' </ul></span>';
-            $allowed_html = array(
-                'span' => array(
-                    'class' => 'tagged_as'
-                ),
-                'ul' => array(
-                    'class' => 'mb-ecommerce-buttons lst-n',
-                    'style' => 'list-style: none !important'
-                ),
-                'li' => array(),
-                'a' => array(
-                    'href' => array(),
-                    'target' => array()
-                ),
-                'img' => array(
-                    'src' => array(),
-                    'alt' => array()
-                )
 
-            );
+            if (!$items_html) return;
+
+            static $css_printed = false;
+            if (!$css_printed) {
+                $css_printed = true;
+                echo '<style>
+.whp-eco-wrap{display:flex;align-items:center;gap:10px;padding:10px 0;flex-wrap:wrap;}
+.whp-eco-label{font-size:13px;color:#64748b;font-weight:500;white-space:nowrap;}
+.whp-eco-wrap ul{display:flex!important;flex-wrap:wrap;gap:8px;margin:0!important;padding:0!important;list-style:none!important;}
+.whp-eco-wrap li{margin:0!important;padding:0!important;}
+.whp-eco-btn{display:inline-flex!important;align-items:center;justify-content:center;padding:5px;border-radius:10px;text-decoration:none!important;transition:transform .15s,opacity .15s;box-shadow:0 2px 8px rgba(0,0,0,.18);}
+.whp-eco-btn:hover{transform:translateY(-2px);opacity:.88;}
+.whp-eco-btn img{width:36px;height:36px;object-fit:contain;border:none!important;border-radius:8px!important;box-shadow:none!important;flex-shrink:0;}
+</style>';
+            }
+
+            $xhtml  = '<div class="whp-eco-wrap">';
+            $xhtml .= '<span class="whp-eco-label">Có bán trên:</span>';
+            $xhtml .= '<ul class="mb-ecommerce-buttons whp-lst-n">' . $items_html . '</ul>';
+            $xhtml .= '</div>';
+
+            $allowed_html = [
+                'style' => [],
+                'div'   => ['class' => true],
+                'span'  => ['class' => true],
+                'ul'    => ['class' => true],
+                'li'    => [],
+                'a'     => ['href' => true, 'target' => true, 'class' => true, 'style' => true],
+                'img'   => ['src' => true, 'alt' => true],
+            ];
             echo wp_kses($xhtml, $allowed_html);
         }
         // set up in admim
@@ -980,10 +1226,12 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
             $postID = $post->ID;
             $fields  = whp_get_woo_ecommerce_fields();
             foreach ($fields as $key) {
-                $name = "product-ecommerce-{$key}";
-                $value = sanitize_text_field($_POST[$name]);
+                $name  = "product-ecommerce-{$key}";
+                $value = isset($_POST[$name]) ? sanitize_url($_POST[$name]) : '';
                 if ($value) {
-                    update_post_meta($postID, $name, esc_attr($value));
+                    update_post_meta($postID, $name, esc_url_raw($value));
+                } else {
+                    delete_post_meta($postID, $name);
                 }
             }
         }
@@ -1021,6 +1269,11 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
             }
             if ($whp_woocommerce_payment_address) {
                 array_push($removeFields, 'address_2');
+                // Force address_1 full-width when address_2 is hidden
+                if (isset($fields['billing']['billing_address_1'])) {
+                    $fields['billing']['billing_address_1']['class'] = ['form-row-wide'];
+                    $fields['billing']['billing_address_1']['clear'] = true;
+                }
             }
             if ($whp_woocommerce_payment_country) {
                 array_push($removeFields, 'country');
@@ -1069,51 +1322,28 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
                 add_action('woocommerce_after_checkout_billing_form', [$this, 'whp_create_vat']);
                 add_action('woocommerce_checkout_process', [$this, 'whp_validate_vat']);
                 add_action('woocommerce_checkout_update_order_meta', [$this, 'whp_update_vat']);
+                add_action('woocommerce_admin_order_data_after_billing_address', [$this, 'whp_admin_order_vat_display'], 10, 1);
+                add_action('woocommerce_email_order_meta', [$this, 'whp_email_order_vat_display'], 10, 4);
             }
             if ($whp_woocommerce_advance_enable_compact_desc) {
                 add_action('wp_footer', [$this, 'whp_compact_desc'], 0);
                 add_filter('the_content', [$this, 'the_content_product'], 100);
             }
-            if ($whp_woocommerce_advance_enable_notify_telegram) {
+            if ($whp_extention_filter_order_by_phone) {
+                // ── Legacy CPT mode (WooCommerce < 7.1) ─────────────────────────
+                add_filter('manage_edit-shop_order_columns', [$this, 'whp_extention_field_filter_order'], 10, 1);
+                add_action('manage_shop_order_posts_custom_column', [$this, 'whp_extention_display_order'], 10, 1);
+                add_action('restrict_manage_posts', [$this, 'whp_extention_show_field_order']);
+                add_action('pre_get_posts', [$this, 'whp_extention_filter_order_in_table'], 99, 1);
 
-                add_action('woocommerce_checkout_order_processed', [$this, 'whp_send_message_telegram']);
+                // ── HPOS mode (WooCommerce 7.1+ High-Performance Order Storage) ─
+                add_filter('manage_woocommerce_page_wc-orders_columns', [$this, 'whp_extention_field_filter_order'], 10, 1);
+                add_action('manage_woocommerce_page_wc-orders_custom_column', [$this, 'whp_extention_display_order_hpos'], 10, 2);
+                add_action('woocommerce_order_list_table_restrict_manage_orders', [$this, 'whp_extention_show_field_order_hpos']);
+                add_filter('woocommerce_orders_table_query_clauses', [$this, 'whp_extention_filter_order_hpos_clauses'], 10, 3);
             }
         }
 
-
-        public function whp_send_message_telegram($order_id)
-        {
-
-            if (!$order_id) return;
-            $order = wc_get_order($order_id);
-            $order_data = $order->get_data();
-            $last_name = $order_data['billing']['last_name'];
-            $phone = (isset($order_data['billing']['phone'])) ? $order_data['billing']['phone'] : "Chưa nhập số điện thoại";
-            $paymentMethod = $order->get_payment_method_title();
-            $msg = "<strong>Thông báo đơn hàng mới : #{$order_id} </strong> " . "\n";
-            $msg .= "Họ tên: {$last_name}" . "\n";
-            $msg .= "Số điện thoại: {$phone}" . "\n";
-            $msg .= "Phương thức thanh toán: {$paymentMethod}" . "\n";
-            $msg .= "<strong>Thông tin đơn hàng</strong>" . "\n";
-            foreach ($order->get_items() as $item_id => $item) {
-                $product_name = $item->get_name();
-                $quantity = $item->get_quantity();
-                $subtotal = $item->get_subtotal();
-                $total =    $item->get_total();
-                $subtotal = whp_format_currency_vnd($subtotal);
-                $msg .= " - {$product_name} ({$quantity}) x {$subtotal}"  . "\n";
-            }
-            $total = $order->get_total();
-            $total = number_format($total) . "đ";
-            $msg .= "——————————————————————————" . "\n";
-            $msg .= "Tổng đơn hàng: {$total}";
-            $chatID = whp_get_setting('whp_woocommerce_advance_telegram_chatid'); // ID của Group trong Telegram
-            $token = whp_get_setting('whp_woocommerce_advance_telegram_token'); // Token của con Bot gửi thông báo
-            $url = "https://api.telegram.org/bot" . $token . "/sendMessage?parse_mode=html&chat_id=" . $chatID;
-            $url = $url . "&text=" . urlencode($msg);
-            wp_remote_get($url);
-            $whp_woocommerce_advance_enable_notify_telegram = false;
-        }
 
         public function whp_notice()
         {
@@ -1195,11 +1425,56 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
             }
         }
 
+        public function whp_admin_order_vat_display( $order ) {
+            $vat_requested = get_post_meta( $order->get_id(), 'mb_hpwc_invoice_vat_input', true );
+            if ( ! $vat_requested ) return;
+            $company = get_post_meta( $order->get_id(), 'billing_vat_company', true );
+            $tax     = get_post_meta( $order->get_id(), 'billing_vat_tax_code', true );
+            $address = get_post_meta( $order->get_id(), 'billing_vat_company_address', true );
+            echo '<div style="margin-top:12px;padding:10px 12px;background:#fefce8;border:1px solid #fde68a;border-radius:6px;font-size:13px">';
+            echo '<strong style="color:#92400e;display:block;margin-bottom:6px">&#128196; Yêu cầu xuất hóa đơn VAT</strong>';
+            if ( $company ) echo '<div><span style="color:#78716c">Tên công ty:</span> <strong>' . esc_html( $company ) . '</strong></div>';
+            if ( $tax )     echo '<div><span style="color:#78716c">Mã số thuế:</span> <strong>' . esc_html( $tax ) . '</strong></div>';
+            if ( $address ) echo '<div><span style="color:#78716c">Địa chỉ:</span> <strong>' . esc_html( $address ) . '</strong></div>';
+            echo '</div>';
+        }
+
+        public function whp_email_order_vat_display( $order, $sent_to_admin, $plain_text, $email ) {
+            $vat_requested = get_post_meta( $order->get_id(), 'mb_hpwc_invoice_vat_input', true );
+            if ( ! $vat_requested ) return;
+            $company = get_post_meta( $order->get_id(), 'billing_vat_company', true );
+            $tax     = get_post_meta( $order->get_id(), 'billing_vat_tax_code', true );
+            $address = get_post_meta( $order->get_id(), 'billing_vat_company_address', true );
+            if ( $plain_text ) {
+                echo "\n--- Yêu cầu xuất hóa đơn VAT ---\n";
+                if ( $company ) echo 'Tên công ty: ' . $company . "\n";
+                if ( $tax )     echo 'Mã số thuế: ' . $tax . "\n";
+                if ( $address ) echo 'Địa chỉ: ' . $address . "\n";
+                return;
+            }
+            echo '<table cellpadding="0" cellspacing="0" style="width:100%;margin-top:20px;margin-bottom:20px;border-collapse:collapse">';
+            echo '<tr><td colspan="2" style="background:#fefce8;border:1px solid #fde68a;padding:10px 14px;border-radius:6px 6px 0 0">';
+            echo '<strong style="color:#92400e;font-size:14px">&#128196; Yêu cầu xuất hóa đơn VAT</strong></td></tr>';
+            if ( $company ) {
+                echo '<tr><td style="padding:8px 14px;border:1px solid #fde68a;border-top:none;color:#78716c;width:40%">Tên công ty</td>';
+                echo '<td style="padding:8px 14px;border:1px solid #fde68a;border-top:none;border-left:none;font-weight:bold">' . esc_html( $company ) . '</td></tr>';
+            }
+            if ( $tax ) {
+                echo '<tr><td style="padding:8px 14px;border:1px solid #fde68a;border-top:none;color:#78716c">Mã số thuế</td>';
+                echo '<td style="padding:8px 14px;border:1px solid #fde68a;border-top:none;border-left:none;font-weight:bold">' . esc_html( $tax ) . '</td></tr>';
+            }
+            if ( $address ) {
+                echo '<tr><td style="padding:8px 14px;border:1px solid #fde68a;border-top:none;color:#78716c">Địa chỉ công ty</td>';
+                echo '<td style="padding:8px 14px;border:1px solid #fde68a;border-top:none;border-left:none;font-weight:bold">' . esc_html( $address ) . '</td></tr>';
+            }
+            echo '</table>';
+        }
+
         //wc_enqueue_js("jQuery('#tab-description').addClass('compact-active')");
         public function the_content_product($content)
         {
             if (is_product()) {
-                $content .= '<div class="whp_readmore_producu_desc"><span title="Xem thêm">Xem thêm</span></div>';
+                $content .= '<div class="whp_readmore_producu_desc"><span><svg class="whp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>Xem thêm</span></div>';
             }
             return $content;
         }
@@ -1213,9 +1488,10 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
 
                 <style>
                     #tab-description {
-                        max-height: 200px;
+                        max-height: 400px;
                         overflow: hidden;
                         position: relative;
+                        transition: max-height 0.4s ease;
                     }
 
                     .whp_readmore_producu_desc {
@@ -1225,45 +1501,81 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
                         z-index: 9999;
                         bottom: 0;
                         width: 100%;
-                        background: #fff;
+                        padding-bottom: 16px;
+                        background: transparent;
                     }
 
                     .whp_readmore_producu_desc:before {
-                        height: 55px;
-                        margin-top: -45px;
+                        height: 80px;
+                        margin-top: -80px;
                         content: "";
-                        background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
-                        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
-                        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
-                        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff00', endColorstr='#ffffff', GradientType=0);
+                        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
                         display: block;
                     }
 
                     .whp_readmore_producu_desc span {
-                        color: #6c6d70;
-                        display: block;
-                        border: 1px solid;
-                        margin-left: auto;
-                        display: flex;
-                        width: 130px;
-                        margin-right: auto;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 6px;
+                        padding: 9px 22px;
+                        background: #1a1a2e;
+                        color: #fff;
+                        font-size: 13px;
+                        font-weight: 600;
+                        letter-spacing: 0.05em;
                         text-transform: uppercase;
-                        text-align: center;
-                        justify-content: center;
+                        border-radius: 50px;
+                        border: none;
+                        box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+                        transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+                        user-select: none;
+                    }
+
+                    .whp_readmore_producu_desc:hover span {
+                        background: #16213e;
+                        transform: translateY(-1px);
+                        box-shadow: 0 6px 18px rgba(0,0,0,0.24);
+                    }
+
+                    .whp_readmore_producu_desc:active span {
+                        transform: translateY(0);
+                        box-shadow: 0 2px 8px rgba(0,0,0,0.16);
+                    }
+
+                    .whp_readmore_producu_desc .whp-icon {
+                        width: 14px;
+                        height: 14px;
+                        display: inline-block;
+                        flex-shrink: 0;
+                    }
+
+                    #tab-description.whp-expanded .whp_readmore_producu_desc {
+                        position: static;
+                        padding-top: 12px;
+                    }
+
+                    #tab-description.whp-expanded .whp_readmore_producu_desc:before {
+                        display: none;
                     }
                 </style>
 
                 <script>
-                    jQuery('.whp_readmore_producu_desc').click(function() {
-                        if (jQuery('#tab-description').css('max-height') == 'none') {
-                            jQuery('#tab-description').css('max-height', '200px')
-                            jQuery(this).html('<span title="Xem thêm">Xem thêm</span>')
-                        } else {
-                            jQuery('#tab-description').css('max-height', 'none')
-                            jQuery(this).html('<span title="Thu gọn">Thu gọn</span>')
-                        }
+                    (function() {
+                        var SVG_DOWN = '<svg class="whp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+                        var SVG_UP   = '<svg class="whp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>';
 
-                    })
+                        jQuery('.whp_readmore_producu_desc').click(function() {
+                            var $tab = jQuery('#tab-description');
+                            var isExpanded = $tab.hasClass('whp-expanded');
+                            if (isExpanded) {
+                                $tab.css('max-height', '400px').removeClass('whp-expanded');
+                                jQuery(this).html('<span>' + SVG_DOWN + 'Xem thêm</span>');
+                            } else {
+                                $tab.css('max-height', $tab[0].scrollHeight + 'px').addClass('whp-expanded');
+                                jQuery(this).html('<span>' + SVG_UP + 'Thu gọn</span>');
+                            }
+                        });
+                    }());
                 </script>
 
 
@@ -1343,24 +1655,289 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
 
         public function whp_maintenance()
         {
-
             $fields = whp_get_maintenance_fields();
             foreach ($fields as $key => $field) {
                 $$field = whp_get_setting($field);
             }
 
-            if ($whp_maintenance_active) {
+            // Đọc từ whp_setting array (format mới); chỉ fallback sang individual option nếu key chưa tồn tại
+            $_whp_setting_arr = get_option( 'whp_setting', [] );
+            $whp_maintenance_active = array_key_exists( 'whp_maintenance_active', $_whp_setting_arr )
+                ? $_whp_setting_arr['whp_maintenance_active']
+                : get_option( 'whp_maintenance_active', '' );
 
+            // Đọc nội dung từ whp_setting hoặc individual options
+            $whp_maintenance_heading     = whp_get_option('whp_maintenance_heading')     ?: get_option('whp_maintenance_heading', '');
+            $whp_maintenance_heading_sub = whp_get_option('whp_maintenance_heading_sub') ?: get_option('whp_maintenance_heading_sub', '');
+            $whp_maintenance_desc        = whp_get_option('whp_maintenance_desc')        ?: get_option('whp_maintenance_desc', '');
+            $whp_maintenance_title       = whp_get_option('whp_maintenance_title')       ?: get_option('whp_maintenance_title', '');
+            $whp_maintenance_logo        = whp_get_option('whp_maintenance_logo')        ?: '';
+            $whp_maintenance_countdown   = whp_get_option('whp_maintenance_countdown')   ?: '';
+            $whp_maintenance_phone       = whp_get_option('whp_maintenance_phone')       ?: '';
+            $whp_maintenance_email       = whp_get_option('whp_maintenance_email')       ?: '';
+            $whp_maintenance_facebook    = whp_get_option('whp_maintenance_facebook')    ?: '';
+            $whp_maintenance_youtube     = whp_get_option('whp_maintenance_youtube')     ?: '';
+            $whp_maintenance_zalo        = whp_get_option('whp_maintenance_zalo')        ?: '';
+            $whp_maintenance_tiktok      = whp_get_option('whp_maintenance_tiktok')      ?: '';
+
+            $tpl_map = [
+                'dark'         => 'maintenance_mode.php',
+                'light'        => 'maintenance_mode_light.php',
+                'gradient'     => 'maintenance_mode_gradient.php',
+                'construction' => 'maintenance_mode_construction.php',
+                'cyberpunk'    => 'maintenance_mode_cyberpunk.php',
+                'corporate'    => 'maintenance_mode_corporate.php',
+            ];
+
+            // ── PATH 1: PREVIEW MODE ──────────────────────────────────────────
+            // Tách hoàn toàn khỏi maintenance logic — chỉ cần param + quyền admin
+            if ( isset( $_GET['wpaap_maintenance_preview'] ) && '1' === $_GET['wpaap_maintenance_preview'] ) {
+                $is_valid_preview = false;
+
+                // Kiểm tra HMAC (dùng cho iframe — không cần cookie)
+                $pt_ts   = isset( $_GET['pt_ts'] ) ? intval( $_GET['pt_ts'] ) : 0;
+                $pt_h    = isset( $_GET['pt_h'] )  ? sanitize_text_field( $_GET['pt_h'] ) : '';
+                if ( $pt_ts > 0 && $pt_h ) {
+                    $expected = hash_hmac( 'sha256', 'wpaap_preview:' . $pt_ts, wp_salt( 'auth' ) );
+                    if ( ( time() - $pt_ts ) < 7200 && hash_equals( $expected, $pt_h ) ) {
+                        $is_valid_preview = true;
+                    }
+                }
+
+                // Fallback: admin đang đăng nhập (truy cập trực tiếp)
+                if ( ! $is_valid_preview && current_user_can( 'manage_options' ) ) {
+                    $is_valid_preview = true;
+                }
+
+                if ( $is_valid_preview && ! is_admin() ) {
+                    $tpl_key = isset( $_GET['wpaap_tpl_preview'] )
+                        ? sanitize_key( $_GET['wpaap_tpl_preview'] )
+                        : ( whp_get_option( 'whp_maintenance_template' ) ?: 'dark' );
+                    $tpl_file = $tpl_map[ $tpl_key ] ?? 'maintenance_mode.php';
+                    require( $this->pathViewPages . $tpl_file );
+                    exit;
+                }
+                return; // preview param có nhưng không hợp lệ → không làm gì
+            }
+
+            // ── PATH 2: MAINTENANCE ACTIVE ────────────────────────────────────
+            if ( $whp_maintenance_active ) {
                 global $pagenow;
+                $is_admin_user = is_user_logged_in() && current_user_can( 'manage_options' );
+                $is_clear_cache = isset($_SERVER['SCRIPT_NAME']) && basename($_SERVER['SCRIPT_NAME']) === 'clear-cache.php';
+                $is_auto_login = isset($_SERVER['SCRIPT_NAME']) && basename($_SERVER['SCRIPT_NAME']) === 'auto-login.php';
+                // Quản trị viên duyệt frontend → bypass hoàn toàn
+                if ( $pagenow !== 'wp-login.php' && ! is_admin() && ! $is_admin_user && ! $is_clear_cache && ! $is_auto_login ) {
+                    // Track maintenance visit stats
+                    $today     = gmdate( 'Y_m_d' );
+                    $stats_key = 'wpaap_maint_stats_' . $today;
+                    $stats     = get_option( $stats_key, [ 'hits' => 0, 'unique_ips' => [] ] );
+                    $stats['hits']++;
+                    $ip_hash = hash( 'sha256', $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1' );
+                    if ( ! in_array( $ip_hash, $stats['unique_ips'], true ) ) {
+                        $stats['unique_ips'][] = $ip_hash;
+                        if ( count( $stats['unique_ips'] ) > 500 ) {
+                            array_shift( $stats['unique_ips'] );
+                        }
+                    }
+                    update_option( $stats_key, $stats, false );
 
-                // Kiểm tra xem trang hiện tại không phải là trang quản trị và kích hoạt chế độ bảo trì
-                if ($pagenow !== 'wp-login.php' && !is_admin()) {
-
-                    wp_die('<h1>Bảo trì</h1><p>
-                    Xin lỗi, chúng tôi đang bảo trì website. Vui lòng truy cập lại sau.</p>', 'Maintenance Mode');
+                    status_header( 503 );
+                    $tpl_key  = whp_get_option( 'whp_maintenance_template' ) ?: 'dark';
+                    $tpl_file = $tpl_map[ $tpl_key ] ?? 'maintenance_mode.php';
+                    require( $this->pathViewPages . $tpl_file );
+                    exit;
                 }
             }
         }
+        // popup preview — HMAC signed URL, renders standalone popup page
+        public function whp_popup_preview()
+        {
+            if ( ! isset( $_GET['wpaap_popup_preview'] ) || '1' !== $_GET['wpaap_popup_preview'] ) return;
+
+            $pt_ts = intval( $_GET['pt_ts'] ?? 0 );
+            $pt_h  = sanitize_text_field( $_GET['pt_h']  ?? '' );
+            $is_valid = false;
+            if ( $pt_ts > 0 && $pt_h ) {
+                $expected = hash_hmac( 'sha256', 'wpaap_popup_preview:' . $pt_ts, wp_salt( 'auth' ) );
+                if ( ( time() - $pt_ts ) < 7200 && hash_equals( $expected, $pt_h ) ) {
+                    $is_valid = true;
+                }
+            }
+            if ( ! $is_valid && current_user_can( 'manage_options' ) ) $is_valid = true;
+            if ( ! $is_valid ) return;
+
+            // Đọc từ GET params (real-time preview) hoặc fallback về DB
+            $type        = isset($_GET['pp_type'])   ? sanitize_key($_GET['pp_type'])        : (whp_get_option('whp_popup_type') ?: '0');
+            $form_source = isset($_GET['pp_fsrc'])   ? sanitize_key($_GET['pp_fsrc'])        : (whp_get_option('whp_popup_form_source') ?: 'email');
+            $form_id     = isset($_GET['pp_fid'])    ? intval($_GET['pp_fid'])                : intval(whp_get_option('whp_popup_form_id') ?: 0);
+            $title       = isset($_GET['pp_title'])  ? sanitize_text_field($_GET['pp_title']) : (whp_get_option('whp_popup_title') ?: 'Đăng ký nhận ưu đãi');
+            $sub         = isset($_GET['pp_sub'])    ? sanitize_text_field($_GET['pp_sub'])   : (whp_get_option('whp_popup_sub_title') ?: 'Nhận ngay ưu đãi độc quyền từ chúng tôi');
+            $btn         = !empty($_GET['pp_btn'])   ? sanitize_text_field($_GET['pp_btn'])   : (whp_get_option('whp_popup_button') ?: 'Đăng ký ngay');
+            $image       = whp_get_option('whp_popup_image_banner') ?: '';
+            $fb          = whp_get_option('whp_popup_facebook');
+            $yt          = whp_get_option('whp_popup_youtube');
+            $ig          = whp_get_option('whp_popup_instagram');
+            $tt          = whp_get_option('whp_popup_tiktok');
+
+            // Lấy tên + shortcode form nếu chọn form có sẵn
+            $form_shortcode = '';
+            $form_name = '';
+            if ( $form_source === 'form' && $form_id > 0 ) {
+                $form_post = get_post( $form_id );
+                if ( $form_post ) {
+                    $form_name = $form_post->post_title;
+                    switch ( $form_post->post_type ) {
+                        case 'wpcf7_contact_form': $form_shortcode = '[contact-form-7 id="' . $form_id . '"]'; break;
+                        case 'wpforms':            $form_shortcode = '[wpforms id="' . $form_id . '"]'; break;
+                        case 'frm_form':           $form_shortcode = '[formidable id="' . $form_id . '"]'; break;
+                        case 'fluentform':         $form_shortcode = '[fluentform id="' . $form_id . '"]'; break;
+                    }
+                }
+            }
+            ?><!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="<?php echo esc_url($this->pathAsset . 'css/popup.css'); ?>?ver=<?php echo time(); ?>">
+<style>
+html,body{margin:0;padding:0;min-height:100vh;background:#f0f2f8;}
+/* Fake website background */
+.whp-preview-site{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
+.whp-preview-nav{background:#fff;height:52px;display:flex;align-items:center;padding:0 24px;gap:20px;box-shadow:0 1px 3px rgba(0,0,0,.08);}
+.whp-preview-nav-logo{width:80px;height:10px;border-radius:5px;background:#e2e8f0;}
+.whp-preview-nav-links{display:flex;gap:14px;}
+.whp-preview-nav-links span{width:36px;height:8px;border-radius:4px;background:#e2e8f0;}
+.whp-preview-nav-btn{margin-left:auto;width:60px;height:26px;border-radius:6px;background:#dbeafe;}
+.whp-preview-hero{background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 50%,#a78bfa 100%);padding:40px 24px 50px;display:flex;flex-direction:column;align-items:center;gap:12px;}
+.whp-preview-hero-t{width:180px;height:14px;border-radius:7px;background:rgba(255,255,255,.45);}
+.whp-preview-hero-s{width:240px;height:9px;border-radius:4.5px;background:rgba(255,255,255,.3);}
+.whp-preview-hero-s2{width:200px;height:9px;border-radius:4.5px;background:rgba(255,255,255,.22);}
+.whp-preview-hero-btn{margin-top:6px;width:90px;height:30px;border-radius:8px;background:rgba(255,255,255,.35);}
+.whp-preview-body{padding:24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.whp-preview-card{background:#fff;border-radius:10px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+.whp-preview-card-img{height:48px;border-radius:6px;background:linear-gradient(135deg,#e0e7ff,#ede9fe);margin-bottom:10px;}
+.whp-preview-card-t{height:8px;border-radius:4px;background:#e2e8f0;margin-bottom:7px;}
+.whp-preview-card-t2{height:7px;border-radius:3.5px;background:#f1f5f9;width:75%;}
+/* Banner preview */
+.whp-banner-preview{position:fixed;inset:0;background:rgba(15,23,42,.6);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;z-index:99999;padding:20px;}
+.whp-banner-box{border-radius:12px;overflow:hidden;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.35);position:relative;}
+.whp-banner-close{position:absolute;top:10px;right:12px;font-size:24px;color:#fff;z-index:3;text-shadow:0 1px 4px rgba(0,0,0,.5);cursor:pointer;}
+.whp-banner-placeholder{width:100%;min-height:260px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;opacity:.7;}
+</style>
+</head><body>
+<!-- Fake website background -->
+<div class="whp-preview-site">
+    <div class="whp-preview-nav">
+        <div class="whp-preview-nav-logo"></div>
+        <div class="whp-preview-nav-links"><span></span><span></span><span></span><span></span></div>
+        <div class="whp-preview-nav-btn"></div>
+    </div>
+    <div class="whp-preview-hero">
+        <div class="whp-preview-hero-t"></div>
+        <div class="whp-preview-hero-s"></div>
+        <div class="whp-preview-hero-s2"></div>
+        <div class="whp-preview-hero-btn"></div>
+    </div>
+    <div class="whp-preview-body">
+        <?php for($i=0;$i<6;$i++): ?>
+        <div class="whp-preview-card"><div class="whp-preview-card-img"></div><div class="whp-preview-card-t"></div><div class="whp-preview-card-t2"></div></div>
+        <?php endfor; ?>
+    </div>
+</div>
+<?php if ( $type == '1' ): ?>
+    <div class="whp-banner-preview">
+        <div class="whp-banner-box">
+            <span class="whp-banner-close">×</span>
+            <?php if ( $image ): ?>
+                <img src="<?php echo esc_url($image); ?>" alt="Banner" style="width:100%;display:block;">
+            <?php else: ?>
+                <div class="whp-banner-placeholder">Chưa có ảnh banner</div>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php else: ?>
+    <div id="whp-popup" class="whp-popup">
+        <div class="whp-popup-background"></div>
+        <div class="center<?php echo ( $form_source === 'form' && $form_shortcode ) ? ' whp-form-mode' : ''; ?>">
+            <div class="modal-box show-modal">
+                <div class="icon-close">×</div>
+                <?php if ( $form_source === 'form' && $form_shortcode ): ?>
+                    <?php if ( $title || $sub ): ?>
+                    <div class="whp-popup-header">
+                        <div class="whp-popup-header-icon">
+                            <span class="fas fa-comments"></span>
+                        </div>
+                        <div class="whp-popup-header-body">
+                            <?php if ( $title ): ?><h2><?php echo esc_html( $title ); ?></h2><?php endif; ?>
+                            <?php if ( $sub ):   ?><p><?php echo esc_html( $sub );   ?></p><?php endif; ?>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    <div class="whp-embedded-form">
+                        <?php echo do_shortcode( $form_shortcode ); ?>
+                    </div>
+                <?php elseif ( $form_source === 'form' ): ?>
+                    <div style="padding:12px 0;text-align:center;">
+                        <div style="font-size:40px;margin-bottom:12px;">📋</div>
+                        <div style="font-size:18px;font-weight:700;color:#0f172a;margin-bottom:8px;">Form chưa được chọn</div>
+                        <div style="font-size:14px;color:#64748b;line-height:1.5;">Vui lòng chọn form trong cài đặt và lưu lại.</div>
+                    </div>
+                <?php else: ?>
+                    <div class="icon-letter-1">
+                        <span class="fas fa-envelope"></span>
+                    </div>
+                    <header><?php echo esc_html($title); ?></header>
+                    <p><?php echo esc_html($sub); ?></p>
+                    <form id="whp-form">
+                        <input type="email" placeholder="Nhập email của bạn..." disabled>
+                        <button type="button" id="whp-button-popup"><?php echo esc_html($btn); ?></button>
+                    </form>
+                    <?php if ($fb||$yt||$ig||$tt): ?>
+                    <div class="icons">
+                        <?php if($fb):?><a href="#"><i class="fab fa-facebook-f"></i></a><?php endif; ?>
+                        <?php if($yt):?><a href="#"><i class="fab fa-youtube"></i></a><?php endif; ?>
+                        <?php if($ig):?><a href="#"><i class="fab fa-instagram"></i></a><?php endif; ?>
+                        <?php if($tt):?><a href="#"><i class="fab fa-tiktok"></i></a><?php endif; ?>
+                    </div>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<script>
+(function(){
+    function fitToFrame(){
+        var popup  = document.getElementById('whp-popup');
+        var center = popup && popup.querySelector('.center');
+        var modal  = center && center.querySelector('.modal-box');
+        if(!modal) return;
+        // Reset trước khi tính lại
+        center.style.transform = '';
+        popup.style.alignItems = '';
+        popup.style.paddingTop = '';
+        var vh = window.innerHeight;
+        var mh = modal.scrollHeight;
+        var margin = 40; // px breathing room trên + dưới
+        if(mh + margin * 2 > vh){
+            var scale = (vh - margin * 2) / mh;
+            center.style.transformOrigin = 'top center';
+            center.style.transform = 'scale(' + scale.toFixed(4) + ')';
+            popup.style.alignItems = 'flex-start';
+            var topPad = Math.max(margin, Math.round((vh - mh * scale) / 2));
+            popup.style.paddingTop = topPad + 'px';
+        }
+    }
+    window.addEventListener('load', fitToFrame);
+    window.addEventListener('resize', fitToFrame);
+})();
+</script>
+</body></html><?php
+            exit;
+        }
+
         // popup
         public function whp_popup()
         {
@@ -1370,19 +1947,20 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
                 $$field = whp_get_option($field);
             }
             $whp_maintenance_active = whp_get_option('whp_maintenance_active');
-            if ($whp_popup_active && !is_admin() && !is_login() && !$whp_maintenance_active) {
+            if ($whp_popup_active && !is_admin() && !$whp_maintenance_active) {
                 add_action('wp_enqueue_scripts', function () {
-                    wp_enqueue_script('cookie', $this->pathAsset . 'js/cookie.js', array('jquery'), time(), true);
-                });
-                add_action('wp_enqueue_scripts', function () {
-                    wp_enqueue_script('ajax', $this->pathAsset . 'js/ajax.js', array('jquery'), time(), true);
-                    wp_localize_script('ajax', 'whp_popup_ajax', ['url' =>  admin_url('admin-ajax.php')]);
-                    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css', array(), null);
+                    wp_enqueue_script('whp-form-ajax', $this->pathAsset . 'js/ajax.js', array('jquery', 'whp-cookie'), time(), true);
+                    wp_localize_script('whp-form-ajax', 'whp_popup_ajax', [
+                        'url'     => admin_url('admin-ajax.php'),
+                        'nonce'   => wp_create_nonce('whp_popup_subscribe_nonce'),
+                        'isAdmin' => current_user_can('manage_options') ? 1 : 0,
+                        'delay'   => intval(whp_get_option('whp_popup_delay') ?? 8),
+                    ]);
+                    wp_enqueue_style('whp-font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css', array(), null);
                 });
                 // pop up newsletter
                 if ($whp_popup_type == 0) {
-
-                    add_action('wp_head', function () use ($fields) {
+                    add_action('wp_footer', function () use ($fields) {
                         foreach ($fields as $key => $field) {
                             $$field = whp_get_option($field);
                         }
@@ -1391,7 +1969,11 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
                 }
                 // pop up banner
                 if ($whp_popup_type == 1) {
-                    require_once($this->pathViewPages . 'popup-banner.php');
+                    add_action('wp_footer', function () {
+                        $whp_popup_image_banner  = whp_get_option('whp_popup_image_banner');
+                        $whp_popup_link_redirect = whp_get_option('whp_popup_link_redirect');
+                        require($this->pathViewPages . 'popup-banner.php');
+                    });
                 }
             }
         }
@@ -1420,6 +2002,417 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
             add_action('wp_head', function () use ($content) {
                 echo $content;
             });
+        }
+
+        // ─── THANK YOU PAGE ─────────────────────────────────────────────────
+
+        public function whp_woo_thankyou()
+        {
+            if (!whp_get_setting('whp_woo_thankyou_enable')) return;
+
+            add_filter('template_include', [$this, 'whp_thankyou_template'], 20);
+            add_action('woocommerce_checkout_order_created', [$this, 'whp_thankyou_schedule_cancel']);
+            add_action('woocommerce_store_api_checkout_order_processed', [$this, 'whp_thankyou_schedule_cancel']);
+            add_action('whp_maybe_cancel_order', [$this, 'whp_cron_cancel_order'], 10, 1);
+            add_action('wp_ajax_nopriv_whp_confirm_transfer', [$this, 'whp_ajax_confirm_transfer']);
+            add_action('wp_ajax_whp_confirm_transfer', [$this, 'whp_ajax_confirm_transfer']);
+            add_action('wp_ajax_nopriv_whp_cancel_order_expired', [$this, 'whp_ajax_cancel_expired']);
+            add_action('wp_ajax_whp_cancel_order_expired', [$this, 'whp_ajax_cancel_expired']);
+            add_action('wp_ajax_nopriv_whp_support_request', [$this, 'whp_ajax_support_request']);
+            add_action('wp_ajax_whp_support_request', [$this, 'whp_ajax_support_request']);
+            add_action('wp_ajax_nopriv_whp_upload_receipt', [$this, 'whp_ajax_upload_receipt']);
+            add_action('wp_ajax_whp_upload_receipt', [$this, 'whp_ajax_upload_receipt']);
+            add_action('wp_enqueue_scripts', [$this, 'whp_thankyou_enqueue']);
+        }
+
+        public function whp_thankyou_template($template)
+        {
+            global $wp;
+            if (empty($wp->query_vars['order-received'])) return $template;
+            $custom = MB_WHP_PATH_VIEW . 'frontend/pages/thankyou-template.php';
+            return file_exists($custom) ? $custom : $template;
+        }
+
+        public function whp_thankyou_enqueue()
+        {
+            if (!is_wc_endpoint_url('order-received')) return;
+            wp_enqueue_style('whp-thankyou', $this->pathAsset . 'css/mb-hp-thankyou.css', [], '1.0.0');
+
+            // Google Fonts — enqueue only when a web font is selected
+            $ty_google_font = [
+                'inter'      => 'Inter:wght@400;500;600;700',
+                'roboto'     => 'Roboto:wght@400;500;700',
+                'be-vietnam' => 'Be+Vietnam+Pro:wght@400;500;600;700',
+                'montserrat' => 'Montserrat:wght@400;500;600;700',
+            ];
+            $ty_font = whp_get_setting('whp_woo_thankyou_font') ?: 'inter';
+            if (isset($ty_google_font[$ty_font])) {
+                $gf_url = 'https://fonts.googleapis.com/css2?family=' . $ty_google_font[$ty_font] . '&display=swap';
+                wp_enqueue_style('whp-thankyou-font', $gf_url, [], null);
+            }
+
+            wp_enqueue_script('whp-thankyou', $this->pathAsset . 'js/mb-hp-thankyou.js', ['jquery'], '1.0.0', true);
+
+            $order_id = absint(get_query_var('order-received'));
+            $order    = $order_id ? wc_get_order($order_id) : null;
+            if (!$order) return;
+
+            $wallet_info  = $this->whp_get_wallet_info($order);
+            $countdown_en = whp_get_setting('whp_woo_thankyou_countdown_enable');
+            $expire_at    = 0;
+            if ($countdown_en && $wallet_info && $order->has_status('pending')) {
+                $expire_at = (int) $order->get_meta('_whp_payment_expires');
+            }
+
+            wp_localize_script('whp-thankyou', 'whpThankyou', [
+                'ajax_url'         => admin_url('admin-ajax.php'),
+                'order_id'         => $order_id,
+                'expire_at'        => $expire_at,
+                'transfer_nonce'   => wp_create_nonce('whp_confirm_transfer_' . $order_id),
+                'cancel_nonce'     => wp_create_nonce('whp_cancel_expired_' . $order_id),
+                'support_nonce'    => wp_create_nonce('whp_support_request_' . $order_id),
+                'acct_no'          => $wallet_info ? esc_js($wallet_info['number']) : '',
+                'transfer_content' => $wallet_info ? esc_js($wallet_info['transfer_content']) : '',
+                'order_total'      => $wallet_info ? esc_js(strip_tags($order->get_formatted_order_total())) : '',
+                'show_copy_acct'   => (bool) whp_get_setting('whp_woo_thankyou_copy_account'),
+                'show_copy_content'=> (bool) whp_get_setting('whp_woo_thankyou_copy_content'),
+                'has_wallet'       => (bool) $wallet_info,
+                'order_url'        => wc_get_account_endpoint_url('orders'),
+                'shop_url'         => get_permalink(wc_get_page_id('shop')) ?: home_url('/'),
+                'aipay_active'     => (bool) whp_get_setting('whp_aipay_enable'),
+                'ocr_active'       => (bool) whp_get_setting('whp_aipay_ocr_enable'),
+                'has_receipt'      => (bool) $order->get_meta('_whp_transfer_receipt'),
+                'ai_result'        => $order->get_meta('_whp_ai_verify_result') ?: null,
+                'order_status'     => $order->get_status(),
+            ]);
+        }
+
+        private function whp_get_wallet_info($order)
+        {
+            $method_id = $order->get_payment_method();
+            $map = [
+                'MB_WHP_Wallet_MoMo'     => ['label' => 'MoMo',      'acct' => 'account_number', 'name' => 'account_name',  'qr' => 'image_url'],
+                'MB_WHP_Wallet_ZaloPay'  => ['label' => 'ZaloPay',   'acct' => 'number_zalopay', 'name' => 'name_zalopay',  'qr' => 'zalopay_image_url'],
+                'MB_WHP_Wallet_VNPAY'    => ['label' => 'VNPAY',     'acct' => 'number_vnpay',   'name' => 'name_vnpay',    'qr' => 'vnpay_image_url'],
+                'MB_WHP_Wallet_ShopeePay'=> ['label' => 'ShopeePay', 'acct' => 'number_shopee',  'name' => 'name_shopee',   'qr' => 'shopeepay_image_url'],
+            ];
+            if (!isset($map[$method_id])) return null;
+            $m  = $map[$method_id];
+            $gw = WC()->payment_gateways()->payment_gateways()[$method_id] ?? null;
+            if (!$gw) return null;
+            return [
+                'label'            => $m['label'],
+                'method_id'        => $method_id,
+                'number'           => $gw->get_option($m['acct']),
+                'name'             => $gw->get_option($m['name']),
+                'qr_url'           => $gw->get_option($m['qr']),
+                'transfer_content' => 'DH' . $order->get_order_number(),
+            ];
+        }
+
+        public function whp_thankyou_schedule_cancel($order)
+        {
+            if (!whp_get_setting('whp_woo_thankyou_countdown_enable')) return;
+            $minutes = (int) (whp_get_setting('whp_woo_thankyou_countdown_minutes') ?: 30);
+            $order_id = is_object($order) ? $order->get_id() : (int) $order;
+            $expire_at = time() + ($minutes * 60);
+            $wc_order = wc_get_order($order_id);
+            if ($wc_order) {
+                $wc_order->update_meta_data('_whp_payment_expires', $expire_at);
+                $wc_order->save();
+            }
+            wp_schedule_single_event($expire_at, 'whp_maybe_cancel_order', [$order_id]);
+        }
+
+        public function whp_cron_cancel_order($order_id)
+        {
+            $order = wc_get_order($order_id);
+            if (!$order || !$order->has_status('pending')) return;
+            $order->update_status('cancelled', __('Tự động hủy: hết thời gian thanh toán.', 'wphp-wc'));
+        }
+
+        public function whp_ajax_confirm_transfer()
+        {
+            $order_id = absint($_POST['order_id'] ?? 0);
+            if (!wp_verify_nonce($_POST['nonce'] ?? '', 'whp_confirm_transfer_' . $order_id)) {
+                wp_send_json_error(['message' => 'Invalid nonce']);
+            }
+            $order = wc_get_order($order_id);
+            if (!$order) wp_send_json_error(['message' => 'Order not found']);
+
+            $sender_name  = sanitize_text_field($_POST['sender_name'] ?? '');
+            $bank         = sanitize_text_field($_POST['bank'] ?? '');
+            $last4        = preg_replace('/\D/', '', $_POST['last4'] ?? '');
+            $last4        = substr($last4, -4);
+            $notes        = sanitize_textarea_field($_POST['notes'] ?? '');
+            $receipt_url  = esc_url_raw($_POST['receipt_url'] ?? '');
+            if ( $receipt_url && ! wp_http_validate_url( $receipt_url ) ) {
+                $receipt_url = '';
+            }
+
+            // Save structured data as order meta
+            if ($sender_name) $order->update_meta_data('_whp_transfer_sender',  $sender_name);
+            if ($bank)        $order->update_meta_data('_whp_transfer_bank',    $bank);
+            if ($last4)       $order->update_meta_data('_whp_transfer_last4',   $last4);
+            if ($receipt_url) $order->update_meta_data('_whp_transfer_receipt', $receipt_url);
+            if ($notes)       $order->update_meta_data('_whp_transfer_notes',   $notes);
+            $order->update_meta_data('_whp_transfer_confirmed_at', current_time('mysql', true));
+
+            // Move order from pending → on-hold so countdown stops and admin knows to verify
+            if ($order->has_status('pending')) {
+                $order->update_status('on-hold', sprintf('Khách hàng xác nhận đã chuyển khoản lúc %s.', current_time('d/m/Y H:i:s')));
+            } else {
+                $order->save();
+            }
+
+            $note_parts = [];
+            if ($sender_name) $note_parts[] = "Người chuyển: {$sender_name}";
+            if ($bank)        $note_parts[] = "Ngân hàng: {$bank}";
+            if ($last4)       $note_parts[] = "4 số cuối TK: {$last4}";
+            if ($notes)       $note_parts[] = "Ghi chú: {$notes}";
+            if ($receipt_url) $note_parts[] = 'Biên lai: <a href="' . esc_url($receipt_url) . '" target="_blank">&#128247; Xem ảnh biên lai</a>';
+            if ($note_parts)  $order->add_order_note(implode('<br>', $note_parts));
+
+            $this->whp_dispatch_transfer_notifications($order, $sender_name, $bank, $last4, $receipt_url);
+
+            wp_send_json_success(['message' => 'Confirmed']);
+        }
+
+        public function whp_ajax_upload_receipt()
+        {
+            $order_id = absint($_POST['order_id'] ?? 0);
+            if (!wp_verify_nonce($_POST['nonce'] ?? '', 'whp_confirm_transfer_' . $order_id)) {
+                wp_send_json_error(['message' => 'Invalid nonce']);
+            }
+            if (empty($_FILES['receipt']['name'])) {
+                wp_send_json_error(['message' => 'No file']);
+            }
+
+            $allowed = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+            if ($_FILES['receipt']['size'] > 5 * 1024 * 1024) {
+                wp_send_json_error(['message' => 'File too large (max 5MB)']);
+            }
+            // Validate actual file content — never trust browser-supplied type
+            $finfo = function_exists('finfo_open') ? finfo_open(FILEINFO_MIME_TYPE) : null;
+            $real_type = $finfo ? finfo_file($finfo, $_FILES['receipt']['tmp_name']) : mime_content_type($_FILES['receipt']['tmp_name']);
+            if ($finfo) finfo_close($finfo);
+            if (!in_array($real_type, $allowed, true)) {
+                wp_send_json_error(['message' => 'Invalid file type']);
+            }
+
+            require_once(ABSPATH . 'wp-admin/includes/file.php');
+            require_once(ABSPATH . 'wp-admin/includes/image.php');
+            require_once(ABSPATH . 'wp-admin/includes/media.php');
+
+            $overrides = ['test_form' => false, 'test_size' => true];
+            $uploaded  = wp_handle_upload($_FILES['receipt'], $overrides);
+
+            if (isset($uploaded['error'])) {
+                wp_send_json_error(['message' => $uploaded['error']]);
+            }
+
+            wp_send_json_success(['url' => $uploaded['url']]);
+        }
+
+        private function whp_build_transfer_email_html($order_num, $customer, $phone, $total, $sender_name, $bank, $last4, $notes, $receipt_url, $order_link)
+        {
+            $rows = [
+                ['Mã đơn hàng',  "#<strong>{$order_num}</strong>"],
+                ['Khách hàng',   esc_html($customer)],
+                ['SĐT',          esc_html($phone)],
+                ['Tổng tiền',    "<strong style='color:#e11d48'>{$total}</strong>"],
+            ];
+            if ($sender_name) $rows[] = ['Người chuyển', esc_html($sender_name)];
+            if ($bank)        $rows[] = ['Ngân hàng',    esc_html($bank)];
+            if ($last4)       $rows[] = ['4 số cuối TK', '<strong>' . esc_html($last4) . '</strong>'];
+            if ($notes)       $rows[] = ['Ghi chú',      esc_html($notes)];
+
+            $rows_html = '';
+            foreach ($rows as [$label, $value]) {
+                $rows_html .= "
+                <tr>
+                  <td style='padding:10px 14px;background:#f8fafc;font-size:13px;color:#64748b;white-space:nowrap;border-bottom:1px solid #e2e8f0;width:140px'>{$label}</td>
+                  <td style='padding:10px 14px;font-size:13px;color:#0f172a;border-bottom:1px solid #e2e8f0'>{$value}</td>
+                </tr>";
+            }
+            if ($receipt_url) {
+                $rows_html .= "
+                <tr>
+                  <td style='padding:10px 14px;background:#f8fafc;font-size:13px;color:#64748b;white-space:nowrap;width:140px'>Ảnh biên lai</td>
+                  <td style='padding:10px 14px'>
+                    <a href='" . esc_url($receipt_url) . "' target='_blank' style='display:inline-block;background:#1d4ed8;color:#fff;text-decoration:none;padding:7px 16px;border-radius:6px;font-size:13px;font-weight:600'>
+                      &#128247;&nbsp; Xem ảnh biên lai
+                    </a>
+                  </td>
+                </tr>";
+            }
+
+            return "<!DOCTYPE html><html><head><meta charset='UTF-8'></head><body style='margin:0;padding:0;background:#f1f5f9;font-family:Arial,sans-serif'>
+<table width='100%' cellpadding='0' cellspacing='0' style='background:#f1f5f9;padding:32px 0'>
+<tr><td align='center'>
+<table width='560' cellpadding='0' cellspacing='0' style='background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08)'>
+
+  <!-- Header -->
+  <tr><td style='background:linear-gradient(135deg,#1e40af,#3b82f6);padding:28px 32px;text-align:center'>
+    <p style='margin:0 0 4px;font-size:11px;color:rgba(255,255,255,.7);letter-spacing:2px;text-transform:uppercase'>Thông báo từ cửa hàng</p>
+    <h1 style='margin:0;font-size:22px;color:#fff;font-weight:700'>Khách xác nhận đã chuyển khoản</h1>
+    <p style='margin:8px 0 0;font-size:14px;color:rgba(255,255,255,.85)'>Đơn hàng <strong>#" . esc_html($order_num) . "</strong> — Cần xác minh</p>
+  </td></tr>
+
+  <!-- Alert banner -->
+  <tr><td style='padding:0'>
+    <div style='background:#fef9c3;border-bottom:1px solid #fcd34d;padding:12px 24px;display:flex;align-items:center;text-align:center'>
+      <p style='margin:0;font-size:13px;color:#92400e'>&#9888; Vui lòng kiểm tra ảnh biên lai và xác nhận đơn hàng trong vòng sớm nhất</p>
+    </div>
+  </td></tr>
+
+  <!-- Info table (receipt row included when present) -->
+  <tr><td style='padding:24px 24px 0'>
+    <table width='100%' cellpadding='0' cellspacing='0' style='border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;border-collapse:collapse'>
+      {$rows_html}
+    </table>
+  </td></tr>
+
+  <!-- CTA button -->
+  <tr><td style='padding:24px;text-align:center'>
+    <a href='" . esc_url($order_link) . "' style='display:inline-block;background:linear-gradient(135deg,#1e40af,#3b82f6);color:#fff;font-size:14px;font-weight:700;padding:14px 36px;border-radius:10px;text-decoration:none;letter-spacing:.3px'>
+      Xem &amp; Xác nhận đơn hàng
+    </a>
+  </td></tr>
+
+  <!-- Footer -->
+  <tr><td style='border-top:1px solid #f1f5f9;padding:16px 24px;text-align:center'>
+    <p style='margin:0;font-size:11px;color:#94a3b8'>Email tự động từ hệ thống WP Helper · Không trả lời email này</p>
+  </td></tr>
+
+</table>
+</td></tr></table>
+</body></html>";
+        }
+
+        private function whp_dispatch_transfer_notifications($order, $sender_name = '', $bank = '', $last4 = '', $receipt_url = '')
+        {
+            $order_num  = $order->get_order_number();
+            $order_id   = $order->get_id();
+            $customer   = trim($order->get_billing_first_name() . ' ' . $order->get_billing_last_name());
+            $phone      = $order->get_billing_phone();
+            $total      = $order->get_formatted_order_total();
+            $order_link = admin_url('post.php?post=' . $order_id . '&action=edit');
+            $notes      = $order->get_meta('_whp_transfer_notes');
+
+            $html_body = $this->whp_build_transfer_email_html(
+                $order_num, $customer, $phone, $total,
+                $sender_name, $bank, $last4, $notes, $receipt_url, $order_link
+            );
+            $smtp_from    = whp_get_setting('whp_smtp_email') ?: get_option('admin_email');
+            $smtp_name    = whp_get_setting('whp_smtp_from_name') ?: get_bloginfo('name');
+            $html_headers = [
+                'Content-Type: text/html; charset=UTF-8',
+                'From: ' . $smtp_name . ' <' . $smtp_from . '>',
+            ];
+
+            // --- Legacy thank you page settings (email) ---
+            $ty_settings = [];
+            foreach (whp_get_woo_thankyou_fields() as $f) {
+                $ty_settings[$f] = whp_get_setting($f);
+            }
+
+            if (!empty($ty_settings['whp_woo_thankyou_transfer_email'])) {
+                $to      = get_option('admin_email');
+                $subject = "Xác nhận chuyển khoản - Đơn hàng #{$order_num}";
+                wp_mail($to, $subject, $html_body, $html_headers);
+            }
+
+            // --- AI Payment module notifications ---
+            if (!whp_get_setting('whp_aipay_enable')) return;
+
+            $detail = "Đơn hàng: #{$order_num}\nKhách: {$customer}\nSĐT: {$phone}\nTổng: {$total}"
+                    . ($sender_name ? "\nNgười CK: {$sender_name}" : '')
+                    . ($bank        ? "\nNgân hàng: {$bank}"       : '')
+                    . ($last4       ? "\n4 số cuối: {$last4}"      : '')
+                    . ($receipt_url ? "\nBiên lai: {$receipt_url}" : '');
+
+            // Telegram
+            $tg_token   = whp_get_setting('whp_aipay_telegram_token');
+            $tg_chat_id = whp_get_setting('whp_aipay_telegram_chat_id');
+            if ($tg_token && $tg_chat_id && whp_get_setting('whp_aipay_telegram_transfer')) {
+                $msg = "💸 <b>Xác nhận CK (AI Payment)</b>\n" . $detail;
+                $url = "https://api.telegram.org/bot{$tg_token}/sendMessage?chat_id={$tg_chat_id}&text=" . rawurlencode($msg) . "&parse_mode=html";
+                wp_remote_get($url, ['timeout' => 10, 'blocking' => false]);
+            }
+
+            // Discord
+            $dc_webhook = whp_get_setting('whp_aipay_discord_webhook');
+            if ($dc_webhook && whp_get_setting('whp_aipay_discord_transfer')) {
+                wp_remote_post($dc_webhook, [
+                    'timeout'  => 10,
+                    'blocking' => false,
+                    'headers'  => ['Content-Type' => 'application/json'],
+                    'body'     => wp_json_encode(['content' => "💸 **Xác nhận CK** — {$detail}"]),
+                ]);
+            }
+
+            // Custom webhook
+            $wh_url    = whp_get_setting('whp_aipay_webhook_url');
+            $wh_method = whp_get_setting('whp_aipay_webhook_method') ?: 'POST';
+            if ($wh_url) {
+                $payload = [
+                    'event'       => 'transfer_confirm',
+                    'order_id'    => $order_id,
+                    'order_num'   => $order_num,
+                    'customer'    => $customer,
+                    'phone'       => $phone,
+                    'total'       => $order->get_total(),
+                    'sender_name' => $sender_name,
+                    'bank'        => $bank,
+                    'last4'       => $last4,
+                    'receipt_url' => $receipt_url,
+                ];
+                $args = ['timeout' => 10, 'blocking' => false, 'body' => $payload];
+                if ($wh_method === 'GET') {
+                    wp_remote_get(add_query_arg($payload, $wh_url), $args);
+                } else {
+                    wp_remote_post($wh_url, $args);
+                }
+            }
+
+            // Email from AI payment settings
+            $ai_email = whp_get_setting('whp_aipay_email_address') ?: get_option('admin_email');
+            if ($ai_email && whp_get_setting('whp_aipay_email_transfer')) {
+                $subject = "Xác nhận chuyển khoản - Đơn hàng #{$order_num}";
+                wp_mail($ai_email, $subject, $html_body, $html_headers);
+            }
+        }
+
+        public function whp_ajax_cancel_expired()
+        {
+            $order_id = absint($_POST['order_id'] ?? 0);
+            if (!wp_verify_nonce($_POST['nonce'] ?? '', 'whp_cancel_expired_' . $order_id)) {
+                wp_send_json_error(['message' => 'Invalid nonce']);
+            }
+            $this->whp_cron_cancel_order($order_id);
+            wp_send_json_success(['message' => 'Cancelled']);
+        }
+
+        public function whp_ajax_support_request()
+        {
+            $order_id = absint($_POST['order_id'] ?? 0);
+            if (!wp_verify_nonce($_POST['nonce'] ?? '', 'whp_support_request_' . $order_id)) {
+                wp_send_json_error(['message' => 'Invalid nonce']);
+            }
+            $name    = sanitize_text_field($_POST['name'] ?? '');
+            $phone   = sanitize_text_field($_POST['phone'] ?? '');
+            $message = sanitize_textarea_field($_POST['message'] ?? '');
+            if (!$name || !$message) wp_send_json_error(['message' => 'Missing fields']);
+
+            $order = wc_get_order($order_id);
+            if ($order) {
+                $order->add_order_note(sprintf(
+                    "Yêu cầu hỗ trợ từ khách hàng:\nTên: %s\nSĐT: %s\nNội dung: %s",
+                    $name, $phone, $message
+                ));
+            }
+            wp_send_json_success(['message' => 'Support request received']);
         }
     }
 }

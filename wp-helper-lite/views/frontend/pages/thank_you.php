@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 $order_key = $_GET['key'];
 $order_id  = wc_get_order_id_by_order_key($order_key);
 $order = wc_get_order($order_id);

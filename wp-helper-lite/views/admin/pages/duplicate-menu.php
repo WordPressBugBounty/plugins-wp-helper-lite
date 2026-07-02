@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) { exit; } ?>
 <div class="wrap">
     <div id="icon-options-general" class="icon32"><br /></div>
     <h2><?php _e('Duplicate Menu'); ?></h2>
@@ -15,7 +16,7 @@
         <div id="message" class="updated">
             <p>
                 <?php if ($new_menu_id) : ?>
-                    <?php _e('Menu đã nhân bản') ?>. <a href="nav-menus.php?action=edit&amp;menu=<?php echo absint($new_menu_id); ?>"><?php _e('View') ?></a>
+                    <?php esc_html_e('Menu đã nhân bản', 'whp'); ?>. <a href="nav-menus.php?action=edit&amp;menu=<?php echo absint($new_menu_id); ?>"><?php _e('View') ?></a>
                 <?php else : ?>
                     <?php _e('There was a problem duplicating your menu. No action was taken.') ?>.
                 <?php endif; ?>
@@ -34,7 +35,7 @@
             <table class="form-table">
                 <tr valign="top">
                     <th scope="row">
-                        <label for="source"><?php _e('Chọn menu'); ?>:</label>
+                        <label for="source"><?php esc_html_e('Chọn menu', 'whp'); ?>:</label>
                     </th>
                     <td>
                         <select name="source">
@@ -44,12 +45,12 @@
                                 </option>
                             <?php endforeach; ?>
                         </select>
-                        <span style="display:inline-block; padding:0 10px;"><?php _e('Tên menu', 'ad'); ?></span>
+                        <span style="display:inline-block; padding:0 10px;"><?php esc_html_e('Tên menu', 'whp'); ?></span>
                         <input name="new_menu_name" type="text" id="new_menu_name" value="" class="regular-text" />
                     </td>
             </table>
             <p class="submit">
-                <input type="submit" name="submit" id="submit" class="button-primary" value="Nhân bản" />
+                <input type="submit" name="submit" id="submit" class="button-primary" value="<?php esc_attr_e('Nhân bản', 'whp'); ?>" />
             </p>
         </form>
     <?php endif; ?>

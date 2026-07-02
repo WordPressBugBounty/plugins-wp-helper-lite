@@ -21,41 +21,48 @@
       }
     });
 
-    let qr_code = $(".input-image-qr").val();
-    if (qr_code) {
-      preview(qr_code);
-    }
-    let btn_upload = $(".button-upload-qrcode").val();
-    if (btn_upload) {
-      preview(btn_upload);
-    }
-    $(".button-upload-qrcode").attr("value", "Chọn ảnh");
-    $(".button-upload-qrcode").on("click", (event) => {
-      event.preventDefault();
-      var frame = wp.media({
-        title: "Insert a media",
+    if ($(".button-upload-qrcode").length) {
+      $(".button-upload-qrcode").attr("value", "Chọn ảnh");
+
+      // Inject stable container ONCE — never insert more elements into the DOM after this
+      $(".button-upload-qrcode").after('<div id="whp-qr-area" style="margin-top:8px"></div>');
+      var $qrArea = $("#whp-qr-area");
+
+      function renderQrPreview(url) {
+        if (!url) { $qrArea.empty(); return; }
+        $qrArea.html(
+          '<img src="' + url + '" style="width:150px;display:block;border-radius:6px;border:1px solid #e5e7eb;margin-bottom:6px">' +
+          '<button type="button" class="whp-qr-delete" style="color:#dc2626;background:#fff;border:1px solid #dc2626;border-radius:4px;padding:3px 12px;cursor:pointer;font-size:12px">Xóa ảnh</button>'
+        );
+        $qrArea.find(".whp-qr-delete").on("click", function () {
+          $(".input-image-qr").val("");
+          renderQrPreview("");
+        });
+      }
+
+      // Show existing image on page load
+      var existingQr = $(".input-image-qr").val();
+      if (existingQr) { renderQrPreview(existingQr); }
+
+      // Create media frame ONCE, reuse on every click
+      var whpQrFrame = wp.media({
+        title: "Chọn ảnh QR Code",
         library: { type: "image" },
         multiple: false,
-        button: { text: "Insert" },
+        button: { text: "Sử dụng ảnh này" },
       });
-      frame.open();
-      frame.on("select", function () {
-        let attachment = frame.state().get("selection").first().toJSON();
-        let image_url = attachment.url;
-        $(`.input-image-qr`).val(image_url);
-        preview(image_url);
+      whpQrFrame.on("select", function () {
+        var sel = whpQrFrame.state().get("selection").first();
+        if (!sel) return;
+        var url = sel.toJSON().url;
+        $(".input-image-qr").val(url);
+        renderQrPreview(url);
       });
-    });
-    function preview(image_url) {
-      let e = $("#preview-qr").length;
-      if (e) {
-        $("#preview-qr").remove();
-      }
-      $(".button-upload-qrcode").after(
-        "</br><img id='preview-qr' width='150px' style='margin-top:10px' src='" +
-          image_url +
-          "'>"
-      );
+
+      $(".button-upload-qrcode").on("click", function (e) {
+        e.preventDefault();
+        whpQrFrame.open();
+      });
     }
     $("#enable_contact").change(function () {
       let enable_contact = $(this).val();
@@ -197,30 +204,37 @@
     let btnUploadLogo = $(".button-upload-qrcode");
     $("#uploadLogo").on("click", function () {
       var frame = wp.media({
-        title: "Insert a media",
+        title: "Chọn logo đăng nhập",
         library: { type: "image" },
         multiple: false,
-        button: { text: "Insert" },
+        button: { text: "Sử dụng ảnh này" },
       });
       frame.open();
       frame.on("select", function () {
-        // Get media attachment details from the frame state
         let attachment = frame.state().get("selection").first().toJSON();
-        // Log the attachment object for more info
-
-        // Get the Image URL from the attachment object
         let image_url = attachment.url;
-        $(".preview-logo").attr("src", image_url);
+        // Update all logo preview images (new layout classes + legacy)
+        $(".mb-lte-preview-img, .mb-lte-form-logo-img, .preview-logo").attr("src", image_url);
         $(`input[name='whp_extention_custom_login_logo']`).val(image_url);
         $(`input[name='whp_popup_image_banner']`).val(image_url);
         $(`input[name='whp_maintenance_banner']`).val(image_url);
+        // Update configured badge
+        $("#mb-lte-configured-badge").css("display", "inline-flex");
+        // Update dimensions badge
+        var tmp = new Image();
+        tmp.onload = function () {
+          $("#mb-lte-dim").text(tmp.naturalWidth + " × " + tmp.naturalHeight + "px");
+        };
+        tmp.src = image_url;
       });
     });
-    let btnClosePreview = $(".preview-close");
-    btnClosePreview.click(function () {
-      let defaultUrl = $(this).data("default");
-      $(".preview-logo").attr("src", defaultUrl);
+    let btnClosePreview = $("#removeLogo, .preview-close");
+    btnClosePreview.on("click", function () {
+      let defaultUrl = $(this).data("default") || "";
+      $(".mb-lte-preview-img, .mb-lte-form-logo-img, .preview-logo").attr("src", defaultUrl);
       $(`input[name='whp_extention_custom_login_logo']`).val("");
+      $("#mb-lte-configured-badge").css("display", "none");
+      $("#mb-lte-dim").text("— × —");
     });
     let enableCustomLogin = $(`input[name='whp_extention_custom_login_theme']`);
     enableCustomLogin.change(function () {
@@ -256,16 +270,6 @@
       $("#whp-newsletter").removeClass("checked").addClass("no_checked");
     }
   });
-  $("#whp_woocommerce_advance_enable_notify_telegram").change(function () {
-    let val = $(this).val();
-    let telegram_contact = $("#telegram_contact");
-    if (val == 0) {
-      telegram_contact.removeClass("no_checked").addClass("checked");
-    } else {
-      telegram_contact.addClass("no_checked").removeClass("checked");
-    }
-  });
-
   $("#whp_helper_type_filter").change(function () {
     const type = $(this).val();
 

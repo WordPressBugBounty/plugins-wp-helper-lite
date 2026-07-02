@@ -1,66 +1,138 @@
 === WP Helper Premium ===
-Contributors: Mat Bao Corp
-Tags: contact button, hide login, SMTP, header footer, All in one, Woocommerce, cart button, e-commerce platforms, order optimization, payment, pop-up, filter order bu phone, upload svg, custom url login.
-Requires at least: 5.6
-Tested up to: 6.6.2
-Requires PHP: 7.0
-Stable tag: 4.5.5
+Contributors: matbao
+Tags: contact button, SMTP, maintenance mode, security, woocommerce, popup, spam filter, AI, all-in-one
+Requires at least: 6.7
+Tested up to: 6.8
+Requires PHP: 7.4
+Stable tag: 4.7
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
+All-in-one WordPress toolkit: contact channels, SMTP, maintenance mode, AI content, spam filter, WooCommerce enhancements and more — in a single plugin.
 
-Việc sử dụng nhiều plugin cho nhiều chức năng khác nhau là điều rất phổ biến với người dùng WordPress hiện nay. Điều này không chỉ chiếm dụng tài nguyên website mà còn làm giảm tốc độ tải trang, gây ảnh hưởng đến trải nghiệm khách hàng cũng như khả năng “leo hạng” của website trên công cụ tìm kiếm. Nắm bắt được điều đó, Chúng tôi đã cho ra đời bộ công cụ cần thiết giúp người dùng vận hành website hiệu quả. Cụ thể, chỉ với một plugin duy nhất, người dùng có thể sử dụng rất nhiều chức năng mà chúng tôi đã chọn lọc và tích hợp sẵn.
+== Description ==
 
-== Tính năng ==
-Các tính năng đã được kiểm tra cẩn thận trước khi phát hành. Mặc dù vậy, chúng tôi hy vọng sẽ nhận được những phản hồi và đánh giá của người dùng để cải thiện plugin ngày một tốt hơn.
+WP Helper Premium replaces a dozen single-purpose plugins with one unified toolkit. Every feature is optional and toggled from a clean admin UI — activate only what you need.
 
-=== Tính năng có trong phiên bản===
-- Woocommerce Toolkit: Cài đặt Nút mua hàng, Liên kết các sàn Thương mại điện tử, Tối ưu đặt hàng, Tích hợp thông tin thanh toán điện tử,Tùy chỉnh nâng cao.
-- Kênh liên hệ: (Số điện thoại liên hệ, Zalo, Facebook, Email)
-- SMTP Mail: (Gmail SMTP)
-- Header & Footer: (Header Scripts, Body Scripts - Top, Footer Scripts)
-- Bảo mật: (Vô hiệu hóa XML-RPC, Cấm sao chép nội dung, Xóa các liên kết từ wp_head, Ẩn phiên bản WordPress, Ẩn menu theme / plugin, Thay đổi đường dẫn đăng nhập)
-- Tiện ích mở rộng: (Trình soạn thảo văn bản Gutenberg Editor / Classic Editor , Nhân bản trang/ bài viết, Nhân bản menu, Chuyển 404 về trang chủ, Xóa biểu tượng Emojis, Remove Query Strings, Disable Wordpress Embeds, Tắt Google Font, Tắt Dashicons, Giao diện đăng nhập)
-- Tìm kiếm đơn hàng bằng số điện thoại.
-- Thay đổi đường dẫn đăng nhập
-- Pop-up quảng cáo, newsletter,
-- Upload ảnh svg
-== Thông báo về quyền riêng ==
-Người dùng có thể hoàn toàn yên tâm với chính sách bảo mật của plugin này bởi chúng tôi cam kết:
-- Không theo dõi người dùng.
-- Không ghi bất kỳ dữ liệu cá nhân nào của người dùng vào cơ sở dữ liệu.
-- Không gửi bất kỳ dữ liệu nào từ website đến máy chủ ngoài.
-- Và đặc biệt, không sử dụng Cookies.
+**Core features**
 
-== Dịch thuật ==
-Bạn có thể tham gia dịch WP Helper trên [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/wp-helper/).
+* **Contact Channels** — floating buttons for phone, Zalo, Facebook, Email, and custom links.
+* **SMTP Mail** — configure Gmail SMTP or any custom SMTP server; built-in test-send tool.
+* **Header & Footer Scripts** — inject custom HTML/JS/CSS into `<head>`, body-top, or `<footer>` without editing theme files.
+* **Maintenance Mode** — put the site in maintenance with 5 built-in templates (gradient, cyberpunk, corporate, construction, minimal). Optional AI-generated content via Google Gemini.
+* **Security** — disable XML-RPC, hide WP version, remove generator meta tag, disable file editing, custom login URL.
+* **Pop-up** — promotional and newsletter pop-ups with scheduling and display rules.
+* **WooCommerce Toolkit** — buy-now button placement, e-commerce platform links, order search by phone, Thank You page customization, AI payment verification (OCR receipt scanning).
+* **Spam Filter** — honeypot, rate limiting, IP blocking, country blocking, keyword filtering. Optionally checks visitor IP via ip-api.com.
+* **Captcha** — Math Quiz captcha for contact forms and comments. Optionally integrates Google reCAPTCHA, Cloudflare Turnstile, or hCaptcha.
+* **Email Log** — records every outgoing email with status, headers, and body for debugging.
+* **Form Manager** — collect, view, and export contact form submissions.
+* **AI Hub** — connect Google Gemini, Anthropic Claude, or OpenAI GPT to power AI features site-wide with a 3-tier fallback chain.
+* **Extensions** — duplicate page/post/menu, redirect 404 → homepage, remove emoji scripts, disable embeds, disable Google Fonts, disable Dashicons, SVG upload support.
 
-== Ảnh chụp màn hình ==
-1. Hình WP Helper
-2. Kênh liên hệ.
-3. SMTP Mail.
-4. Header & Footer
-5. Bảo mật.
+== Installation ==
 
-== Cài đặt ==
-Bạn có thể cài đặt Plugin WP Helper Premium từ Bảng điều khiển WordPress của mình hoặc thông qua FTP theo cách thủ công.
+= From the WordPress Dashboard =
+1. Go to **Plugins → Add New**.
+2. Search for **WP Helper Premium** and click **Install Now**.
+3. Activate the plugin from the **Plugins** menu.
+4. Navigate to **WP Helper** in the admin sidebar to configure features.
 
-= Từ Bảng điều khiển WordPress =
-1. Điều hướng đến Plugin -> Cài mới từ bảng điều khiển WordPress của bạn.
-2. Tìm kiếm “WP Helper Premium và cài đặt.
-3. Kích hoạt Plugin từ menu Plugins.
-4. Thực hiện cấu hình Plugin.
+= Manual Installation =
+1. Download `wp-helper-premium.zip`.
+2. Unzip and upload the `wp-helper-lite` folder to `/wp-content/plugins/`.
+3. Activate via **Plugins → Installed Plugins**.
 
-= Cài đặt thủ công =
-1. Tải xuống tệp plugin: “wp-helper-premium.zip”.
-2. Giải nén tệp.
-3. Tải thư mục “wp-helper-premium lên thư mục “/ wp-content / plugins” của bạn (không đổi tên thư mục)
-4. Kích hoạt Plugin từ menu Plugins.
-5. Thực hiện cấu hình Plugin.
+== Privacy Policy ==
 
-= Kiến thức cơ bản =
+This plugin does not track users, store personal data, or use cookies by default. Certain optional features transmit data to third-party services — see **External Services** below. All external calls are initiated server-side and occur only when the relevant feature is enabled and configured by a site administrator.
 
-Để giải thích chi tiết hơn, xin vui lòng tìm kiếm [tài liệu](https://wiki.matbao.net).
+== External Services ==
 
+This plugin optionally connects to the following third-party services when the corresponding features are enabled by the site administrator. No data is sent unless the feature is explicitly activated and configured.
 
+= Google Gemini API =
+Used for AI-powered content generation (maintenance page content, product descriptions, image captions). Data sent: text prompts provided by the administrator.
+* Service: https://ai.google.dev/
+* Terms of Service: https://ai.google.dev/terms
+* Privacy Policy: https://policies.google.com/privacy
 
+= Anthropic Claude API =
+Used as a fallback AI provider for content generation when configured by the administrator.
+* Service: https://www.anthropic.com/
+* Terms of Service: https://www.anthropic.com/legal/consumer-terms
+* Privacy Policy: https://www.anthropic.com/legal/privacy
+
+= OpenAI API =
+Used as an optional AI provider for content generation when configured by the administrator.
+* Service: https://openai.com/
+* Terms of Service: https://openai.com/terms
+* Privacy Policy: https://openai.com/privacy
+
+= ip-api.com =
+Used by the Spam Filter feature to look up the country/ISP of a visitor's IP address when country-based blocking is enabled. Only the visitor's IP address is transmitted.
+* Service: https://ip-api.com/
+* Terms of Service: https://ip-api.com/docs
+* Privacy Policy: https://ip-api.com/
+
+= Google reCAPTCHA =
+Used by the Captcha module when the administrator selects Google reCAPTCHA. Visitor IP and browser information are sent to Google for spam scoring.
+* Service: https://www.google.com/recaptcha/
+* Terms of Service: https://policies.google.com/terms
+* Privacy Policy: https://policies.google.com/privacy
+
+= Cloudflare Turnstile =
+Used by the Captcha module when the administrator selects Cloudflare Turnstile. Challenge tokens are verified server-side with Cloudflare.
+* Service: https://www.cloudflare.com/products/turnstile/
+* Terms of Service: https://www.cloudflare.com/terms/
+* Privacy Policy: https://www.cloudflare.com/privacypolicy/
+
+= hCaptcha =
+Used by the Captcha module when the administrator selects hCaptcha. Challenge responses are verified server-side with hCaptcha.
+* Service: https://www.hcaptcha.com/
+* Terms of Service: https://www.hcaptcha.com/terms
+* Privacy Policy: https://www.hcaptcha.com/privacy
+
+= Pexels API =
+Used to search and import free stock photos for AI-generated pages when the administrator has configured a Pexels API key.
+* Service: https://www.pexels.com/
+* Terms of Service: https://www.pexels.com/terms-of-service/
+* Privacy Policy: https://www.pexels.com/privacy-policy/
+
+= Pixabay API =
+Used to search and import free stock photos as an alternative image source when configured by the administrator.
+* Service: https://pixabay.com/
+* Terms of Service: https://pixabay.com/service/terms/
+* Privacy Policy: https://pixabay.com/service/privacy/
+
+== Screenshots ==
+
+1. Dashboard overview
+2. Contact Channels configuration
+3. SMTP Mail settings
+4. Maintenance Mode with template selector
+5. AI Hub — provider connection
+
+== Changelog ==
+
+= 4.7 =
+* Added AI Hub module with multi-provider support (Gemini, Claude, OpenAI) and 3-tier fallback chain.
+* Added Spam Filter module with honeypot, rate limiting, IP/country blocking, keyword filtering.
+* Added Email Log module to track all outgoing emails with SMTP diagnostics.
+* Added Captcha module supporting Math Quiz, Google reCAPTCHA, Cloudflare Turnstile, and hCaptcha.
+* Added Form Manager module to collect and manage form submissions.
+* Added Maintenance Mode module with 5 customizable templates and AI content generation.
+* Added AI Payment module for WooCommerce: OCR receipt verification, fraud detection, risk alerts.
+* Added AI Token Statistics page with usage tracking per provider.
+* Security: added ABSPATH guard to all PHP files.
+* Security: all user-supplied data in database queries uses $wpdb->prepare().
+* Added uninstall.php to clean up all plugin data on deletion.
+* Fixed: toggle is locked/disabled when AI provider is not connected.
+* Fixed: eye icon on API Key input now toggles correctly between show/hide states.
+* i18n: added full English (en_US) translation.
+
+= 4.6 =
+* WooCommerce Toolkit enhancements: platform links, order search by phone number.
+* Pop-up module: scheduling, display rules, newsletter pop-up.
+* Security module: custom login URL, disable file editing.
+* Added SVG upload support.

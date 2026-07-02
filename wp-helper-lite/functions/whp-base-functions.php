@@ -1,7 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 function whp_get_list_tab()
 {
-    $result = [
+    return [
         [
             'slug' => 'mb-wphelper-contact',
             'title' => __('Kênh liên hệ', 'whp'),
@@ -12,46 +13,51 @@ function whp_get_list_tab()
             'slug' => 'mb-wphelper-code',
             'title' => __('Header & Footer', 'whp'),
             'callback' => 'whp_code',
-            'desc' => __('Trong quá trình vận hành trang web, sẽ có lúc bạn <strong>cần thêm một số đoạn code vào</strong> trong <strong>trang WordPress</strong> của mình <strong>để phục vụ cho công việc</strong> như: Google Analytics, Google Search Console.Nhưng bạn là người mới đôi khi sẽ không biết làm như thế nào. <strong>Tính năng Header &amp; Footer</strong> giúp bạn làm mọi thứđơn giản hơn, chỉ cần <strong>sao chép và dán đoạn code vào đoạn script</strong> phù hợp là hoàn tất.', 'whp'),
+            'desc' => __('Dễ dàng chèn các đoạn mã theo dõi, xác minh và tích hợp dịch vụ vào Header hoặc Footer website WordPress như Google Analytics, Google Search Console, Facebook Pixel, Google Tag Manager... mà không cần can thiệp vào mã nguồn.', 'whp'),
+        ],
+        [
+            'slug' => 'mb-wphelper-pop-up',
+            'title' => __('Pop-up', 'whp'),
+            'callback' => 'whp_popup',
+            'desc' => __('Tính năng này sẽ hiện thị quảng cáo khi người dùng vừa truy cập.', 'whp'),
         ],
         [
             'slug' => 'mb-wphelper-smtp',
-            'title' => __('Cấu hình SMTP', 'whp'),
+            'title' => __('Email & Liên hệ', 'whp'),
             'callback' => 'whp_smtpSetting',
             'desc' => __('<p>Các website đều có phần gửi mail khi có người liên hệ hoặc khi có đơn hàng mới, nhưng <strong>không phải Hosting</strong> nào cũng <strong>cho phép người dùng gửi</strong> mail thông qua hàm <strong>PHP</strong> hay gửi <strong>SMTP mail theo tên miền.</strong></p>
             <p>Tính năng <strong>SMTP mail</strong> cho phép người dùng có thể <strong>cấu hình việc gửi mail</strong> dễ dàng, nhanh chóng và không tốn chi phí.</p>
             <a href="https://wiki.matbao.net/kb/thong-tin-smtp-gmail-cach-cau-hinh-smtp-gmail-free-vao-wordpress/" target="_blank">Xem hướng dẫn cài đặt</a>', 'whp')
         ],
         [
-            'slug' => 'mb-wphelper-security',
-            'title' => __('Bảo mật', 'whp'),
-            'callback' => 'whp_security',
-            'desc' => __('<p>Tăng cường bảo mật trang web WordPress là cần thiết và rất quan trọng. Ngày nay số lượng trang web sửa dụng WordPress ngày càng nhiều điều này cũng đồng nghĩa với việc thu hút các hacker tập trung tấn công vào miếng mồi ngon này.</p><p>
-            Tính năng Bảo mật của chúng tôi sẽ giúp bạn gia cố thêm lớp bảo vệ cho trang web WordPress của bạn được đảm bảo an toàn hơn.</p>', 'whp')
+            'slug' => 'mb-wphelper-woocommerce-advance',
+            'title' => __('Cửa hàng nâng cao', 'whp'),
+            'callback' => 'whp_woocommerce_advance',
+            'desc' => __('Chức năng nâng cao, giúp tối ưu cho cửa hàng của bạn', 'whp'),
+        ],
+        [
+            'slug' => 'mb-wphelper-ai',
+            'title' => __('AI Hub', 'whp'),
+            'callback' => 'whp_ai_auto_poster',
+            'desc' => __('Tính năng hỗ trợ soạn thảo nội dung, quét bảo mật, tối ưu SEO bằng trí tuệ nhân tạo.', 'whp'),
         ],
         [
             'slug' => 'mb-wphelper-extention',
-            'title' => __('Tiện ích mở rộng', 'whp'),
-            'callback' => 'whp_extention',
-            'desc' => __('Thêm nhiều tính năng hơn giúp cải thiện trang WordPress của bạn.', 'whp'),
+            'title' => __('Bảo vệ & Tối ưu', 'whp'),
+            'callback' => 'whp_security_extention',
+            'desc' => __('Quản lý các công cụ bảo mật, tối ưu hiệu suất và tùy chỉnh quản trị cho website của bạn.', 'whp'),
         ],
+    ];
+}
+
+function whp_get_woo_tab()
+{
+    return [
         [
-            'slug' => 'mb-wphelper-woocommerce-cta',
-            'title' => __('Nút mua hàng (CTA)', 'whp'),
-            'callback' => 'whp_woocommerce_cta',
-            'desc' => __('<p>Bằng việc thay đổi nội dung và cài đặt khác của nút mua hàng sẽ thu hút khách hàng tốt hơn dẫn đến việc bán hàng của bạn sẽ hiệu quả hơn.</p>', 'whp'),
-        ],
-        [
-            'slug' => 'mb-wphelper-woocommerce-ecommerce',
-            'title' => __('Liên kết với sàn TMDT', 'whp'),
-            'callback' => 'whp_woocommerce_ecommerce',
-            'desc' => __('<p>Tính năng này cho phép bạn tạo đường dẫn cho sản phẩm đã được đăng ở các sàn thương mại điện tử: Shopee, Lazada, Tiki, Sendo.</p>', 'whp'),
-        ],
-        [
-            'slug' => 'mb-wphelper-woocommerce-payment',
-            'title' => __('Mẫu thông tin thanh toán', 'whp'),
-            'callback' => 'whp_woocommerce_payment',
-            'desc' => __('Điều chỉnh mẫu thông tin để việc quản lý CRM hiệu quả hơn.', 'whp'),
+            'slug' => 'mb-wphelper-woocommerce-advance',
+            'title' => __('Cửa hàng nâng cao', 'whp'),
+            'callback' => 'whp_woocommerce_advance',
+            'desc' => __('Chức năng nâng cao, giúp tối ưu cho cửa hàng của bạn', 'whp'),
         ],
         [
             'slug' => 'mb-wphelper-woocommerce-wallet',
@@ -60,37 +66,24 @@ function whp_get_list_tab()
             'desc' => __('<p>Tính năng cho phép bạn <strong>cài đặt thêm</strong> phần <strong>hình thức thanh toán</strong> trên trang web bằng các ví điện tử (Momo, ZaloPay, VNPay, ShopeePay) một cách đơn giản và nhanh chóng.</p>', 'whp'),
         ],
         [
-            'slug' => 'mb-wphelper-woocommerce-advance',
-            'title' => __('Tùy chỉnh cửa hàng nâng cao', 'whp'),
-            'callback' => 'whp_woocommerce_advance',
-            'desc' => __('Chức năng nâng cao, giúp tối ưu cho cửa hàng của bạn', 'whp'),
+            'slug' => 'mb-wphelper-woocommerce-payment',
+            'title' => __('Mẫu thông tin thanh toán', 'whp'),
+            'callback' => 'whp_woocommerce_payment',
+            'desc' => __('Điều chỉnh mẫu thông tin để việc quản lý CRM hiệu quả hơn.', 'whp'),
         ],
-         [
-             'slug' => 'mb-wphelper-maintenance',
-             'title' => __('Bảo trì', 'whp'),
-             'callback' => 'whp_maintenance',
-             'desc' => __('Tính năng này sẽ chặn người dùng truy cập khi website nâng cấp, sửa lỗi.', 'whp'),
-         ],
         [
-            'slug' => 'mb-wphelper-pop-up',
-            'title' => __('Pop-up', 'whp'),
-            'callback' => 'whp_popup',
-            'desc' => __('Tính năng này sẽ hiện thị quảng cáo khi người dùng vừa truy cập.', 'whp'),
+            'slug' => 'mb-wphelper-woocommerce-ecommerce',
+            'title' => __('Liên kết với sàn TMDT', 'whp'),
+            'callback' => 'whp_woocommerce_ecommerce',
+            'desc' => __('<p>Tính năng này cho phép bạn tạo đường dẫn cho sản phẩm đã được đăng ở các sàn thương mại điện tử: Shopee, Lazada, Tiki, Sendo.</p>', 'whp'),
         ],
-        // [
-        //     'slug' => 'mb-wphelper-reponsive',
-        //     'title' => __('Reponsive', 'whp'),
-        //     'callback' => 'whp_reponsive',
-        //     'desc' => __('Tính năng này giúp bạn tùy chỉnh giao diện cho phù hợp với trên các loại thiết bị khác nhau.', 'whp'),
-        // ],
-        // [
-        //     'slug' => 'mb-wphelper-filter-sidebar',
-        //     'title' => __('Tùy biến bộ lọc sản phẩm', 'whp'),
-        //     'callback' => 'whp_filter_sidebar',
-        //     'desc' => __('Tính năng này giúp bạn tùy chỉnh bộ lọc sản phẩm.', 'whp'),
-        // ],
+        [
+            'slug' => 'mb-wphelper-woocommerce-cta',
+            'title' => __('Nút mua hàng (CTA)', 'whp'),
+            'callback' => 'whp_woocommerce_cta',
+            'desc' => __('<p>Bằng việc thay đổi nội dung và cài đặt khác của nút mua hàng sẽ thu hút khách hàng tốt hơn dẫn đến việc bán hàng của bạn sẽ hiệu quả hơn.</p>', 'whp'),
+        ],
     ];
-    return $result;
 }
 function whp_get_shared($name)
 {
@@ -117,8 +110,10 @@ function whp_check_option()
 {
     $optionOld = get_option('mbwp_helper', []);
     $optionNew = get_option('whp_setting', []);
-    $result = $optionNew ? "new" : "old";
-    return $result;
+    // Fresh install: cả 2 đều empty → dùng "new" (tránh load old path trả về integer 0)
+    if ( ! empty( $optionNew ) ) return 'new';
+    if ( ! empty( $optionOld ) ) return 'old';
+    return 'new';
 }
 
 function whp_get_option($key = '')
@@ -183,6 +178,11 @@ function sanitize_data($data)
     $params = [];
     $keyCodes = ['whp_code_header', 'whp_code_body', 'whp_code_footer'];
     $key_code_editor = ['whp_popup_mail_template'];
+    // Channel fields requiring specific format validation
+    $url_fields   = ['whp_contact_other_facebook','whp_contact_other_facebook_page',
+                     'whp_woo_thankyou_contact_fb_val','whp_woo_thankyou_contact_msg_val'];
+    $email_fields = ['whp_contact_other_email','whp_woo_thankyou_contact_email_val'];
+    $phone_fields = ['whp_contact_other_zalo','whp_woo_thankyou_contact_zalo_val'];
     foreach ($data as $key => $item) {
         if (is_array($item)) {
             $params[$key] = sanitize_array($item);
@@ -191,7 +191,17 @@ function sanitize_data($data)
         } elseif (in_array($key, $key_code_editor)) {
             $params[$key] = $item;
         } else {
-            $params[$key] = sanitize_text_field($item);
+            $val = sanitize_text_field($item);
+            if ($val !== '') {
+                if (in_array($key, $url_fields) && !preg_match('#^https?://.{3,}#', $val)) {
+                    $val = '';
+                } elseif (in_array($key, $email_fields) && !is_email($val)) {
+                    $val = '';
+                } elseif (in_array($key, $phone_fields) && !preg_match('/^(\+84|0)\d{8,10}$/', $val)) {
+                    $val = '';
+                }
+            }
+            $params[$key] = $val;
         }
     }
     return $params;
@@ -382,24 +392,24 @@ function whp_get_list_wallet()
 {
     $result = [
         'momo' => [
-            'title' => 'Momo',
+            'title' => 'MoMo',
             'url' =>  MB_WHP_URL . "/assets/admin/images/logo-momo.svg",
-            'desc' => __('<a href="#" target="_blank">Hướng dẫn</a> cài đặt thanh toán bằng MoMo.  ', 'whp'),
+            'desc' => __('Thanh toán nhanh chóng bằng ví điện tử MoMo, giao dịch an toàn và bảo mật.', 'whp'),
         ],
         'zalopay' => [
-            'title' => 'Zalo Pay',
+            'title' => 'ZaloPay',
             'url' =>  MB_WHP_URL . "/assets/admin/images/zalopay.svg",
-            'desc' => __('<a href="#" target="_blank">Hướng dẫn</a> cài đặt thanh toán bằng Zalo Pay.  ', 'whp'),
+            'desc' => __('Quét mã QR hoặc thanh toán trực tiếp qua ứng dụng ZaloPay.', 'whp'),
         ],
         'vnpay' => [
-            'title' => 'VN Pay',
+            'title' => 'VNPay',
             'url' =>  MB_WHP_URL . "/assets/admin/images/vnpay.svg",
-            'desc' => __('<a href="#" target="_blank">Hướng dẫn</a> cài đặt thanh toán bằng VNPAY.  ', 'whp'),
+            'desc' => __('Thanh toán qua QR Code hoặc thẻ ATM, Internet Banking của các ngân hàng hỗ trợ.', 'whp'),
         ],
         'shopeepay' => [
-            'title' => 'Shopee Pay',
+            'title' => 'ShopeePay',
             'url' =>  MB_WHP_URL . "/assets/admin/images/shopeepay.svg",
-            'desc' => __('<a href="#" target="_blank">Hướng dẫn</a> cài đặt thanh toán bằng Shopee Pay.  ', 'whp'),
+            'desc' => __('Thanh toán tiện lợi bằng ví ShopeePay với nhiều ưu đãi hấp dẫn.', 'whp'),
         ],
     ];
     return $result;
@@ -420,6 +430,18 @@ function whp_get_contact_fields()
         'whp_contact_other_facebook',
         'whp_contact_other_zalo',
         'whp_contact_other_facebook_page',
+        'whp_contact_online_status_text',
+        'whp_contact_phone_btn_text',
+        'whp_contact_other_zalo_active',
+        'whp_contact_other_facebook_active',
+        'whp_contact_other_messenger_active',
+        'whp_contact_other_email_active',
+        'whp_contact_bottom_distance',
+        'whp_contact_popup_effect',
+        'whp_contact_display_desktop',
+        'whp_contact_display_mobile',
+        'whp_contact_phone_cta_note',
+        'whp_contact_phone_cta_note_offline',
     ];
     return $result;
 }
@@ -435,7 +457,8 @@ function whp_get_smtp_fields()
         'whp_smtp_port',
         'whp_smtp_user',
         'whp_smtp_password',
-        'whp_smtp_email_receive'
+        'whp_smtp_email_receive',
+        'whp_smtp_auth'
     ];
     return $result;
 }
@@ -464,11 +487,12 @@ function whp_get_extention_fields()
         'whp_extention_remove_query_string',
         'whp_extention_disbale_wp_embeds',
         'whp_extention_disbale_google_fonts',
+        'whp_extention_disable_heartbeat_frontend',
+        'whp_extention_heartbeat_limit_admin',
         'whp_extention_disbale_dashicons',
         'whp_extention_custom_login_theme',
         'whp_extention_custom_login_logo',
         'whp_extention_custom_link',
-        'whp_extention_filter_order_by_phone',
         'whp_extention_svg'
     ];
     return $result;
@@ -521,12 +545,81 @@ function whp_get_woo_advance_fields()
         'whp_woocommerce_advance_enable_notice',
         'whp_woocommerce_advance_enable_vat',
         'whp_woocommerce_advance_enable_compact_desc',
-        'whp_woocommerce_advance_enable_notify_telegram',
-        'whp_woocommerce_advance_telegram_token',
-        'whp_woocommerce_advance_telegram_chatid',
+        'whp_extention_filter_order_by_phone',
     ];
     return $result;
 }
+function whp_get_woo_thankyou_fields()
+{
+    return [
+        'whp_woo_thankyou_enable',
+        'whp_woo_thankyou_layout',
+        'whp_woo_thankyou_color',
+        'whp_woo_thankyou_color_custom',
+        'whp_woo_thankyou_show_timeline',
+        'whp_woo_thankyou_show_qr_large',
+        'whp_woo_thankyou_copy_account',
+        'whp_woo_thankyou_copy_content',
+        'whp_woo_thankyou_show_support_btn',
+        'whp_woo_thankyou_countdown_enable',
+        'whp_woo_thankyou_countdown_minutes',
+        'whp_woo_thankyou_btn_continue',
+        'whp_woo_thankyou_btn_contact',
+        'whp_woo_thankyou_btn_view_order',
+        'whp_woo_thankyou_btn_invoice',
+        'whp_woo_thankyou_trust_badges',
+        'whp_woo_thankyou_transfer_btn',
+        'whp_woo_thankyou_transfer_email',
+        'whp_woo_thankyou_font',
+        'whp_woo_thankyou_radius',
+        'whp_woo_thankyou_shadow',
+        'whp_woo_thankyou_spacing',
+        'whp_woo_thankyou_color2',
+        'whp_woo_thankyou_bg',
+        'whp_woo_thankyou_contact_zalo_en',
+        'whp_woo_thankyou_contact_zalo_val',
+        'whp_woo_thankyou_contact_fb_en',
+        'whp_woo_thankyou_contact_fb_val',
+        'whp_woo_thankyou_contact_msg_en',
+        'whp_woo_thankyou_contact_msg_val',
+        'whp_woo_thankyou_contact_email_en',
+        'whp_woo_thankyou_contact_email_val',
+    ];
+}
+function whp_get_aipay_fields()
+{
+    return [
+        // General config
+        'whp_aipay_enable',
+        'whp_aipay_ocr_enable',
+        'whp_aipay_fraud_enable',
+        'whp_aipay_copilot_enable',
+        'whp_aipay_openai_key',
+        'whp_aipay_gemini_key',
+        // Email notifications
+        'whp_aipay_email_address',
+        'whp_aipay_email_new_order',
+        'whp_aipay_email_transfer',
+        'whp_aipay_email_risk',
+        'whp_aipay_email_success',
+        // Telegram
+        'whp_aipay_telegram_token',
+        'whp_aipay_telegram_chat_id',
+        'whp_aipay_telegram_new_order',
+        'whp_aipay_telegram_transfer',
+        'whp_aipay_telegram_risk',
+        'whp_aipay_telegram_success',
+        // Discord
+        'whp_aipay_discord_webhook',
+        'whp_aipay_discord_new_order',
+        'whp_aipay_discord_transfer',
+        'whp_aipay_discord_risk',
+        // Custom webhook
+        'whp_aipay_webhook_url',
+        'whp_aipay_webhook_method',
+    ];
+}
+
 function whp_get_maintenance_fields()
 {
     $result = [
@@ -546,7 +639,10 @@ function whp_get_popup_fields()
 {
     $result = [
         'whp_popup_active',
+        'whp_popup_delay',
         'whp_popup_type',
+        'whp_popup_form_source',
+        'whp_popup_form_id',
         'whp_popup_title',
         'whp_popup_sub_title',
         'whp_popup_mail_template',
@@ -640,6 +736,14 @@ function whp_get_all_field()
     foreach ($fields as $field) {
         $params[$field] = $MB_WHP_Data_Old->woo_advance($field);
     }
+    #_woo_thankyou
+    foreach (whp_get_woo_thankyou_fields() as $field) {
+        $params[$field] = '';
+    }
+    #_aipay
+    foreach (whp_get_aipay_fields() as $field) {
+        $params[$field] = '';
+    }
     return $params;
 }
 function whp_get_icon($name)
@@ -665,6 +769,23 @@ function whp_get_setting($key)
     $result = $fieldNew != ""  ? $fieldNew : $fieldOld;
     return $result;
 }
+function whp_save_aipay_settings($posted_fields = [])
+{
+    if (empty($posted_fields)) {
+        $posted_fields = whp_get_aipay_fields();
+    }
+    $option = get_option('whp_setting', []);
+    foreach ($posted_fields as $field) {
+        if (isset($_POST[$field])) {
+            $option[$field] = sanitize_text_field($_POST[$field]);
+        } else {
+            // Unchecked checkboxes are absent from POST — set to empty
+            $option[$field] = '';
+        }
+    }
+    update_option('whp_setting', $option);
+}
+
 function whp_format_currency_vnd($number, $suffix = '')
 {
     if (!empty($number)) {

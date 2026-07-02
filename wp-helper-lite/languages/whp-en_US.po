@@ -1,0 +1,7139 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Helper Premium 4.7\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-30 00:00+0000\n"
+"PO-Revision-Date: 2026-06-30 00:00+0000\n"
+"Last-Translator: WP Helper Team <support@matbao.net>\n"
+"Language-Team: English (United States)\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: whp\n"
+"X-Generator: generate_po.py\n"
+
+msgid ""
+"<p>Bằng việc thay đổi nội dung và cài đặt khác của nút mua hàng sẽ thu hút "
+"khách hàng tốt hơn dẫn đến việc bán hàng của bạn sẽ hiệu quả hơn.</p>"
+msgstr ""
+"<p>By customizing the buy button content and settings, you can attract more "
+"customers and make your sales more effective.</p>"
+
+msgid ""
+"<p>Các website đều có phần gửi mail khi có người liên hệ hoặc khi có đơn hàng mới, nhưng <strong>không phải Hosting</strong> nào cũng <strong>cho phép người dùng gửi</strong> mail thông qua hàm <strong>PHP</strong> hay gửi <strong>SMTP mail theo tên miền.</strong></p>\n"
+"            <p>Tính năng <strong>SMTP mail</strong> cho phép người dùng có thể <strong>cấu hình việc gửi mail</strong> dễ dàng, nhanh chóng và không tốn chi phí.</p>\n"
+"            <a href=\"https://wiki.matbao.net/kb/thong-tin-smtp-gmail-cach-cau-hinh-smtp-gmail-free-vao-wordpress/\" target=\"_blank\">Xem hướng dẫn cài đặt</a>"
+msgstr ""
+"<p>All websites have email sending for contact forms or new orders, but <strong>not all Hosting</strong> providers <strong>allow users to send</strong> email via <strong>PHP</strong> functions or <strong>SMTP mail by domain.</strong></p>\n"
+"            <p>The <strong>SMTP mail</strong> feature allows users to <strong>configure email sending</strong> easily, quickly and at no cost.</p>\n"
+"            <a href=\"https://wiki.matbao.net/kb/thong-tin-smtp-gmail-cach-cau-hinh-smtp-gmail-free-vao-wordpress/\" target=\"_blank\">View setup guide</a>"
+
+msgid ""
+"<p>Tính năng cho phép bạn <strong>cài đặt thêm</strong> phần <strong>hình "
+"thức thanh toán</strong> trên trang web bằng các ví điện tử (Momo, ZaloPay, "
+"VNPay, ShopeePay) một cách đơn giản và nhanh chóng.</p>"
+msgstr ""
+"<p>This feature allows you to <strong>add</strong> <strong>payment "
+"methods</strong> to your website using e-wallets (Momo, ZaloPay, VNPay, "
+"ShopeePay) simply and quickly.</p>"
+
+msgid ""
+"<p>Tính năng này cho phép bạn tạo đường dẫn cho sản phẩm đã được đăng ở các "
+"sàn thương mại điện tử: Shopee, Lazada, Tiki, Sendo.</p>"
+msgstr ""
+"<p>This feature allows you to create links for products listed on e-commerce"
+" platforms: Shopee, Lazada, Tiki, Sendo.</p>"
+
+msgid "AI Copilot"
+msgstr "AI Copilot"
+
+msgid "AI Hub"
+msgstr "AI Hub"
+
+msgid "AI Thanh Toán"
+msgstr "AI Payment"
+
+msgid "AI Thanh Toán Premium"
+msgstr "AI Payment Premium"
+
+msgid "AI cảnh báo thanh toán giả mạo hoặc biên lai chỉnh sửa."
+msgstr "AI alerts for fraudulent payments or edited receipts."
+
+msgid "AI tích hợp"
+msgstr "Integrated AI"
+
+msgid ""
+"Badge Thanh toán bảo mật, Đổi trả 30 ngày, Hỗ trợ 24/7 — tạo niềm tin với "
+"khách hàng."
+msgstr ""
+"Secure Payment Badge, 30-day Returns, 24/7 Support — building customer "
+"trust."
+
+msgid "Badge bảo mật và chính sách hoàn tiền tăng độ tin cậy đơn hàng."
+msgstr "Security badges and refund policies increase order credibility."
+
+msgid "Bo góc"
+msgstr "Border Radius"
+
+msgid "Bóng đổ"
+msgstr "Box Shadow"
+
+msgid "Bước 1 — Nhập API Key"
+msgstr "Step 1 — Enter API Key"
+
+msgid "Bước 2 — Bật module AI"
+msgstr "Step 2 — Enable AI Module"
+
+msgid "Bước 3 — Thông báo đa kênh"
+msgstr "Step 3 — Multi-channel Notifications"
+
+msgid "Bạn không có quyền thực hiện thao tác này."
+msgstr "You do not have permission to perform this action."
+
+msgid "Bảo vệ & Tối ưu"
+msgstr "Security & Optimization"
+
+msgid "Bật"
+msgstr "On"
+
+msgid "Bật Trust Badge"
+msgstr "Enable Trust Badge"
+
+msgid ""
+"Bật nút Tiếp tục mua hàng, Liên hệ hỗ trợ, Xem đơn hàng, Tải hoá đơn PDF — "
+"giúp khách hàng dễ thao tác tiếp theo."
+msgstr ""
+"Enable Continue Shopping, Contact Support, View Order, Download PDF Invoice "
+"buttons — helping customers with next steps."
+
+msgid ""
+"Bật nút copy STK và nội dung chuyển khoản — giúp khách hàng thực hiện CK "
+"đúng nhanh hơn, giảm hỗ trợ sau đặt."
+msgstr ""
+"Enable copy button for account number and transfer content — helps customers"
+" complete transfers accurately, reducing post-order support."
+
+msgid ""
+"Bật toggle \"Module AI\" và chọn tính năng cần dùng: OCR biên lai, Xác minh "
+"tức thì, Phát hiện gian lận."
+msgstr ""
+"Enable the \"AI Module\" toggle and select the features you need: Receipt "
+"OCR, Instant Verification, Fraud Detection."
+
+msgid "Bật trang cảm ơn tùy chỉnh"
+msgstr "Enable custom thank you page"
+
+msgid "Bật đếm ngược thanh toán"
+msgstr "Enable payment countdown"
+
+msgid "Bật đồng hồ đếm ngược"
+msgstr "Enable countdown timer"
+
+msgid "Bật/tắt và tùy chỉnh các kênh liên hệ hiển thị trong popup."
+msgstr "Enable/disable and customize contact channels shown in the popup."
+
+msgid "Cao cấp, đầy đủ"
+msgstr "Premium, full-featured"
+
+msgid "Cho phép khách thông báo đã chuyển khoản, admin nhận cảnh báo ngay"
+msgstr "Allow customers to notify payment completion, admin receives instant alert"
+"Allow customers to notify payment completion, admin receives instant alert"
+
+msgid "Chưa bật"
+msgstr "Not enabled"
+
+msgid "Chưa bật cổng ví điện tử nào"
+msgstr "No e-wallet gateway enabled"
+
+msgid "Chưa có API Key"
+msgstr "No API Key"
+
+msgid "Chưa cấu hình"
+msgstr "Not configured"
+
+msgid "Chưa kích hoạt"
+msgstr "Not activated"
+
+msgid "Chọn giao diện"
+msgstr "Choose layout"
+
+msgid "Chọn kiểu hiển thị cho trang đơn hàng thành công"
+msgstr "Choose display style for the order confirmation page"
+
+msgid "Chức năng nâng cao, giúp tối ưu cho cửa hàng của bạn"
+msgstr "Advanced features to optimize your store"
+
+msgid "Classic"
+msgstr "Classic"
+
+msgid "Countdown thanh toán"
+msgstr "Payment Countdown"
+
+msgid "Cài đặt AI"
+msgstr "AI Settings"
+
+msgid "Cài đặt chung trang cảm ơn"
+msgstr "Thank You Page General Settings"
+
+msgid "Cá nhân hóa giao diện"
+msgstr "Personalize Interface"
+
+msgid "Các nút CTA hiển thị trên trang cảm ơn sau đặt hàng"
+msgstr "CTA buttons displayed on the thank you page after ordering"
+
+msgid "Các thay đổi sẽ được áp dụng ngay sau khi lưu."
+msgstr "Changes will be applied immediately after saving."
+
+msgid "Cấu hình QR và chuyển khoản"
+msgstr "QR and Bank Transfer Configuration"
+
+msgid "Cấu hình nhanh"
+msgstr "Quick Setup"
+
+msgid "Cấu hình ví điện tử"
+msgstr "E-wallet Configuration"
+
+msgid "Cập nhật cài đặt thành công"
+msgstr "Settings updated successfully"
+
+msgid "Cửa hàng nâng cao"
+msgstr "Advanced Store"
+
+msgid "Desktop"
+msgstr "Desktop"
+
+msgid "Discord, Webhook, Email — nhận ngay khi có CK."
+msgstr "Discord, Webhook, Email — get notified instantly on payment."
+
+msgid "Dùng QR code lớn"
+msgstr "Use large QR code"
+
+msgid "Dẫn khách quay lại cửa hàng để tiếp tục mua sắm"
+msgstr "Direct customers back to the store to continue shopping"
+
+msgid "Dẫn khách tới trang chi tiết đơn hàng trong tài khoản"
+msgstr "Direct customers to the order details page in their account"
+
+msgid ""
+"Dễ dàng chèn các đoạn mã theo dõi, xác minh và tích hợp dịch vụ vào Header "
+"hoặc Footer website WordPress như Google Analytics, Google Search Console, "
+"Facebook Pixel, Google Tag Manager... mà không cần can thiệp vào mã nguồn."
+msgstr ""
+"Easily insert tracking, verification and service integration code into your "
+"WordPress website Header or Footer such as Google Analytics, Google Search "
+"Console, Facebook Pixel, Google Tag Manager... without touching the source "
+"code."
+
+msgid "Email & Liên hệ"
+msgstr "Email & Contact"
+
+msgid "Giao diện"
+msgstr "Interface"
+
+msgid "Giới hạn thời gian chuyển khoản tăng tỉ lệ hoàn tất đơn."
+msgstr "Limiting transfer time increases order completion rate."
+
+msgid "Gọn gàng, tối giản"
+msgstr "Clean, minimalist"
+
+msgid "Gửi email tới admin khi khách xác nhận đã chuyển"
+msgstr "Send email to admin when customer confirms payment"
+
+msgid "Header & Footer"
+msgstr "Header & Footer"
+
+msgid "Hiển thị QR lớn"
+msgstr "Display large QR"
+
+msgid ""
+"Hiển thị badge bảo mật thanh toán, chính sách hoàn trả, hỗ trợ 24/7 — tăng "
+"độ tin cậy ngay sau khi đặt hàng."
+msgstr ""
+"Display secure payment badge, return policy, 24/7 support — increase "
+"credibility right after ordering."
+
+msgid "Hiển thị bộ đếm ngược thời gian thanh toán"
+msgstr "Display payment countdown timer"
+
+msgid "Hiển thị các badge bảo mật và chính sách để tạo niềm tin"
+msgstr "Display security badges and policies to build trust"
+
+msgid "Hiển thị nút \"Tôi đã chuyển khoản\""
+msgstr "Display \"I have transferred\" button"
+
+msgid "Hiển thị nút liên hệ nhanh khi khách gặp sự cố"
+msgstr "Display quick contact button when customers have issues"
+
+msgid "Hiển thị timeline tiến trình xử lý đơn hàng"
+msgstr "Display order processing timeline"
+
+msgid ""
+"Hiển thị timeline tiến trình đơn hàng: Đặt hàng → Xác nhận → Vận chuyển → "
+"Giao hàng."
+msgstr ""
+"Display order timeline: Order Placed → Confirmed → Shipping → Delivered."
+
+msgid "Hiển thị timeline đơn hàng"
+msgstr "Display order timeline"
+
+msgid ""
+"Hiển thị tiến trình: Đặt hàng → Xác nhận → Vận chuyển → Giao hàng. Tăng niềm"
+" tin của khách sau khi đặt."
+msgstr ""
+"Display progress: Order Placed → Confirmed → Shipping → Delivered. Builds "
+"customer trust after ordering."
+
+msgid "Hiển thị trust badges"
+msgstr "Display trust badges"
+
+msgid "Hiện đại, card-based"
+msgstr "Modern, card-based"
+
+msgid "Hành động khách hàng"
+msgstr "Customer Actions"
+
+msgid "Hành động khách hàng (CTA)"
+msgstr "Customer Actions (CTA)"
+
+msgid "Hướng dẫn"
+msgstr "Guide"
+
+msgid "Hướng dẫn sử dụng"
+msgstr "User Guide"
+
+msgid ""
+"Khi khách bấm \"Tôi đã chuyển khoản\": hệ thống ghi chú trên đơn hàng và tùy"
+" chọn gửi Email tới admin."
+msgstr ""
+"When customer clicks \"I have transferred\": the system adds a note to the "
+"order and optionally sends an Email to admin."
+
+msgid "Khoảng cách"
+msgstr "Spacing"
+
+msgid "Khám phá"
+msgstr "Explore"
+
+msgid "Khối tin cậy (Trust Badges)"
+msgstr "Trust Badges Block"
+
+msgid "Kiểu chữ"
+msgstr "Typography"
+
+msgid "Kênh liên hệ"
+msgstr "Contact Channels"
+
+msgid "Kích hoạt AI Thanh Toán theo thứ tự 3 bước"
+msgstr "Activate AI Payment in 3 steps"
+
+msgid ""
+"Kết nối Discord webhook hoặc Email để nhận cảnh báo ngay khi AI phát hiện "
+"chuyển khoản hoặc gian lận."
+msgstr ""
+"Connect Discord webhook or Email to receive instant alerts when AI detects "
+"payment transfers or fraud."
+
+msgid "Link chuyển hướng"
+msgstr "Redirect Link"
+
+msgid "Liên kết nhanh tới trang liên hệ hoặc chat hỗ trợ"
+msgstr "Quick link to contact page or support chat"
+
+msgid "Liên kết với sàn TMDT"
+msgstr "Link to E-commerce Platforms"
+
+msgid "Logo & Tiêu đề trang"
+msgstr "Logo & Page Title"
+
+msgid "Lưu thay đổi cài đặt"
+msgstr "Save Settings"
+
+msgid "Lưu thông tin"
+msgstr "Save Settings"
+
+msgid "Lọc theo số điện thoại"
+msgstr "Filter by phone number"
+
+msgid "Mobile"
+msgstr "Mobile"
+
+msgid "Modern"
+msgstr "Modern"
+
+msgid "Module AI"
+msgstr "AI Module"
+
+msgid "Màu chủ đạo"
+msgstr "Primary Color"
+
+msgid "Màu chủ đạo, màu phụ và màu nền trang cảm ơn"
+msgstr "Primary color, secondary color and background color of the thank you page"
+"Primary color, secondary color and background color of the thank you page"
+
+msgid "Màu nền"
+msgstr "Background Color"
+
+msgid "Màu phụ"
+msgstr "Secondary Color"
+
+msgid "Màu sắc & Banner"
+msgstr "Colors & Banner"
+
+msgid "Màu sắc, banner, logo, layout trang cảm ơn"
+msgstr "Colors, banner, logo, layout of the thank you page"
+
+msgid ""
+"Mã QR chỉ hiển thị khi khách thanh toán qua một ví điện tử (MoMo, ZaloPay, "
+"VNPAY, ShopeePay) đã được bật và cấu hình ảnh QR. Hãy bật và cấu hình ví "
+"trước."
+msgstr ""
+"QR code only displays when customers pay via an e-wallet (MoMo, ZaloPay, "
+"VNPAY, ShopeePay) that has been enabled and configured with a QR image. "
+"Please enable and configure the wallet first."
+
+msgid "Mẫu thông tin thanh toán"
+msgstr "Payment Information Template"
+
+msgid "Mẹo tối ưu trang cảm ơn"
+msgstr "Thank You Page Optimization Tips"
+
+msgid "Nhập email"
+msgstr "Enter email"
+
+msgid "Nhập link Facebook"
+msgstr "Enter Facebook link"
+
+msgid "Nhập link Messenger"
+msgstr "Enter Messenger link"
+
+msgid "Nhập số Zalo"
+msgstr "Enter Zalo number"
+
+msgid "Nâng cao"
+msgstr "Advanced"
+
+msgid "Nâng cấp AI Premium"
+msgstr "Upgrade AI Premium"
+
+msgid "Nâng cấp ngay"
+msgstr "Upgrade Now"
+
+msgid "Nút Liên hệ hỗ trợ"
+msgstr "Contact Support Button"
+
+msgid "Nút Tiếp tục mua hàng"
+msgstr "Continue Shopping Button"
+
+msgid ""
+"Nút Tiếp tục mua hàng và Liên hệ hỗ trợ — giữ chân khách và tăng tỉ lệ mua "
+"tiếp theo."
+msgstr ""
+"Continue Shopping and Contact Support buttons — retains customers and "
+"increases repeat purchase rate."
+
+msgid "Nút Tải hóa đơn PDF"
+msgstr "Download PDF Invoice Button"
+
+msgid "Nút Xem chi tiết đơn hàng"
+msgstr "View Order Details Button"
+
+msgid "Nút hành động"
+msgstr "Action Button"
+
+msgid "Nút hành động (CTA)"
+msgstr "Action Buttons (CTA)"
+
+msgid "Nút liên hệ hỗ trợ thanh toán"
+msgstr "Payment Support Contact Button"
+
+msgid "Nút mua hàng (CTA)"
+msgstr "Buy Button (CTA)"
+
+msgid "Nút sao chép nhanh"
+msgstr "Quick Copy Button"
+
+msgid "Nút sao chép nội dung chuyển khoản"
+msgstr "Copy Transfer Content Button"
+
+msgid "Nút sao chép số tài khoản"
+msgstr "Copy Account Number Button"
+
+msgid "Nút đăng ký"
+msgstr "Register Button"
+
+msgid "OCR Biên lai"
+msgstr "Receipt OCR"
+
+msgid "OCR biên lai, xác minh tức thì, phát hiện gian lận"
+msgstr "Receipt OCR, instant verification, fraud detection"
+
+msgid ""
+"OCR không giới hạn, fraud score nâng cao, đối soát ngân hàng tự động và AI "
+"Copilot chuyên sâu."
+msgstr ""
+"Unlimited OCR, advanced fraud scoring, automatic bank reconciliation and in-"
+"depth AI Copilot."
+
+msgid ""
+"Panel \"Xem trước giao diện\" bên phải cập nhật ngay khi bạn thay đổi. "
+"Chuyển Desktop ↔ Mobile để kiểm tra responsive."
+msgstr ""
+"The \"Interface Preview\" panel on the right updates instantly as you make "
+"changes. Switch Desktop ↔ Mobile to check responsiveness."
+
+msgid "Phát hiện gian lận"
+msgstr "Fraud Detection"
+
+msgid "Phóng to mã QR để khách dễ quét hơn"
+msgstr "Zoom in QR code for easier customer scanning"
+
+msgid "Pop-up"
+msgstr "Pop-up"
+
+msgid "Premium Card"
+msgstr "Premium Card"
+
+msgid "Preview cập nhật khi bạn thay đổi cài đặt"
+msgstr "Preview updates as you change settings"
+
+msgid "QR Code chuyển khoản tự động"
+msgstr "Automatic Bank Transfer QR Code"
+
+msgid "QR Thanh toán"
+msgstr "Payment QR"
+
+msgid "QR Thanh toán nâng cao"
+msgstr "Advanced Payment QR"
+
+msgid "QR code, tài khoản ngân hàng, chuyển khoản"
+msgstr "QR code, bank account, bank transfer"
+
+msgid "QR kích thước lớn giúp khách quét nhanh trên mobile, giảm sai sót."
+msgstr "Large QR size helps customers scan quickly on mobile, reducing errors."
+"Large QR size helps customers scan quickly on mobile, reducing errors."
+
+msgid "QR lớn"
+msgstr "Large QR"
+
+msgid ""
+"QR tự động điền số tài khoản + số tiền đơn hàng. Khách chỉ cần quét và xác "
+"nhận — giảm sai sót nội dung CK."
+msgstr ""
+"QR automatically fills in account number + order amount. Customers just scan"
+" and confirm — reducing transfer content errors."
+
+msgid "Quét mã QR hoặc thanh toán trực tiếp qua ứng dụng ZaloPay."
+msgstr "Scan QR code or pay directly via the ZaloPay app."
+
+msgid ""
+"Quản lý các công cụ bảo mật, tối ưu hiệu suất và tùy chỉnh quản trị cho "
+"website của bạn."
+msgstr ""
+"Manage security tools, optimize performance and customize admin settings for"
+" your website."
+
+msgid "Sao chép nhanh nội dung chuyển khoản (mã đơn hàng)"
+msgstr "Quick copy transfer content (order code)"
+
+msgid ""
+"Sau khi hết thời gian, đơn hàng có thể tự động hủy nếu chưa thanh toán."
+msgstr ""
+"After the time expires, the order may be automatically cancelled if unpaid."
+
+msgid "So khớp số tiền và nội dung CK với đơn hàng trong &lt; 5 giây."
+msgstr "Match amount and transfer content with the order in &lt; 5 seconds."
+
+msgid "Số điện thoại"
+msgstr "Phone Number"
+
+msgid "Tablet"
+msgstr "Tablet"
+
+msgid "Thanh toán"
+msgstr "Payment"
+
+msgid "Thanh toán bằng ví điện tử"
+msgstr "Pay with E-wallet"
+
+msgid ""
+"Thanh toán nhanh chóng bằng ví điện tử MoMo, giao dịch an toàn và bảo mật."
+msgstr "Pay quickly with MoMo e-wallet, secure and safe transactions."
+
+msgid ""
+"Thanh toán qua QR Code hoặc thẻ ATM, Internet Banking của các ngân hàng hỗ "
+"trợ."
+msgstr "Pay via QR Code or ATM cards, Internet Banking of supported banks."
+
+msgid "Thanh toán tiện lợi bằng ví ShopeePay với nhiều ưu đãi hấp dẫn."
+msgstr "Convenient payment with ShopeePay wallet with many attractive offers."
+
+msgid "Thanh trạng thái đơn hàng"
+msgstr "Order Status Bar"
+
+msgid "Thanh trạng thái: Đặt hàng → Xác nhận → Vận chuyển → Giao hàng"
+msgstr "Status Bar: Order Placed → Confirmed → Shipping → Delivered"
+
+msgid "Thao tác nhanh"
+msgstr "Quick Actions"
+
+msgid ""
+"Thay thế trang cảm ơn WooCommerce mặc định bằng giao diện tùy chỉnh chuyên "
+"nghiệp."
+msgstr ""
+"Replace the default WooCommerce thank you page with a professional custom "
+"interface."
+
+msgid "Thêm dải badge bảo mật, chính sách hoàn trả, hỗ trợ 24/7"
+msgstr "Add security badge strip, return policy, 24/7 support"
+
+msgid "Thêm nút copy số tài khoản ngân hàng"
+msgstr "Add bank account number copy button"
+
+msgid "Thêm nút để khách xác nhận đã thanh toán"
+msgstr "Add button for customers to confirm payment"
+
+msgid "Thông báo & Email"
+msgstr "Notifications & Email"
+
+msgid "Thông báo qua Email"
+msgstr "Email Notification"
+
+msgid "Thông báo đa kênh"
+msgstr "Multi-channel Notifications"
+
+msgid "Thông tin tài khoản ngân hàng"
+msgstr "Bank Account Information"
+
+msgid "Thời gian giới hạn"
+msgstr "Time Limit"
+
+msgid "Timeline đơn hàng"
+msgstr "Order Timeline"
+
+msgid "Timeline, nút CTA, thông báo, hóa đơn VAT"
+msgstr "Timeline, CTA buttons, notifications, VAT invoice"
+
+msgid "Tinh chỉnh kiểu chữ, bo góc, bóng đổ và khoảng cách"
+msgstr "Fine-tune typography, border radius, box shadow and spacing"
+
+msgid "Tiêu đề phụ"
+msgstr "Subtitle"
+
+msgid "Tiêu đề pop-up"
+msgstr "Pop-up Title"
+
+msgid ""
+"Toggle đầu tiên trong Tổng quan — bật để kích hoạt toàn bộ tính năng thay "
+"thế trang mặc định WooCommerce."
+msgstr ""
+"First toggle in Overview — enable to activate all features replacing the "
+"default WooCommerce page."
+
+msgid "Trang đơn hàng thành công"
+msgstr "Order Success Page"
+
+msgid "Trust Badge"
+msgstr "Trust Badge"
+
+msgid "Trust Badges"
+msgstr "Trust Badges"
+
+msgid "Trình soạn thảo văn bản"
+msgstr "Text Editor"
+
+msgid "Trích xuất tự động thông tin từ ảnh biên lai chuyển khoản."
+msgstr "Automatically extract information from bank transfer receipt images."
+
+msgid "Trạng thái module"
+msgstr "Module Status"
+
+msgid "Trợ lý AI phân tích xu hướng thanh toán và gợi ý tối ưu."
+msgstr "AI assistant analyzes payment trends and suggests optimizations."
+
+msgid "Tài liệu từng tab — giúp bạn cấu hình trang cảm ơn nhanh và đúng."
+msgstr "Documentation for each tab — helps you configure the thank you page quickly and correctly."
+"Documentation for each tab — helps you configure the thank you page quickly "
+"and correctly."
+
+msgid ""
+"Tính năng hỗ trợ soạn thảo nội dung, quét bảo mật, tối ưu SEO bằng trí tuệ "
+"nhân tạo."
+msgstr ""
+"Feature supporting content editing, security scanning, SEO optimization "
+"using artificial intelligence."
+
+msgid ""
+"Tính năng này cho phép cài đặt các popup trên trang web của bạn để khách "
+"hàng có thể tương tác trực tiếp hỏi về sản phẩm."
+msgstr ""
+"This feature allows you to set up popups on your website so customers can "
+"directly interact and ask about products."
+
+msgid "Tính năng này sẽ hiện thị quảng cáo khi người dùng vừa truy cập."
+msgstr "This feature displays advertisements when users first visit."
+
+msgid "Tính năng tối ưu chuyển đổi"
+msgstr "Conversion Optimization Feature"
+
+msgid "Tùy chỉnh"
+msgstr "Customize"
+
+msgid "Tùy chỉnh chi tiết"
+msgstr "Detailed Customization"
+
+msgid "Tùy chỉnh giao diện trang cảm ơn"
+msgstr "Customize Thank You Page"
+
+msgid ""
+"Tùy chỉnh màu nền, màu chủ đạo và ảnh banner phù hợp nhận diện thương hiệu "
+"của shop."
+msgstr ""
+"Customize background color, primary color and banner image to match your "
+"shop brand identity."
+
+msgid "Tùy chỉnh màu sắc"
+msgstr "Customize Colors"
+
+msgid "Tùy chọn hiển thị và tương tác với mã QR chuyển khoản"
+msgstr "Display options and interaction with bank transfer QR code"
+
+msgid "Tắt"
+msgstr "Off"
+
+msgid "Tổng quan"
+msgstr "General"
+
+msgid ""
+"Tự động xác minh chuyển khoản, phát hiện gian lận và thông báo đa kênh với "
+"AI tích hợp."
+msgstr ""
+"Automatically verify transfers, detect fraud and send multi-channel "
+"notifications with integrated AI."
+
+msgid ""
+"Upload logo shop và đặt tiêu đề/phụ đề hiển thị trên banner. Nên dùng ảnh "
+"nền trắng hoặc trong suốt."
+msgstr ""
+"Upload your shop logo and set the title/subtitle displayed on the banner. "
+"Use white or transparent background images."
+
+msgid ""
+"Vào tab AI tích hợp → Cài đặt AI → nhập OpenAI hoặc Gemini API key. Đây là "
+"điều kiện bắt buộc để các tính năng AI hoạt động."
+msgstr ""
+"Go to Integrated AI tab → AI Settings → enter OpenAI or Gemini API key. This"
+" is a prerequisite for AI features to work."
+
+msgid "WP Helper"
+msgstr "WP Helper"
+
+msgid "WP Helper Premium"
+msgstr "WP Helper Premium"
+
+msgid "Xem trước Desktop / Mobile"
+msgstr "Preview Desktop / Mobile"
+
+msgid "Xem trước giao diện"
+msgstr "Preview"
+
+msgid "Xuất và tải xuống hóa đơn PDF của đơn hàng"
+msgstr "Export and download order PDF invoice"
+
+msgid ""
+"Xác minh chuyển khoản, phát hiện gian lận và thông báo đa kênh bằng AI."
+msgstr ""
+"Verify transfers, detect fraud and send multi-channel notifications with AI."
+
+msgid "Xác minh tức thì"
+msgstr "Instant Verification"
+
+msgid "Xác nhận chuyển khoản"
+msgstr "Confirm Transfer"
+
+msgid "nút đang bật"
+msgstr "button is active"
+
+msgid "Đang bật"
+msgstr "Enabled"
+
+msgid "Đang chạy"
+msgstr "Running"
+
+msgid "Đang hoạt động"
+msgstr "Active"
+
+msgid "Đang tắt"
+msgstr "Disabled"
+
+msgid "Đã bật chế độ bảo trì"
+msgstr "Maintenance mode enabled"
+
+msgid "Đã tắt chế độ bảo trì"
+msgstr "Maintenance mode disabled"
+
+msgid ""
+"Điền STK, tên chủ tài khoản, ngân hàng và nội dung chuyển khoản mặc định "
+"trong tab Thanh toán."
+msgstr ""
+"Enter account number, account holder name, bank and default transfer content"
+" in the Payment tab."
+
+msgid "Điều chỉnh mẫu thông tin để việc quản lý CRM hiệu quả hơn."
+msgstr "Adjust the information template for more effective CRM management."
+
+msgid "Đã cấu hình"
+msgstr "Configured"
+
+msgid "Đã kết nối"
+msgstr "Connected"
+
+msgid "Được gửi từ email"
+msgstr "Sent from email"
+
+msgid "Đếm ngược thời gian để tạo áp lực hoàn thành đơn."
+msgstr "Count down time to create urgency for order completion."
+
+msgid "Đổi"
+msgstr "Change"
+
+msgid "Đổi màu chủ đạo và banner khớp nhận diện thương hiệu shop."
+msgstr "Change primary color and banner to match shop brand identity."
+
+msgid "Lưu ý:"
+msgstr "Note:"
+
+msgid ""
+"Tính năng đang bật nhưng nếu chưa điền thông tin liên hệ (số điện thoại, "
+"Zalo, Messenger…), popup sẽ không hiển thị trên website."
+msgstr ""
+"The feature is enabled, but if contact information (phone number, Zalo, "
+"Messenger…) has not been filled in, the popup will not appear on the "
+"website."
+
+msgid "Lời chào"
+msgstr "Greeting"
+
+msgid "Tùy chỉnh nội dung hiển thị ở phần đầu của popup."
+msgstr "Customize the content displayed at the top of the popup."
+
+msgid "Đang online"
+msgstr "Online"
+
+msgid "Tiêu đề chính"
+msgstr "Main Title"
+
+msgid "Hỗ trợ trực tuyến"
+msgstr "Online Support"
+
+msgid "Mô tả ngắn"
+msgstr "Short Description"
+
+msgid "Chúng tôi luôn sẵn sàng hỗ trợ bạn"
+msgstr "We are always ready to assist you"
+
+msgid "Trạng thái online"
+msgstr "Online Status"
+
+msgid "Đang off"
+msgstr "Offline"
+
+msgid "Nút kích hoạt"
+msgstr "Launcher Button"
+
+msgid "Tùy chỉnh nút nổi hiển thị trên website."
+msgstr "Customize the floating button displayed on the website."
+
+msgid "Chọn màu nút"
+msgstr "Choose Button Color"
+
+msgid "Vị trí hiển thị"
+msgstr "Display Position"
+
+msgid "Bên trái"
+msgstr "Left"
+
+msgid "Bên phải"
+msgstr "Right"
+
+msgid "Hotline hỗ trợ"
+msgstr "Support Hotline"
+
+msgid ""
+"Hiển thị nút gọi điện và đội ngũ tư vấn giúp khách hàng liên hệ nhanh chóng."
+msgstr ""
+"Display a call button and advisor team to help customers get in touch "
+"quickly."
+
+msgid "Tiêu đề nút hotline"
+msgstr "Hotline Button Title"
+
+msgid "Ghi chú dưới nút Gọi Hotline (khi Online)"
+msgstr "Note below Call Hotline button (when Online)"
+
+msgid "Ghi chú dưới nút Gọi Hotline (khi Offline)"
+msgstr "Note below Call Hotline button (when Offline)"
+
+msgid "Danh sách nhân viên"
+msgstr "Staff List"
+
+msgid "* Chỉ hỗ trợ tối đa 3 nhân viên"
+msgstr "* Maximum 3 staff members supported"
+
+msgid "Thêm nhân viên"
+msgstr "Add Staff"
+
+msgid "Kênh liên hệ khác"
+msgstr "Other Contact Channels"
+
+msgid "Cài đặt hiển thị"
+msgstr "Display Settings"
+
+msgid "Tùy chỉnh các thiết lập hiển thị của popup."
+msgstr "Customize the display settings of the popup."
+
+msgid "Khoảng cách đẩy (px)"
+msgstr "Offset Distance (px)"
+
+msgid "Hiển thị trên Desktop"
+msgstr "Show on Desktop"
+
+msgid "Hiệu ứng mở popup"
+msgstr "Popup Animation"
+
+msgid "Hiển thị trên Mobile"
+msgstr "Show on Mobile"
+
+msgid "Xem trước popup"
+msgstr "Popup Preview"
+
+msgid "Đây là giao diện popup hiển thị trên website"
+msgstr "This is the popup interface displayed on the website"
+
+msgid "Chào bạn, chúng tôi có thể giúp gì?"
+msgstr "Hello, how can we help you?"
+
+msgid "Chọn kênh liên hệ phù hợp để được hỗ trợ nhanh nhất"
+msgstr "Choose the right contact channel for the fastest support"
+
+msgid "Hoặc liên hệ qua kênh"
+msgstr "Or contact via channel"
+
+msgid "Nhắn Zalo"
+msgstr "Message on Zalo"
+
+msgid "Chat ngay"
+msgstr "Chat Now"
+
+msgid "Ghé Fanpage"
+msgstr "Visit Fanpage"
+
+msgid "Gửi thư"
+msgstr "Send Email"
+
+msgid "Đội ngũ của chúng tôi sẽ phản hồi bạn trong thời gian sớm nhất! 👋"
+msgstr "Our team will respond to you as soon as possible! 👋"
+
+msgid ""
+"Lưu ý: Đây là bản xem trước, giao diện thực tế có thể khác nhau tùy theo "
+"giao diện website của bạn."
+msgstr ""
+"Note: This is a preview. The actual appearance may vary depending on your "
+"website theme."
+
+msgid "Hướng dẫn & Mẹo sử dụng"
+msgstr "Guide & Usage Tips"
+
+msgid "Tối ưu popup liên hệ cho website của bạn"
+msgstr "Optimize the contact popup for your website"
+
+msgid "Thêm ít nhất 1 nhân viên hotline"
+msgstr "Add at least 1 hotline staff member"
+
+msgid ""
+"Nút \"GỌI HOTLINE\" chỉ hoạt động khi có số điện thoại trong mục Hotline hỗ "
+"trợ."
+msgstr ""
+"The \"CALL HOTLINE\" button only works when a phone number is provided in "
+"the Support Hotline section."
+
+msgid "Bật kênh mạng xã hội phù hợp"
+msgstr "Enable the appropriate social media channels"
+
+msgid ""
+"Chỉ bật kênh bạn thực sự hoạt động để tránh gây nhầm lẫn cho khách hàng."
+msgstr "Only enable channels you actively use to avoid confusing customers."
+
+msgid "Đồng bộ màu nút với thương hiệu"
+msgstr "Sync button color with your brand"
+
+msgid ""
+"Màu nút nổi và header popup khớp nhau. Dùng màu chủ đạo của website để popup"
+" trông tự nhiên."
+msgstr ""
+"The floating button and popup header colors match. Use your website's "
+"primary color to make the popup look natural."
+
+msgid "Popup tự ẩn khi bảo trì"
+msgstr "Popup auto-hides during maintenance"
+
+msgid ""
+"Khi chế độ bảo trì đang bật, popup liên hệ tự động ẩn để tránh nhận yêu cầu "
+"hỗ trợ ngoài giờ."
+msgstr ""
+"When maintenance mode is active, the contact popup automatically hides to "
+"avoid receiving support requests off-hours."
+
+msgid "Chọn vị trí tránh chồng widget"
+msgstr "Choose position to avoid overlapping widgets"
+
+msgid ""
+"Nếu website có menu cố định góc phải, chọn \"Bên trái\" để tránh chồng chéo "
+"giao diện."
+msgstr ""
+"If your website has a fixed menu in the bottom-right corner, choose \"Left "
+"Side\" to avoid interface overlap."
+
+msgid "Các thay đổi sẽ áp dụng ngay sau khi lưu"
+msgstr "Changes will be applied immediately after saving"
+
+msgid "Chế độ bảo trì đang BẬT"
+msgstr "Maintenance Mode is ON"
+
+msgid "Kênh liên hệ sẽ không hiển thị khi website đang ở chế độ bảo trì."
+msgstr "Contact channels will not be displayed while the website is in maintenance mode."
+"Contact channels will not be displayed while the website is in maintenance "
+"mode."
+
+msgid "Hình đại diện"
+msgstr "Avatar"
+
+msgid "Nữ"
+msgstr "Female"
+
+msgid "Nam"
+msgstr "Male"
+
+msgid "Tên hiển thị"
+msgstr "Display Name"
+
+msgid "Ví dụ: Nguyễn Văn A"
+msgstr "E.g.: John Smith"
+
+msgid "Ví dụ: 0901234567"
+msgstr "E.g.: 0901234567"
+
+msgid "Hủy"
+msgstr "Cancel"
+
+msgid "Lưu"
+msgstr "Save"
+
+msgid "Chọn kiểu pop-up"
+msgstr "Choose Pop-up Type"
+
+msgid "Thu thập email đăng ký"
+msgstr "Collect Subscriber Emails"
+
+msgid "Hình ảnh / Banner"
+msgstr "Image / Banner"
+
+msgid "Ảnh quảng cáo có liên kết"
+msgstr "Clickable promotional banner"
+
+msgid "Cài đặt Form Newsletter"
+msgstr "Newsletter Form Settings"
+
+msgid "Kiểu form"
+msgstr "Form Type"
+
+msgid "Ô nhập email"
+msgstr "Email input field"
+
+msgid "Form đơn giản thu thập email đăng ký"
+msgstr "Simple form to collect subscriber emails"
+
+msgid "Form có sẵn"
+msgstr "Existing Form"
+
+msgid "Dùng form từ plugin đang cài trên website"
+msgstr "Use a form from a plugin already installed on the website"
+
+msgid "Vd: Đăng ký nhận ưu đãi"
+msgstr "E.g.: Subscribe for exclusive offers"
+
+msgid "Tiêu đề chính hiển thị trên pop-up."
+msgstr "Main title displayed on the pop-up."
+
+msgid "Vd: Nhận ngay ưu đãi độc quyền từ chúng tôi"
+msgstr "E.g.: Get exclusive offers from us right now"
+
+msgid "Mô tả ngắn bên dưới tiêu đề chính."
+msgstr "Short description below the main title."
+
+msgid "Chọn form hiển thị"
+msgstr "Select form to display"
+
+msgid "— Chọn form —"
+msgstr "— Select a form —"
+
+msgid "Chưa tìm thấy form nào"
+msgstr "No forms found"
+
+msgid "Cài Contact Form 7, WPForms, Formidable hoặc Fluent Forms."
+msgstr "Install Contact Form 7, WPForms, Formidable, or Fluent Forms."
+
+msgid "Hỗ trợ: Contact Form 7, WPForms, Formidable, Fluent Forms."
+msgstr "Supports: Contact Form 7, WPForms, Formidable, Fluent Forms."
+
+msgid "Vd: Đăng ký ngay"
+msgstr "E.g.: Subscribe Now"
+
+msgid "Chữ trên nút gửi form."
+msgstr "Text on the form submit button."
+
+msgid "Liên kết mạng xã hội"
+msgstr "Social Media Links"
+
+msgid "Mẫu email thông báo"
+msgstr "Notification Email Template"
+
+msgid "Email tự động gửi khi có người đăng ký. Dùng"
+msgstr "Automatically sent when someone subscribes. Use"
+
+msgid "để hiển thị email người đăng ký."
+msgstr "to display the subscriber's email."
+
+msgid "Cài đặt Hình ảnh Banner"
+msgstr "Banner Image Settings"
+
+msgid "Nhấn để chọn ảnh từ thư viện"
+msgstr "Click to select an image from the media library"
+
+msgid "Hỗ trợ JPG · PNG · WebP · Khuyến nghị 600×400px"
+msgstr "Supports JPG · PNG · WebP · Recommended 600×400px"
+
+msgid "Tải ảnh lên"
+msgstr "Upload Image"
+
+msgid "Đổi ảnh"
+msgstr "Change Image"
+
+msgid "Xóa ảnh"
+msgstr "Remove Image"
+
+msgid "URL trang đích khi người dùng nhấp vào banner."
+msgstr "Destination URL when the user clicks on the banner."
+
+msgid "Xem trước pop-up"
+msgstr "Pop-up Preview"
+
+msgid "Đây là giao diện pop-up hiển thị trên website"
+msgstr "This is the pop-up interface displayed on the website"
+
+msgid "Mở tab mới"
+msgstr "Open in New Tab"
+
+msgid ""
+"Pop-up chỉ hiển thị với khách chưa đóng (cookie %1$s chưa được set).<br>Để "
+"test lại: mở %2$stab ẩn danh%3$s hoặc xóa cookie trong DevTools."
+msgstr ""
+"Pop-up only shows to visitors who haven't dismissed it (cookie %1$s not "
+"set).<br>To test again: open %2$san incognito tab%3$s or clear cookies in "
+"DevTools."
+
+msgid "Các bước thiết lập pop-up"
+msgstr "Pop-up Setup Steps"
+
+msgid "Bật pop-up"
+msgstr "Enable Pop-up"
+
+msgid "Toggle phía trên"
+msgstr "Toggle above"
+
+msgid "Kiểu hiển thị"
+msgstr "Display Type"
+
+msgid "Form / Hình ảnh"
+msgstr "Form / Image"
+
+msgid "Thời gian chờ"
+msgstr "Delay Time"
+
+msgid "Cài ở mục 3"
+msgstr "Set in section 3"
+
+msgid "Reset cookie"
+msgstr "Reset Cookie"
+
+msgid "Tab ẩn danh"
+msgstr "Incognito Tab"
+
+msgid "Mẹo tăng chuyển đổi"
+msgstr "Conversion Boost Tips"
+
+msgid "Tối ưu hiệu quả pop-up"
+msgstr "Optimize Pop-up Effectiveness"
+
+msgid "Chờ 3–8 giây"
+msgstr "Wait 3–8 seconds"
+
+msgid ""
+"Để khách đọc nội dung trước — hiện pop-up quá sớm làm tăng tỉ lệ thoát "
+"trang."
+msgstr ""
+"Let visitors read your content first — showing the pop-up too early "
+"increases bounce rate."
+
+msgid "Tiêu đề ngắn & rõ lợi ích"
+msgstr "Short title & clear benefit"
+
+msgid ""
+"Dòng đầu phải nói ngay lợi ích khách nhận được — tránh câu giới thiệu chung "
+"chung."
+msgstr ""
+"The first line must immediately state the benefit for the visitor — avoid "
+"generic introduction phrases."
+
+msgid "Dùng form sẵn có"
+msgstr "Use an existing form"
+
+msgid ""
+"CF7, WPForms tích hợp nhanh — không cần code thêm, dữ liệu lưu thẳng vào "
+"plugin."
+msgstr ""
+"CF7, WPForms integrate quickly — no extra coding needed, data saved directly"
+" into the plugin."
+
+msgid "Banner phải có nút CTA"
+msgstr "Banner must have a CTA button"
+
+msgid ""
+"Hình ảnh banner cần có nút hành động rõ và link trực tiếp đến trang đích để "
+"không lãng phí traffic."
+msgstr ""
+"Banner images must have a clear action button and a direct link to the "
+"destination page to avoid wasting traffic."
+
+msgid "Thời gian chờ trước khi hiện pop-up"
+msgstr "Delay before showing pop-up"
+
+msgid "giây"
+msgstr "seconds"
+
+msgid ""
+"Thời gian chờ thêm sau khi trang tải xong. 0 = không chờ thêm (hiện ngay khi"
+" trang sẵn sàng)."
+msgstr ""
+"Additional delay after the page loads. 0 = no extra wait (show immediately "
+"when page is ready)."
+
+msgid "Cách pop-up hoạt động"
+msgstr "How the pop-up works"
+
+msgid "Khách truy cập website"
+msgstr "Visitor arrives on website"
+
+msgid "Xem nội dung"
+msgstr "Views content"
+
+msgid "xuất hiện"
+msgstr "appears"
+
+msgid "Khách đóng pop-up"
+msgstr "Visitor closes pop-up"
+
+msgid "Sau 24 giờ"
+msgstr "After 24 hours"
+
+msgid "mới hiện lại"
+msgstr "shows again"
+
+msgid "Cookie ghi nhớ"
+msgstr "Cookie remembers"
+
+msgid "Lưu trạng thái hiển thị pop-up."
+msgstr "Saves the pop-up display state."
+
+msgid "Admin luôn thấy pop-up trên trang chủ để kiểm tra (bỏ qua cookie)."
+msgstr "Admin always sees the pop-up on the homepage for testing (cookie is bypassed)."
+"Admin always sees the pop-up on the homepage for testing (cookie is "
+"bypassed)."
+
+msgid "Gợi ý:"
+msgstr "Tip:"
+
+msgid "Nhập 0 để pop-up hiển thị ngay khi trang tải xong, không chờ thêm."
+msgstr "Enter 0 to show the pop-up immediately when the page loads, with no additional delay."
+"Enter 0 to show the pop-up immediately when the page loads, with no "
+"additional delay."
+
+msgid "Pop-up sẽ không hiển thị khi website đang ở chế độ bảo trì."
+msgstr "The pop-up will not be displayed when the website is in maintenance mode."
+"The pop-up will not be displayed when the website is in maintenance mode."
+
+msgid "Tắt bảo trì →"
+msgstr "Disable Maintenance →"
+
+msgid "Quản lý Form"
+msgstr "Form Management"
+
+msgid "Cấu hình SMTP"
+msgstr "SMTP Configuration"
+
+msgid "Chống Spam"
+msgstr "Anti-Spam"
+
+msgid "Nhật ký Email"
+msgstr "Email Log"
+
+msgid ""
+"Cấu hình máy chủ SMTP để website có thể gửi email liên hệ, thông báo và xác "
+"thực người dùng."
+msgstr ""
+"Configure the SMTP server so your website can send contact emails, "
+"notifications, and user verification messages."
+
+msgid "Thông tin máy chủ"
+msgstr "Server Information"
+
+msgid "Máy chủ SMTP"
+msgstr "SMTP Server"
+
+msgid "Địa chỉ máy chủ SMTP của nhà cung cấp email."
+msgstr "Your email provider's SMTP server address."
+
+msgid "Xác thực"
+msgstr "Authentication"
+
+msgid "Bật nếu máy chủ yêu cầu xác thực."
+msgstr "Enable if your server requires authentication."
+
+msgid "Bảo mật kết nối"
+msgstr "Connection Security"
+
+msgid "Không bảo mật"
+msgstr "No Security"
+
+msgid "Chọn giao thức bảo mật kết nối."
+msgstr "Choose the connection security protocol."
+
+msgid "Mã hóa"
+msgstr "Encryption"
+
+msgid "Không"
+msgstr "None"
+
+msgid "Chọn mã hóa phù hợp với máy chủ SMTP."
+msgstr "Choose the encryption method compatible with your SMTP server."
+
+msgid "Cổng SMTP"
+msgstr "SMTP Port"
+
+msgid "Cổng kết nối. Thường là 587 (TLS) hoặc 465 (SSL)."
+msgstr "Connection port. Usually 587 (TLS) or 465 (SSL)."
+
+msgid "Tên người gửi"
+msgstr "Sender Name"
+
+msgid "Ví dụ: Công ty ABC hoặc Support Team"
+msgstr "E.g.: ABC Company or Support Team"
+
+msgid "Tên hiển thị khi gửi email đi."
+msgstr "Display name shown when sending emails."
+
+msgid "Tên đăng nhập SMTP"
+msgstr "SMTP Username"
+
+msgid "Tài khoản email dùng để gửi thư."
+msgstr "The email account used to send messages."
+
+msgid "Mật khẩu SMTP"
+msgstr "SMTP Password"
+
+msgid "Mật khẩu ứng dụng (App Password)"
+msgstr "App Password"
+
+msgid "Mật khẩu ứng dụng (nếu bật xác thực 2 bước)."
+msgstr "App Password (if two-factor authentication is enabled)."
+
+msgid "Tùy chọn nâng cao"
+msgstr "Advanced Options"
+
+msgid "Vd: support@gmail.com"
+msgstr "E.g.: support@gmail.com"
+
+msgid "Email này sẽ xuất hiện trong trường \"From\" của email gửi đi."
+msgstr "This email will appear in the \"From\" field of outgoing emails."
+
+msgid "Kiểm tra cấu hình SMTP"
+msgstr "Test SMTP Configuration"
+
+msgid "Gửi email thử nghiệm để đảm bảo cấu hình hoạt động chính xác."
+msgstr "Send a test email to ensure the configuration is working correctly."
+
+msgid "Nhập email nhận thử nghiệm"
+msgstr "Enter test recipient email"
+
+msgid "Gửi email thử nghiệm"
+msgstr "Send Test Email"
+
+msgid "Email thử nghiệm sẽ được gửi tới địa chỉ:"
+msgstr "Test email will be sent to:"
+
+msgid "chưa nhập"
+msgstr "not entered"
+
+msgid "Hướng dẫn nhanh"
+msgstr "Quick Guide"
+
+msgid "Lấy thông tin SMTP"
+msgstr "Get SMTP Information"
+
+msgid ""
+"Đăng nhập vào tài khoản email của bạn (Gmail, Outlook...) và lấy thông tin "
+"SMTP."
+msgstr ""
+"Log in to your email account (Gmail, Outlook...) and retrieve the SMTP "
+"details."
+
+msgid "Nhập thông tin"
+msgstr "Enter Information"
+
+msgid "Điền chính xác các thông tin máy chủ, cổng, tài khoản và mật khẩu."
+msgstr "Fill in the server, port, account, and password details accurately."
+
+msgid "Kiểm tra và lưu"
+msgstr "Test and Save"
+
+msgid "Gửi email thử nghiệm để đảm bảo cấu hình hoạt động."
+msgstr "Send a test email to verify the configuration is working."
+
+msgid "Cấu hình phổ biến"
+msgstr "Common Configurations"
+
+msgid "Nhấp để áp dụng cấu hình nhanh"
+msgstr "Click to apply quick configuration"
+
+msgid "Xem thêm hướng dẫn"
+msgstr "View More Guides"
+
+msgid "Lưu cấu hình"
+msgstr "Save Settings"
+
+msgid "Tiện ích mở rộng"
+msgstr "Extensions"
+
+msgid "Trình soạn thảo"
+msgstr "Editor"
+
+msgid "Chọn loại trình soạn thảo mặc định cho trang và bài viết."
+msgstr "Choose the default editor type for pages and posts."
+
+msgid ""
+"Chọn Classic Editor nếu bạn quen với giao diện cũ, Block Editor (Gutenberg) "
+"cho giao diện mới."
+msgstr ""
+"Choose Classic Editor if you prefer the old interface, or Block Editor "
+"(Gutenberg) for the new interface."
+
+msgid "Nội dung"
+msgstr "Content"
+
+msgid "Các tính năng hỗ trợ quản lý nội dung trang và bài viết."
+msgstr "Features to support managing page and post content."
+
+msgid "Nhân bản trang / bài viết"
+msgstr "Duplicate Page / Post"
+
+msgid "Cho phép tạo bản sao của trang hoặc bài viết với một cú nhấp chuột."
+msgstr "Allows creating a copy of a page or post with a single click."
+
+msgid "Nhân bản menu"
+msgstr "Duplicate Menu"
+
+msgid ""
+"Tạo bản sao của menu điều hướng hiện có để tái sử dụng và chỉnh sửa dễ dàng "
+"hơn."
+msgstr ""
+"Create a copy of an existing navigation menu for easier reuse and editing."
+
+msgid "Chuyển 404 về trang chủ"
+msgstr "Redirect 404 to Homepage"
+
+msgid ""
+"Tự động chuyển hướng về trang chủ khi khách truy cập gặp lỗi 404 (trang "
+"không tìm thấy)."
+msgstr ""
+"Automatically redirect to the homepage when visitors encounter a 404 error "
+"(page not found)."
+
+msgid "Hiệu năng"
+msgstr "Performance"
+
+msgid "Tắt các tài nguyên không cần thiết để tăng tốc độ tải trang."
+msgstr "Disable unnecessary resources to improve page load speed."
+
+msgid "Xóa biểu tượng Emojis"
+msgstr "Remove Emojis"
+
+msgid "Không tải file"
+msgstr "Do not load file"
+
+msgid "giảm số request HTTP không cần thiết."
+msgstr "reducing unnecessary HTTP requests."
+
+msgid ""
+"Xóa chuỗi truy vấn (?ver=x.x) khỏi tài nguyên tĩnh để tối ưu cache trình "
+"duyệt."
+msgstr ""
+"Remove query strings (?ver=x.x) from static resources to optimize browser "
+"caching."
+
+msgid ""
+"Tắt tính năng chèn mã nhúng oEmbeds trong WordPress để giảm tải không cần "
+"thiết."
+msgstr "Disable the oEmbeds feature in WordPress to reduce unnecessary load."
+
+msgid "Tắt Google Font"
+msgstr "Disable Google Fonts"
+
+msgid ""
+"Không tải Google Fonts từ server bên ngoài — dùng font mặc định của hệ thống"
+" thay thế."
+msgstr ""
+"Do not load Google Fonts from external servers — use the system's default "
+"font instead."
+
+msgid "Quản trị"
+msgstr "Administration"
+
+msgid "Tùy chỉnh giao diện và tính năng trong trang quản trị WordPress."
+msgstr "Customize the interface and features within the WordPress admin area."
+
+msgid "Tắt thông báo"
+msgstr "Disable Notifications"
+
+msgid "Ẩn tất cả thông báo cập nhật và admin notices trong trang quản trị."
+msgstr "Hide all update notifications and admin notices in the WordPress admin area."
+"Hide all update notifications and admin notices in the WordPress admin area."
+
+msgid "Tắt Dashicons"
+msgstr "Disable Dashicons"
+
+msgid ""
+"Không tải Dashicons cho người dùng chưa đăng nhập — giảm tải CSS không cần "
+"thiết."
+msgstr ""
+"Do not load Dashicons for logged-out users — reduces unnecessary CSS "
+"loading."
+
+msgid "Giao diện đăng nhập"
+msgstr "Login Page Interface"
+
+msgid "Thay logo WordPress mặc định bằng logo của bạn trên trang đăng nhập."
+msgstr "Replace the default WordPress logo with your own logo on the login page."
+"Replace the default WordPress logo with your own logo on the login page."
+
+msgid "Logo trang đăng nhập"
+msgstr "Login Page Logo"
+
+msgid "Đường dẫn liên kết khi nhấp logo"
+msgstr "Link URL when clicking the logo"
+
+msgid "Nhập đường dẫn tùy biến, ví dụ: https://matbao.net"
+msgstr "Enter a custom URL, e.g.: https://matbao.net"
+
+msgid "Cho phép upload SVG"
+msgstr "Allow SVG Upload"
+
+msgid "Bật hỗ trợ upload file SVG vào thư viện media của WordPress."
+msgstr "Enable support for uploading SVG files to the WordPress media library."
+"Enable support for uploading SVG files to the WordPress media library."
+
+msgid "Mẹo sử dụng"
+msgstr "Usage Tips"
+
+msgid "Bật tiện ích hiệu quả & an toàn"
+msgstr "Enable extensions effectively & safely"
+
+msgid "Chỉ bật những gì cần thiết"
+msgstr "Only enable what is necessary"
+
+msgid ""
+"Mỗi tiện ích bật thêm đều ảnh hưởng hiệu năng. Bật có chọn lọc để website "
+"chạy nhanh hơn."
+msgstr ""
+"Each additional extension affects performance. Enable selectively for a "
+"faster website."
+
+msgid ""
+"Bật Classic Editor nếu đang dùng Flatsome, Elementor hoặc quen giao diện "
+"soạn thảo cũ."
+msgstr ""
+"Enable Classic Editor if you use Flatsome, Elementor, or prefer the old "
+"editor interface."
+
+msgid "Tắt Emojis & Embeds"
+msgstr "Disable Emojis & Embeds"
+
+msgid ""
+"Giảm request HTTP không cần thiết — cải thiện điểm PageSpeed và Core Web "
+"Vitals đáng kể."
+msgstr ""
+"Reduce unnecessary HTTP requests — significantly improves PageSpeed scores "
+"and Core Web Vitals."
+
+msgid "Nhân bản & Chuyển hướng 404"
+msgstr "Duplicate & 404 Redirect"
+
+msgid ""
+"Nhân bản trang giúp tạo nhanh từ template. Chuyển 404 về trang chủ tránh mất"
+" khách vô ích."
+msgstr ""
+"Page duplication helps create quickly from templates. 404 redirect to "
+"homepage prevents losing visitors."
+
+msgid "Kiểm tra sau khi bật tiện ích mới"
+msgstr "Test after enabling new extensions"
+
+msgid ""
+"Luôn xem thử trang sau khi thay đổi để phát hiện xung đột plugin hoặc lỗi "
+"giao diện sớm."
+msgstr ""
+"Always preview the page after changes to detect plugin conflicts or display "
+"errors early."
+
+msgid "Giới hạn Revision để nhẹ database"
+msgstr "Limit Revisions to keep database lean"
+
+msgid ""
+"Bật giới hạn revision giúp database gọn hơn, truy vấn nhanh hơn — đặc biệt "
+"trên site có nhiều bài viết."
+msgstr ""
+"Enabling revision limits keeps the database leaner and queries faster — "
+"especially on sites with many posts."
+
+msgid "Bảo vệ & Tối ưu Website"
+msgstr "Website Protection & Optimization"
+
+msgid "Bảo vệ Website"
+msgstr "Website Protection"
+
+msgid ""
+"Tăng cường bảo mật và bảo vệ website khỏi các truy cập không mong muốn."
+msgstr "Strengthen security and protect the website from unwanted access."
+
+msgid "Thu gọn"
+msgstr "Collapse"
+
+msgid "Vô hiệu hóa XML-RPC"
+msgstr "Disable XML-RPC"
+
+msgid ""
+"Hạn chế các cuộc tấn công dò mật khẩu và làm quá tải hệ thống qua giao thức "
+"XML-RPC."
+msgstr ""
+"Limit brute-force attacks and system overloading through the XML-RPC "
+"protocol."
+
+msgid "Cấm sao chép nội dung"
+msgstr "Prevent Content Copying"
+
+msgid ""
+"Tắt chuột phải và xem mã nguồn trang — khách truy cập không thể sao chép nội"
+" dung."
+msgstr ""
+"Disable right-click and view page source — visitors cannot copy content."
+
+msgid "Xóa các liên kết từ wp_head"
+msgstr "Remove links from wp_head"
+
+msgid ""
+"Xóa các liên kết không cần thiết trong <head> giúp tải nhanh hơn và SEO tốt "
+"hơn."
+msgstr "Remove unnecessary links in <head> for faster loading and better SEO."
+
+msgid "Ẩn phiên bản WordPress"
+msgstr "Hide WordPress Version"
+
+msgid ""
+"Ẩn thông tin phiên bản WordPress khỏi mã HTML của website, tránh lộ thông "
+"tin cho hacker."
+msgstr ""
+"Hide WordPress version information from the website's HTML, preventing "
+"exposure to hackers."
+
+msgid "Ẩn menu Theme / Plugin"
+msgstr "Hide Theme / Plugin Editor Menu"
+
+msgid ""
+"Tắt chức năng chỉnh sửa theme và plugin trực tiếp trong trang quản trị "
+"WordPress."
+msgstr ""
+"Disable the ability to edit themes and plugins directly within the WordPress"
+" admin area."
+
+msgid "Thay đổi đường dẫn đăng nhập"
+msgstr "Change Login URL"
+
+msgid ""
+"Thay URL /wp-login.php bằng đường dẫn tùy chỉnh để tránh tấn công dò mật "
+"khẩu."
+msgstr ""
+"Replace the /wp-login.php URL with a custom path to prevent brute-force "
+"attacks."
+
+msgid "Cấu hình"
+msgstr "Configuration"
+
+msgid "Tối ưu Website"
+msgstr "Website Optimization"
+
+msgid "Các công cụ giúp tăng tốc và cải thiện trải nghiệm sử dụng website."
+msgstr "Tools to speed up and improve the website user experience."
+
+msgid "Chọn trình soạn thảo mặc định cho trang và bài viết."
+msgstr "Choose the default editor for pages and posts."
+
+msgid "Tự động chuyển hướng về trang chủ khi khách truy cập gặp lỗi 404."
+msgstr "Automatically redirect to the homepage when visitors encounter a 404 error."
+"Automatically redirect to the homepage when visitors encounter a 404 error."
+
+msgid ""
+"Không tải file wp-emoji-release.min.js — giảm số request HTTP không cần "
+"thiết."
+msgstr ""
+"Do not load wp-emoji-release.min.js — reduces unnecessary HTTP requests."
+
+msgid "Tắt Google Fonts"
+msgstr "Disable Google Fonts"
+
+msgid "Tắt Heartbeat Frontend"
+msgstr "Disable Frontend Heartbeat"
+
+msgid "Xóa WP Heartbeat khỏi trang công khai — giảm lượt gọi"
+msgstr "Remove WP Heartbeat from public pages — reduces calls"
+
+msgid "cho khách truy cập."
+msgstr "for visitors."
+
+msgid "Giảm tần suất Heartbeat Admin"
+msgstr "Reduce Admin Heartbeat Frequency"
+
+msgid "Tăng khoảng cách gọi Heartbeat trong trang quản trị từ"
+msgstr "Increase the Heartbeat interval in the admin area from"
+
+msgid "giảm 75% số lượt gọi"
+msgstr "reducing calls by 75%"
+
+msgid "Quản trị hệ thống"
+msgstr "System Administration"
+
+msgid "Tùy chỉnh các tính năng hỗ trợ quản lý website và WooCommerce."
+msgstr "Customize features to support managing your website and WooCommerce."
+
+msgid "Bảo vệ & tối ưu hiệu quả"
+msgstr "Effective protection & optimization"
+
+msgid "Bật XML-RPC + Ẩn phiên bản WP"
+msgstr "Disable XML-RPC + Hide WP Version"
+
+msgid "Hai tùy chọn bảo mật cơ bản nhất — nên bật ngay khi cài đặt plugin."
+msgstr "The two most essential security options — enable immediately upon plugin installation."
+"The two most essential security options — enable immediately upon plugin "
+"installation."
+
+msgid "Query Strings + Emoji → bật cùng lúc"
+msgstr "Query Strings + Emoji → enable together"
+
+msgid ""
+"Kết hợp hai tùy chọn này tăng điểm PageSpeed và Core Web Vitals đáng kể."
+msgstr ""
+"Combining these two options significantly improves PageSpeed scores and Core"
+" Web Vitals."
+
+msgid "Classic Editor cho Flatsome & Elementor"
+msgstr "Classic Editor for Flatsome & Elementor"
+
+msgid ""
+"Bật Classic Editor nếu đang dùng page builder — tránh xung đột với "
+"Gutenberg."
+msgstr ""
+"Enable Classic Editor when using page builders — avoids conflicts with "
+"Gutenberg."
+
+msgid "SVG chỉ bật nếu nguồn tin cậy"
+msgstr "Enable SVG only from trusted sources"
+
+msgid ""
+"File SVG có thể chứa script độc hại. Chỉ cho phép upload từ admin hoặc nguồn"
+" kiểm soát được."
+msgstr ""
+"SVG files can contain malicious scripts. Only allow uploads from admins or "
+"controlled sources."
+
+msgid "Redirect 404 giữ khách ở lại"
+msgstr "404 Redirect keeps visitors on site"
+
+msgid ""
+"Tự động chuyển trang lỗi về trang chủ — giảm tỷ lệ thoát và cải thiện trải "
+"nghiệm người dùng."
+msgstr ""
+"Automatically redirect error pages to the homepage — reduces bounce rate and"
+" improves user experience."
+
+msgid "Đổi URL login → lưu URL mới ngay"
+msgstr "Change login URL → save the new URL immediately"
+
+msgid ""
+"Sau khi đổi slug đăng nhập, bookmark URL mới lại để tránh bị khóa khỏi trang"
+" quản trị."
+msgstr ""
+"After changing the login slug, bookmark the new URL to avoid being locked "
+"out of the admin area."
+
+msgid "URL đăng nhập tùy chỉnh"
+msgstr "Custom Login URL"
+
+msgid "Thay thế"
+msgstr "Replace"
+
+msgid ""
+"bằng slug tùy chỉnh để ẩn trang đăng nhập mặc định, giảm rủi ro brute-force."
+msgstr ""
+"with a custom slug to hide the default login page, reducing brute-force "
+"risk."
+
+msgid "URL đầy đủ:"
+msgstr "Full URL:"
+
+msgid "Nhập slug để xem trước…"
+msgstr "Enter slug to preview…"
+
+msgid "Đóng"
+msgstr "Close"
+
+msgid "Lưu cài đặt"
+msgstr "Save Settings"
+
+msgid "Logo hiện tại"
+msgstr "Current Logo"
+
+msgid "Logo xem trước"
+msgstr "Preview Logo"
+
+msgid "Thay đổi logo"
+msgstr "Change Logo"
+
+msgid "Chọn file từ thư viện media"
+msgstr "Select file from media library"
+
+msgid "Kích thước đề xuất: 300×80px"
+msgstr "Recommended size: 300×80px"
+
+msgid "Dung lượng tối đa: 2MB"
+msgstr "Maximum file size: 2MB"
+
+msgid "Xóa logo hiện tại"
+msgstr "Remove current logo"
+
+msgid "Xem trước trang đăng nhập"
+msgstr "Login Page Preview"
+
+msgid "Tên người dùng hoặc Email"
+msgstr "Username or Email"
+
+msgid "Mật khẩu"
+msgstr "Password"
+
+msgid "Ghi nhớ đăng nhập"
+msgstr "Remember Me"
+
+msgid "Đăng nhập"
+msgstr "Log In"
+
+msgid "Preview cập nhật ngay khi bạn đổi logo bên trái."
+msgstr "Preview updates instantly when you change the logo on the left."
+
+msgid "Logo đề xuất"
+msgstr "Recommended logo"
+
+msgid "để hiển thị sắc nét."
+msgstr "for sharp display."
+
+msgid "Hiển thị tại"
+msgstr "Displayed at"
+
+msgid "cho mọi khách truy cập."
+msgstr "for all visitors."
+
+msgid "tùy chọn"
+msgstr "option(s)"
+
+msgid "Nhập URL sẽ được mở khi người dùng nhấp vào logo ở trang đăng nhập."
+msgstr "Enter the URL to open when users click the logo on the login page."
+
+msgid "Mở liên kết ở tab mới"
+msgstr "Open link in new tab"
+
+msgid "Khi bật, logo sẽ mở URL trong tab trình duyệt mới (target=_blank)"
+msgstr "When enabled, the logo will open the URL in a new browser tab (target=_blank)"
+"When enabled, the logo will open the URL in a new browser tab "
+"(target=_blank)"
+
+msgid "Chống Spam đang"
+msgstr "Anti-Spam is"
+
+msgid "TẮT"
+msgstr "OFF"
+
+msgid ""
+"Toàn bộ tính năng bảo vệ form bị vô hiệu hóa. Bật công tắc bên trên để kích "
+"hoạt."
+msgstr ""
+"All form protection features are disabled. Enable the toggle above to "
+"activate."
+
+msgid "Bảo vệ form liên hệ khỏi bot và tin nhắn rác tự động."
+msgstr "Protect contact forms from bots and automated spam messages."
+
+msgid "Tắt công tắc này sẽ vô hiệu hóa toàn bộ tính năng chặn spam"
+msgstr "Disabling this toggle will deactivate all spam blocking features"
+
+msgid "kể cả khi các mục bên dưới đang bật."
+msgstr "even if the options below are enabled."
+
+msgid "Spam hôm nay"
+msgstr "Spam Today"
+
+msgid "so với hôm qua"
+msgstr "vs. yesterday"
+
+msgid "Spam 7 ngày"
+msgstr "Spam (7 days)"
+
+msgid "so với 7 ngày trước"
+msgstr "vs. previous 7 days"
+
+msgid "IP đã chặn"
+msgstr "Blocked IPs"
+
+msgid "Email đã chặn"
+msgstr "Blocked Emails"
+
+msgid "Tổng bị chặn"
+msgstr "Total Blocked"
+
+msgid "Mới"
+msgstr "New"
+
+msgid "Cài đặt bảo vệ"
+msgstr "Protection Settings"
+
+msgid "Ẩn trường honeypot để phát hiện bot tự động."
+msgstr "Hide a honeypot field to detect automated bots."
+
+msgid "Giới hạn gửi (Rate Limit)"
+msgstr "Submission Limit (Rate Limit)"
+
+msgid "Giới hạn số lần gửi từ một IP trong khoảng thời gian nhất định."
+msgstr "Limit the number of submissions from a single IP within a given time period."
+"Limit the number of submissions from a single IP within a given time period."
+
+msgid "Chặn Email tạm thời"
+msgstr "Block Disposable Emails"
+
+msgid "Chặn các email tạm thời và dùng một lần."
+msgstr "Block temporary and disposable email addresses."
+
+msgid "Chặn Proxy / VPN"
+msgstr "Block Proxy / VPN"
+
+msgid "Phát hiện và chặn các IP sử dụng Proxy hoặc VPN."
+msgstr "Detect and block IPs using Proxy or VPN."
+
+msgid "Kiểm tra DNSBL"
+msgstr "DNSBL Check"
+
+msgid "Kiểm tra IP trong danh sách DNSBL (Spamhaus, Barracuda...)."
+msgstr "Check IP against DNSBL lists (Spamhaus, Barracuda...)."
+
+msgid "Ẩn thông báo lỗi"
+msgstr "Hide Error Messages"
+
+msgid "Ẩn thông báo lỗi chi tiết với người dùng khi bị chặn."
+msgstr "Hide detailed error messages from users when they are blocked."
+
+msgid "Chế độ Giám sát"
+msgstr "Monitor Mode"
+
+msgid ""
+"Ghi log nhưng KHÔNG chặn — dùng để học và kiểm tra trước khi bật chặn thật."
+msgstr ""
+"Log entries but DO NOT block — use to observe and test before enabling real "
+"blocking."
+
+msgid "Phát hiện nội dung code/script"
+msgstr "Detect code/script content"
+
+msgid ""
+"Tự động chặn khi phát hiện JSON, HTML injection, SQL injection hoặc link "
+"spam trong form."
+msgstr ""
+"Automatically block when JSON, HTML injection, SQL injection, or link spam "
+"is detected in forms."
+
+msgid "Số lần gửi tối đa"
+msgstr "Maximum submissions"
+
+msgid "lần /"
+msgstr "times /"
+
+msgid "Trong khoảng thời gian (phút)"
+msgstr "Within time period (minutes)"
+
+msgid "phút"
+msgstr "minutes"
+
+msgid "Gợi ý: 3 lần / 5 phút"
+msgstr "Suggestion: 3 times / 5 minutes"
+
+msgid "Nhẹ"
+msgstr "Light"
+
+msgid "Trung bình"
+msgstr "Medium"
+
+msgid "Mạnh"
+msgstr "Strong"
+
+msgid "Cơ bản"
+msgstr "Basic"
+
+msgid "Danh sách chặn nhanh"
+msgstr "Quick Blocklist"
+
+msgid "Quốc gia"
+msgstr "Country"
+
+msgid "Nhập IP và nhấn Enter..."
+msgstr "Enter IP and press Enter..."
+
+msgid "Nhập email và nhấn Enter..."
+msgstr "Enter email and press Enter..."
+
+msgid "Nhập từ khóa và nhấn Enter..."
+msgstr "Enter keyword and press Enter..."
+
+msgid "Nhập tên hoặc mã quốc gia (VD: Trung Quốc, CN)..."
+msgstr "Enter country name or code (e.g.: China, CN)..."
+
+msgid "Thêm"
+msgstr "Add"
+
+msgid "Import từ khóa (danh sách / CSV / Excel)"
+msgstr "Import keywords (list / CSV / Excel)"
+
+msgid "Dùng API"
+msgstr "Using API"
+
+msgid "tra cứu IP theo quốc gia — giới hạn"
+msgstr "to look up IP by country — limit"
+
+msgid "IP mới tra 1 lần, kết quả cache 24h. Dùng"
+msgstr "New IPs are looked up once, results cached for 24h. Use"
+
+msgid "nếu cần không giới hạn."
+msgstr "if unlimited lookups are needed."
+
+msgid "Chưa có mục nào"
+msgstr "No items yet"
+
+msgid "Xóa"
+msgstr "Delete"
+
+msgid "Xem tất cả"
+msgstr "View All"
+
+msgid "Top lý do bị chặn"
+msgstr "Top block reasons"
+
+msgid "Spam bị chặn"
+msgstr "Spam Blocked"
+
+msgid "Chưa có dữ liệu spam"
+msgstr "No spam data yet"
+
+msgid "Cài đặt lưu log"
+msgstr "Log Storage Settings"
+
+msgid "Thời gian lưu log"
+msgstr "Log Retention Period"
+
+msgid "Tự động xóa log cũ hơn mốc này"
+msgstr "Automatically delete logs older than this threshold"
+
+msgid "Không giới hạn"
+msgstr "Unlimited"
+
+msgid "30 ngày"
+msgstr "30 days"
+
+msgid "60 ngày"
+msgstr "60 days"
+
+msgid "90 ngày"
+msgstr "90 days"
+
+msgid "180 ngày"
+msgstr "180 days"
+
+msgid "365 ngày"
+msgstr "365 days"
+
+msgid "Giới hạn tối đa"
+msgstr "Maximum Limit"
+
+msgid "Số bản ghi tối đa được lưu"
+msgstr "Maximum number of records to store"
+
+msgid "Import danh sách từ khóa"
+msgstr "Import keyword list"
+
+msgid "Hỗ trợ dán text, file CSV hoặc Excel (.xlsx)"
+msgstr "Supports pasting text, or CSV / Excel (.xlsx) files"
+
+msgid "Dán danh sách"
+msgstr "Paste List"
+
+msgid "Upload CSV / Excel"
+msgstr "Upload CSV / Excel"
+
+msgid "Phát hiện nội dung code/JSON."
+msgstr "Code/JSON content detected."
+
+msgid ""
+"Bạn đang dán code vào danh sách từ khóa thay vì từ khóa thông thường. Muốn "
+"import từ file thì chuyển sang tab \"Upload CSV / Excel\". Nếu muốn thêm từ "
+"khóa chứa ký tự đặc biệt, bạn vẫn có thể nhấn Import."
+msgstr ""
+"You are pasting code into the keyword list instead of regular keywords. To "
+"import from a file, switch to the \"Upload CSV / Excel\" tab. If you want to"
+" add keywords with special characters, you can still click Import."
+
+msgid ""
+"Mỗi dòng 1 từ khóa, hoặc phân cách bằng dấu phẩy. Từ trùng sẽ được bỏ qua tự"
+" động."
+msgstr ""
+"One keyword per line, or separated by commas. Duplicate entries will be "
+"ignored automatically."
+
+msgid "Kéo thả hoặc bấm để chọn file"
+msgstr "Drag and drop or click to select a file"
+
+msgid "Hỗ trợ:"
+msgstr "Supports:"
+
+msgid "Import từ khóa"
+msgstr "Import Keywords"
+
+msgid "Các thay đổi được áp dụng ngay sau khi lưu."
+msgstr "Changes are applied immediately after saving."
+
+msgid "Nhật ký Spam"
+msgstr "Spam Log"
+
+msgid "bản ghi"
+msgstr "record(s)"
+
+msgid "Xuất CSV"
+msgstr "Export CSV"
+
+msgid "Xóa tất cả"
+msgstr "Delete All"
+
+msgid "Tìm kiếm IP, email, lý do..."
+msgstr "Search IP, email, reason..."
+
+msgid "Tất cả lý do"
+msgstr "All Reasons"
+
+msgid "Giới hạn gửi"
+msgstr "Submission Limit"
+
+msgid "Bot / User-Agent"
+msgstr "Bot / User-Agent"
+
+msgid "Email tạm thời"
+msgstr "Disposable Email"
+
+msgid "Từ khóa spam"
+msgstr "Spam Keyword"
+
+msgid "IP / Danh sách chặn"
+msgstr "IP / Blocklist"
+
+msgid "Tất cả trạng thái"
+msgstr "All Statuses"
+
+msgid "Đã chặn"
+msgstr "Blocked"
+
+msgid "Đã bỏ chặn"
+msgstr "Unblocked"
+
+msgid "Giám sát"
+msgstr "Monitor"
+
+msgid "Tìm kiếm"
+msgstr "Search"
+
+msgid "đã chọn"
+msgstr "selected"
+
+msgid "Xóa đã chọn"
+msgstr "Delete Selected"
+
+msgid "Bỏ chọn"
+msgstr "Deselect"
+
+msgid "Chưa có log spam nào."
+msgstr "No spam logs yet."
+
+msgid "Thời gian"
+msgstr "Time"
+
+msgid "Email / Người gửi"
+msgstr "Email / Sender"
+
+msgid "Lý do"
+msgstr "Reason"
+
+msgid "Trạng thái"
+msgstr "Status"
+
+msgid "Thao tác"
+msgstr "Actions"
+
+msgid "Hiển thị"
+msgstr "Show"
+
+msgid "của"
+msgstr "of"
+
+msgid "Xem chi tiết"
+msgstr "View Details"
+
+msgid "Bỏ chặn IP này"
+msgstr "Unblock this IP"
+
+msgid "Bỏ chặn"
+msgstr "Unblock"
+
+msgid "Chặn lại"
+msgstr "Block Again"
+
+msgid "Form liên hệ phổ biến"
+msgstr "Popular contact form"
+
+msgid "Form builder mạnh mẽ"
+msgstr "Powerful form builder"
+
+msgid "Form cao cấp doanh nghiệp"
+msgstr "Enterprise premium form"
+
+msgid "Form linh hoạt drag & drop"
+msgstr "Flexible drag & drop form"
+
+msgid "Form nhanh & nhẹ"
+msgstr "Fast & lightweight form"
+
+msgid "Form trong page builder"
+msgstr "Form in page builder"
+
+msgid "Đăng nhập WP"
+msgstr "WP Login"
+
+msgid "Form login WordPress"
+msgstr "WordPress login form"
+
+msgid "Đăng ký WP"
+msgstr "WP Registration"
+
+msgid "Form tạo tài khoản mới"
+msgstr "New account registration form"
+
+msgid "Bình luận"
+msgstr "Comments"
+
+msgid "Form comment bài viết"
+msgstr "Post comment form"
+
+msgid "Chưa cài"
+msgstr "Not installed"
+
+msgid "Tổng xác thực"
+msgstr "Total Verifications"
+
+msgid "Thất bại"
+msgstr "Failed"
+
+msgid "Thành công"
+msgstr "Successful"
+
+msgid "Hôm nay"
+msgstr "Today"
+
+msgid "CAPTCHA đang"
+msgstr "CAPTCHA is"
+
+msgid "Bảo vệ biểu mẫu bị vô hiệu hóa. Bật công tắc bên trên để kích hoạt."
+msgstr "Form protection is disabled. Enable the toggle above to activate."
+
+msgid "Bảo vệ biểu mẫu khỏi bot và spam tự động."
+msgstr "Protect forms from bots and automated spam."
+
+msgid "Hệ thống đang bảo vệ biểu mẫu của bạn."
+msgstr "The system is protecting your forms."
+
+msgid "Bật công tắc để kích hoạt."
+msgstr "Enable the toggle to activate."
+
+msgid "Cấu hình CAPTCHA"
+msgstr "CAPTCHA Configuration"
+
+msgid "Đang dùng"
+msgstr "Currently using"
+
+msgid "Checkbox \"Tôi không phải người máy\" — Google"
+msgstr "\"I'm not a robot\" checkbox — Google"
+
+msgid "Nhập Site Key..."
+msgstr "Enter Site Key..."
+
+msgid "Lấy Site Key tại đây ↗"
+msgstr "Get Site Key here ↗"
+
+msgid "Nhập Secret Key..."
+msgstr "Enter Secret Key..."
+
+msgid "Lấy Secret Key tại đây ↗"
+msgstr "Get Secret Key here ↗"
+
+msgid "Hiện/Ẩn"
+msgstr "Show/Hide"
+
+msgid "Tùy chỉnh hiển thị"
+msgstr "Display Customization"
+
+msgid "Ngôn ngữ"
+msgstr "Language"
+
+msgid "Tự động"
+msgstr "Auto"
+
+msgid "Tiếng Việt"
+msgstr "Vietnamese"
+
+msgid "Kích thước"
+msgstr "Size"
+
+msgid "Bình thường"
+msgstr "Normal"
+
+msgid "Gọn nhẹ"
+msgstr "Compact"
+
+msgid "Chủ đề"
+msgstr "Theme"
+
+msgid "Sáng"
+msgstr "Light"
+
+msgid "Tối"
+msgstr "Dark"
+
+msgid "Áp dụng cho"
+msgstr "Apply to"
+
+msgid "Ẩn, dựa trên điểm hành vi — Google"
+msgstr "Invisible, based on behavior score — Google"
+
+msgid "Ngưỡng điểm tối thiểu (0.0 – 1.0)"
+msgstr "Minimum score threshold (0.0 – 1.0)"
+
+msgid "Dưới ngưỡng sẽ bị chặn. Mặc định:"
+msgstr "Below threshold will be blocked. Default:"
+
+msgid "Giá trị cao hơn = bảo mật hơn nhưng có thể chặn nhầm."
+msgstr "Higher value = more secure but may cause false positives."
+
+msgid "CAPTCHA ẩn mượt của Cloudflare"
+msgstr "Cloudflare's smooth invisible CAPTCHA"
+
+msgid "Lấy Site Key tại Cloudflare Dashboard ↗"
+msgstr "Get Site Key at Cloudflare Dashboard ↗"
+
+msgid "Lấy Secret Key tại Cloudflare Dashboard ↗"
+msgstr "Get Secret Key at Cloudflare Dashboard ↗"
+
+msgid "Thay thế reCAPTCHA, bảo mật cao, tập trung quyền riêng tư"
+msgstr "reCAPTCHA alternative, high security, privacy-focused"
+
+msgid "Lấy Site Key tại hCaptcha Dashboard ↗"
+msgstr "Get Site Key at hCaptcha Dashboard ↗"
+
+msgid "Lấy Secret Key tại hCaptcha Dashboard ↗"
+msgstr "Get Secret Key at hCaptcha Dashboard ↗"
+
+msgid "Đăng ký và lấy Key tại"
+msgstr "Register and get your Key at"
+
+msgid "Thêm domain website vào danh sách cho phép"
+msgstr "Add your website domain to the allowlist"
+
+msgid "Điền Site Key và Secret Key vào form, chọn provider muốn dùng, bấm"
+msgstr "Fill in the Site Key and Secret Key in the form, choose the provider, click"
+"Fill in the Site Key and Secret Key in the form, choose the provider, click"
+
+msgid "Kiểm tra hoạt động bằng cách gửi thử biểu mẫu và xem nhật ký bên dưới"
+msgstr "Verify it works by submitting a test form and checking the log below"
+
+msgid "Nhật ký xác thực"
+msgstr "Verification Log"
+
+msgid "Chưa có nhật ký"
+msgstr "No logs yet"
+
+msgid "Kết quả"
+msgstr "Result"
+
+msgid "Xóa tất cả nhật ký"
+msgstr "Clear All Logs"
+
+msgid "Cấu hình CAPTCHA đang"
+msgstr "CAPTCHA configuration is"
+
+msgid "tắt"
+msgstr "off"
+
+msgid "CAPTCHA sẽ không hoạt động trên form cho đến khi bật lại."
+msgstr "CAPTCHA will not function on forms until it is re-enabled."
+
+msgid "Nhật ký xác thực CAPTCHA"
+msgstr "CAPTCHA Verification Log"
+
+msgid "Đang tải..."
+msgstr "Loading..."
+
+msgid "Chưa có nội dung nào được điền"
+msgstr "No content has been submitted yet"
+
+msgid "Đã bật Trang đơn hàng"
+msgstr "Order Page enabled"
+
+msgid "Đã tắt Trang đơn hàng"
+msgstr "Order Page disabled"
+
+msgid "Lỗi lưu trạng thái"
+msgstr "Error saving status"
+
+msgid "Lỗi kết nối"
+msgstr "Connection error"
+
+msgid "Số Zalo không hợp lệ. Ví dụ: 0901234567"
+msgstr "Invalid Zalo number. E.g.: 0901234567"
+
+msgid "Link Facebook phải bắt đầu bằng https://"
+msgstr "Facebook link must start with https://"
+
+msgid "Link Messenger phải bắt đầu bằng https://"
+msgstr "Messenger link must start with https://"
+
+msgid "Email không hợp lệ. Ví dụ: support@example.com"
+msgstr "Invalid email. E.g.: support@example.com"
+
+msgid "Bật tắt tính năng popup liên hệ trên website"
+msgstr "Toggle the contact popup feature on the website"
+
+msgid "Xung đột Plugin SEO"
+msgstr "SEO Plugin Conflict"
+
+msgid ""
+"Việc sử dụng cả 2 plugin SEO lớn cùng lúc sẽ gây xung đột thẻ meta, làm hỏng"
+" cấu trúc website và bị Google phạt. Hãy gỡ cài đặt một trong hai ngay lập "
+"tức."
+msgstr ""
+"Using both major SEO plugins at the same time will cause meta tag conflicts,"
+" break the website structure, and result in Google penalties. Please "
+"uninstall one of them immediately."
+
+msgid "Đã cài đặt Plugin hỗ trợ SEO"
+msgstr "SEO Support Plugin Installed"
+
+msgid ""
+"Website đang sử dụng plugin SEO tiêu chuẩn. AI sẽ phân tích và đưa ra các "
+"gợi ý cấu hình SEO nâng cao phù hợp với plugin này."
+msgstr ""
+"Your website is using a standard SEO plugin. AI will analyze and provide "
+"advanced SEO configuration suggestions tailored to this plugin."
+
+msgid "Chưa cài đặt Plugin hỗ trợ SEO (Rank Math / Yoast SEO)"
+msgstr "No SEO Plugin Installed (Rank Math / Yoast SEO)"
+
+msgid ""
+"Cấu trúc On-page SEO, Sitemap và Schema có thể chưa đạt chuẩn. Hãy cài đặt "
+"Rank Math SEO hoặc Yoast SEO để tối ưu hóa hiển thị trên Google."
+msgstr ""
+"On-page SEO structure, Sitemap, and Schema may not meet standards. Please "
+"install Rank Math SEO or Yoast SEO to optimize your Google visibility."
+
+msgid "Đang chặn công cụ tìm kiếm (Search Engine Visibility)"
+msgstr "Blocking Search Engines (Search Engine Visibility)"
+
+msgid ""
+"Tính năng \"Ngăn chặn các công cụ tìm kiếm đánh chỉ mục trang web này\" đang"
+" BẬT ở Cài đặt > Đọc. Google sẽ không thể lập chỉ mục (index) website của "
+"bạn. Vui lòng tắt ngay lập tức!"
+msgstr ""
+"The \"Discourage search engines from indexing this site\" setting is "
+"currently ON at Settings > Reading. Google will not be able to index your "
+"website. Please turn it off immediately!"
+
+msgid "Cho phép công cụ tìm kiếm thu thập dữ liệu"
+msgstr "Search Engine Crawling Allowed"
+
+msgid ""
+"Website của bạn đang cho phép Googlebot và các công cụ tìm kiếm khác lập chỉ"
+" mục."
+msgstr ""
+"Your website is allowing Googlebot and other search engines to index it."
+
+msgid "Cấu trúc đường dẫn tĩnh (Permalink) chưa chuẩn SEO"
+msgstr "Permalink Structure Not SEO-Friendly"
+
+msgid ""
+"Bạn đang dùng cấu trúc mặc định (VD: ?p=123), điều này không tốt cho SEO. "
+"Hãy vào Cài đặt > Đường dẫn tĩnh và chọn cấu trúc \"Tên bài viết\" "
+"(/%postname%/)."
+msgstr ""
+"You are using the default permalink structure (e.g. ?p=123), which is not "
+"good for SEO. Please go to Settings > Permalinks and choose the \"Post "
+"name\" structure (/%postname%/)."
+
+msgid "Cấu trúc đường dẫn tĩnh chuẩn SEO"
+msgstr "SEO-Friendly Permalink Structure"
+
+msgid "Đường dẫn tĩnh đang sử dụng cấu trúc thân thiện với công cụ tìm kiếm"
+msgstr "Your permalink structure is search-engine friendly."
+
+msgid "Khẩu hiệu (Tagline) đang để mặc định"
+msgstr "Tagline Set to Default"
+
+msgid ""
+"Khẩu hiệu đang để là \"Just another WordPress site\". Điều này làm giảm sự "
+"chuyên nghiệp và hiển thị không tốt trên kết quả tìm kiếm. Vào Cài đặt > "
+"Tổng quan để thay đổi."
+msgstr ""
+"Your tagline is set to \"Just another WordPress site\". This reduces "
+"professionalism and displays poorly in search results. Go to Settings > "
+"General to change it."
+
+msgid "Khẩu hiệu (Tagline) đã được tùy chỉnh"
+msgstr "Tagline Customized"
+
+msgid ""
+"Bạn đã thay đổi khẩu hiệu mặc định của website, giúp tối ưu thẻ meta "
+"description cho trang chủ."
+msgstr ""
+"You have changed the default tagline of your website, helping to optimize "
+"the meta description tag for the homepage."
+
+msgid "tất cả nội dung"
+msgstr "all content"
+
+msgid "trang tĩnh (Pages)"
+msgstr "static pages (Pages)"
+
+msgid "chuyên mục"
+msgstr "categories"
+
+msgid "danh mục sản phẩm"
+msgstr "product categories"
+
+msgid "Thiếu Meta"
+msgstr "Missing Meta"
+
+msgid "Thiếu Keyword"
+msgstr "Missing Keyword"
+
+msgid "Quá ngắn"
+msgstr "Too Short"
+
+msgid "Chưa phân loại"
+msgstr "Uncategorized"
+
+msgid "Trang (Page)"
+msgstr "Page"
+
+msgid "Xuất sắc"
+msgstr "Excellent"
+
+msgid "Khá"
+msgstr "Fair"
+
+msgid "Yếu"
+msgstr "Poor"
+
+msgid "Đã index"
+msgstr "Indexed"
+
+msgid "Đang bị chặn"
+msgstr "Blocked"
+
+msgid "Hợp lệ"
+msgstr "Valid"
+
+msgid "Chưa có"
+msgstr "Not Available"
+
+msgid "Đã cài đặt"
+msgstr "Installed"
+
+msgid "Thiếu"
+msgstr "Missing"
+
+msgid "Cần cải thiện"
+msgstr "Needs Improvement"
+
+msgid "Tối ưu Meta Description"
+msgstr "Optimize Meta Description"
+
+msgid "Tối ưu Focus Keyword"
+msgstr "Optimize Focus Keyword"
+
+msgid "Bổ sung Schema Markup"
+msgstr "Add Schema Markup"
+
+msgid "Tối ưu Internal Link"
+msgstr "Optimize Internal Links"
+
+msgid "An Toàn"
+msgstr "Safe"
+
+msgid "Nguy hiểm"
+msgstr "Danger"
+
+msgid "Cảnh báo"
+msgstr "Warning"
+
+msgid "Gợi ý SEO Website (SEO Advisor)"
+msgstr "Website SEO Advisor"
+
+msgid ""
+"Phân tích cấu trúc On-page SEO, sitemap, thẻ meta và tối ưu nội dung website"
+" bằng trí tuệ nhân tạo."
+msgstr ""
+"Analyze On-page SEO structure, sitemap, meta tags, and optimize website "
+"content using artificial intelligence."
+
+msgid "Chưa kết nối AI"
+msgstr "AI Not Connected"
+
+msgid ""
+"Bạn cần cấu hình mã khóa API trong phần Kết nối AI trước khi sử dụng tính "
+"năng này."
+msgstr ""
+"You need to configure your API key in the AI Connection section before using"
+" this feature."
+
+msgid "Sang trang Kết nối AI"
+msgstr "Go to AI Connection"
+
+msgid "AI đang tiến hành phân tích sâu hệ thống..."
+msgstr "AI is performing a deep system analysis..."
+
+msgid "Báo Cáo Phân Tích & Giải Pháp Từ AI"
+msgstr "AI Analysis Report & Solutions"
+
+msgid "Thu gọn tất cả"
+msgstr "Collapse All"
+
+msgid "điểm so với tuần trước"
+msgstr "points vs. last week"
+
+msgid "AN TOÀN"
+msgstr "SAFE"
+
+msgid "CẢNH BÁO"
+msgstr "WARNING"
+
+msgid "Bạn có thể tăng tối đa"
+msgstr "You can increase up to"
+
+msgid "điểm"
+msgstr "points"
+
+msgid "Lần quét"
+msgstr "Scans"
+
+msgid "Bài viết đã quét"
+msgstr "Posts Scanned"
+
+msgid "Lỗi phát hiện"
+msgstr "Errors Detected"
+
+msgid "Hoàn tất"
+msgstr "Completed"
+
+msgid "Quét lại ngay"
+msgstr "Rescan Now"
+
+msgid "Danh Sách Kiểm Tra SEO Chi Tiết"
+msgstr "Detailed SEO Checklist"
+
+msgid "Xem hướng dẫn khắc phục"
+msgstr "View Fix Guide"
+
+msgid "Top Nội Dung Cần Tối Ưu Gấp"
+msgstr "Top Content Needing Urgent Optimization"
+
+msgid "Bài viết"
+msgstr "Posts"
+
+msgid "Sản phẩm"
+msgstr "Products"
+
+msgid "Trang"
+msgstr "Pages"
+
+msgid "Không tìm thấy nội dung nào thiếu sót nghiêm trọng."
+msgstr "No content with serious issues found."
+
+msgid "Tải thêm"
+msgstr "Load More"
+
+msgid "Điểm SEO & Checklist"
+msgstr "SEO Score & Checklist"
+
+msgid ""
+"Xem điểm SEO tổng quan, danh sách kiểm tra và các vấn đề cần khắc phục ngay "
+"trên trang này."
+msgstr ""
+"View your overall SEO score, checklist, and issues to fix directly on this "
+"page."
+
+msgid "Xem điểm & checklist"
+msgstr "View Score & Checklist"
+
+msgid "Vào Tối ưu Website"
+msgstr "Go to Website Optimization"
+
+msgid "Báo cáo AI"
+msgstr "AI Report"
+
+msgid ""
+"AI phân tích chuyên sâu từng lỗi SEO và đưa ra hướng dẫn khắc phục cụ thể, "
+"dễ thực hiện."
+msgstr ""
+"AI deeply analyzes each SEO issue and provides specific, easy-to-follow fix "
+"instructions."
+
+msgid "Chạy AI Phân tích"
+msgstr "Run AI Analysis"
+
+msgid "Kết nối AI"
+msgstr "AI Connection"
+
+msgid ""
+"Kết nối Gemini / Claude / GPT để AI tự động viết bài, tối ưu meta và phân "
+"tích nội dung."
+msgstr ""
+"Connect Gemini / Claude / GPT so AI can automatically write posts, optimize "
+"meta tags, and analyze content."
+
+msgid "Cấu hình kết nối AI"
+msgstr "Configure AI Connection"
+
+msgid "Mẹo:"
+msgstr "Tip:"
+
+msgid ""
+"Hãy quét SEO định kỳ hàng tuần để phát hiện sớm các vấn đề và duy trì thứ "
+"hạng tìm kiếm ổn định."
+msgstr ""
+"Scan SEO regularly every week to detect issues early and maintain stable "
+"search rankings."
+
+msgid "Xem bài viết"
+msgstr "View Post"
+
+msgid "Xem"
+msgstr "View"
+
+msgid "Chỉnh sửa bài viết"
+msgstr "Edit Post"
+
+msgid "Sửa"
+msgstr "Edit"
+
+msgid "AI phân tích SEO bài viết này"
+msgstr "AI analyzes SEO for this post"
+
+msgid "AI Quét"
+msgstr "AI Scan"
+
+msgid "AI Quét SEO bài viết"
+msgstr "AI SEO Post Scan"
+
+msgid "AI sẽ kiểm tra"
+msgstr "AI will check"
+
+msgid "Điểm SEO tổng thể"
+msgstr "Overall SEO Score"
+
+msgid "Từ khóa trọng tâm"
+msgstr "Focus Keyword"
+
+msgid "Keyword phụ thiếu"
+msgstr "Missing Secondary Keywords"
+
+msgid "Cấu trúc H2/H3"
+msgstr "H2/H3 Structure"
+
+msgid "Meta Description"
+msgstr "Meta Description"
+
+msgid "Internal Link"
+msgstr "Internal Link"
+
+msgid "Độ dài & mật độ"
+msgstr "Length & Density"
+
+msgid "Điểm SEO dự kiến"
+msgstr "Estimated SEO Score"
+
+msgid ""
+"Quá trình mất khoảng <strong>15–30 giây</strong>. Bài viết <strong>không "
+"thay đổi</strong> cho đến khi bạn xác nhận <strong>Áp dụng</strong>."
+msgstr ""
+"The process takes approximately <strong>15–30 seconds</strong>. The post "
+"<strong>will not change</strong> until you confirm <strong>Apply</strong>."
+
+msgid "Xác nhận quét"
+msgstr "Confirm Scan"
+
+msgid "Kết quả phân tích SEO"
+msgstr "SEO Analysis Results"
+
+msgid "Điểm SEO tổng quan"
+msgstr "Overall SEO Score"
+
+msgid "Hiện tại"
+msgstr "Current"
+
+msgid "Sau khi áp dụng"
+msgstr "After Applying"
+
+msgid "Vấn đề cần khắc phục"
+msgstr "Issues to Fix"
+
+msgid "Áp dụng đề xuất"
+msgstr "Apply Suggestions"
+
+msgid "Từ khóa liên quan nên bổ sung"
+msgstr "Related Keywords to Add"
+
+msgid "Tiêu đề H2 nên bổ sung"
+msgstr "H2 Headings to Add"
+
+msgid "Liên kết nội bộ nên bổ sung"
+msgstr "Internal Links to Add"
+
+msgid "Xem trước thay đổi"
+msgstr "Preview Changes"
+
+msgid "Áp dụng thay đổi"
+msgstr "Apply Changes"
+
+msgid "Kiểm tra kỹ trước khi áp dụng vào bài viết"
+msgstr "Review carefully before applying to the post"
+
+msgid "Xem xong? Đóng để quay lại chỉnh sửa hoặc áp dụng."
+msgstr "Done reviewing? Close to return to edit or apply."
+
+msgid "Áp dụng thành công!"
+msgstr "Applied Successfully!"
+
+msgid "Một bản sao lưu (revision) đã được tạo tự động"
+msgstr "A backup (revision) was created automatically"
+
+msgid "Mở trang chỉnh sửa"
+msgstr "Open Edit Page"
+
+msgid "Tài khoản \"admin\" đang tồn tại"
+msgstr "The \"admin\" Account Exists"
+
+msgid ""
+"Việc sử dụng tên đăng nhập mặc định \"admin\" khiến hacker dễ dàng dò mật "
+"khẩu (Brute-force attack). Bạn nên tạo một tài khoản quản trị viên mới với "
+"tên khác, cấp quyền Admin, sau đó xóa tài khoản \"admin\" hiện tại."
+msgstr ""
+"Using the default \"admin\" username makes it easy for hackers to guess your"
+" password (Brute-force attack). You should create a new administrator "
+"account with a different name, grant Admin rights, then delete the current "
+"\"admin\" account."
+
+msgid "Không sử dụng tài khoản \"admin\""
+msgstr "Not Using the \"admin\" Account"
+
+msgid ""
+"Bạn đã bảo vệ website khỏi các đợt tấn công dò quét tài khoản mặc định "
+"(Brute-force)."
+msgstr ""
+"You have protected your website from brute-force attacks targeting the "
+"default account."
+
+msgid "Chế độ gỡ lỗi (WP_DEBUG) đang BẬT"
+msgstr "Debug Mode (WP_DEBUG) is ON"
+
+msgid ""
+"Khi WP_DEBUG được bật trên môi trường thực tế (Live site), các lỗi PHP có "
+"thể rò rỉ đường dẫn máy chủ và thông tin nhạy cảm. Hãy chuyển thành "
+"<code>define(\"WP_DEBUG\", false);</code> trong tệp wp-config.php."
+msgstr ""
+"When WP_DEBUG is enabled on a live site, PHP errors may leak server paths "
+"and sensitive information. Please change it to <code>define(\"WP_DEBUG\", "
+"false);</code> in the wp-config.php file."
+
+msgid "Đã tắt chế độ gỡ lỗi (WP_DEBUG)"
+msgstr "Debug Mode (WP_DEBUG) Disabled"
+
+msgid ""
+"Website của bạn không bị rò rỉ thông tin mã nguồn và cấu trúc thư mục ra bên"
+" ngoài."
+msgstr ""
+"Your website is not leaking source code information or directory structure "
+"to the outside."
+
+msgid "Chưa cấu hình chứng chỉ SSL (HTTPS)"
+msgstr "SSL Certificate (HTTPS) Not Configured"
+
+msgid ""
+"Truyền tải dữ liệu đang không được mã hóa. Hacker có thể đánh cắp thông tin "
+"đăng nhập của bạn. Hãy cài đặt chứng chỉ SSL ngay lập tức."
+msgstr ""
+"Data transmission is not encrypted. Hackers can steal your login "
+"credentials. Please install an SSL certificate immediately."
+
+msgid "Kết nối bảo mật HTTPS (SSL) đang hoạt động"
+msgstr "HTTPS (SSL) Secure Connection Active"
+
+msgid "Dữ liệu truyền tải giữa người dùng và máy chủ đã được mã hóa an toàn."
+msgstr "Data transmitted between users and the server is securely encrypted."
+
+msgid "Phiên bản PHP quá cũ (%s)"
+msgstr "PHP Version Too Old (%s)"
+
+msgid ""
+"Phiên bản PHP này đã ngừng hỗ trợ vá lỗi bảo mật từ rất lâu. Vui lòng nâng "
+"cấp lên PHP 7.4 hoặc 8.x."
+msgstr ""
+"This PHP version has not received security patches for a long time. Please "
+"upgrade to PHP 7.4 or 8.x."
+
+msgid "Phiên bản PHP an toàn (%s)"
+msgstr "PHP Version Safe (%s)"
+
+msgid ""
+"Bạn đang sử dụng phiên bản PHP được hỗ trợ tốt, đảm bảo cả hiệu suất và bảo "
+"mật."
+msgstr ""
+"You are using a well-supported PHP version, ensuring both performance and "
+"security."
+
+msgid "Phiên bản WordPress đã cũ (%s)"
+msgstr "WordPress Version Outdated (%s)"
+
+msgid ""
+"Nên cập nhật WordPress lên phiên bản mới nhất để nhận các bản vá lỗi bảo mật"
+" quan trọng."
+msgstr ""
+"You should update WordPress to the latest version to receive important "
+"security patches."
+
+msgid "Phiên bản WordPress an toàn (%s)"
+msgstr "WordPress Version Safe (%s)"
+
+msgid "Mã nguồn lõi đang ở trạng thái mới và an toàn."
+msgstr "The core source code is up to date and secure."
+
+msgid "Trình chỉnh sửa tệp tin Theme/Plugin đang mở"
+msgstr "Theme/Plugin File Editor is Open"
+
+msgid ""
+"Nếu hacker chiếm quyền admin, họ có thể sửa trực tiếp tệp tin PHP qua giao "
+"diện. Hãy <a href=\"%s\" style=\"color:#2271b1;font-weight:600;\">bật \"Ẩn "
+"menu Theme/Plugin\"</a> trong WP Helper, hoặc thêm "
+"<code>define(\"DISALLOW_FILE_EDIT\", true);</code> vào tệp wp-config.php."
+msgstr ""
+"If a hacker gains admin access, they can directly edit PHP files through the"
+" interface. Please <a href=\"%s\" style=\"color:#2271b1;font-"
+"weight:600;\">enable \"Hide Theme/Plugin Editor Menu\"</a> in WP Helper, or "
+"add <code>define(\"DISALLOW_FILE_EDIT\", true);</code> to the wp-config.php "
+"file."
+
+msgid " qua WP Helper"
+msgstr " via WP Helper"
+
+msgid " qua wp-config.php"
+msgstr " via wp-config.php"
+
+msgid "Đã khóa trình chỉnh sửa tệp tin nội bộ"
+msgstr "Internal File Editor Locked"
+
+msgid ""
+"Trình sửa tệp tin mã nguồn trong wp-admin đã được khóa%s để hạn chế rủi ro."
+msgstr ""
+"The source code file editor in wp-admin has been locked%s to reduce risk."
+
+msgid "Chưa đổi đường dẫn đăng nhập (wp-login.php / wp-admin)"
+msgstr "Login Path Not Changed (wp-login.php / wp-admin)"
+
+msgid ""
+"Các đường dẫn mặc định như <code>/wp-login.php</code>, <code>/wp-"
+"admin</code> khiến website dễ bị hacker và bot dò quét mật khẩu (Brute-"
+"force). Hãy <a href=\"%s\" style=\"color:#2271b1;font-weight:600;\">bật "
+"\"Thay đổi đường dẫn đăng nhập\"</a> ngay trong WP Helper để đổi sang một "
+"đường dẫn bí mật."
+msgstr ""
+"Default paths such as <code>/wp-login.php</code> and <code>/wp-admin</code> "
+"make your website vulnerable to hacker and bot brute-force attacks. Please "
+"<a href=\"%s\" style=\"color:#2271b1;font-weight:600;\">enable \"Change "
+"Login URL\"</a> in WP Helper to switch to a secret path."
+
+msgid "Đã ẩn đường dẫn đăng nhập mặc định"
+msgstr "Default Login Path Hidden"
+
+msgid ""
+"Đường dẫn đăng nhập đã được thay bằng URL bí mật qua WP Helper, giúp chặn "
+"đứng các đợt tấn công dò quét tự động."
+msgstr ""
+"The login path has been replaced with a secret URL via WP Helper, "
+"effectively blocking automated brute-force attacks."
+
+msgid "XML-RPC chưa bị vô hiệu hóa"
+msgstr "XML-RPC Not Disabled"
+
+msgid ""
+"XML-RPC cho phép truy cập WordPress từ xa và thường bị lợi dụng để tấn công "
+"Brute-force hoặc DDoS amplification. Hãy <a href=\"%s\" "
+"style=\"color:#2271b1;font-weight:600;\">bật \"Vô hiệu hóa XML-RPC\"</a> "
+"trong WP Helper để khóa endpoint này."
+msgstr ""
+"XML-RPC allows remote access to WordPress and is often exploited for Brute-"
+"force or DDoS amplification attacks. Please <a href=\"%s\" "
+"style=\"color:#2271b1;font-weight:600;\">enable \"Disable XML-RPC\"</a> in "
+"WP Helper to lock this endpoint."
+
+msgid "Đã vô hiệu hóa XML-RPC"
+msgstr "XML-RPC Disabled"
+
+msgid ""
+"Giao thức XML-RPC đã bị khóa qua WP Helper, giảm thiểu nguy cơ tấn công "
+"Brute-force và DDoS qua endpoint này."
+msgstr ""
+"The XML-RPC protocol has been locked via WP Helper, minimizing the risk of "
+"Brute-force and DDoS attacks through this endpoint."
+
+msgid "Phiên bản WordPress đang bị lộ ra ngoài"
+msgstr "WordPress Version Exposed"
+
+msgid ""
+"Phiên bản WordPress hiển thị trong HTML source giúp hacker xác định đúng lỗ "
+"hổng bảo mật cụ thể. Hãy <a href=\"%s\" style=\"color:#2271b1;font-"
+"weight:600;\">bật \"Ẩn phiên bản WordPress\"</a> trong WP Helper để che giấu"
+" thông tin này."
+msgstr ""
+"The WordPress version visible in the HTML source helps hackers identify "
+"specific security vulnerabilities. Please <a href=\"%s\" "
+"style=\"color:#2271b1;font-weight:600;\">enable \"Hide WordPress "
+"Version\"</a> in WP Helper to conceal this information."
+
+msgid "Đã ẩn phiên bản WordPress"
+msgstr "WordPress Version Hidden"
+
+msgid ""
+"Phiên bản WordPress không còn hiển thị trong HTML source, giảm thiểu thông "
+"tin mà hacker có thể thu thập."
+msgstr ""
+"The WordPress version is no longer visible in the HTML source, minimizing "
+"information that hackers can gather."
+
+msgid "Gợi ý Bảo mật Website (Security Advisor)"
+msgstr "Website Security Advisor"
+
+msgid ""
+"Quét và kiểm tra toàn diện website, phát hiện lỗ hổng bảo mật, cấu hình lỗi "
+"và đề xuất các biện pháp khắc phục."
+msgstr ""
+"Comprehensively scan and inspect the website, detect security "
+"vulnerabilities, misconfigurations, and recommend remediation measures."
+
+msgid "AI Phân Tích Bảo Mật"
+msgstr "AI Security Analysis"
+
+msgid "Mức khá"
+msgstr "Good"
+
+msgid "Bảo mật hệ thống"
+msgstr "System Security"
+
+msgid "Bảo mật plugin & theme"
+msgstr "Plugin & Theme Security"
+
+msgid "Cấu hình máy chủ"
+msgstr "Server Configuration"
+
+msgid "Bảo vệ dữ liệu"
+msgstr "Data Protection"
+
+msgid "Điểm Số Bảo Mật"
+msgstr "Security Score"
+
+msgid "Thang điểm đánh giá dựa trên tiêu chuẩn bảo mật của WordPress"
+msgstr "Scoring based on WordPress security standards"
+
+msgid "An toàn"
+msgstr "Safe"
+
+msgid "Phân bố điểm số"
+msgstr "Score Distribution"
+
+msgid "Lần quét gần nhất"
+msgstr "Last Scan"
+
+msgid "Số tiêu chí"
+msgstr "Criteria Count"
+
+msgid "mục"
+msgstr "items"
+
+msgid "Bảo vệ website"
+msgstr "Website Protection"
+
+msgid ""
+"Bật các tính năng bảo vệ cơ bản để website luôn trong tình trạng an toàn."
+msgstr ""
+"Enable basic protection features to keep your website safe at all times."
+
+msgid "Cấu hình ngay"
+msgstr "Configure Now"
+
+msgid "Danh sách kiểm tra bảo mật chi tiết"
+msgstr "Detailed Security Checklist"
+
+msgid "Tổng cộng: %d mục"
+msgstr "Total: %d items"
+
+msgid "Bảo vệ toàn diện"
+msgstr "Comprehensive Protection"
+
+msgid ""
+"Bật XML-RPC, ẩn WP version, login URL bí mật và các tính năng bảo vệ tích "
+"hợp sẵn."
+msgstr ""
+"Disable XML-RPC, hide WP version, secret login URL, and built-in protection "
+"features."
+
+msgid "Cài đặt tính năng"
+msgstr "Configure Features"
+
+msgid "Phát hiện kịp thời"
+msgstr "Timely Detection"
+
+msgid ""
+"9 tiêu chí tự động phát hiện lỗ hổng, cấu hình sai và các rủi ro bảo mật."
+msgstr ""
+"9 criteria automatically detect vulnerabilities, misconfigurations, and "
+"security risks."
+
+msgid "Xem danh sách kiểm tra"
+msgstr "View Checklist"
+
+msgid "Hướng dẫn chi tiết"
+msgstr "Detailed Guide"
+
+msgid ""
+"AI phân tích chuyên sâu và đưa ra giải pháp khắc phục cụ thể từng vấn đề."
+msgstr ""
+"AI performs in-depth analysis and provides specific solutions for each "
+"issue."
+
+msgid "Tự động hóa AI"
+msgstr "AI Automation"
+
+msgid ""
+"Kết nối Gemini / Claude / GPT để AI tự động phân tích và đề xuất khắc phục."
+msgstr ""
+"Connect Gemini / Claude / GPT for AI to automatically analyze and suggest "
+"fixes."
+
+msgid ""
+"Hãy kiểm tra bảo mật định kỳ để đảm bảo website luôn được bảo vệ an toàn "
+"trước mọi đe dọa mới."
+msgstr ""
+"Check security regularly to ensure your website is always protected against "
+"new threats."
+
+msgid ""
+"Chưa có nhà cung cấp AI nào được kết nối. Vui lòng cấu hình API Key tại tab "
+"AI Kết nối."
+msgstr ""
+"No AI provider connected. Please configure your API Key in the AI Connection"
+" tab."
+
+msgid ""
+"Chưa có nhà cung cấp AI nào được kết nối. Vui lòng cấu hình API Key tại "
+"trang AI Kết nối."
+msgstr ""
+"No AI provider connected. Please configure your API Key on the AI Connection"
+" page."
+
+msgid "Hệ thống kết nối AI trực tiếp chưa được thiết lập."
+msgstr "The direct AI connection system has not been set up."
+
+msgid ""
+"Toàn bộ tài khoản API của bạn đã hết sạch lượt truy vấn miễn phí (Quota "
+"Limit) trong chu kỳ này. Vui lòng nghỉ ngơi khoảng 1-2 phút để Google hồi "
+"phục lại số lượt dùng, hoặc chủ động chọn một Mô hình AI khác ở ô Lựa chọn "
+"Model bên trên!"
+msgstr ""
+"All of your API accounts have exhausted their free quota (Quota Limit) in "
+"this cycle. Please wait about 1-2 minutes for Google to restore the quota, "
+"or proactively select a different AI Model in the Model Selection field "
+"above!"
+
+msgid "Không thể hoàn thành phân tích do quá tải AI!"
+msgstr "Unable to complete analysis due to AI overload!"
+
+msgid ""
+"Hệ thống đã tự động thử tất cả các Mô hình AI dự phòng (Fallback) nhưng đều "
+"bị từ chối."
+msgstr ""
+"The system automatically tried all fallback AI Models but all were rejected."
+
+msgid "Hệ thống AI đang quá tải (Lỗi 503):"
+msgstr "AI system overloaded (Error 503):"
+
+msgid ""
+"Hiện tại máy chủ AI đang xử lý quá nhiều yêu cầu. Bạn vui lòng đợi khoảng "
+"1-2 phút và bấm nút Quét lại nhé!"
+msgstr ""
+"The AI server is currently processing too many requests. Please wait about "
+"1-2 minutes and click the Rescan button!"
+
+msgid "Lỗi API:"
+msgstr "API Error:"
+
+msgid ""
+"Không thể kết nối với AI lúc này hoặc dữ liệu trả về rỗng. Vui lòng kiểm tra"
+" lại thiết lập mã khóa API trong trang Kết nối AI."
+msgstr ""
+"Unable to connect to AI at this time or the returned data is empty. Please "
+"check your API key settings on the AI Connection page."
+
+msgid "Chế độ Bảo trì Website"
+msgstr "Website Maintenance Mode"
+
+msgid ""
+"Khi bật, khách truy cập thấy trang bảo trì thay vì nội dung website. Tùy "
+"chỉnh giao diện và nội dung theo ý muốn."
+msgstr ""
+"When enabled, visitors see the maintenance page instead of the website "
+"content. Customize the layout and content as desired."
+
+msgid "Nội dung trang bảo trì"
+msgstr "Maintenance Page Content"
+
+msgid "Chưa biết viết gì? Để AI tự động soạn nội dung phù hợp."
+msgstr "Not sure what to write? Let AI automatically compose suitable content."
+"Not sure what to write? Let AI automatically compose suitable content."
+
+msgid "Nhờ AI soạn"
+msgstr "Ask AI to Write"
+
+msgid "Tiêu đề trang"
+msgstr "Page Title"
+
+msgid "Vd: Bảo trì hệ thống"
+msgstr "E.g.: System Maintenance"
+
+msgid "Vd: Trang web đang nâng cấp!"
+msgstr "E.g.: Website is being upgraded!"
+
+msgid "Vd: Chúng tôi sẽ sớm quay lại"
+msgstr "E.g.: We will be back soon"
+
+msgid "Mô tả"
+msgstr "Description"
+
+msgid "Vd: Website đang bảo trì. Vui lòng quay lại sau!"
+msgstr "E.g.: Website is under maintenance. Please come back later!"
+
+msgid "Logo trang bảo trì"
+msgstr "Maintenance Page Logo"
+
+msgid "Đường dẫn ảnh logo hoặc tải lên"
+msgstr "Logo image path or upload"
+
+msgid "Xóa logo"
+msgstr "Remove Logo"
+
+msgid "Thời gian kết thúc bảo trì (Đếm ngược)"
+msgstr "Maintenance End Time (Countdown)"
+
+msgid "Xóa thời gian"
+msgstr "Clear Time"
+
+msgid "Chọn ngày"
+msgstr "Select Date"
+
+msgid "Chọn giờ"
+msgstr "Select Time"
+
+msgid "Chọn"
+msgstr "Select"
+
+msgid ""
+"Để trống trường này nếu bạn không muốn hiển thị đồng hồ đếm ngược trên giao "
+"diện bảo trì."
+msgstr ""
+"Leave this field empty if you do not want to display a countdown clock on "
+"the maintenance interface."
+
+msgid "Liên hệ"
+msgstr "Contact"
+
+msgid "Mạng xã hội"
+msgstr "Social Media"
+
+msgid "Để trống ô nào để ẩn biểu tượng đó trên trang bảo trì."
+msgstr "Leave any field empty to hide that icon on the maintenance page."
+
+msgid "URL kênh YouTube"
+msgstr "YouTube Channel URL"
+
+msgid "Số Zalo hoặc zalo.me/..."
+msgstr "Zalo number or zalo.me/..."
+
+msgid "Xem trước trang bảo trì"
+msgstr "Preview Maintenance Page"
+
+msgid "Giao diện trang bảo trì hiển thị với khách truy cập"
+msgstr "Maintenance page interface as seen by visitors"
+
+msgid "Đang tải preview..."
+msgstr "Loading preview..."
+
+msgid "Preview hiển thị đúng giao diện bảo trì với khách truy cập."
+msgstr "Preview shows the correct maintenance interface as seen by visitors."
+
+msgid "Khi bảo trì"
+msgstr "During maintenance"
+
+msgid "BẬT"
+msgstr "ON"
+
+msgid "admin truy cập bình thường, chỉ khách bị chặn."
+msgstr "admin accesses normally, only guests are blocked."
+
+msgid "Checklist trước khi bật"
+msgstr "Pre-enable Checklist"
+
+msgid "Đã đặt tiêu đề trang"
+msgstr "Page title set"
+
+msgid "Đã điền mô tả / thông báo"
+msgstr "Description / notice filled in"
+
+msgid "Đã đặt đồng hồ đếm ngược"
+msgstr "Countdown timer set"
+
+msgid "Đã thêm thông tin liên hệ"
+msgstr "Contact information added"
+
+msgid "Đã tải logo lên"
+msgstr "Logo uploaded"
+
+msgid "Lưu ý kỹ thuật"
+msgstr "Technical Notes"
+
+msgid "Google nhận mã %s — hiểu trang tạm nghỉ, không ảnh hưởng SEO."
+msgstr "Google receives code %s — understands the page is temporarily down, no SEO impact."
+
+msgid "Admin đã đăng nhập luôn truy cập được trang bình thường."
+msgstr "Logged-in admins can always access the site normally."
+
+msgid "Đặt đồng hồ đếm ngược để khách biết thời gian quay lại."
+msgstr "Set a countdown timer so visitors know when to return."
+
+msgid "Thống kê truy cập khi bảo trì"
+msgstr "Traffic Statistics During Maintenance"
+
+msgid "Hôm qua"
+msgstr "Yesterday"
+
+msgid "7 ngày qua"
+msgstr "Last 7 Days"
+
+msgid "30 ngày qua"
+msgstr "Last 30 Days"
+
+msgid "Lượt truy cập"
+msgstr "Visits"
+
+msgid "Lượt xem trang"
+msgstr "Page Views"
+
+msgid "Khách truy cập"
+msgstr "Visitors"
+
+msgid "Tỷ lệ thoát"
+msgstr "Bounce Rate"
+
+msgid "vs. kỳ trước"
+msgstr "vs. previous period"
+
+msgid "Chưa có dữ liệu. Bật bảo trì để bắt đầu ghi nhận lượt truy cập."
+msgstr "No data yet. Enable maintenance mode to start recording visits."
+
+msgid "Mẫu giao diện"
+msgstr "Interface Template"
+
+msgid "Mẫu Số 1"
+msgstr "Template 1"
+
+msgid "Phong Cách Tối & Hiện Đại"
+msgstr "Dark & Modern Style"
+
+msgid "Mẫu Số 2"
+msgstr "Template 2"
+
+msgid "Phong Cách Tối Giản"
+msgstr "Minimalist Style"
+
+msgid "Mẫu Số 3"
+msgstr "Template 3"
+
+msgid "Phong Cách Công Nghệ AI"
+msgstr "AI Technology Style"
+
+msgid "Mẫu Số 4"
+msgstr "Template 4"
+
+msgid "Phong Cách Vũ Trụ & Đang Dựng"
+msgstr "Space & Under Construction Style"
+
+msgid "Mẫu Số 5"
+msgstr "Template 5"
+
+msgid "Phong Cách Doanh Nghiệp"
+msgstr "Corporate Style"
+
+msgid "Mẫu Số 6"
+msgstr "Template 6"
+
+msgid "Phong Cách Cyberpunk Neon"
+msgstr "Cyberpunk Neon Style"
+
+msgid "Hiện Tại"
+msgstr "Current"
+
+msgid "Xem demo"
+msgstr "View Demo"
+
+msgid "Sử dụng"
+msgstr "Use"
+
+msgid "Đã lưu API Key ảnh thành công!"
+msgstr "Image API Key saved successfully!"
+
+msgid "Đã duyệt và đăng bài viết thành công!"
+msgstr "Post approved and published successfully!"
+
+msgid "Đã chuyển bài viết vào thùng rác thành công!"
+msgstr "Post moved to trash successfully!"
+
+msgid "AI Core chưa kết nối!"
+msgstr "AI Core not connected!"
+
+msgid ""
+"Vui lòng đi tới trang <a href=\"%s\">Kết nối AI</a> để bật kết nối trước khi"
+" tạo bài viết."
+msgstr ""
+"Please go to the <a href=\"%s\">AI Connection</a> page to enable the "
+"connection before creating posts."
+
+msgid "AI - Tự động soạn & Đăng bài"
+msgstr "AI - Auto Compose & Publish"
+
+msgid ""
+"Giải pháp tối ưu hóa nội dung sử dụng trí tuệ nhân tạo độc quyền cho "
+"WordPress."
+msgstr "An exclusive AI-powered content optimization solution for WordPress."
+
+msgid "Biên soạn bài viết mới"
+msgstr "Compose New Post"
+
+msgid "Mô tả chi tiết ý tưởng hoặc chủ đề bài viết:"
+msgstr "Describe your article idea or topic in detail:"
+
+msgid ""
+"Ví dụ: Viết một bài viết chuẩn SEO giới thiệu về những điểm mới của "
+"WordPress 7.0..."
+msgstr ""
+"Example: Write an SEO-optimized article introducing the new features of "
+"WordPress 7.0..."
+
+msgid "Độ dài bài viết:"
+msgstr "Post Length:"
+
+msgid "Ngắn"
+msgstr "Short"
+
+msgid "~700-900 từ"
+msgstr "~700-900 words"
+
+msgid "Chuẩn"
+msgstr "Standard"
+
+msgid "~1200-1500 từ"
+msgstr "~1200-1500 words"
+
+msgid "Dài"
+msgstr "Long"
+
+msgid "~1800-2200 từ"
+msgstr "~1800-2200 words"
+
+msgid "Chọn Chuyên mục:"
+msgstr "Select Category:"
+
+msgid "Chưa có chuyên mục nào."
+msgstr "No categories available."
+
+msgid "Thẻ bài viết (Tags):"
+msgstr "Post Tags:"
+
+msgid "Phân cách các thẻ bằng dấu phẩy (,)"
+msgstr "Separate tags with commas (,)"
+
+msgid ""
+"Thẻ (Tags) là các từ khóa chính giúp phân loại chi tiết, tăng cường hiệu quả"
+" tìm kiếm và SEO."
+msgstr ""
+"Tags are key keywords that help with detailed categorization, enhancing "
+"search effectiveness and SEO."
+
+msgid "Ví dụ:"
+msgstr "Example:"
+
+msgid "du lịch, phú yên, cẩm nang"
+msgstr "travel, phu yen, guide"
+
+msgid "Ảnh đại diện (Featured Image):"
+msgstr "Featured Image:"
+
+msgid "Bấm vào đây để chọn hoặc đổi ảnh"
+msgstr "Click here to select or change image"
+
+msgid "Ảnh mô tả nội dung bài viết:"
+msgstr "Post content description images:"
+
+msgid "Bấm vào đây để chọn nhiều ảnh"
+msgstr "Click here to select multiple images"
+
+msgid ""
+"Nếu bạn KHÔNG upload ảnh đại diện hay mô tả nội dung, hệ thống sẽ tự động "
+"gọi AI vẽ hình minh họa để chèn vào bài (quá trình này mất khoảng vài phút)."
+msgstr ""
+"If you do NOT upload a featured image or content description images, the "
+"system will automatically use AI to generate illustrations for insertion "
+"(this process takes a few minutes)."
+
+msgid "AI soạn và Lưu chờ duyệt"
+msgstr "AI Compose & Save for Review"
+
+msgid "Hàng đợi bài viết AI"
+msgstr "AI Post Queue"
+
+msgid "Làm mới danh sách"
+msgstr "Refresh List"
+
+msgid "Chọn tất cả"
+msgstr "Select All"
+
+msgid "Bài viết chờ duyệt"
+msgstr "Posts Pending Review"
+
+msgid "Ngày tạo"
+msgstr "Date Created"
+
+msgid "Loại"
+msgstr "Type"
+
+msgid "Chờ duyệt"
+msgstr "Pending Review"
+
+msgid "Duyệt"
+msgstr "Approve"
+
+msgid "Xóa bài viết này?"
+msgstr "Delete this post?"
+
+msgid "Xem thêm bài viết"
+msgstr "View More Posts"
+
+msgid "Chưa có bài viết nào đang chờ duyệt."
+msgstr "No posts pending review."
+
+msgid "Trợ lý AI thông minh"
+msgstr "Intelligent AI Assistant"
+
+msgid "Gợi ý ý tưởng, từ khóa và phác thảo dàn bài trước khi soạn."
+msgstr "Suggest ideas, keywords, and outline drafts before composing."
+
+msgid "Nhấn nút"
+msgstr "Click the button"
+
+msgid "góc phải bên dưới"
+msgstr "bottom right corner"
+
+msgid "màn hình"
+msgstr "of the screen"
+
+msgid "Nhập mô tả chủ đề hoặc ý tưởng bài viết"
+msgstr "Enter topic description or post idea"
+
+msgid "Chọn chuyên mục và thêm thẻ (tags)"
+msgstr "Select category and add tags"
+
+msgid "Upload ảnh đại diện"
+msgstr "Upload featured image"
+
+msgid "không bắt buộc"
+msgstr "optional"
+
+msgid "Nhấn"
+msgstr "Click"
+
+msgid "Xem lại bài ở mục bên dưới, duyệt hoặc chỉnh sửa"
+msgstr "Review posts in the section below, approve or edit"
+
+msgid "Mô tả càng chi tiết → bài viết càng chuẩn SEO"
+msgstr "More detailed description → more SEO-optimized post"
+
+msgid "Upload ảnh nội dung để tiết kiệm vài phút chờ AI vẽ"
+msgstr "Upload content images to save a few minutes waiting for AI to generate"
+"Upload content images to save a few minutes waiting for AI to generate"
+
+msgid "Thêm tags giúp phân loại và tăng hiệu quả SEO"
+msgstr "Adding tags helps categorize and improve SEO effectiveness"
+
+msgid "API Key ảnh (AI Writer)"
+msgstr "Image API Key (AI Writer)"
+
+msgid ""
+"Dùng để tìm ảnh minh họa khi tạo bài viết. Lấy key miễn phí tại %s và %s."
+msgstr ""
+"Used to find illustration images when creating posts. Get free keys at %s "
+"and %s."
+
+msgid "Dán API Key Pexels..."
+msgstr "Paste Pexels API Key..."
+
+msgid "Dán API Key Pixabay..."
+msgstr "Paste Pixabay API Key..."
+
+msgid "Lưu API Key ảnh"
+msgstr "Save Image API Key"
+
+msgid "Tốt"
+msgstr "Good"
+
+msgid "Khá tốt"
+msgstr "Very Good"
+
+msgid "Chưa kết nối"
+msgstr "Not Connected"
+
+msgid "Tổng quan & Điều khiển AI"
+msgstr "AI Overview & Control"
+
+msgid ""
+"Giám sát toàn diện hoạt động AI — bảo mật, SEO, token và hàng đợi bài viết "
+"trong một nơi."
+msgstr ""
+"Comprehensively monitor all AI activity — security, SEO, tokens, and post "
+"queue in one place."
+
+msgid "Bài đã đăng"
+msgstr "Published Posts"
+
+msgid "Tổng: %d bài"
+msgstr "Total: %d posts"
+
+msgid "Bài AI đã tạo"
+msgstr "AI Generated Posts"
+
+msgid "Trong tháng này"
+msgstr "This Month"
+
+msgid "Nháp: %d"
+msgstr "Drafts: %d"
+
+msgid "Hoạt động"
+msgstr "Active"
+
+msgid "Cần thiết lập"
+msgstr "Needs Setup"
+
+msgid "Điểm Bảo mật"
+msgstr "Security Score"
+
+msgid "Cảnh báo nghiêm trọng"
+msgstr "Critical Warning"
+
+msgid "Cảnh báo nhẹ"
+msgstr "Minor Warning"
+
+msgid "Cần cấu hình API Key"
+msgstr "API Key Configuration Needed"
+
+msgid "Xem chi tiết →"
+msgstr "View Details →"
+
+msgid "Điểm SEO"
+msgstr "SEO Score"
+
+msgid "SEO Kỹ thuật"
+msgstr "Technical SEO"
+
+msgid "Mật độ từ khóa"
+msgstr "Keyword Density"
+
+msgid "Thống kê Token AI"
+msgstr "AI Token Statistics"
+
+msgid "Khác"
+msgstr "Others"
+
+msgid "Xem thống kê đầy đủ →"
+msgstr "View Full Statistics →"
+
+msgid "Hành động nhanh"
+msgstr "Quick Actions"
+
+msgid "Tạo bài viết SEO mới"
+msgstr "Create New SEO Post"
+
+msgid "Viết bài tối ưu SEO bằng AI"
+msgstr "Write SEO-optimized post with AI"
+
+msgid "Phân tích nội dung"
+msgstr "Content Analysis"
+
+msgid "Phân tích hiệu quả SEO bài viết"
+msgstr "Analyze post SEO effectiveness"
+
+msgid "Quét bảo mật hệ thống"
+msgstr "System Security Scan"
+
+msgid "Kiểm tra và bảo vệ website"
+msgstr "Check and protect website"
+
+msgid "AI Cố Vấn SEO"
+msgstr "AI SEO Advisor"
+
+msgid "Phân tích & gợi ý từ khóa"
+msgstr "Analyze & suggest keywords"
+
+msgid "Xem tất cả hành động →"
+msgstr "View All Actions →"
+
+msgid "Biểu đồ hoạt động AI (7 ngày qua)"
+msgstr "AI Activity Chart (Last 7 Days)"
+
+msgid "+ Tạo bài mới"
+msgstr "+ Create New Post"
+
+msgid "Duyệt đã chọn"
+msgstr "Approve Selected"
+
+msgid "Không có bài viết nào chờ phê duyệt."
+msgstr "No posts waiting for approval."
+
+msgid "Xem tất cả hàng đợi →"
+msgstr "View All Queue →"
+
+msgid "Thông tin hệ thống"
+msgstr "System Information"
+
+msgid "Phiên bản WordPress"
+msgstr "WordPress Version"
+
+msgid "Phiên bản PHP"
+msgstr "PHP Version"
+
+msgid "Theme hiện tại"
+msgstr "Current Theme"
+
+msgid "Trạng thái kết nối AI"
+msgstr "AI Connection Status"
+
+msgid "Dung lượng Database"
+msgstr "Database Size"
+
+msgid "Bộ nhớ PHP"
+msgstr "PHP Memory"
+
+msgid "Xem thông tin chi tiết →"
+msgstr "View Detailed Information →"
+
+msgid "● Đang online"
+msgstr "● Online"
+
+msgid "Đã đặt lại toàn bộ thống kê tokens của"
+msgstr "Reset all token statistics for"
+
+msgid "về 0!"
+msgstr "to 0!"
+
+msgid "Tạo văn bản và hình ảnh thông minh với các mô hình Gemini và Imagen."
+msgstr "Create smart text and images with Gemini and Imagen models."
+
+msgid "Trí tuệ nhân tạo chuyên sâu với các mô hình Claude 3/3.5."
+msgstr "Deep artificial intelligence with Claude 3/3.5 models."
+
+msgid "Dịch vụ AI phổ biến nhất thế giới với mô hình GPT-4o."
+msgstr "The world's most popular AI service with the GPT-4o model."
+
+msgid "Thống Kê Tokens AI"
+msgstr "AI Token Statistics"
+
+msgid ""
+"Xem thống kê chi tiết số lượng tokens đã tiêu thụ của từng nhà cung cấp dịch"
+" vụ AI."
+msgstr ""
+"View detailed token consumption statistics for each AI service provider."
+
+msgid "Bộ lọc thời gian"
+msgstr "Time Filter"
+
+msgid "15 ngày qua"
+msgstr "Last 15 Days"
+
+msgid "Tùy chọn"
+msgstr "Custom"
+
+msgid "Lọc dữ liệu"
+msgstr "Filter Data"
+
+msgid "Đang xem dữ liệu:"
+msgstr "Viewing data:"
+
+msgid "— Cột được tô sáng là khoảng thời gian tương ứng với bộ lọc đã chọn"
+msgstr "— Highlighted column corresponds to the selected time filter"
+
+msgid "Chi tiết"
+msgstr "Details"
+
+msgid "Ngắt kết nối"
+msgstr "Disconnect"
+
+msgid "Đặt lại"
+msgstr "Reset"
+
+msgid "Kết nối"
+msgstr "Connect"
+
+msgid "Khoảng lọc"
+msgstr "Filter Range"
+
+msgid "14 ngày gần nhất"
+msgstr "Last 14 Days"
+
+msgid "Ngày"
+msgstr "Date"
+
+msgid "Tokens sử dụng"
+msgstr "Tokens Used"
+
+msgid "So với ngày trước"
+msgstr "vs. Previous Day"
+
+msgid "Chưa có dữ liệu sử dụng chi tiết theo ngày."
+msgstr "No detailed daily usage data yet."
+
+msgid "Logs sẽ xuất hiện sau khi bạn sử dụng các tính năng AI."
+msgstr "Logs will appear after you use AI features."
+
+msgid "Chưa dùng"
+msgstr "Not Used"
+
+msgid "Tổng quan sử dụng tokens"
+msgstr "Token Usage Overview"
+
+msgid "Tổng hợp từ tất cả nhà cung cấp AI đã kết nối."
+msgstr "Aggregated from all connected AI providers."
+
+msgid "Chọn bộ lọc thời gian"
+msgstr "Select Time Filter"
+
+msgid "Nhấn Hôm nay / 7 ngày / 15 ngày hoặc Tùy chọn để xem theo ngày cụ thể."
+msgstr "Click Today / 7 days / 15 days or Custom to view by specific date."
+
+msgid "Nhấn Lọc dữ liệu"
+msgstr "Click Filter Data"
+
+msgid "Cột tương ứng sẽ được tô sáng — các cột còn lại mờ đi để dễ theo dõi."
+msgstr "The corresponding column will be highlighted — other columns will dim for easier tracking."
+"The corresponding column will be highlighted — other columns will dim for "
+"easier tracking."
+
+msgid "Chi tiết sử dụng"
+msgstr "Usage Details"
+
+msgid ""
+"Nhấn nút \"Chi tiết\" để xem chi tiết lượng tokens tiêu thụ theo từng ngày."
+msgstr "Click the \"Details\" button to view detailed token consumption per day."
+
+msgid "Mẹo tiết kiệm tokens"
+msgstr "Token Saving Tips"
+
+msgid "Viết prompt ngắn gọn, rõ ràng để giảm tokens đầu vào."
+msgstr "Write concise, clear prompts to reduce input tokens."
+
+msgid "Dùng Claude Haiku hoặc Gemini Flash cho các tác vụ đơn giản."
+msgstr "Use Claude Haiku or Gemini Flash for simple tasks."
+
+msgid "Đặt lại bộ đếm định kỳ để theo dõi theo tháng."
+msgstr "Reset the counter periodically to track by month."
+
+msgid "Kiểm tra bảng \"Chi tiết\" để tìm ngày tiêu thụ nhiều bất thường."
+msgstr "Check the \"Details\" table to find days with unusually high consumption."
+
+msgid "Kết nối thêm AI"
+msgstr "Connect More AI"
+
+msgid ""
+"Kết nối thêm nhà cung cấp AI để so sánh chi phí và chọn mô hình phù hợp "
+"nhất."
+msgstr ""
+"Connect additional AI providers to compare costs and choose the most "
+"suitable model."
+
+msgid "Cấu hình kết nối →"
+msgstr "Configure Connection →"
+
+msgid "Bạn có chắc chắn muốn đặt lại toàn bộ thống kê tokens của"
+msgstr "Are you sure you want to reset all token statistics for"
+
+msgid "về 0 không?"
+msgstr "to 0?"
+
+msgid "Đã bật kết nối thành công với API AI!"
+msgstr "AI API connection enabled successfully!"
+
+msgid "Đã ngắt kết nối hệ thống AI Auto Poster."
+msgstr "AI Auto Poster system disconnected."
+
+msgid "Lỗi: Bạn chưa cài đặt API Key cho %s!"
+msgstr "Error: You have not set up an API Key for %s!"
+
+msgid "Vui lòng ngắt kết nối %s trước khi sử dụng nhà cung cấp khác."
+msgstr "Please disconnect %s before using another provider."
+
+msgid "Đã kết nối thành công với %s!"
+msgstr "Connected to %s successfully!"
+
+msgid "Đã ngắt kết nối với %s."
+msgstr "Disconnected from %s."
+
+msgid "Đã lưu model thành công!"
+msgstr "Model saved successfully!"
+
+msgid "Claude Opus 4.8 (Mạnh nhất)"
+msgstr "Claude Opus 4.8 (Most Powerful)"
+
+msgid "Claude Sonnet 4.6 (Khuyên dùng)"
+msgstr "Claude Sonnet 4.6 (Recommended)"
+
+msgid "Claude Haiku 4.5 (Nhanh)"
+msgstr "Claude Haiku 4.5 (Fast)"
+
+msgid "Gemini 3.5 Flash — Nhanh & thông minh nhất (Mới nhất)"
+msgstr "Gemini 3.5 Flash — Fastest & Smartest (Latest)"
+
+msgid "Gemini 3.1 Pro — Chất lượng cao nhất (Mới nhất)"
+msgstr "Gemini 3.1 Pro — Highest Quality (Latest)"
+
+msgid "Gemini 2.5 Flash-Lite — Nhanh (Ổn định)"
+msgstr "Gemini 2.5 Flash-Lite — Fast (Stable)"
+
+msgid "Gemini 2.5 Flash — Toàn diện (Ổn định)"
+msgstr "Gemini 2.5 Flash — Comprehensive (Stable)"
+
+msgid "Gemini 2.5 Pro — Nâng cao (Ổn định)"
+msgstr "Gemini 2.5 Pro — Advanced (Stable)"
+
+msgid "GPT-4o (Khuyên dùng)"
+msgstr "GPT-4o (Recommended)"
+
+msgid "GPT-4o Mini (Nhanh)"
+msgstr "GPT-4o Mini (Fast)"
+
+msgid "Tạo văn bản với Claude"
+msgstr "Create text with Claude"
+
+msgid "Tạo nội dung và hình ảnh với Gemini và Imagen"
+msgstr "Create content and images with Gemini and Imagen"
+
+msgid "Tạo văn bản và hình ảnh với GPT và DALL-E"
+msgstr "Create text and images with GPT and DALL-E"
+
+msgid "Cấu hình Kết nối AI"
+msgstr "AI Connection Configuration"
+
+msgid ""
+"Cấu hình mã khóa API (Direct API Keys) để kết nối trực tiếp với các mô hình "
+"trí tuệ nhân tạo độc lập."
+msgstr ""
+"Configure API keys (Direct API Keys) to connect directly with independent "
+"artificial intelligence models."
+
+msgid "Nhà cung cấp AI"
+msgstr "AI Provider"
+
+msgid ""
+"Nhập API Key và kết nối một nhà cung cấp. Chỉ một nhà cung cấp hoạt động tại"
+" một thời điểm — muốn đổi, ngắt kết nối hiện tại trước."
+msgstr ""
+"Enter an API Key and connect one provider. Only one provider can be active "
+"at a time — to switch, disconnect the current one first."
+
+msgid "Đã kết nối lúc:"
+msgstr "Connected at:"
+
+msgid "Model:"
+msgstr "Model:"
+
+msgid " (Khuyên dùng)"
+msgstr " (Recommended)"
+
+msgid "Mới nhất"
+msgstr "Latest"
+
+msgid "Kiểm tra"
+msgstr "Test"
+
+msgid "Nhập API Key..."
+msgstr "Enter API Key..."
+
+msgid "Lấy API Key tại"
+msgstr "Get API Key at"
+
+msgid "Model AI:"
+msgstr "AI Model:"
+
+msgid "Lưu model"
+msgstr "Save Model"
+
+msgid "Bảo mật API Key"
+msgstr "API Key Security"
+
+msgid ""
+"API Key được mã hóa và lưu trữ an toàn. Chúng tôi không lưu trữ hoặc chia sẻ"
+" khóa API của bạn với bên thứ ba."
+msgstr ""
+"API Keys are encrypted and stored securely. We do not store or share your "
+"API keys with third parties."
+
+msgid "Mã hóa AES-256"
+msgstr "AES-256 Encryption"
+
+msgid "mã hóa AES-256"
+msgstr "AES-256 encrypted"
+
+msgid "không lưu trữ hoặc chia sẻ"
+msgstr "do not store or share"
+
+msgid "ngắt kết nối và xóa"
+msgstr "disconnect and delete"
+
+msgid "Xác nhận kết nối"
+msgstr "Confirm Connection"
+
+msgid "Nhà cung cấp:"
+msgstr "Provider:"
+
+msgid "API Key được %s và lưu trữ an toàn vào cơ sở dữ liệu website của bạn."
+msgstr "Your API Key is %s and stored securely in your website's database."
+
+msgid "Chúng tôi %s khóa API của bạn với bất kỳ bên thứ ba nào."
+msgstr "We %s your API key with any third parties."
+
+msgid "Bạn có thể %s API Key bất kỳ lúc nào từ trang này."
+msgstr "You can %s your API Key at any time from this page."
+
+msgid "Đồng ý & Kết nối"
+msgstr "Agree & Connect"
+
+msgid "Bảo mật cấp ngân hàng"
+msgstr "Bank-grade Security"
+
+msgid "Không lưu trữ"
+msgstr "No Storage"
+
+msgid "Chỉ lưu tạm thời"
+msgstr "Temporary Only"
+
+msgid "Kiểm soát hoàn toàn"
+msgstr "Full Control"
+
+msgid "Bạn toàn quyền quản lý"
+msgstr "You have full management rights"
+
+msgid "Trạng thái kết nối"
+msgstr "Connection Status"
+
+msgid "Kết nối thành công! Bắt đầu tạo bài viết ngay"
+msgstr "Connected successfully! Start creating posts now"
+
+msgid "Kết nối AI để mở khóa toàn bộ tính năng"
+msgstr "Connect AI to unlock all features"
+
+msgid ""
+"AI đã sẵn sàng — thử tính năng AI Viết Bài để tự động soạn nội dung SEO."
+msgstr ""
+"AI is ready — try the AI Writer feature to automatically compose SEO "
+"content."
+
+msgid ""
+"Nhập API Key ở trên để sử dụng AI Viết Bài, AI Bảo Mật và AI Cố Vấn SEO."
+msgstr ""
+"Enter an API Key above to use AI Writer, AI Security, and AI SEO Advisor."
+
+msgid "AI Viết Bài →"
+msgstr "AI Writer →"
+
+msgid "Xem tổng quan →"
+msgstr "View Overview →"
+
+msgid "Lấy API Key"
+msgstr "Get API Key"
+
+msgid "Đăng nhập tài khoản nhà cung cấp và tạo API Key mới."
+msgstr "Log in to the provider account and create a new API Key."
+
+msgid "Dán API Key vào ô tương ứng và nhấn \"Kết nối\"."
+msgstr "Paste the API Key into the corresponding field and click \"Connect\"."
+
+msgid "Nhấn \"Kiểm tra\" để xác nhận kết nối hoạt động tốt."
+msgstr "Click \"Test\" to confirm the connection is working properly."
+
+msgid "Mẹo kết nối"
+msgstr "Connection Tips"
+
+msgid "Đảm bảo đã đăng ký tài khoản và lấy API Key từ nhà cung cấp."
+msgstr "Make sure you have registered an account and obtained the API Key from the provider."
+"Make sure you have registered an account and obtained the API Key from the "
+"provider."
+
+msgid "Một số nhà cung cấp yêu cầu xác minh thanh toán."
+msgstr "Some providers require payment verification."
+
+msgid "Kiểm tra kết nối sau khi nhập API Key để đảm bảo hoạt động."
+msgstr "Test the connection after entering the API Key to ensure it works."
+
+msgid "Nhà cung cấp phổ biến"
+msgstr "Popular Providers"
+
+msgid ""
+"Theo dõi toàn bộ email gửi đi từ website của bạn. Kiểm tra trạng thái, lỗi "
+"và phân tích hiệu suất gửi email."
+msgstr ""
+"Track all emails sent from your website. Check status, errors, and analyze "
+"email sending performance."
+
+msgid "SMTP hoạt động bình thường."
+msgstr "SMTP is working normally."
+
+msgid "Chưa phát hiện SMTP"
+msgstr "No SMTP Detected"
+
+msgid "Cấu hình ngay →"
+msgstr "Configure Now →"
+
+msgid "Tổng Email"
+msgstr "Total Emails"
+
+msgid "Chờ gửi"
+msgstr "Queued"
+
+msgid "Tìm kiếm email, tiêu đề, nội dung..."
+msgstr "Search email, subject, content..."
+
+msgid "Tất cả loại email"
+msgstr "All Email Types"
+
+msgid "Tất cả ngày"
+msgstr "All Dates"
+
+msgid "Từ ngày"
+msgstr "From Date"
+
+msgid "Đến ngày"
+msgstr "To Date"
+
+msgid "Áp dụng"
+msgstr "Apply"
+
+msgid "Xóa bộ lọc"
+msgstr "Clear Filter"
+
+msgid "Chưa có email nào được ghi lại."
+msgstr "No emails have been logged yet."
+
+msgid "Email log sẽ xuất hiện ở đây khi website gửi email."
+msgstr "Email logs will appear here when the website sends emails."
+
+msgid "Người nhận"
+msgstr "Recipient"
+
+msgid "Tiêu đề"
+msgstr "Subject"
+
+msgid "Thời gian gửi"
+msgstr "Send Time"
+
+msgid "Gửi lại"
+msgstr "Resend"
+
+msgid "Hiển thị %1$s–%2$s của %3$s"
+msgstr "Showing %1$s–%2$s of %3$s"
+
+msgid "Biểu đồ gửi email"
+msgstr "Email Sending Chart"
+
+msgid "7 ngày"
+msgstr "7 Days"
+
+msgid "14 ngày"
+msgstr "14 Days"
+
+msgid "SMTP đang sử dụng"
+msgstr "SMTP in Use"
+
+msgid "Máy chủ"
+msgstr "Server"
+
+msgid "Cổng"
+msgstr "Port"
+
+msgid "Bảo mật"
+msgstr "Security"
+
+msgid "Người gửi"
+msgstr "Sender"
+
+msgid "Chưa phát hiện SMTP plugin nào."
+msgstr "No SMTP plugin detected."
+
+msgid "Cấu hình SMTP tại đây →"
+msgstr "Configure SMTP here →"
+
+msgid "Kiểm tra SMTP"
+msgstr "Test SMTP"
+
+msgid "Thống kê loại email"
+msgstr "Email Type Statistics"
+
+msgid "Tổng email"
+msgstr "Total Emails"
+
+msgid "Lỗi gần nhất"
+msgstr "Most Recent Error"
+
+msgid "Không có lỗi gần đây"
+msgstr "No Recent Errors"
+
+msgid "Số lượng log tối đa được lưu"
+msgstr "Maximum number of logs to store"
+
+msgid "Chi tiết Email"
+msgstr "Email Details"
+
+msgid "Form liên hệ"
+msgstr "Contact Form"
+
+msgid "Đăng ký"
+msgstr "Registration"
+
+msgid "Đặt lại MK"
+msgstr "Reset Password"
+
+msgid "Bản tin"
+msgstr "Newsletter"
+
+msgid "Không tìm thấy liên hệ."
+msgstr "Contact not found."
+
+msgid "← Quay lại"
+msgstr "← Back"
+
+msgid "Liên hệ #%d"
+msgstr "Contact #%d"
+
+msgid "Dữ liệu form"
+msgstr "Form Data"
+
+msgid "Không có dữ liệu."
+msgstr "No data."
+
+msgid "Hội thoại phản hồi"
+msgstr "Reply Thread"
+
+msgid "Xem thêm (%d tin nhắn trước)"
+msgstr "View more (%d previous messages)"
+
+msgid "Chưa có phản hồi nào."
+msgstr "No replies yet."
+
+msgid "Soạn phản hồi"
+msgstr "Compose Reply"
+
+msgid "Danh sách chấm"
+msgstr "Bullet List"
+
+msgid "Danh sách số"
+msgstr "Numbered List"
+
+msgid "Chèn liên kết"
+msgstr "Insert Link"
+
+msgid "Xóa định dạng"
+msgstr "Remove Formatting"
+
+msgid "Nhập nội dung phản hồi gửi tới %s…"
+msgstr "Enter reply content to send to %s…"
+
+msgid "Gửi phản hồi"
+msgstr "Send Reply"
+
+msgid "Không có email khách hàng — không thể gửi phản hồi."
+msgstr "No customer email — cannot send reply."
+
+msgid "Ngày gửi"
+msgstr "Date Submitted"
+
+msgid "Họ tên"
+msgstr "Full Name"
+
+msgid "SĐT"
+msgstr "Phone"
+
+msgid "Chưa xử lý"
+msgstr "Unprocessed"
+
+msgid "Đã xem qua"
+msgstr "Reviewed"
+
+msgid "Đang tiến hành"
+msgstr "In Progress"
+
+msgid "Khách phản hồi"
+msgstr "Customer Replied"
+
+msgid "Khách đã trả lời"
+msgstr "Customer Has Replied"
+
+msgid "Đã xử lý xong"
+msgstr "Processed"
+
+msgid "Đánh dấu rác"
+msgstr "Mark as Spam"
+
+msgid "Lưu trạng thái"
+msgstr "Save Status"
+
+msgid "Xóa liên hệ"
+msgstr "Delete Contact"
+
+msgid "Kỹ thuật"
+msgstr "Technical"
+
+msgid "Tích hợp Form Plugins"
+msgstr "Integrate Form Plugins"
+
+msgid "Kích hoạt lưu dữ liệu"
+msgstr "Enable Data Storage"
+
+msgid "Bật để lưu form submissions"
+msgstr "Enable to save form submissions"
+
+msgid "10.000 bản ghi"
+msgstr "10,000 records"
+
+msgid "25.000 bản ghi"
+msgstr "25,000 records"
+
+msgid "50.000 bản ghi"
+msgstr "50,000 records"
+
+msgid "100.000 bản ghi"
+msgstr "100,000 records"
+
+msgid "Theo dõi và quản lý dữ liệu khách hàng gửi từ"
+msgstr "Track and manage customer data submitted from"
+
+msgid "Tổng Form"
+msgstr "Total Forms"
+
+msgid "loại form"
+msgstr "form types"
+
+msgid "Tổng liên hệ"
+msgstr "Total Contacts"
+
+msgid "tuần này"
+msgstr "this week"
+
+msgid "Liên hệ mới"
+msgstr "New Contacts"
+
+msgid "Chờ phản hồi"
+msgstr "Awaiting Reply"
+
+msgid "tháng này"
+msgstr "this month"
+
+msgid "Tìm kiếm theo tên, email..."
+msgstr "Search by name, email..."
+
+msgid "Tất cả Form"
+msgstr "All Forms"
+
+msgid "Hành động hàng loạt"
+msgstr "Bulk Actions"
+
+msgid "Đánh dấu đã đọc"
+msgstr "Mark as Read"
+
+msgid "Chưa có liên hệ nào phù hợp bộ lọc."
+msgstr "No contacts matching the filter."
+
+msgid "Chưa có liên hệ nào."
+msgstr "No contacts yet."
+
+msgid "Tin nhắn"
+msgstr "Message"
+
+msgid "Đổi trạng thái"
+msgstr "Change Status"
+
+msgid "Thống kê nhanh"
+msgstr "Quick Statistics"
+
+msgid "Liên hệ hôm nay"
+msgstr "Contacts Today"
+
+msgid "Liên hệ 7 ngày"
+msgstr "Contacts (7 Days)"
+
+msgid "Liên hệ 30 ngày"
+msgstr "Contacts (30 Days)"
+
+msgid "Top Form được gửi nhiều"
+msgstr "Top Most Submitted Forms"
+
+msgid "Xuất dữ liệu"
+msgstr "Export Data"
+
+msgid "Tương thích mọi phần mềm"
+msgstr "Compatible with all software"
+
+msgid "Xuất Excel"
+msgstr "Export Excel"
+
+msgid "Định dạng .xls (SpreadsheetML)"
+msgstr ".xls format (SpreadsheetML)"
+
+msgid "Popup đăng ký"
+msgstr "Sign-up Popup"
+
+msgid "Form đăng ký"
+msgstr "Sign-up Form"
+
+msgid "Banner ảnh"
+msgstr "Image Banner"
+
+msgid "Chế độ bảo trì đang bật."
+msgstr "Maintenance mode is active."
+
+msgid "Website của bạn đang ẩn với khách truy cập."
+msgstr "Your website is hidden from visitors."
+
+msgid "Tắt ngay"
+msgstr "Disable Now"
+
+msgid "Hệ thống điều khiển — website cài đặt gì, plugin điều khiển cái đó."
+msgstr "Control system — whatever the website has installed, the plugin controls it."
+"Control system — whatever the website has installed, the plugin controls it."
+
+msgid "Chọn module bên dưới để cấu hình, bật/tắt hoặc kiểm tra trạng thái."
+msgstr "Select a module below to configure, enable/disable, or check status."
+
+msgid "kênh"
+msgstr "channels"
+
+msgid "đã cấu hình:"
+msgstr "configured:"
+
+msgid "Chưa có kênh nào. Thêm Zalo, Messenger, Hotline…"
+msgstr "No channels yet. Add Zalo, Messenger, Hotline…"
+
+msgid "Quản lý kênh liên hệ"
+msgstr "Manage Contact Channels"
+
+msgid "Loại:"
+msgstr "Type:"
+
+msgid "Tiêu đề:"
+msgstr "Title:"
+
+msgid "Popup quảng cáo, thu thập email hoặc link mạng xã hội."
+msgstr "Advertising popup, email collection, or social media links."
+
+msgid "Cấu hình Pop-up"
+msgstr "Configure Pop-up"
+
+msgid "Thiếu host"
+msgstr "Missing Host"
+
+msgid "Gửi từ:"
+msgstr "Sent from:"
+
+msgid "Cấu hình SMTP để email liên hệ, thông báo đơn hàng không vào Spam."
+msgstr "Configure SMTP so contact emails and order notifications do not go to Spam."
+"Configure SMTP so contact emails and order notifications do not go to Spam."
+
+msgid "Tính năng: Viết bài, SEO tối ưu, phân tích bảo mật"
+msgstr "Features: Post writing, SEO optimization, security analysis"
+
+msgid ""
+"Kết nối Google Gemini, OpenAI hoặc Anthropic Claude để viết bài tự động."
+msgstr ""
+"Connect Google Gemini, OpenAI, or Anthropic Claude to write posts "
+"automatically."
+
+msgid "Vào AI Hub"
+msgstr "Go to AI Hub"
+
+msgid "bật"
+msgstr "on"
+
+msgid "tính năng"
+msgstr "features"
+
+msgid "đang bật"
+msgstr "active"
+
+msgid "Bảo trì đang BẬT"
+msgstr "Maintenance is ON"
+
+msgid "Bảo trì:"
+msgstr "Maintenance:"
+
+msgid "Quản lý bảo vệ"
+msgstr "Manage Protection"
+
+msgid "WooCommerce đang hoạt động."
+msgstr "WooCommerce is active."
+
+msgid "Nâng cao: thanh toán QR, ví điểm thưởng, CTA đặt hàng."
+msgstr "Advanced: QR payment, rewards wallet, order CTA."
+
+msgid "Cài WooCommerce để mở khóa tính năng thương mại điện tử nâng cao."
+msgstr "Install WooCommerce to unlock advanced e-commerce features."
+
+msgid "Cấu hình cửa hàng"
+msgstr "Configure Store"
+
+msgid "Xem tính năng"
+msgstr "View Features"
+
+msgid "vùng đang dùng"
+msgstr "zones in use"
+
+msgid "Trống"
+msgstr "Empty"
+
+msgid "Có code trong:"
+msgstr "Has code in:"
+
+msgid "Script tracking, pixel, CSS tùy chỉnh…"
+msgstr "Tracking scripts, pixel, custom CSS…"
+
+msgid ""
+"Chèn script tracking (Google Analytics, Facebook Pixel), CSS tùy chỉnh vào "
+"website."
+msgstr ""
+"Insert tracking scripts (Google Analytics, Facebook Pixel), custom CSS into "
+"website."
+
+msgid "Chèn code"
+msgstr "Insert Code"
+
+msgid "Xác minh thanh toán"
+msgstr "Payment Verification"
+
+msgid "Đơn chờ xử lý"
+msgstr "Orders Pending Processing"
+
+msgid "Xác minh thành công"
+msgstr "Verification Successful"
+
+msgid "Giao dịch rủi ro"
+msgstr "Risk Transactions"
+
+msgid "AI Thanh Toán tạm tắt — trang đơn hàng thành công chưa bật"
+msgstr "AI Payment temporarily disabled — order success page not enabled"
+
+msgid ""
+"AI Thanh Toán phụ thuộc vào tính năng Trang đơn hàng thành công. Bật tính "
+"năng đó trước để mở khóa AI Thanh Toán."
+msgstr ""
+"AI Payment depends on the Order Success Page feature. Enable that feature "
+"first to unlock AI Payment."
+
+msgid "AI Thanh Toán đang tắt — các tính năng xác minh không hoạt động"
+msgstr "AI Payment is off — verification features are not working"
+
+msgid ""
+"Bật AI Thanh Toán để kích hoạt OCR biên lai, phát hiện gian lận và xác minh "
+"tự động cho đơn hàng."
+msgstr ""
+"Enable AI Payment to activate receipt OCR, fraud detection, and automatic "
+"verification for orders."
+
+msgid "Sang Trang đơn hàng thành công"
+msgstr "Go to Order Success Page"
+
+msgid "Bật ngay"
+msgstr "Enable Now"
+
+msgid ""
+"Tự động xác minh chuyển khoản bằng AI OCR, phát hiện gian lận, cảnh báo rủi "
+"ro và xử lý thanh toán thông minh."
+msgstr ""
+"Automatically verify bank transfers with AI OCR, detect fraud, alert risks, "
+"and process payments intelligently."
+
+msgid "Tắt AI Thanh Toán"
+msgstr "Disable AI Payment"
+
+msgid "Bật AI Thanh Toán"
+msgstr "Enable AI Payment"
+
+msgid "Đơn chờ xác minh"
+msgstr "Orders Awaiting Verification"
+
+msgid "hôm qua"
+msgstr "yesterday"
+
+msgid "Tỷ lệ xác minh tự động"
+msgstr "Automatic Verification Rate"
+
+msgid "Giao dịch gian lận"
+msgstr "Fraudulent Transactions"
+
+msgid "Tổng tiền hôm nay"
+msgstr "Total Amount Today"
+
+msgid "so với"
+msgstr "vs."
+
+msgid ""
+"Bạn cần cấu hình mã khóa API trong phần Kết nối AI trước khi sử dụng AI "
+"Thanh Toán."
+msgstr ""
+"You need to configure your API key in the AI Connection section before using"
+" AI Payment."
+
+msgid "Trạng thái AI Payment"
+msgstr "AI Payment Status"
+
+msgid "AI OCR Biên Lai"
+msgstr "AI Receipt OCR"
+
+msgid "Quản lý API Keys"
+msgstr "Manage API Keys"
+
+msgid "Đã xác minh"
+msgstr "Verified"
+
+msgid "Đang chờ"
+msgstr "Waiting"
+
+msgid "Rủi ro / Gian lận"
+msgstr "Risk / Fraud"
+
+msgid "Xác nhận"
+msgstr "Confirm"
+
+msgid "Huỷ"
+msgstr "Cancel"
+
+msgid "Rủi ro cao"
+msgstr "High Risk"
+
+msgid "Rủi ro trung bình"
+msgstr "Medium Risk"
+
+msgid "Rủi ro thấp"
+msgstr "Low Risk"
+
+msgid "Chờ xử lý lâu"
+msgstr "Overdue"
+
+msgid "Làm mới"
+msgstr "Refresh"
+
+msgid "Đơn hàng"
+msgstr "Order"
+
+msgid "Khách hàng"
+msgstr "Customer"
+
+msgid "Số tiền"
+msgstr "Amount"
+
+msgid "Ngân hàng"
+msgstr "Bank"
+
+msgid "Thời gian CK"
+msgstr "Transfer Time"
+
+msgid "Rủi ro"
+msgstr "Risk"
+
+msgid "Khách"
+msgstr "Guest"
+
+msgid "Không có đơn nào phù hợp bộ lọc."
+msgstr "No orders matching the filter."
+
+msgid "Không có đơn chờ xử lý"
+msgstr "No orders pending processing"
+
+msgid "Tất cả đơn hàng đã được xác minh hoặc chưa có chuyển khoản nào."
+msgstr "All orders have been verified or no transfers have been made yet."
+
+msgid "Hiện thị 0/%s đơn"
+msgstr "Showing 0/%s orders"
+
+msgid "Hiện thị"
+msgstr "Showing"
+
+msgid "đơn"
+msgstr "orders"
+
+msgid "Tóm tắt xử lý"
+msgstr "Processing Summary"
+
+msgid "Xác minh AI hàng loạt"
+msgstr "Bulk AI Verification"
+
+msgid "Kênh thanh toán"
+msgstr "Payment Channel"
+
+msgid "Chuyển khoản ngân hàng"
+msgstr "Bank Transfer"
+
+msgid "Ví điện tử"
+msgstr "E-wallet"
+
+msgid "Gợi ý tối ưu AI"
+msgstr "AI Optimization Suggestions"
+
+msgid "Bật AI OCR quét biên lai"
+msgstr "Enable AI OCR receipt scanning"
+
+msgid "Tự động đọc & xác minh ảnh chuyển khoản"
+msgstr "Automatically read & verify transfer images"
+
+msgid "Cài đặt thông báo đa kênh"
+msgstr "Configure multi-channel notifications"
+
+msgid "Nhận alert khi có đơn mới qua Discord, Webhook"
+msgstr "Receive alerts for new orders via Discord, Webhook"
+
+msgid "Xác minh AI"
+msgstr "AI Verification"
+
+msgid "Xác nhận thanh toán"
+msgstr "Confirm Payment"
+
+msgid "Từ chối"
+msgstr "Reject"
+
+msgid "Chi tiết đơn hàng"
+msgstr "Order Details"
+
+msgid "Phương thức"
+msgstr "Method"
+
+msgid "Ảnh biên lai (AI Vision)"
+msgstr "Receipt Image (AI Vision)"
+
+msgid "Xem ảnh gốc"
+msgstr "View Original Image"
+
+msgid "Tải ảnh"
+msgstr "Download Image"
+
+msgid "Phóng to"
+msgstr "Zoom In"
+
+msgid "Xác minh bằng AI"
+msgstr "Verify with AI"
+
+msgid "Kết quả phân tích AI"
+msgstr "AI Analysis Result"
+
+msgid "Nhận định AI"
+msgstr "AI Assessment"
+
+msgid "Nghi ngờ / Kiểm tra thêm"
+msgstr "Suspicious / Needs Further Review"
+
+msgid "Từ chối thanh toán"
+msgstr "Reject Payment"
+
+msgid "Yêu cầu gửi lại biên lai"
+msgstr "Request Resubmit Receipt"
+
+msgid "Ghi chú nội bộ"
+msgstr "Internal Note"
+
+msgid "Nhập ghi chú nội bộ…"
+msgstr "Enter internal note…"
+
+msgid "Lưu ghi chú"
+msgstr "Save Note"
+
+msgid "Thông tin đơn hàng"
+msgstr "Order Information"
+
+msgid "Xem chi tiết đơn hàng →"
+msgstr "View Order Details →"
+
+msgid "Biên lai phóng to"
+msgstr "Receipt Zoomed In"
+
+msgid "Cần API Key AI để xác minh biên lai."
+msgstr "AI API Key required to verify receipt."
+
+msgid "Cấu hình tại đây"
+msgstr "Configure here"
+
+msgid "Tìm kiếm đơn hàng, tên, số tiền..."
+msgstr "Search orders, name, amount..."
+
+msgid "Chờ xác minh"
+msgstr "Awaiting Verification"
+
+msgid "Nghi ngờ"
+msgstr "Suspicious"
+
+msgid "Tất cả đơn chuyển khoản"
+msgstr "All Transfer Orders"
+
+msgid "Danh sách đơn hàng"
+msgstr "Order List"
+
+msgid "Không có đơn chờ xác minh"
+msgstr "No orders awaiting verification"
+
+msgid "Không có đơn chuyển khoản"
+msgstr "No transfer orders"
+
+msgid "Khi khách xác nhận chuyển khoản, đơn sẽ xuất hiện ở đây."
+msgstr "When customers confirm a transfer, orders will appear here."
+
+msgid "Chưa có đơn hàng nào có trạng thái này."
+msgstr "No orders with this status yet."
+
+msgid "Chuyển khoản"
+msgstr "Transfer"
+
+msgid "Chọn một đơn hàng bên trái"
+msgstr "Select an order on the left"
+
+msgid "để xem chi tiết và xác minh bằng AI"
+msgstr "to view details and verify with AI"
+
+msgid "Điểm rủi ro:"
+msgstr "Risk Score:"
+
+msgid "Đang gửi ảnh tới AI..."
+msgstr "Sending image to AI..."
+
+msgid "Đọc biên lai"
+msgstr "Read Receipt"
+
+msgid "Chưa có kết quả phân tích"
+msgstr "No analysis results yet"
+
+msgid "Kiểm tra lại trong tài khoản ngân hàng."
+msgstr "Verify again in your bank account."
+
+msgid ""
+"AI chỉ đọc ảnh biên lai, không kết nối trực tiếp với ngân hàng. Vui lòng "
+"đăng nhập tài khoản để xác nhận tiền đã vào thực tế trước khi duyệt đơn."
+msgstr ""
+"AI only reads the receipt image and does not connect directly to the bank. "
+"Please log in to your bank account to confirm the actual receipt of funds "
+"before approving the order."
+
+msgid "Nhập ghi chú nội bộ..."
+msgstr "Enter internal note..."
+
+msgid "Xác nhận trong tài khoản ngân hàng"
+msgstr "Confirm in bank account"
+
+msgid ""
+"AI phân tích ảnh biên lai — không kết nối ngân hàng trực tiếp. Hãy đăng nhập"
+" tài khoản để"
+msgstr ""
+"AI analyzes the receipt image — does not connect to the bank directly. "
+"Please log in to your account to"
+
+msgid "kiểm tra tiền đã nhận"
+msgstr "verify funds received"
+
+msgid "trước khi duyệt đơn."
+msgstr "before approving the order."
+
+msgid "Mã đơn"
+msgstr "Order Code"
+
+msgid "Giá trị đơn"
+msgstr "Order Value"
+
+msgid "Biên lai"
+msgstr "Receipt"
+
+msgid "CK ngân hàng"
+msgstr "Bank Transfer"
+
+msgid "Không có giao dịch rủi ro"
+msgstr "No Risk Transactions"
+
+msgid "AI chưa phát hiện giao dịch nghi ngờ trong khoảng thời gian này."
+msgstr "AI has not detected any suspicious transactions in this period."
+
+msgid "Xem chi tiết đơn #%s"
+msgstr "View Order Details #%s"
+
+msgid "Thao tác cho đơn #%s"
+msgstr "Actions for Order #%s"
+
+msgid "Nguyên nhân rủi ro"
+msgstr "Risk Reason"
+
+msgid "Xem báo cáo chi tiết"
+msgstr "View Detailed Report"
+
+msgid "Thống kê rủi ro"
+msgstr "Risk Statistics"
+
+msgid "Biểu đồ rủi ro hôm nay: %s đơn"
+msgstr "Risk Chart Today: %s orders"
+
+msgid "Từ chối đơn"
+msgstr "Reject Order"
+
+msgid "Chi tiết giao dịch rủi ro"
+msgstr "Risk Transaction Details"
+
+msgid "Cập nhật trạng thái"
+msgstr "Update Status"
+
+msgid "Gửi thông báo"
+msgstr "Send Notification"
+
+msgid "Tạo đơn hàng"
+msgstr "Create Order"
+
+msgid "Vừa xong"
+msgstr "Just now"
+
+msgid "phút trước"
+msgstr "minutes ago"
+
+msgid "giờ trước"
+msgstr "hours ago"
+
+msgid "ngày trước"
+msgstr "days ago"
+
+msgid "Tìm kiếm hoạt động, mã đơn hàng,..."
+msgstr "Search activity, order code,..."
+
+msgid "Tất cả hành động"
+msgstr "All Actions"
+
+msgid "Tất cả người dùng"
+msgstr "All Users"
+
+msgid "Tất cả nguồn"
+msgstr "All Sources"
+
+msgid "Danh sách nhật ký"
+msgstr "Log List"
+
+msgid "Không tìm thấy kết quả"
+msgstr "No Results Found"
+
+msgid "Không có bản ghi nào khớp với bộ lọc hiện tại."
+msgstr "No records match the current filter."
+
+msgid "Khi khách hàng xác nhận chuyển khoản, hoạt động sẽ hiển thị ở đây."
+msgstr "When customers confirm a transfer, activity will appear here."
+
+msgid "THỜI GIAN"
+msgstr "TIME"
+
+msgid "HÀNH ĐỘNG"
+msgstr "ACTION"
+
+msgid "NỘI DUNG"
+msgstr "CONTENT"
+
+msgid "ĐỐI TƯỢNG"
+msgstr "OBJECT"
+
+msgid "NGƯỜI DÙNG"
+msgstr "USER"
+
+msgid "NGUỒN"
+msgstr "SOURCE"
+
+msgid "CHI TIẾT"
+msgstr "DETAILS"
+
+msgid "Xem chi tiết đơn"
+msgstr "View Order Details"
+
+msgid "Trước"
+msgstr "Before"
+
+msgid "Sau"
+msgstr "After"
+
+msgid "Hoạt động gần đây"
+msgstr "Recent Activity"
+
+msgid "Trực tiếp"
+msgstr "Direct"
+
+msgid "Chưa có hoạt động"
+msgstr "No Activity Yet"
+
+msgid "Tổng hoạt động"
+msgstr "Total Activity"
+
+msgid "Chưa có hoạt động hôm nay"
+msgstr "No Activity Today"
+
+msgid "Hoạt động theo nguồn"
+msgstr "Activity by Source"
+
+msgid "Chưa có dữ liệu"
+msgstr "No Data Yet"
+
+msgid ""
+"Cấu hình kênh nhận thông báo đơn hàng, xác nhận chuyển khoản và cảnh báo rủi"
+" ro từ AI Thanh Toán."
+msgstr ""
+"Configure notification channels for orders, transfer confirmations, and risk"
+" alerts from AI Payment."
+
+msgid "Đã lưu cài đặt thông báo thành công."
+msgstr "Notification settings saved successfully."
+
+msgid "Miễn phí"
+msgstr "Free"
+
+msgid "Gửi thông báo đến hộp thư của admin"
+msgstr "Send notifications to the admin's inbox"
+
+msgid "Bật/tắt kênh Email"
+msgstr "Enable/disable Email channel"
+
+msgid "Đã gửi hôm nay"
+msgstr "Sent Today"
+
+msgid "Tổng tháng này"
+msgstr "Total This Month"
+
+msgid "Tỷ lệ thành công"
+msgstr "Success Rate"
+
+msgid "Địa chỉ email nhận thông báo"
+msgstr "Notification recipient email address"
+
+msgid "Đẩy thông báo vào kênh Discord qua Webhook"
+msgstr "Push notifications to a Discord channel via Webhook"
+
+msgid "Bật/tắt kênh Discord"
+msgstr "Enable/disable Discord channel"
+
+msgid "Tin nhắn hôm nay"
+msgstr "Messages Today"
+
+msgid "Cách lấy Discord Webhook URL"
+msgstr "How to get Discord Webhook URL"
+
+msgid "Mở Discord → vào kênh muốn nhận thông báo → ⚙️"
+msgstr "Open Discord → go to the channel for notifications → ⚙️"
+"Open Discord → go to the channel you want to receive notifications → ⚙️"
+
+msgid "Tích hợp"
+msgstr "Integrations"
+
+msgid "Đặt tên bot, chọn kênh → nhấn"
+msgstr "Name the bot, select channel → click"
+
+msgid "rồi dán vào đây"
+msgstr "then paste it here"
+
+msgid "Webhook tùy chỉnh"
+msgstr "Custom Webhook"
+
+msgid "Gửi payload JSON đến server hoặc service của bạn"
+msgstr "Send JSON payload to your server or service"
+
+msgid "Bật/tắt Webhook"
+msgstr "Enable/disable Webhook"
+
+msgid "Requests hôm nay"
+msgstr "Requests Today"
+
+msgid "Cách hoạt động"
+msgstr "How It Works"
+
+msgid ""
+"WP Helper gửi POST request kèm JSON payload đến URL này sau mỗi sự kiện "
+"thanh toán"
+msgstr ""
+"WP Helper sends a POST request with JSON payload to this URL after each "
+"payment event"
+
+msgid "Server của bạn cần trả về HTTP"
+msgstr "Your server must return HTTP"
+
+msgid "để xác nhận đã nhận thành công"
+msgstr "to confirm successful receipt"
+
+msgid "Có thể dùng Make, Zapier, n8n hoặc endpoint tự viết để xử lý dữ liệu"
+msgstr "Can use Make, Zapier, n8n, or a custom endpoint to process data"
+"You can use Make, Zapier, n8n, or a custom endpoint to process the data"
+
+msgid "Phương thức HTTP"
+msgstr "HTTP Method"
+
+msgid "Xem trước JSON payload"
+msgstr "Preview JSON Payload"
+
+msgid "Bật cảnh báo rủi ro"
+msgstr "Enable risk alerts"
+
+msgid "để nhận ngay khi AI phát hiện biên lai giả mạo."
+msgstr "to receive them immediately when AI detects a fraudulent receipt."
+
+msgid "phù hợp cho team — mọi thành viên đều thấy thông báo cùng lúc."
+msgstr "suitable for teams — all members see notifications at the same time."
+
+msgid "cho phép tích hợp với CRM, ERP hoặc hệ thống nội bộ."
+msgstr "allows integration with CRM, ERP, or internal systems."
+
+msgid "Xem tất cả mẹo"
+msgstr "View All Tips"
+
+msgid "Kênh đang hoạt động"
+msgstr "Active Channels"
+
+msgid "Thông báo đã gửi"
+msgstr "Notifications Sent"
+
+msgid "Không có quyền."
+msgstr "No permission."
+
+msgid ""
+"Bật/tắt các tính năng AI Thanh Toán và cấu hình API Keys để tích hợp mô hình"
+" AI."
+msgstr ""
+"Enable/disable AI Payment features and configure API Keys to integrate AI "
+"models."
+
+msgid "Đã lưu cài đặt thành công."
+msgstr "Settings saved successfully."
+
+msgid "Tính năng AI"
+msgstr "AI Features"
+
+msgid "Bật/tắt các tính năng AI để hệ thống hoạt động tối ưu nhất."
+msgstr "Enable/disable AI features for the system to operate at its best."
+
+msgid ""
+"Tự động đọc và trích xuất thông tin từ ảnh biên lai chuyển khoản số tiền, "
+"STK, thời gian giao dịch, nội dung chuyển khoản."
+msgstr ""
+"Automatically read and extract information from bank transfer receipt "
+"images: amount, account number, transaction time, transfer content."
+
+msgid "Bật AI OCR Biên Lai"
+msgstr "Enable AI Receipt OCR"
+
+msgid ""
+"Phân tích hình ảnh & dữ liệu để phát hiện gian lận, tiền giả, biên lai mạo, "
+"chỉnh sửa hoặc giao dịch bất thường."
+msgstr ""
+"Analyze images & data to detect fraud, counterfeit money, forged receipts, "
+"tampering, or abnormal transactions."
+
+msgid "Bật AI Fraud Detection"
+msgstr "Enable AI Fraud Detection"
+
+msgid ""
+"Hỗ trợ xử lý, đề xuất duyệt/từ chối, hoàn tiền, ghi chú và tổng hợp thông "
+"tin giao dịch."
+msgstr ""
+"Support processing, suggest approve/reject, refund, note, and summarize "
+"transaction information."
+
+msgid "Bật AI Copilot"
+msgstr "Enable AI Copilot"
+
+msgid "Kết nối và quản lý API Keys của các nhà cung cấp AI."
+msgstr "Connect and manage API Keys from AI providers."
+
+msgid "✓ Đã kết nối"
+msgstr "✓ Connected"
+
+msgid "Quản lý API Keys → AI Kết nối"
+msgstr "Manage API Keys → AI Connection"
+
+msgid "AI Thanh Toán đang bảo vệ cửa hàng của bạn"
+msgstr "AI Payment is protecting your store"
+
+msgid ""
+"Tất cả tính năng AI OCR, Fraud Detection và Copilot đang hoạt động ổn định."
+msgstr ""
+"All AI OCR, Fraud Detection, and Copilot features are operating stably."
+
+msgid "Xem nhật ký →"
+msgstr "View Log →"
+
+msgid "Tất cả hệ thống hoạt động tốt"
+msgstr "All systems operating normally"
+
+msgid "Hôm nay ▾"
+msgstr "Today ▾"
+
+msgid ""
+"<p>Các website đều có phần gửi mail khi có người liên hệ hoặc khi có đơn hàng mới, nhưng <strong>không phải Hosting</strong> nào cũng <strong>cho phép người dùng gửi</strong> mail thông qua hàm <strong>PHP</strong> hay gửi <strong>SMTP mail theo tên miền.</strong></p>\n"
+"            <p>Tính năng <strong>SMTP mail</strong> cho phép người dùng có thể <strong>cấu hình việc gửi mail</strong> dễ dàng, nhanh chóng và không tốn chi phí.</p>\n"
+"            <a href=\"https://wiki.matbao.net/kb/thong-tin-smtp-gmail-cach-cau-hinh-smtp-gmail-free-vao-wordpress/\" target=\"_blank\">Xem hướng dẫn cài đặt</a>"
+msgstr ""
+"<p>Most websites send emails when someone submits a contact form or when a new order arrives, but <strong>not every Hosting</strong> provider <strong>allows users to send</strong> mail via a <strong>PHP</strong> function or send <strong>SMTP mail using a domain name.</strong></p>\n"
+"            <p>The <strong>SMTP mail</strong> feature allows users to <strong>configure email sending</strong> easily, quickly, and at no extra cost.</p>\n"
+"            <a href=\"https://wiki.matbao.net/kb/thong-tin-smtp-gmail-cach-cau-hinh-smtp-gmail-free-vao-wordpress/\" target=\"_blank\">View setup guide</a>"
+
+msgid ""
+"Bạn đang dán code vào danh sách từ khóa thay vì từ khóa thông thường. Muốn "
+"import từ file thì chuyển sang tab \"Upload CSV / Excel\". Nếu muốn thêm từ "
+"khóa chứa ký tự đặc biệt, bạn vẫn có thể nhấn Import."
+msgstr ""
+"You are pasting code into the keyword list instead of plain keywords. To "
+"import from a file, switch to the \"Upload CSV / Excel\" tab. If you want to"
+" add keywords containing special characters, you can still click Import."
+
+msgid ""
+"Bạn đang dùng cấu trúc mặc định (VD: ?p=123), điều này không tốt cho SEO. "
+"Hãy vào Cài đặt > Đường dẫn tĩnh và chọn cấu trúc \"Tên bài viết\" "
+"(/%postname%/)."
+msgstr ""
+"You are using the default URL structure (e.g. ?p=123), which is not good for"
+" SEO. Go to Settings > Permalinks and select the \"Post name\" structure "
+"(/%postname%/)."
+
+msgid "Bảo vệ Website:"
+msgstr "Website Protection:"
+
+msgid ""
+"Bật toggle \"Module AI\" và chọn tính năng cần dùng: OCR biên lai, Xác minh "
+"tức thì, Phát hiện gian lận."
+msgstr ""
+"Toggle on \"AI Module\" and select the features you need: Receipt OCR, "
+"Instant Verification, Fraud Detection."
+
+msgid "Bộ lọc"
+msgstr "Filter"
+
+msgid "Chờ xử lý"
+msgstr "Pending"
+
+msgid "Cài đặt chung"
+msgstr "General Settings"
+
+msgid "Cài đặt kênh"
+msgstr "Channel Settings"
+
+msgid ""
+"Các đường dẫn mặc định như <code>/wp-login.php</code>, <code>/wp-"
+"admin</code> khiến website dễ bị hacker và bot dò quét mật khẩu (Brute-"
+"force). Hãy <a href=\"%s\" style=\"color:#2271b1;font-weight:600;\">bật "
+"\"Thay đổi đường dẫn đăng nhập\"</a> ngay trong WP Helper để đổi sang một "
+"đường dẫn bí mật."
+msgstr ""
+"Default paths such as <code>/wp-login.php</code> and <code>/wp-admin</code> "
+"make your website easy to target by hackers and bots attempting password "
+"scanning (Brute-force). <a href=\"%s\" style=\"color:#2271b1;font-"
+"weight:600;\">Enable \"Change Login URL\"</a> in WP Helper now to switch to "
+"a secret path."
+
+msgid "Cấu hình chung"
+msgstr "General Configuration"
+
+msgid "Danh sách"
+msgstr "List"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Form"
+msgstr "Form"
+
+msgid "Hoàn thành"
+msgstr "Done"
+
+msgid "Hệ thống"
+msgstr "System"
+
+msgid ""
+"Khi WP_DEBUG được bật trên môi trường thực tế (Live site), các lỗi PHP có "
+"thể rò rỉ đường dẫn máy chủ và thông tin nhạy cảm. Hãy chuyển thành "
+"<code>define(\"WP_DEBUG\", false);</code> trong tệp wp-config.php."
+msgstr ""
+"When WP_DEBUG is enabled on a live site, PHP errors may leak server paths "
+"and sensitive information. Change it to <code>define(\"WP_DEBUG\", "
+"false);</code> in your wp-config.php file."
+
+msgid ""
+"Khi khách bấm \"Tôi đã chuyển khoản\": hệ thống ghi chú trên đơn hàng và tùy"
+" chọn gửi Email tới admin."
+msgstr ""
+"When a customer clicks \"I have transferred\": the system adds a note to the"
+" order and optionally sends an email to the admin."
+
+msgid ""
+"Khẩu hiệu đang để là \"Just another WordPress site\". Điều này làm giảm sự "
+"chuyên nghiệp và hiển thị không tốt trên kết quả tìm kiếm. Vào Cài đặt > "
+"Tổng quan để thay đổi."
+msgstr ""
+"Your tagline is set to \"Just another WordPress site\". This looks "
+"unprofessional and displays poorly in search results. Go to Settings > "
+"General to change it."
+
+msgid "Lọc"
+msgstr "Filter"
+
+msgid ""
+"Nhấn nút \"Chi tiết\" để xem chi tiết lượng tokens tiêu thụ theo từng ngày."
+msgstr "Click the \"Details\" button to view a breakdown of token usage by day."
+
+msgid "Nhật ký"
+msgstr "Log"
+
+msgid ""
+"Nút \"GỌI HOTLINE\" chỉ hoạt động khi có số điện thoại trong mục Hotline hỗ "
+"trợ."
+msgstr ""
+"The \"CALL HOTLINE\" button only works when a phone number is entered in the"
+" Support Hotline field."
+
+msgid ""
+"Nếu hacker chiếm quyền admin, họ có thể sửa trực tiếp tệp tin PHP qua giao "
+"diện. Hãy <a href=\"%s\" style=\"color:#2271b1;font-weight:600;\">bật \"Ẩn "
+"menu Theme/Plugin\"</a> trong WP Helper, hoặc thêm "
+"<code>define(\"DISALLOW_FILE_EDIT\", true);</code> vào tệp wp-config.php."
+msgstr ""
+"If a hacker gains admin access, they can directly edit PHP files through the"
+" dashboard. <a href=\"%s\" style=\"color:#2271b1;font-weight:600;\">Enable "
+"\"Hide Theme/Plugin Menu\"</a> in WP Helper, or add "
+"<code>define(\"DISALLOW_FILE_EDIT\", true);</code> to your wp-config.php "
+"file."
+
+msgid ""
+"Nếu website có menu cố định góc phải, chọn \"Bên trái\" để tránh chồng chéo "
+"giao diện."
+msgstr ""
+"If your website has a fixed menu on the right side, choose \"Left\" to avoid"
+" interface overlap."
+
+msgid ""
+"Panel \"Xem trước giao diện\" bên phải cập nhật ngay khi bạn thay đổi. "
+"Chuyển Desktop ↔ Mobile để kiểm tra responsive."
+msgstr ""
+"The \"Preview\" panel on the right updates instantly as you make changes. "
+"Switch between Desktop ↔ Mobile to check responsiveness."
+
+msgid ""
+"Phiên bản WordPress hiển thị trong HTML source giúp hacker xác định đúng lỗ "
+"hổng bảo mật cụ thể. Hãy <a href=\"%s\" style=\"color:#2271b1;font-"
+"weight:600;\">bật \"Ẩn phiên bản WordPress\"</a> trong WP Helper để che giấu"
+" thông tin này."
+msgstr ""
+"The WordPress version exposed in the HTML source helps hackers identify "
+"specific security vulnerabilities. <a href=\"%s\" "
+"style=\"color:#2271b1;font-weight:600;\">Enable \"Hide WordPress "
+"Version\"</a> in WP Helper to conceal this information."
+
+msgid "Phân tích AI"
+msgstr "AI Analysis"
+
+msgid "Provider:"
+msgstr "Provider:"
+
+msgid "Quản trị hệ thống:"
+msgstr "System Administration:"
+
+msgid "Spam"
+msgstr "Spam"
+
+msgid "Thông tin"
+msgstr "Info"
+
+msgid "Thời gian lưu trữ"
+msgstr "Retention Period"
+
+msgid ""
+"Tính năng \"Ngăn chặn các công cụ tìm kiếm đánh chỉ mục trang web này\" đang"
+" BẬT ở Cài đặt > Đọc. Google sẽ không thể lập chỉ mục (index) website của "
+"bạn. Vui lòng tắt ngay lập tức!"
+msgstr ""
+"The \"Discourage search engines from indexing this site\" option is ON under"
+" Settings > Reading. Google will not be able to index your website. Please "
+"disable it immediately!"
+
+msgid "Tất cả"
+msgstr "All"
+
+msgid "Tối ưu Website:"
+msgstr "Website Optimization:"
+
+msgid "Tổng đơn hàng"
+msgstr "Total Orders"
+
+msgid ""
+"Việc sử dụng tên đăng nhập mặc định \"admin\" khiến hacker dễ dàng dò mật "
+"khẩu (Brute-force attack). Bạn nên tạo một tài khoản quản trị viên mới với "
+"tên khác, cấp quyền Admin, sau đó xóa tài khoản \"admin\" hiện tại."
+msgstr ""
+"Using the default username \"admin\" makes it easy for hackers to brute-"
+"force your password. Create a new administrator account with a different "
+"username, grant it Admin privileges, then delete the current \"admin\" "
+"account."
+
+msgid ""
+"Vui lòng đi tới trang <a href=\"%s\">Kết nối AI</a> để bật kết nối trước khi"
+" tạo bài viết."
+msgstr ""
+"Please go to the <a href=\"%s\">AI Connection</a> page to enable the "
+"connection before creating posts."
+
+msgid ""
+"XML-RPC cho phép truy cập WordPress từ xa và thường bị lợi dụng để tấn công "
+"Brute-force hoặc DDoS amplification. Hãy <a href=\"%s\" "
+"style=\"color:#2271b1;font-weight:600;\">bật \"Vô hiệu hóa XML-RPC\"</a> "
+"trong WP Helper để khóa endpoint này."
+msgstr ""
+"XML-RPC allows remote WordPress access and is often exploited for brute-"
+"force attacks or DDoS amplification. <a href=\"%s\" "
+"style=\"color:#2271b1;font-weight:600;\">Enable \"Disable XML-RPC\"</a> in "
+"WP Helper to block this endpoint."
+
+msgid "Xem thêm"
+msgstr "View More"
+
+msgid "từ"
+msgstr "from"
+
+msgid "Đang xử lý"
+msgstr "Processing"
+
+msgid "Đã đọc"
+msgstr "Read"
+
+msgid "Ổn"
+msgstr "OK"
+
+msgid "ở"
+msgstr "at"
+
+msgid "Đã bật Cấu hình SMTP"
+msgstr "SMTP Configuration Enabled"
+
+msgid "Đã tắt Cấu hình SMTP"
+msgstr "SMTP Configuration Disabled"
+
+msgid "Đăng ký TK"
+msgstr "Account Registration"
+
+msgid "Vị trí chèn code"
+msgstr "Code Insertion Position"
+
+msgid "Google Analytics 4, Facebook Pixel, meta tags tùy chỉnh, CSS inline."
+msgstr "Google Analytics 4, Facebook Pixel, custom meta tags, inline CSS."
+
+msgid "Google Tag Manager noscript, widget cần tải trước nội dung trang."
+msgstr "Google Tag Manager noscript, widgets that need to load before page content."
+"Google Tag Manager noscript, widgets that need to load before page content."
+
+msgid ""
+"Script analytics, remarketing, live chat cần tải sau cùng để không chặn "
+"render."
+msgstr ""
+"Analytics scripts, remarketing, live chat that should load last to avoid "
+"blocking render."
+
+msgid "Chèn code hiệu quả và an toàn"
+msgstr "Insert code efficiently and safely"
+
+msgid "Bọc script trong thẻ đúng"
+msgstr "Wrap scripts in the correct tags"
+
+msgid "JavaScript phải nằm trong"
+msgstr "JavaScript must be inside"
+
+msgid "trong"
+msgstr "inside"
+
+msgid "Script nặng → đặt Footer"
+msgstr "Heavy scripts → place in Footer"
+
+msgid ""
+"Đặt script phân tích/chat ở Footer để tránh làm chậm tốc độ tải trang (Core "
+"Web Vitals)."
+msgstr ""
+"Place analytics/chat scripts in Footer to avoid slowing page load speed "
+"(Core Web Vitals)."
+
+msgid "Đoạn noscript của GTM phải đặt ngay sau"
+msgstr "The GTM noscript snippet must be placed immediately after"
+
+msgid "để đúng spec của Google."
+msgstr "to comply with Google's specification."
+
+msgid "Kiểm tra trước khi lưu"
+msgstr "Check before saving"
+
+msgid ""
+"Code sai cú pháp có thể làm trắng trang. Validate JS/HTML bằng công cụ trước"
+" khi dán vào."
+msgstr ""
+"Syntax errors can cause a white screen. Validate JS/HTML with a tool before "
+"pasting."
+
+msgid "Mỗi ô chỉ nên 1 mục đích"
+msgstr "One purpose per field"
+
+msgid ""
+"Không trộn lẫn tracking, CSS và widget trong cùng 1 ô. Dễ debug và quản lý "
+"hơn về sau."
+msgstr ""
+"Do not mix tracking, CSS and widgets in the same field. Easier to debug and "
+"manage later."
+
+msgid "Dùng comment để ghi chú"
+msgstr "Use comments to annotate"
+
+msgid "trước mỗi đoạn code để dễ nhận biết sau này."
+msgstr "before each code block to identify it easily later."
+
+msgid "Đoạn mã sẽ được chèn vào thẻ"
+msgstr "Code will be inserted in the"
+
+msgid "của trang."
+msgstr "tag of the page."
+
+msgid "Phù hợp cho Google Analytics, Facebook Pixel, meta tags, CSS inline."
+msgstr "Suitable for Google Analytics, Facebook Pixel, meta tags, inline CSS."
+
+msgid "Đoạn mã sẽ được chèn ngay sau thẻ mở"
+msgstr "Code will be inserted immediately after the opening"
+
+msgid "Phù hợp cho Google Tag Manager noscript, chat widgets cần tải sớm."
+msgstr "Suitable for Google Tag Manager noscript, chat widgets that need to load early."
+"Suitable for Google Tag Manager noscript, chat widgets that need to load "
+"early."
+
+msgid "Đoạn mã sẽ được chèn ngay trước thẻ đóng"
+msgstr "Code will be inserted just before the closing"
+
+msgid "Phù hợp cho script phân tích, remarketing, live chat cần tải sau cùng."
+msgstr "Suitable for analytics scripts, remarketing, live chat that need to load last."
+"Suitable for analytics scripts, remarketing, live chat that need to load "
+"last."
+
+msgid "Mã được chèn ngay trước thẻ đóng"
+msgstr "Code is inserted just before the closing"
+
+msgid "Mã được chèn ngay sau thẻ mở"
+msgstr "Code is inserted immediately after the opening"
+
+msgid "<!-- Nhập mã HTML, <script> hoặc <style> ở đây -->"
+msgstr "<!-- Enter HTML, <script> or <style> code here -->"
+
+msgid "<!-- Nhập mã HTML hoặc <noscript> ở đây -->"
+msgstr "<!-- Enter HTML or <noscript> code here -->"
+
+msgid "<!-- Nhập mã <script> hoặc HTML ở đây -->"
+msgstr "<!-- Enter <script> or HTML code here -->"
+
+msgid "Vuông (0px)"
+msgstr "Square (0px)"
+
+msgid "Nhỏ (8px)"
+msgstr "Small (8px)"
+
+msgid "Vừa (12px)"
+msgstr "Medium (12px)"
+
+msgid "Lớn (16px)"
+msgstr "Large (16px)"
+
+msgid "Rất lớn (20px)"
+msgstr "Extra Large (20px)"
+
+msgid "Đậm"
+msgstr "Heavy"
+
+msgid "Gọn"
+msgstr "Compact"
+
+msgid "Rộng rãi"
+msgstr "Spacious"
+
+msgid "Thanh toán bảo mật"
+msgstr "Secure Payment"
+
+msgid "Miễn phí vận chuyển"
+msgstr "Free Shipping"
+
+msgid "Đổi trả 30 ngày"
+msgstr "30-day Returns"
+
+msgid "Hỗ trợ 24/7"
+msgstr "24/7 Support"
+
+msgid "ĐIỂM SEO TỔNG QUAN"
+msgstr "SEO SCORE OVERVIEW"
+
+msgid "PHÂN BỐ ĐIỂM SEO"
+msgstr "SEO BREAKDOWN"
+
+msgid "TÌNH TRẠNG WEBSITE"
+msgstr "WEBSITE STATUS"
+
+msgid "CƠ HỘI TĂNG ĐIỂM SEO"
+msgstr "SEO OPPORTUNITIES"
+
+msgid "QUÉT SEO GẦN NHẤT"
+msgstr "LATEST SEO SCAN"
+
+msgid "Đang kết nối AI..."
+msgstr "Connecting to AI..."
+
+msgid "AI Phân Tích Lại"
+msgstr "Re-analyze with AI"
+
+msgid "Mở rộng tất cả"
+msgstr "Expand all"
+
+msgid "Mở rộng"
+msgstr "Expand"
+
+msgid "Đã bật Bảo trì Website"
+msgstr "Maintenance Mode Enabled"
+
+msgid "Đã tắt Bảo trì Website"
+msgstr "Maintenance Mode Disabled"
+
+msgid "Lỗi khi lưu cài đặt"
+msgstr "Error saving settings"
+
+msgid "AI Tổng quan"
+msgstr "AI Overview"
+
+msgid "AI Kết nối"
+msgstr "AI Connection"
+
+msgid "AI Viết Bài"
+msgstr "AI Content Writer"
+
+msgid "AI Bảo Mật"
+msgstr "AI Security"
+
+msgid "AI SEO"
+msgstr "AI SEO"
+
+msgid "Trang Bảo Trì"
+msgstr "Maintenance Page"
+
+msgid "Thanh toán ví điện tử"
+msgstr "E-Wallet Payment"
+
+msgid "Mẫu thông tin"
+msgstr "Information Template"
+
+msgid "Liên kết sàn TMĐT"
+msgstr "E-Commerce Platform Links"
+
+msgid "Chế độ bảo trì"
+msgstr "Maintenance Mode"
+
+msgid "Kích hoạt chế độ bảo trì"
+msgstr "Enable Maintenance Mode"
+
+msgid ""
+"Khi bật, khách truy cập sẽ thấy trang bảo trì thay vì nội dung website."
+msgstr ""
+"When enabled, visitors will see the maintenance page instead of the website "
+"content."
+
+msgid "Cài đặt bảo mật"
+msgstr "Security Settings"
+
+msgid "Bật/tắt các tính năng bảo mật để tăng cường bảo vệ website của bạn."
+msgstr "Enable/disable security features to strengthen the protection of your website."
+"Enable or disable security features to strengthen the protection of your "
+"website."
+
+msgid ""
+"Xóa các liên kết không cần thiết trong <code>&lt;head&gt;</code> giúp tải "
+"nhanh hơn và SEO tốt hơn."
+msgstr ""
+"Remove unnecessary links from <code>&lt;head&gt;</code> for faster loading "
+"and better SEO."
+
+msgid "Ví dụ: dangnhap"
+msgstr "Example: mylogin"
+
+msgid "Menu đã nhân bản"
+msgstr "Menu duplicated"
+
+msgid "Chọn menu"
+msgstr "Select menu"
+
+msgid "Tên menu"
+msgstr "Menu name"
+
+msgid "Nhân bản"
+msgstr "Duplicate"
+
+msgid "Đã bật Kênh liên hệ"
+msgstr "Contact channel enabled"
+
+msgid "Đã tắt Kênh liên hệ"
+msgstr "Contact channel disabled"
+
+msgid "Hiện tại ngoại tuyến"
+msgstr "Currently offline"
+
+msgid "Hỗ trợ nhanh chóng 24/7"
+msgstr "Fast support 24/7"
+
+msgid "Chỉ cho phép thêm tối đa 3 nhân viên!"
+msgstr "You can only add a maximum of 3 agents!"
+
+msgid "Chỉnh sửa nhân viên"
+msgstr "Edit agent"
+
+msgid "Vui lòng nhập đầy đủ thông tin tên và số điện thoại!"
+msgstr "Please fill in the full name and phone number!"
+
+msgid "Bạn có chắc chắn muốn xóa tư vấn viên này không?"
+msgstr "Are you sure you want to delete this agent?"
+
+msgid "Đã bật Pop-up"
+msgstr "Pop-up enabled"
+
+msgid "Đã tắt Pop-up"
+msgstr "Pop-up disabled"
+
+msgid "Chọn hình ảnh Banner"
+msgstr "Select Banner Image"
+
+msgid "Chọn ảnh"
+msgstr "Select image"
+
+msgid "Tùy chỉnh cửa hàng nâng cao"
+msgstr "Advanced Store Settings"
+
+msgid "Tính năng cửa hàng"
+msgstr "Store Features"
+
+msgid ""
+"Các tính năng nâng cao giúp tối ưu hoạt động bán hàng và trải nghiệm khách "
+"hàng."
+msgstr ""
+"Advanced features to optimize sales operations and customer experience."
+
+msgid "Tạo thông báo mua hàng"
+msgstr "Create Purchase Notifications"
+
+msgid ""
+"Tự động tạo thông báo \"vừa có người mua sản phẩm này\" để tăng tính thúc "
+"đẩy mua hàng."
+msgstr ""
+"Automatically create \"someone just bought this product\" notifications to "
+"increase purchase urgency."
+
+msgid "Xuất hóa đơn VAT"
+msgstr "Export VAT Invoice"
+
+msgid "Thêm trường yêu cầu xuất hóa đơn VAT vào form thanh toán WooCommerce."
+msgstr "Add a VAT invoice request field to the WooCommerce checkout form."
+
+msgid "Rút gọn mô tả sản phẩm"
+msgstr "Truncate Product Description"
+
+msgid ""
+"Tự động rút gọn mô tả sản phẩm dài — hiển thị nút \"Xem thêm\" để người dùng"
+" mở rộng."
+msgstr ""
+"Automatically truncate long product descriptions — show a \"Read more\" "
+"button for users to expand."
+
+msgid "Lọc đơn hàng theo SĐT"
+msgstr "Filter Orders by Phone"
+
+msgid "Thêm bộ lọc tìm kiếm đơn hàng theo số điện thoại trong WooCommerce."
+msgstr "Add a phone number search filter for orders in WooCommerce."
+
+msgid "Tùy chỉnh code"
+msgstr "Custom Code"
+
+msgid "Thêm các đoạn code tùy chỉnh vào website của bạn."
+msgstr "Add custom code snippets to your website."
+
+msgid "Tối ưu tính năng cửa hàng"
+msgstr "Optimize store features"
+
+msgid "Thông báo mua hàng"
+msgstr "Purchase notifications"
+
+msgid ""
+"Bật để hiển thị popup \"vừa có người mua\" — tăng tâm lý xã hội và tỉ lệ "
+"chuyển đổi."
+msgstr ""
+"Enable to show \"someone just bought\" popup — boosts social proof and "
+"conversion rate."
+
+msgid "Hóa đơn VAT"
+msgstr "VAT Invoice"
+
+msgid "Thêm trường xuất VAT vào checkout để phục vụ khách hàng doanh nghiệp."
+msgstr "Add a VAT export field at checkout to serve business customers."
+
+msgid "Rút gọn mô tả"
+msgstr "Truncate description"
+
+msgid ""
+"Ẩn bớt phần mô tả dài — trang gọn, nút \"Xem thêm\" giúp trải nghiệm tốt "
+"hơn."
+msgstr ""
+"Hide long descriptions — cleaner page, \"Read more\" button improves "
+"experience."
+
+msgid "Lọc đơn theo SĐT"
+msgstr "Filter orders by phone"
+
+msgid ""
+"Tra cứu nhanh đơn hàng theo số điện thoại — hỗ trợ khách hàng hiệu quả hơn."
+msgstr ""
+"Quickly look up orders by phone number — support customers more efficiently."
+
+msgid "Lưu ý"
+msgstr "Note"
+
+msgid ""
+"Các thay đổi sẽ được áp dụng ngay lập tức. Bạn có thể bật/tắt từng tính năng"
+" theo nhu cầu."
+msgstr ""
+"Changes will be applied immediately. You can enable/disable each feature as "
+"needed."
+
+msgid ""
+"Tính năng cho phép bạn cài đặt thêm phương thức thanh toán bằng ví điện tử "
+"(Momo, ZaloPay, VNPAY, ShopeePay...) một cách đơn giản và nhanh chóng."
+msgstr ""
+"This feature allows you to easily add digital wallet payment methods (Momo, "
+"ZaloPay, VNPAY, ShopeePay...) quickly and simply."
+
+msgid "Cổng thanh toán ví điện tử"
+msgstr "Digital Wallet Payment Gateway"
+
+msgid "Bật tích hợp để khách hàng thanh toán bằng ví điện tử."
+msgstr "Enable integration so customers can pay with digital wallets."
+
+msgid "Cài đặt"
+msgstr "Settings"
+
+msgid "Tối ưu cổng thanh toán"
+msgstr "Optimize payment gateway"
+
+msgid "Tích hợp nhiều ví"
+msgstr "Integrate multiple wallets"
+
+msgid ""
+"Cung cấp nhiều lựa chọn thanh toán giúp khách hàng hoàn thành đơn hàng dễ "
+"hơn."
+msgstr ""
+"Providing multiple payment options helps customers complete orders more "
+"easily."
+
+msgid "MoMo & ZaloPay ưu tiên"
+msgstr "MoMo & ZaloPay priority"
+
+msgid ""
+"Đây là 2 ví điện tử phổ biến nhất tại Việt Nam — bật trước để phục vụ đa số "
+"khách."
+msgstr ""
+"These are the 2 most popular digital wallets in Vietnam — enable first to "
+"serve most customers."
+
+msgid "Kiểm tra sau cài đặt"
+msgstr "Test after setup"
+
+msgid ""
+"Sau khi nhập API key, hãy thử thanh toán thật để xác nhận kết nối hoạt động "
+"đúng."
+msgstr ""
+"After entering the API key, try a real payment to confirm the connection "
+"works correctly."
+
+msgid "Tùy chỉnh thanh toán"
+msgstr "Customize Checkout"
+
+msgid "Tùy chỉnh form thanh toán"
+msgstr "Customize checkout form"
+
+msgid "Bật các trường bạn muốn hiển thị trong form thanh toán."
+msgstr "Enable the fields you want to display in the checkout form."
+
+msgid "Gộp họ và tên"
+msgstr "Merge first and last name"
+
+msgid "Gộp 2 ô \"Họ\" + \"Tên\" riêng biệt thành 1 ô nhập họ và tên đầy đủ."
+msgstr "Merge 2 separate \"First Name\" + \"Last Name\" fields into 1 full name input field."
+"Merge the separate \"First Name\" + \"Last Name\" fields into one full name "
+"field."
+
+msgid "Giúp form ngắn gọn hơn, đặc biệt hữu ích trên thiết bị di động."
+msgstr "Makes the form more concise, especially useful on mobile devices."
+
+msgid "Gộp địa chỉ"
+msgstr "Merge address"
+
+msgid "Gộp 2 ô địa chỉ (Dòng 1 + Dòng 2) thành 1 ô nhập liên tục."
+msgstr "Merge 2 address fields (Line 1 + Line 2) into 1 continuous input field."
+"Merge the 2 address fields (Line 1 + Line 2) into one continuous input."
+
+msgid "Phù hợp với shop giao hàng nội địa, địa chỉ Việt Nam không cần 2 dòng."
+msgstr "Suitable for domestic delivery shops, Vietnamese addresses that do not need 2 lines."
+"Suitable for domestic shipping shops; Vietnamese addresses don't need 2 "
+"lines."
+
+msgid "Ẩn quốc gia / Khu vực"
+msgstr "Hide country / Region"
+
+msgid "Ẩn trường Quốc gia/Khu vực khỏi form thanh toán."
+msgstr "Hide the Country/Region field from the checkout form."
+
+msgid ""
+"Giảm số bước checkout, tránh khách bị phân tâm bởi trường không liên quan."
+msgstr ""
+"Reduces checkout steps, prevents customers from being distracted by "
+"irrelevant fields."
+
+msgid "Ẩn tên công ty"
+msgstr "Hide company name"
+
+msgid "Ẩn trường Tên công ty khỏi form thanh toán."
+msgstr "Hide the Company Name field from the checkout form."
+
+msgid "Form càng ít trường không cần thiết → tỉ lệ hoàn thành đơn càng cao."
+msgstr "Fewer unnecessary fields → higher order completion rate."
+
+msgid "Ẩn mã bưu điện"
+msgstr "Hide postal code"
+
+msgid "Ẩn trường Mã bưu điện (ZIP code) khỏi form."
+msgstr "Hide the Postal Code (ZIP code) field from the form."
+
+msgid ""
+"Bỏ trường gây friction là cách đơn giản nhất tăng tỉ lệ đặt hàng thành công."
+msgstr ""
+"Removing friction-causing fields is the simplest way to increase successful "
+"order rates."
+
+msgid "Ẩn tỉnh / Thành phố"
+msgstr "Hide province / City"
+
+msgid "Ẩn trường Tỉnh/Thành phố khỏi form thanh toán."
+msgstr "Hide the Province/City field from the checkout form."
+
+msgid ""
+"Lưu ý: nếu đơn vị giao hàng cần tỉnh để định tuyến, hãy giữ trường này."
+msgstr ""
+"Note: if your shipping provider needs the province for routing, keep this "
+"field."
+
+msgid "Giữ trường quan trọng"
+msgstr "Keep important fields"
+
+msgid "Họ tên, Địa chỉ phải giữ lại để đơn hàng có đủ thông tin giao nhận."
+msgstr "Full name and address must be kept so orders have complete delivery information."
+"Full name and address must be kept so orders have complete delivery "
+"information."
+
+msgid "Ẩn trường không cần"
+msgstr "Hide unnecessary fields"
+
+msgid ""
+"Form càng ngắn càng tăng tỉ lệ hoàn thành — ẩn Mã bưu điện, Tên công ty nếu "
+"không dùng."
+msgstr ""
+"Shorter form increases completion rate — hide Postal Code, Company Name if "
+"not needed."
+
+msgid "Gộp Họ & Tên"
+msgstr "Merge First & Last Name"
+
+msgid "Gộp 2 ô thành 1 giúp khách hàng điền nhanh hơn, đặc biệt trên mobile."
+msgstr "Merging 2 fields into 1 helps customers fill in faster, especially on mobile."
+"Merging 2 fields into 1 helps customers fill in faster, especially on "
+"mobile."
+
+msgid "Các thay đổi sẽ được áp dụng ngay sau khi lưu"
+msgstr "Changes will be applied immediately after saving"
+
+msgid "Sàn thương mại điện tử"
+msgstr "E-commerce Marketplaces"
+
+msgid "Liên kết sàn thương mại"
+msgstr "Marketplace links"
+
+msgid ""
+"Thêm liên kết dẫn khách hàng tới trang sản phẩm của bạn trên các sàn TMĐT."
+msgstr ""
+"Add links directing customers to your product pages on e-commerce "
+"marketplaces."
+
+msgid ""
+"Hiển thị nút liên kết dẫn khách hàng tới trang sản phẩm của bạn trên Tiki."
+msgstr ""
+"Display a link button directing customers to your product page on Tiki."
+
+msgid ""
+"Hiển thị nút liên kết dẫn khách hàng tới trang sản phẩm của bạn trên Shopee."
+msgstr ""
+"Display a link button directing customers to your product page on Shopee."
+
+msgid ""
+"Hiển thị nút liên kết dẫn khách hàng tới trang sản phẩm của bạn trên Lazada."
+msgstr ""
+"Display a link button directing customers to your product page on Lazada."
+
+msgid ""
+"Hiển thị nút liên kết dẫn khách hàng tới trang sản phẩm của bạn trên Sendo."
+msgstr ""
+"Display a link button directing customers to your product page on Sendo."
+
+msgid "Bật nhiều sàn cùng lúc"
+msgstr "Enable multiple marketplaces at once"
+
+msgid ""
+"Bật Shopee + Lazada + Tiki + Sendo để hiển thị liên kết đa sàn trên từng sản"
+" phẩm."
+msgstr ""
+"Enable Shopee + Lazada + Tiki + Sendo to display multi-marketplace links on "
+"each product."
+
+msgid "Gắn link từng sản phẩm"
+msgstr "Assign links per product"
+
+msgid ""
+"Vào từng sản phẩm → điền URL liên kết tới trang sản phẩm tương ứng trên sàn."
+msgstr ""
+"Go to each product → enter the URL linking to the corresponding product page"
+" on the marketplace."
+
+msgid "Hiển thị trên trang sản phẩm"
+msgstr "Display on product page"
+
+msgid ""
+"Nút liên kết xuất hiện ngay dưới thông tin sản phẩm, giúp khách mua nhanh "
+"trên sàn."
+msgstr ""
+"The link button appears right below product info, helping customers buy "
+"quickly on marketplaces."
+
+msgid "Tùy chỉnh nút CTA"
+msgstr "Customize CTA Button"
+
+msgid "Tối ưu nút mua hàng để tăng tỷ lệ chuyển đổi."
+msgstr "Optimize the buy button to increase conversion rate."
+
+msgid "Nội dung nút mua hàng"
+msgstr "Buy button text"
+
+msgid "Vd: Thêm vào giỏ hàng, Mua ngay..."
+msgstr "E.g.: Add to cart, Buy now..."
+
+msgid ""
+"Bằng việc thay đổi nội dung nút mua hàng sẽ thu hút khách hàng tốt hơn."
+msgstr "Changing the buy button text will attract customers better."
+
+msgid "Chuyển giá 0đ thành liên hệ"
+msgstr "Convert 0₫ price to contact"
+
+msgid "Sản phẩm giá 0đ sẽ hiển thị nút liên hệ thay vì Mua hàng."
+msgstr "Products priced at 0₫ will display a contact button instead of Buy."
+
+msgid "Thêm nút mua hàng ngay"
+msgstr "Add buy now button"
+
+msgid "Hiển thị nút Mua ngay tại trang chi tiết sản phẩm."
+msgstr "Display a Buy Now button on the product detail page."
+
+msgid "Tăng tỉ lệ chuyển đổi"
+msgstr "Increase conversion rate"
+
+msgid "Nội dung ngắn gọn"
+msgstr "Concise content"
+
+msgid ""
+"Text CTA càng ngắn càng tốt — \"Mua ngay\", \"Thêm vào giỏ\" rõ ràng hơn câu"
+" dài."
+msgstr ""
+"Shorter CTA text is better — \"Buy now\", \"Add to cart\" are clearer than "
+"long sentences."
+
+msgid "Bật \"Mua ngay\""
+msgstr "Enable \"Buy now\""
+
+msgid ""
+"Nút \"Mua ngay\" bỏ qua giỏ hàng, giảm bước thanh toán và tăng tỉ lệ hoàn "
+"thành đơn."
+msgstr ""
+"The \"Buy now\" button skips the cart, reduces checkout steps and increases "
+"order completion rate."
+
+msgid "Sản phẩm giá 0đ"
+msgstr "Products priced at 0₫"
+
+msgid ""
+"Dùng nút \"Liên hệ\" hoặc \"Nhận báo giá\" thay cho \"Mua ngay\" để tránh "
+"nhầm lẫn."
+msgstr ""
+"Use a \"Contact\" or \"Get a quote\" button instead of \"Buy now\" to avoid "
+"confusion."
+
+msgid "Mặc định hệ thống"
+msgstr "System default"
+
+msgid "Đa kênh thông báo"
+msgstr "Multi-channel notifications"
+
+msgid "Đối soát tự động"
+msgstr "Auto reconciliation"
+
+msgid "Xanh dương"
+msgstr "Blue"
+
+msgid "Xanh lá"
+msgstr "Green"
+
+msgid "Cam"
+msgstr "Orange"
+
+msgid "Tím"
+msgstr "Purple"
+
+msgid "Đỏ"
+msgstr "Red"
+
+msgid ""
+"<strong>Email cơ bản:</strong> chỉ gửi đúng lúc khách bấm \"Tôi đã chuyển "
+"khoản\" — không qua AI. Để nhận thêm cảnh báo rủi ro, xác minh thành công, "
+"đơn mới... hãy cấu hình thêm ở <strong>AI Thanh Toán → Thông báo</strong>."
+msgstr ""
+"<strong>Basic email:</strong> only sent when the customer clicks \"I have "
+"transferred\" — not through AI. To receive additional risk alerts, "
+"successful verifications, new orders... configure further in <strong>AI "
+"Payment → Notifications</strong>."
+
+msgid "Email thất bại"
+msgstr "Email failed"
+
+msgid "Lỗi kết nối mạng"
+msgstr "Network connection error"
+
+msgid "Không thể tải dữ liệu biểu đồ"
+msgstr "Unable to load chart data"
+
+msgid "Đã bật CAPTCHA"
+msgstr "CAPTCHA enabled"
+
+msgid "Đã tắt CAPTCHA"
+msgstr "CAPTCHA disabled"
+
+msgid "Vui lòng chọn ít nhất 1 CAPTCHA provider (bật toggle) trước khi lưu"
+msgstr "Please select at least 1 CAPTCHA provider (enable toggle) before saving"
+"Please select at least 1 CAPTCHA provider (enable toggle) before saving"
+
+msgid "Site Key là bắt buộc"
+msgstr "Site Key is required"
+
+msgid "Secret Key là bắt buộc"
+msgstr "Secret Key is required"
+
+msgid "Vui lòng điền đầy đủ Site Key và Secret Key trước khi lưu"
+msgstr "Please fill in both Site Key and Secret Key before saving"
+
+msgid "Xóa toàn bộ nhật ký CAPTCHA? Hành động này không thể hoàn tác."
+msgstr "Delete all CAPTCHA logs? This action cannot be undone."
+
+msgid "Lỗi tải dữ liệu."
+msgstr "Error loading data."
+
+msgid "Chưa có nhật ký nào."
+msgstr "No logs yet."
+
+msgid "Điểm"
+msgstr "Score"
+
+msgid "bản ghi đã chọn? Không thể hoàn tác."
+msgstr "selected records? This cannot be undone."
+
+msgid "IP không hợp lệ. Ví dụ: 192.168.1.1 hoặc 10.0.0.0/8"
+msgstr "Invalid IP. Example: 192.168.1.1 or 10.0.0.0/8"
+
+msgid "Định dạng không hợp lệ. Ví dụ: spam@gmail.com hoặc @tempmail.com"
+msgstr "Invalid format. Example: spam@gmail.com or @tempmail.com"
+
+msgid "Từ khóa chứa code/JSON — không thể lưu"
+msgstr "Keyword contains code/JSON — cannot save"
+
+msgid "Đã thêm"
+msgstr "Added"
+
+msgid "Đã xóa"
+msgstr "Removed"
+
+msgid "Chọn hành động và ít nhất 1 mục"
+msgstr "Select an action and at least 1 item"
+
+msgid "Xác nhận xóa"
+msgstr "Confirm deletion"
+
+msgid ""
+"Bạn có chắc muốn xóa %d liên hệ đã chọn? Hành động này sẽ xóa vĩnh viễn các "
+"bản ghi khỏi hệ thống."
+msgstr ""
+"Are you sure you want to delete %d selected contacts? This action will "
+"permanently remove the records from the system."
+
+msgid ""
+"Bạn có chắc muốn xóa liên hệ #%d? Hành động này sẽ xóa vĩnh viễn bản ghi "
+"khỏi hệ thống."
+msgstr ""
+"Are you sure you want to delete contact #%d? This action will permanently "
+"remove the record from the system."
+
+msgid "Không thể khôi phục sau khi xóa."
+msgstr "Cannot be recovered after deletion."
+
+msgid "Đã đổi trạng thái"
+msgstr "Status updated"
+
+msgid "Đang gửi..."
+msgstr "Sending..."
+
+msgid "Vui lòng nhập nội dung phản hồi"
+msgstr "Please enter reply content"
+
+msgid "Tải thất bại"
+msgstr "Load failed"
+
+msgid "Anthropic (Claude)"
+msgstr "Anthropic (Claude)"
+
+msgid "Google (Gemini)"
+msgstr "Google (Gemini)"
+
+msgid "OpenAI (GPT)"
+msgstr "OpenAI (GPT)"
+
+msgid "Đã đặt lại toàn bộ thống kê tokens của %s về 0!"
+msgstr "Reset all token statistics for %s to 0!"
+
+msgid "CHƯA KẾT NỐI"
+msgstr "NOT CONNECTED"
+
+msgid "ĐÃ KẾT NỐI"
+msgstr "CONNECTED"
+
+msgid "Đã chọn"
+msgstr "Selected"
+
+msgid "bài"
+msgstr "posts"
+
+msgid "bài?"
+msgstr "posts?"
+
+msgid "Không duyệt được."
+msgstr "Could not approve."
+
+msgid "Không xóa được."
+msgstr "Could not delete."
+
+msgid "Lỗi:"
+msgstr "Error:"
+
+msgid "Đang khởi tạo AI..."
+msgstr "Initializing AI..."
+
+msgid "0 bài đã chọn"
+msgstr "0 posts selected"
+
+msgid "Chọn ảnh đại diện"
+msgstr "Select featured image"
+
+msgid "Sử dụng ảnh này"
+msgstr "Use this image"
+
+msgid "Chọn ảnh mô tả nội dung bài viết"
+msgstr "Select content images"
+
+msgid "Sử dụng các ảnh này"
+msgstr "Use these images"
+
+msgid "Bài viết đã được tạo thành công!"
+msgstr "Post created successfully!"
+
+msgid "Xem trước"
+msgstr "Preview"
+
+msgid "Duyệt & Đăng ngay"
+msgstr "Approve & Publish now"
+
+msgid "Đang xử lý..."
+msgstr "Processing..."
+
+msgid "Đang lập dàn bài..."
+msgstr "Creating outline..."
+
+msgid "Đang viết phần mở đầu..."
+msgstr "Writing introduction..."
+
+msgid "Đang soạn phần kết luận, FAQ..."
+msgstr "Writing conclusion and FAQ..."
+
+msgid "Đang tối ưu meta SEO..."
+msgstr "Optimizing SEO meta..."
+
+msgid "Đang tạo bài viết nháp..."
+msgstr "Creating draft post..."
+
+msgid "Đang tải ảnh bài viết..."
+msgstr "Uploading post images..."
+
+msgid "Đang viết Phần nội dung chi tiết"
+msgstr "Writing detailed content section"
+
+msgid "Hoàn tất!"
+msgstr "Done!"
+
+msgid "Có lỗi xảy ra"
+msgstr "An error occurred"
+
+msgid "Lỗi không xác định từ AI"
+msgstr "Unknown error from AI"
+
+msgid ""
+"⚠️ Chưa kết nối AI. Vui lòng cấu hình API Key tại tab Kết nối AI trước."
+msgstr ""
+"⚠️ AI not connected. Please configure your API Key in the AI Connection tab "
+"first."
+
+msgid "Không thể xếp hàng công việc"
+msgstr "Could not queue the job"
+
+msgid "Vui lòng nhập mô tả chi tiết ý tưởng hoặc chủ đề bài viết!"
+msgstr "Please enter a detailed description of your article idea or topic!"
+
+msgid "bài đã chọn"
+msgstr "posts selected"
+
+msgid "bài viết đã chọn?"
+msgstr "selected posts?"
+
+msgid "Đã duyệt và đăng"
+msgstr "Approved and published"
+
+msgid "bài viết thành công!"
+msgstr "posts successfully!"
+
+msgid "Có lỗi xảy ra khi duyệt bài. Vui lòng thử lại."
+msgstr "An error occurred while approving. Please try again."
+
+msgid "Đang xóa..."
+msgstr "Deleting..."
+
+msgid "Không có bài viết nào được xóa. Vui lòng thử lại."
+msgstr "No posts were deleted. Please try again."
+
+msgid "Có lỗi xảy ra khi xóa bài."
+msgstr "An error occurred while deleting posts."
+
+msgid "Lỗi kết nối. Vui lòng tải lại trang và thử lại."
+msgstr "Connection error. Please reload the page and try again."
+
+msgid "AI Phân Tích SEO"
+msgstr "AI SEO Analysis"
+
+msgid "%d mục"
+msgstr "%d items"
+
+msgid "Bạn không có quyền thực hiện hành động này."
+msgstr "You do not have permission to perform this action."
+
+msgid "Post ID không hợp lệ hoặc bạn không có quyền chỉnh sửa bài viết này."
+msgstr "Invalid Post ID or you do not have permission to edit this post."
+
+msgid "Không tìm thấy bài viết."
+msgstr "Post not found."
+
+msgid "Chưa có nhà cung cấp AI nào được kết nối."
+msgstr "No AI provider is connected yet."
+
+msgid "AI không phản hồi."
+msgstr "AI did not respond."
+
+msgid "AI trả về dữ liệu không hợp lệ. Vui lòng thử lại."
+msgstr "AI returned invalid data. Please try again."
+
+msgid "Post ID không hợp lệ hoặc bạn không có quyền."
+msgstr "Invalid Post ID or you do not have permission."
+
+msgid "Lỗi khi cập nhật nội dung: "
+msgstr "Error updating content: "
+
+msgid ""
+"Đã áp dụng thay đổi SEO thành công! Một bản sao lưu (revision) đã được tạo."
+msgstr ""
+"SEO changes applied successfully! A backup (revision) has been created."
+
+msgid "Không nhận được dữ liệu hợp lệ."
+msgstr "No valid data received."
+
+msgid "Lỗi hệ thống: "
+msgstr "System error: "
+
+msgid ""
+"Đây là email thử nghiệm từ WP Helper Lite. Cấu hình máy chủ SMTP hoạt động "
+"hoàn toàn chính xác!"
+msgstr ""
+"This is a test email from WP Helper Lite. The SMTP server configuration is "
+"working perfectly!"
+
+msgid "Vui lòng nhập địa chỉ email nhận thử nghiệm."
+msgstr "Please enter the recipient email address for testing."
+
+msgid "Bạn đã gửi email thử nghiệm thành công!"
+msgstr "Test email sent successfully!"
+
+msgid "Gửi email thất bại:"
+msgstr "Failed to send email:"
+
+msgid "Đã xảy ra lỗi kết nối trong quá trình gửi mail. Vui lòng kiểm tra lại."
+msgstr "A connection error occurred while sending mail. Please check and try again."
+"A connection error occurred while sending the email. Please check and try "
+"again."
+
+msgid "Đang lưu..."
+msgstr "Saving..."
+
+msgid "Đã lưu thành công! Chế độ bảo trì đang BẬT."
+msgstr "Saved successfully! Maintenance mode is ON."
+
+msgid ""
+"✓ Đã lưu thành công.  ⚠ Chế độ bảo trì đang TẮT — website vẫn hoạt động bình"
+" thường. Bật toggle để kích hoạt bảo trì."
+msgstr ""
+"✓ Saved successfully.  ⚠ Maintenance mode is OFF — the website is operating "
+"normally. Enable the toggle to activate maintenance."
+
+msgid "Lưu thất bại."
+msgstr "Save failed."
+
+msgid "Lỗi kết nối, vui lòng thử lại."
+msgstr "Connection error, please try again."
+
+msgid ""
+"⚠️ Chưa kết nối AI. Vui lòng cấu hình API Key tại <a href=\"?page=mb-"
+"wphelper-ai&subtab=connection\" style=\"color:#dc2626;text-"
+"decoration:underline;\">tab Kết nối AI</a> trước."
+msgstr ""
+"⚠️ AI not connected. Please configure the API Key at the <a href=\"?page=mb-"
+"wphelper-ai&subtab=connection\" style=\"color:#dc2626;text-"
+"decoration:underline;\">AI Connection tab</a> first."
+
+msgid "AI đang soạn..."
+msgstr "AI is writing..."
+
+msgid "AI đã soạn xong! Chỉnh lại nếu cần rồi nhấn Lưu."
+msgstr "AI has finished writing! Adjust if needed then click Save."
+
+msgid "Dữ liệu AI không đúng định dạng. Thử lại."
+msgstr "AI data format is invalid. Please try again."
+
+msgid "Không tìm thấy JSON từ AI. Thử lại."
+msgstr "No JSON found from AI. Please try again."
+
+msgid "AI không phản hồi. Kiểm tra tab Kết nối AI."
+msgstr "AI did not respond. Check the AI Connection tab."
+
+msgid "Lỗi kết nối máy chủ."
+msgstr "Server connection error."
+
+msgid "Chọn logo trang bảo trì"
+msgstr "Select maintenance page logo"
+
+msgid "Chọn làm logo"
+msgstr "Use as logo"
+
+msgid "Đã áp dụng mẫu thành công!"
+msgstr "Template applied successfully!"
+
+msgid "✓ Đang dùng"
+msgstr "✓ In use"
+
+msgid "Đã lưu"
+msgstr "Saved"
+
+msgid "Lưu thất bại"
+msgstr "Save failed"
+
+msgid "Lỗi kết nối, vui lòng thử lại"
+msgstr "Connection error, please try again"
+
+msgid "Hiện thị {start}/{total} đơn"
+msgstr "Showing {start}/{total} orders"
+
+msgid "Đang xác minh AI…"
+msgstr "Verifying with AI…"
+
+msgid "Xác minh AI hoàn tất!"
+msgstr "AI verification complete!"
+
+msgid "Không thể xác minh. Đơn hàng có thể chưa có biên lai."
+msgstr "Cannot verify. The order may not have a receipt yet."
+
+msgid "Kết nối thất bại. Thử lại."
+msgstr "Connection failed. Please try again."
+
+msgid "Đã xác nhận thanh toán thành công!"
+msgstr "Payment confirmed successfully!"
+
+msgid "Đã từ chối đơn hàng."
+msgstr "Order rejected."
+
+msgid "Đã đánh dấu nghi ngờ."
+msgstr "Marked as suspicious."
+
+msgid "Có lỗi xảy ra. Thử lại."
+msgstr "An error occurred. Please try again."
+
+msgid "Xác nhận thanh toán đơn"
+msgstr "Confirm payment for order"
+
+msgid "Không có đơn nào để xác minh."
+msgstr "No orders to verify."
+
+msgid "Xác minh AI {n} đơn? Quá trình này có thể mất vài phút."
+msgstr "Verify {n} orders with AI? This process may take a few minutes."
+
+msgid "Hoàn tất! {done}/{total} đơn đã xác minh"
+msgstr "Done! {done}/{total} orders verified"
+
+msgid "thất bại"
+msgstr "failed"
+
+msgid "Hoàn tất xác minh {total} đơn"
+msgstr "Verification of {total} orders complete"
+
+msgid "Đang xác minh {current}/{total}…"
+msgstr "Verifying {current}/{total}…"
+
+msgid "Đang tải…"
+msgstr "Loading…"
+
+msgid "Không tải được dữ liệu."
+msgstr "Could not load data."
+
+msgid "Kết nối thất bại."
+msgstr "Connection failed."
+
+msgid "Chưa có ảnh biên lai"
+msgstr "No receipt image yet"
+
+msgid "Số tiền khớp đơn hàng"
+msgstr "Amount matches order"
+
+msgid "Tài khoản nhận tiền đúng"
+msgstr "Receiving account correct"
+
+msgid "Ngân hàng/ví khớp"
+msgstr "Bank/wallet matches"
+
+msgid "Thời gian giao dịch hợp lệ"
+msgstr "Transaction time valid"
+
+msgid "Nội dung chuyển khoản khớp"
+msgstr "Transfer content matches"
+
+msgid "Biên lai không có dấu hiệu chỉnh sửa"
+msgstr "Receipt shows no signs of tampering"
+
+msgid "Độ tin cậy OCR"
+msgstr "OCR confidence"
+
+msgid "✓ Biên lai hợp lệ"
+msgstr "✓ Receipt valid"
+
+msgid "⚠ Nghi ngờ gian lận"
+msgstr "⚠ Suspected fraud"
+
+msgid "✗ Biên lai không hợp lệ"
+msgstr "✗ Receipt invalid"
+
+msgid "Từ chối đơn hàng"
+msgstr "Reject order"
+
+msgid "Đã lưu ghi chú."
+msgstr "Note saved."
+
+msgid "Thao tác thành công!"
+msgstr "Action successful!"
+
+msgid "Có lỗi xảy ra."
+msgstr "An error occurred."
+
+msgid "Đánh dấu nghi ngờ"
+msgstr "Mark as suspicious"
+
+msgid "Đã xác nhận thanh toán!"
+msgstr "Payment confirmed!"
+
+msgid "Đã từ chối thanh toán."
+msgstr "Payment rejected."
+
+msgid "Đã gửi yêu cầu biên lai tới khách!"
+msgstr "Receipt request sent to customer!"
+
+msgid "Không có đơn %s"
+msgstr "No %s orders"
+
+msgid "Đang tải ảnh biên lai..."
+msgstr "Loading receipt image..."
+
+msgid "AI đang đọc nội dung biên lai..."
+msgstr "AI is reading receipt content..."
+
+msgid "Đang phân tích và kiểm tra rủi ro..."
+msgstr "Analyzing and checking risk..."
+
+msgid "Đang hoàn tất kết quả..."
+msgstr "Finalizing results..."
+
+msgid "✗ Rủi ro cao"
+msgstr "✗ High risk"
+
+msgid "⚠ Nghi ngờ"
+msgstr "⚠ Suspicious"
+
+msgid "✓ An toàn"
+msgstr "✓ Safe"
+
+msgid "Số tiền khớp"
+msgstr "Amount matches"
+
+msgid "Tài khoản nhận khớp"
+msgstr "Receiving account matches"
+
+msgid "Ngân hàng/ví nhận khớp"
+msgstr "Receiving bank/wallet matches"
+
+msgid "✓ Hợp lệ"
+msgstr "✓ Valid"
+
+msgid "⚠ Nghi ngờ – Kiểm tra thêm"
+msgstr "⚠ Suspicious – Check further"
+
+msgid "✗ Rủi ro cao – Cần kiểm tra thủ công"
+msgstr "✗ High risk – Manual review required"
+
+msgid "Đang phân tích..."
+msgstr "Analyzing..."
+
+msgid "Xác minh lại"
+msgstr "Re-verify"
+
+msgid "✓ Đã xác nhận"
+msgstr "✓ Confirmed"
+
+msgid "✗ Từ chối"
+msgstr "✗ Rejected"
+
+msgid "Tìm đơn hàng (#ID hoặc tên)…"
+msgstr "Search orders (#ID or name)…"
+
+msgid "Giao dịch"
+msgstr "Transactions"
+
+msgid "Tổng tiền"
+msgstr "Total amount"
+
+msgid "Tỉ lệ tự động"
+msgstr "Auto rate"
+
+msgid "Thời gian XM"
+msgstr "Verify time"
+
+msgid "Theo ngân hàng"
+msgstr "By bank"
+
+msgid "Nguồn xác minh"
+msgstr "Verification source"
+
+msgid " tỷ"
+msgstr "B"
+
+msgid " tr"
+msgstr "M"
+
+msgid " phút"
+msgstr " min"
+
+msgid "Không tải được dữ liệu"
+msgstr "Could not load data"
+
+msgid "Vui lòng thử lại."
+msgstr "Please try again."
+
+msgid "Không có giao dịch nào"
+msgstr "No transactions"
+
+msgid "Thử thay đổi bộ lọc hoặc khoảng thời gian."
+msgstr "Try changing the filter or time range."
+
+msgid "Thời gian xác minh"
+msgstr "Verification time"
+
+msgid "Độ tin cậy"
+msgstr "Confidence"
+
+msgid "✓ Xác minh thành công"
+msgstr "✓ Verified successfully"
+
+msgid "đơn hàng"
+msgstr "orders"
+
+msgid "Từ"
+msgstr "From"
+
+msgid "Đến"
+msgstr "To"
+
+msgid "Nguyên tắc bảo mật cốt lõi"
+msgstr "Core security principle"
+
+msgid ""
+"Không xác nhận thanh toán chỉ dựa trên ảnh biên lai.<br>Nguồn xác thực cuối "
+"cùng PHẢI là giao dịch thực tế từ ngân hàng."
+msgstr ""
+"Do not confirm payment based solely on a receipt image.<br>The final source "
+"of truth MUST be actual bank transaction data."
+
+msgid ""
+"Ảnh biên lai chỉ là gợi ý ban đầu. Hệ thống sẽ luôn đối soát với dữ liệu "
+"ngân hàng thực trước khi xác nhận đơn hàng."
+msgstr ""
+"The receipt image is only an initial hint. The system always cross-checks "
+"with real bank data before confirming an order."
+
+msgid "Luồng xác minh thanh toán"
+msgstr "Payment verification flow"
+
+msgid "Biên lai (OCR)"
+msgstr "Receipt (OCR)"
+
+msgid "Trích xuất số tiền, STK, thời gian từ ảnh"
+msgstr "Extract amount, account number, time from image"
+
+msgid "Phát hiện ảnh giả, chỉnh sửa Photoshop"
+msgstr "Detect fake images, Photoshop edits"
+
+msgid "Đối soát ngân hàng"
+msgstr "Bank reconciliation"
+
+msgid "Khớp với sao kê thực từ Casso / SePay / PayOS"
+msgstr "Match against real bank statements from Casso / SePay / PayOS"
+
+msgid "Auto-confirm đơn hàng khi đủ điều kiện"
+msgstr "Auto-confirm orders when conditions are met"
+
+msgid "Tích hợp ngân hàng được hỗ trợ"
+msgstr "Supported bank integrations"
+
+msgid "Sắp ra mắt"
+msgstr "Coming soon"
+
+msgid ""
+"Nhận webhook tự động từ các ngân hàng Việt Nam qua Casso. Giao dịch tiền về "
+"ngay lập tức được đẩy vào hệ thống để đối soát và xác nhận đơn hàng."
+msgstr ""
+"Receive automatic webhooks from Vietnamese banks via Casso. Incoming "
+"transactions are instantly pushed to the system for reconciliation and order"
+" confirmation."
+
+msgid "30+ ngân hàng VN"
+msgstr "30+ VN banks"
+
+msgid ""
+"Cổng thanh toán với đồng bộ sao kê ngân hàng tự động. Hỗ trợ tạo mã QR động "
+"và đối soát thanh toán theo nội dung chuyển khoản."
+msgstr ""
+"Payment gateway with automatic bank statement sync. Supports dynamic QR code"
+" generation and payment reconciliation by transfer content."
+
+msgid "QR động"
+msgstr "Dynamic QR"
+
+msgid "Sao kê tự động"
+msgstr "Auto statement"
+
+msgid "Nội dung CK"
+msgstr "Transfer content"
+
+msgid ""
+"Hệ thống thanh toán với xác minh giao dịch theo thời gian thực. Tích hợp API"
+" ngân hàng trực tiếp giúp xác nhận chính xác từng khoản tiền vào."
+msgstr ""
+"Payment system with real-time transaction verification. Direct bank API "
+"integration for precise confirmation of each incoming amount."
+
+msgid "API ngân hàng"
+msgstr "Bank API"
+
+msgid "VietQR chuẩn"
+msgstr "Standard VietQR"
+
+msgid "Yêu cầu gói Enterprise"
+msgstr "Enterprise plan required"
+
+msgid ""
+"Tính năng đối soát ngân hàng yêu cầu gói %s. Tích hợp với Casso, SePay và "
+"PayOS cần API key riêng và được bảo mật bằng mã hóa server-side. Liên hệ đội"
+" ngũ để được tư vấn và đăng ký danh sách chờ ra mắt sớm."
+msgstr ""
+"The bank reconciliation feature requires the %s plan. Integration with "
+"Casso, SePay, and PayOS requires dedicated API keys secured with server-side"
+" encryption. Contact the team for consultation and early-access waitlist "
+"registration."
+
+msgid "Hiện thị {range} / {total} giao dịch"
+msgstr "Showing {range} / {total} transactions"
+
+msgid "Đang xác minh…"
+msgstr "Verifying…"
+
+msgid "Xác minh thành công!"
+msgstr "Verification successful!"
+
+msgid "Đang xử lý…"
+msgstr "Processing…"
+
+msgid "Các tính năng nâng cao giúp tối ưu hoạt động bán hàng và trải nghiệm khách hàng."
+msgstr "Advanced features to optimize store operations and customer experience."
+
+msgid "Tự động tạo thông báo \"vừa có người mua sản phẩm này\" để tăng tính thúc đẩy mua hàng."
+msgstr "Automatically creates a \"someone just bought this\" notification to boost purchase urgency."
+
+msgid "Bật để hiển thị popup \"vừa có người mua\" — tăng tâm lý xã hội và tỉ lệ chuyển đổi."
+msgstr "Enable to show \"someone just bought\" popup — boosts social proof and conversion rates."
+
+msgid "Ẩn bớt phần mô tả dài — trang gọn, nút \"Xem thêm\" giúp trải nghiệm tốt hơn."
+msgstr "Hides long description — keeps pages clean with a \"Read more\" button for better UX."
+
+msgid "Tra cứu nhanh đơn hàng theo số điện thoại — hỗ trợ khách hàng hiệu quả hơn."
+msgstr "Quickly search orders by phone number — improves customer support efficiency."
+
+msgid "Các thay đổi sẽ được áp dụng ngay lập tức. Bạn có thể bật/tắt từng tính năng theo nhu cầu."
+msgstr "Changes are applied immediately. You can enable/disable each feature as needed."
+
+msgid "Ẩn thông tin phiên bản WordPress khỏi mã HTML của website, tránh lộ thông tin cho hacker."
+msgstr "Hide WordPress version information from the website HTML, preventing exposure to hackers."
+
+msgid "Bạn cần cấu hình mã khóa API trong phần Kết nối AI trước khi sử dụng tính năng này."
+msgstr "You need to configure your API key in the AI Connection section before using this feature."
+
+msgid "Bạn đã bảo vệ website khỏi các đợt tấn công dò quét tài khoản mặc định (Brute-force)."
+msgstr "You have protected your website from brute-force attacks targeting the default account."
+
+msgid "Bạn đang sử dụng phiên bản PHP được hỗ trợ tốt, đảm bảo cả hiệu suất và bảo mật."
+msgstr "You are using a well-supported PHP version, ensuring both performance and security."
+
+msgid "Không sử dụng tài khoản \"admin\""
+msgstr "Not Using the \"admin\" Account"
+
+msgid "Nên cập nhật WordPress lên phiên bản mới nhất để nhận các bản vá lỗi bảo mật quan trọng."
+msgstr "You should update WordPress to the latest version to receive important security patches."
+
+msgid "Phiên bản PHP này đã ngừng hỗ trợ vá lỗi bảo mật từ rất lâu. Vui lòng nâng cấp lên PHP 7.4 hoặc 8.x."
+msgstr "This PHP version has not received security patches for a long time. Please upgrade to PHP 7.4 or 8.x."
+
+msgid "Phiên bản WordPress không còn hiển thị trong HTML source, giảm thiểu thông tin mà hacker có thể thu thập."
+msgstr "The WordPress version is no longer visible in the HTML source, minimizing information that hackers can gather."
+
+msgid "Tài khoản \"admin\" đang tồn tại"
+msgstr "The \"admin\" Account Exists"
+
+msgid "Tắt chức năng chỉnh sửa theme và plugin trực tiếp trong trang quản trị WordPress."
+msgstr "Disable the ability to edit themes and plugins directly within the WordPress admin area."
+
+msgid "Tắt chuột phải và xem mã nguồn trang — khách truy cập không thể sao chép nội dung."
+msgstr "Disable right-click and view page source — visitors cannot copy content."
+
+msgid "Thay URL /wp-login.php bằng đường dẫn tùy chỉnh để tránh tấn công dò mật khẩu."
+msgstr "Replace the /wp-login.php URL with a custom path to prevent brute-force attacks."
+
+msgid "Hạn chế các cuộc tấn công dò mật khẩu và làm quá tải hệ thống qua giao thức XML-RPC."
+msgstr "Limit brute-force attacks and system overloading through the XML-RPC protocol."
+
+msgid "Website của bạn không bị rò rỉ thông tin mã nguồn và cấu trúc thư mục ra bên ngoài."
+msgstr "Your website is not leaking source code information or directory structure to the outside."
+
+msgid "Cảm ơn bạn!"
+msgstr "Thank you!"
+
+msgid "Đơn hàng đã được đặt thành công."
+msgstr "Your order has been placed successfully."
+
+msgid "Đặt hàng thành công!"
+msgstr "Order placed successfully!"
+
+msgid "Mã đơn hàng"
+msgstr "Order Number"
+
+msgid "Ngày đặt hàng"
+msgstr "Order Date"
+
+msgid "Tình trạng đơn hàng"
+msgstr "Order Status"
+
+msgid "Đặt hàng"
+msgstr "Order Placed"
+
+msgid "Giao hàng"
+msgstr "Delivery"
+
+msgid "Chúng tôi sẽ gửi thông tin đơn hàng đến email của bạn."
+msgstr "We will send your order details to your email."
+
+msgid "Thông tin xuất hóa đơn VAT"
+msgstr "VAT Invoice Information"
+
+msgid "Tên công ty"
+msgstr "Company Name"
+
+msgid "Mã số thuế"
+msgstr "Tax Code"
+
+msgid "Địa chỉ"
+msgstr "Address"
+
+msgid "Chúng tôi đã ghi nhận yêu cầu xuất hóa đơn VAT và sẽ gửi cho bạn sau khi xác nhận đơn hàng."
+msgstr "We have recorded your VAT invoice request and will send it to you after confirming your order."
+
+msgid "Lưu ý: Giá sản phẩm hiện chưa bao gồm thuế VAT. Phí VAT sẽ được tính thêm và chúng tôi sẽ liên hệ xác nhận với bạn trước khi xuất hóa đơn."
+msgstr "Note: Product prices do not currently include VAT. VAT will be added and we will contact you to confirm before issuing the invoice."
+
+msgid "Xác nhận COD"
+msgstr "Confirm COD"
+
+msgid "Xác nhận TT"
+msgstr "Confirm Payment"
+
+msgid "Sao chép đường dẫn theo dõi đơn hàng"
+msgstr "Copy order tracking link"
+
+msgid "Thông tin chuyển khoản"
+msgstr "Bank Transfer Information"
+
+msgid "Quét mã QR để chuyển khoản"
+msgstr "Scan QR code to transfer"
+
+msgid "Sao chép ngân hàng"
+msgstr "Copy bank name"
+
+msgid "Số tài khoản"
+msgstr "Account Number"
+
+msgid "Sao chép số tài khoản"
+msgstr "Copy account number"
+
+msgid "Tên tài khoản"
+msgstr "Account Name"
+
+msgid "Sao chép tên tài khoản"
+msgstr "Copy account name"
+
+msgid "Sao chép nội dung"
+msgstr "Copy content"
+
+msgid "Sao chép số tiền"
+msgstr "Copy amount"
+
+msgid "Thời gian thanh toán đã hết. Đơn hàng của bạn đã bị hủy."
+msgstr "Payment time has expired. Your order has been cancelled."
+
+msgid "Vui lòng chuyển khoản trong vòng %d phút"
+msgstr "Please transfer within %d minutes"
+
+msgid "Giờ · Phút · Giây"
+msgstr "Hours · Minutes · Seconds"
+
+msgid "Tôi đã chuyển khoản"
+msgstr "I have transferred"
+
+msgid "Cảm ơn! Chúng tôi đã nhận thông báo và sẽ xác nhận sớm nhất."
+msgstr "Thank you! We have received your notification and will confirm shortly."
+
+msgid "Tiếp tục mua hàng"
+msgstr "Continue Shopping"
+
+msgid "Xem đơn hàng"
+msgstr "View Order"
+
+msgid "Liên hệ hỗ trợ"
+msgstr "Contact Support"
+
+msgid "Tải hóa đơn PDF"
+msgstr "Download PDF Invoice"
+
+msgid "Chọn kênh liên hệ phù hợp để được hỗ trợ nhanh nhất."
+msgstr "Choose the right contact channel for the fastest support."
+
+msgid "Chưa cấu hình kênh liên hệ. Vui lòng liên hệ quản trị viên."
+msgstr "Contact channel not configured. Please contact the administrator."
+
+msgid "Đổi trả"
+msgstr "Returns"
+
+msgid "Đã bật Chống Spam"
+msgstr "Anti-Spam enabled"
+
+msgid "Đã tắt Chống Spam"
+msgstr "Anti-Spam disabled"
+
+msgid "GỌI HOTLINE"
+msgstr "CALL HOTLINE"
+
+msgid "Hỗ trợ nhanh như chớp 24/7"
+msgstr "Lightning-fast 24/7 support"
+
+msgid "Chúng tôi luôn sẵn sàng hỗ trợ"
+msgstr "We are always here to help"
+
+msgid "Đăng ký nhận ưu đãi"
+msgstr "Subscribe for Exclusive Offers"
+
+msgid "Nhận ngay ưu đãi độc quyền từ chúng tôi"
+msgstr "Get exclusive offers from us right now"
+
+msgid "Nhập email của bạn..."
+msgstr "Enter your email..."
+
+msgid "Đăng ký ngay"
+msgstr "Subscribe Now"
+
+msgid "hoặc"
+msgstr "or"
+
+msgid "Vui lòng chọn một danh mục sản phẩm!"
+msgstr "Please select a product category!"
+
+msgid "Quá trình phân tích thường mất 15–40 giây"
+msgstr "Analysis usually takes 15–40 seconds"
+
+msgid "Đọc nội dung bài viết…"
+msgstr "Reading post content…"
+
+msgid "Phân tích từ khóa và cấu trúc…"
+msgstr "Analyzing keywords and structure…"
+
+msgid "Kiểm tra Meta Description…"
+msgstr "Checking Meta Description…"
+
+msgid "Đánh giá điểm SEO tổng thể…"
+msgstr "Evaluating overall SEO score…"
+
+msgid "Tổng hợp đề xuất cải thiện…"
+msgstr "Compiling improvement suggestions…"
+
+msgid "Phân tích hoàn tất!"
+msgstr "Analysis complete!"
+
+msgid "Đã bật AI Thanh Toán"
+msgstr "AI Payment enabled"
+
+msgid "Đã tắt AI Thanh Toán"
+msgstr "AI Payment disabled"
+
+msgid "Admin bypass — test in incognito window"
+msgstr "Admin bypass — test in incognito window"
