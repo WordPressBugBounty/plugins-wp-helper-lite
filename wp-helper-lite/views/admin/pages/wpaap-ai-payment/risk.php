@@ -55,13 +55,13 @@ function wpaap_aipay_risk_layout() {
     $dcats = ['Nội dung OK không khớp'=>0,'Sai số tiền'=>0,'Ảnh biên lai chỉnh sửa'=>0,'Tài khoản nhận không khớp'=>0,'Khác'=>0];
     foreach ($date_rows as $r) {
         $txt = mb_strtolower(($r['ai']['verdict_reason'] ?? '') . ' ' . implode(' ', (array)($r['ai']['risk_flags'] ?? [])));
-        if (str_contains($txt,'số tiền')||str_contains($txt,'amount')||str_contains($txt,'tiền không đúng')) {
+        if (strpos($txt,'số tiền')!==false||strpos($txt,'amount')!==false||strpos($txt,'tiền không đúng')!==false) {
             $dcats['Sai số tiền']++;
-        } elseif (str_contains($txt,'tài khoản')||str_contains($txt,'account')||str_contains($txt,'stk')) {
+        } elseif (strpos($txt,'tài khoản')!==false||strpos($txt,'account')!==false||strpos($txt,'stk')!==false) {
             $dcats['Tài khoản nhận không khớp']++;
-        } elseif (str_contains($txt,'ảnh')||str_contains($txt,'chỉnh sửa')||str_contains($txt,'photoshop')||str_contains($txt,'giả mạo')) {
+        } elseif (strpos($txt,'ảnh')!==false||strpos($txt,'chỉnh sửa')!==false||strpos($txt,'photoshop')!==false||strpos($txt,'giả mạo')!==false) {
             $dcats['Ảnh biên lai chỉnh sửa']++;
-        } elseif (str_contains($txt,'không khớp')||str_contains($txt,'không đúng')||str_contains($txt,'nội dung')) {
+        } elseif (strpos($txt,'không khớp')!==false||strpos($txt,'không đúng')!==false||strpos($txt,'nội dung')!==false) {
             $dcats['Nội dung OK không khớp']++;
         } else { $dcats['Khác']++; }
     }

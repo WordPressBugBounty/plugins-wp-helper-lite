@@ -1498,7 +1498,7 @@ function wpaap_seo_page_layout()
                     var $h4 = $box.find('h4').first();
                     $box.children().not('h4').wrapAll('<div class="wpaap-issue-body" style="max-height:2000px;opacity:1;"></div>');
                     var badgeHtml = '<span style="flex-shrink:0;background:' + badgeBg + ';color:' + badgeColor + ';border:1px solid ' + badgeBorder + ';padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700;">' + badgeText + '</span>';
-                    var btnHtml = '<button class="wpaap-issue-collapse-btn" data-state="open"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> Thu gọn</button>';
+                    var btnHtml = '<button class="wpaap-issue-collapse-btn" data-state="open"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> ' + whpSeoAiI18n.collapse + '</button>';
                     $h4.css({'display':'flex','align-items':'center','gap':'8px'}).append(badgeHtml + btnHtml);
                 });
                 $('#wpaap_ai_advice_content').off('click', '.wpaap-issue-collapse-btn').on('click', '.wpaap-issue-collapse-btn', function() {
@@ -1507,10 +1507,10 @@ function wpaap_seo_page_layout()
                     var isOpen = $btn.data('state') === 'open';
                     if (isOpen) {
                         $body.addClass('collapsed');
-                        $btn.data('state','closed').html('<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg> Mở rộng');
+                        $btn.data('state','closed').html('<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg> ' + whpSeoAiI18n.expand);
                     } else {
                         $body.removeClass('collapsed');
-                        $btn.data('state','open').html('<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> Thu gọn');
+                        $btn.data('state','open').html('<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> ' + whpSeoAiI18n.collapse);
                     }
                 });
             }
@@ -1524,12 +1524,12 @@ function wpaap_seo_page_layout()
                 $('#wpaap_ai_advice_content .wpaap-issue-collapse-btn').each(function() {
                     $(this).data('state', _allSeoCollapsed ? 'closed' : 'open');
                     $(this).html(_allSeoCollapsed
-                        ? '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg> Mở rộng'
-                        : '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> Thu gọn');
+                        ? '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg> ' + whpSeoAiI18n.expand
+                        : '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> ' + whpSeoAiI18n.collapse);
                 });
                 $collapseBtn.html(_allSeoCollapsed
-                    ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg> Mở rộng tất cả'
-                    : '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> Thu gọn tất cả');
+                    ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg> ' + whpSeoAiI18n.expandAll
+                    : '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> ' + whpSeoAiI18n.collapseAll);
             });
 
             // Xử lý ẩn hiện Dropdown

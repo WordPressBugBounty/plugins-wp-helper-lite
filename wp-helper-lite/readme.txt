@@ -1,34 +1,84 @@
 === WP Helper Premium ===
 Contributors: matbao
-Tags: contact button, SMTP, maintenance mode, security, woocommerce, popup, spam filter, AI, all-in-one
+Tags: contact button, SMTP, maintenance mode, security, woocommerce
 Requires at least: 6.7
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 4.7
+Stable tag: 4.7.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-All-in-one WordPress toolkit: contact channels, SMTP, maintenance mode, AI content, spam filter, WooCommerce enhancements and more — in a single plugin.
+All-in-one WordPress toolkit: contact channels, SMTP, maintenance, AI, spam filter, WooCommerce — one plugin.
 
 == Description ==
 
-WP Helper Premium replaces a dozen single-purpose plugins with one unified toolkit. Every feature is optional and toggled from a clean admin UI — activate only what you need.
+**WP Helper Premium** is an all-in-one WordPress toolkit that consolidates 8 essential site management modules into a single plugin. Every module is independent — activate only what you need from a unified dashboard.
 
-**Core features**
+= Contact Channels =
+Add a floating contact widget so visitors can reach you instantly.
 
-* **Contact Channels** — floating buttons for phone, Zalo, Facebook, Email, and custom links.
-* **SMTP Mail** — configure Gmail SMTP or any custom SMTP server; built-in test-send tool.
-* **Header & Footer Scripts** — inject custom HTML/JS/CSS into `<head>`, body-top, or `<footer>` without editing theme files.
-* **Maintenance Mode** — put the site in maintenance with 5 built-in templates (gradient, cyberpunk, corporate, construction, minimal). Optional AI-generated content via Google Gemini.
-* **Security** — disable XML-RPC, hide WP version, remove generator meta tag, disable file editing, custom login URL.
-* **Pop-up** — promotional and newsletter pop-ups with scheduling and display rules.
-* **WooCommerce Toolkit** — buy-now button placement, e-commerce platform links, order search by phone, Thank You page customization, AI payment verification (OCR receipt scanning).
-* **Spam Filter** — honeypot, rate limiting, IP blocking, country blocking, keyword filtering. Optionally checks visitor IP via ip-api.com.
-* **Captcha** — Math Quiz captcha for contact forms and comments. Optionally integrates Google reCAPTCHA, Cloudflare Turnstile, or hCaptcha.
-* **Email Log** — records every outgoing email with status, headers, and body for debugging.
-* **Form Manager** — collect, view, and export contact form submissions.
-* **AI Hub** — connect Google Gemini, Anthropic Claude, or OpenAI GPT to power AI features site-wide with a 3-tier fallback chain.
-* **Extensions** — duplicate page/post/menu, redirect 404 → homepage, remove emoji scripts, disable embeds, disable Google Fonts, disable Dashicons, SVG upload support.
+* Greeting card — title, short description, and online/offline status
+* Floating trigger button — custom color and left/right position
+* Hotline card — separate info for online and offline hours
+* Staff list — multiple agents with names and contact info
+
+= Header & Footer =
+Inject tracking, analytics, or custom code without editing theme files.
+
+* Three code areas — `<head>`, body-open (`<body>`), and footer (`</body>`)
+* Supports any HTML, JavaScript, or CSS snippet
+* Applies site-wide and survives theme updates
+
+= Pop-up =
+Promotional and newsletter pop-ups with full scheduling and display control.
+
+* Form pop-up — collects leads, integrates with Contact Form 7, WPForms, Gravity Forms, Ninja Forms
+* Banner pop-up — image, title, subtitle, and CTA button
+* Display rules — delay, cookie duration, and max display count
+
+= Maintenance Mode =
+Put your site under a professional maintenance page while you work.
+
+* 6 templates — Dark, Light, Gradient, Construction, Corporate, Cyberpunk (Neon)
+* AI content generation — auto-writes heading, sub-heading, and description (requires AI Hub)
+* Countdown timer — shows visitors when the site returns
+* Visitor stats — page views, unique visitors, and bounce rate while active
+* Admin bypass — logged-in administrators see the site normally
+
+= Email & Contact =
+Manage every inbound form and outbound email from one place.
+
+* Form Manager — collect, view, and export contact form submissions
+* SMTP Config — reliable delivery via Gmail, Outlook, Zoho Mail, Yahoo Mail, or any custom SMTP server
+* Spam Filter — honeypot, rate limiting, IP/country/keyword blocking, DNSBL check
+* CAPTCHA — Math Quiz, Google reCAPTCHA, Cloudflare Turnstile, or hCaptcha
+* Email Log — status, headers, and body of every email sent, with resend and CSV export
+
+= WooCommerce Toolkit =
+Extend WooCommerce with sales and operations tools — no extra plugins needed.
+
+* Wallet Payment — Momo, ZaloPay, VNPay, ShopeePay
+* Payment Templates — reusable info blocks for order/CRM management
+* E-commerce Links — connect product listings to Shopee, Lazada, TikTok Shop
+* Buy Now (CTA) button — custom placement and text on product pages
+* Thank You page — customize post-purchase content
+* AI Payment Verification — scan bank transfer receipts via OCR to auto-verify payments and flag fraud (requires AI Hub)
+
+= AI Hub =
+Connect Google Gemini, Anthropic Claude, or OpenAI GPT to power AI features site-wide.
+
+* AI Writer — drafts blog posts and product descriptions
+* AI Security — scans the site for vulnerabilities and misconfigurations
+* AI SEO — audits pages and suggests on-page SEO improvements
+* AI Payment — verifies bank transfer receipts via OCR and flags fraud risk
+* Token stats & fallback — tracks usage per provider with automatic 3-tier fallback
+
+= Protection & Optimization =
+Harden and speed up your site with individual toggles — enable only what you need.
+
+* Security — disable XML-RPC, hide WP version, custom login URL, disable copy/right-click
+* Performance — remove query strings, disable embeds, Google Fonts, or Dashicons
+* Productivity — duplicate pages/posts/menus, redirect 404s to the homepage, enable SVG uploads
 
 == Installation ==
 
@@ -107,13 +157,21 @@ Used to search and import free stock photos as an alternative image source when 
 
 == Screenshots ==
 
-1. Dashboard overview
-2. Contact Channels configuration
-3. SMTP Mail settings
-4. Maintenance Mode with template selector
-5. AI Hub — provider connection
+1. Dashboard — module overview with live status indicators for all features
+2. AI Hub — multi-provider connection and 3-tier fallback configuration
+3. Maintenance Mode — 5-template selector with AI content generation
+4. Contact Channels — floating button builder with device visibility controls
+5. Email & Contact — SMTP configuration so notifications don't land in spam
+6. AI Token Statistics — usage tracking per provider with daily breakdown
+7. Spam Filter — honeypot, rate limiting, IP/country blocking, and keyword filters
+8. Pop-up — form/newsletter and banner popups with scheduling and display rules
+9. WooCommerce Toolkit — Order Success Page with AI Payment Verification
+10. Security & Optimization — individual security and performance toggles in one panel
 
 == Changelog ==
+
+= 4.7.1 =
+* Fixed: fatal PHP parse error on PHP 7.4 servers caused by a PHP 8.0-only `match()` expression in the AI Payment verified-stats handler; replaced with a `switch` statement for broad host compatibility.
 
 = 4.7 =
 * Added AI Hub module with multi-provider support (Gemini, Claude, OpenAI) and 3-tier fallback chain.

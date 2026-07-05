@@ -28,7 +28,7 @@
     <div class="mb-wph-footer-right">
       <span class="mb-wph-footer-badge">
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        v4.7.0
+        v<?php echo esc_html(MB_WHP_VERSION); ?>
       </span>
       <div class="mb-wph-footer-links">
         <a href="https://www.matbao.net/hosting/cloud-wordpress-hosting.html" target="_blank" rel="noopener">
@@ -37,7 +37,7 @@
         </a>
         <a href="https://www.matbao.net/hosting/wp-helper-plugin.html" target="_blank" rel="noopener">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          Hỗ trợ
+          <?php esc_html_e('Hỗ trợ', 'whp'); ?>
         </a>
       </div>
     </div>

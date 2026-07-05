@@ -1274,11 +1274,16 @@ function wpaap_vf_stats_handler() {
     $range = sanitize_text_field( $_POST['range'] ?? 'today' );
     $now   = current_time( 'timestamp' );
 
-    $from = match ( $range ) {
-        '7d'  => date( 'Y-m-d', strtotime( '-6 days', $now ) ),
-        '30d' => date( 'Y-m-d', strtotime( '-29 days', $now ) ),
-        default => date( 'Y-m-d', $now ),
-    };
+    switch ( $range ) {
+        case '7d':
+            $from = date( 'Y-m-d', strtotime( '-6 days', $now ) );
+            break;
+        case '30d':
+            $from = date( 'Y-m-d', strtotime( '-29 days', $now ) );
+            break;
+        default:
+            $from = date( 'Y-m-d', $now );
+    }
     $to = date( 'Y-m-d', $now );
 
     $orders = wc_get_orders( [
