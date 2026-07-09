@@ -4,7 +4,7 @@ Tags: contact button, SMTP, maintenance mode, security, woocommerce
 Requires at least: 6.7
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 4.7.1
+Stable tag: 4.7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -169,6 +169,11 @@ Used to search and import free stock photos as an alternative image source when 
 10. Security & Optimization — individual security and performance toggles in one panel
 
 == Changelog ==
+
+= 4.7.2 =
+* Security fix: unauthenticated `/wp-admin` requests were being redirected through the custom login URL slug, exposing it to anyone probing the default admin path and defeating the purpose of hiding the login URL. Blocked access now redirects to the homepage instead.
+* Fixed: the custom login URL feature was incorrectly intercepting `admin-ajax.php` and `admin-post.php` requests, breaking public AJAX/form submissions (contact forms, popups, WooCommerce) for logged-out visitors.
+* Fixed: Spam Filter "Detect code/script content" level selector was unreachable while its toggle was off, its dropdown menu could be clipped, and its on/off label could fail to update on click due to a JS scoping bug affecting all Spam Filter toggles.
 
 = 4.7.1 =
 * Fixed: fatal PHP parse error on PHP 7.4 servers caused by a PHP 8.0-only `match()` expression in the AI Payment verified-stats handler; replaced with a `switch` statement for broad host compatibility.

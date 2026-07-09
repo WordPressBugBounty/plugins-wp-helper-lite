@@ -156,6 +156,7 @@ function wph_spam_filter_page_layout() {
 .wph-sf2-cs-trigger.open .wph-sf2-cs-chevron{transform:rotate(180deg);}
 .wph-sf2-cs-menu{position:absolute;top:calc(100% + 4px);left:0;right:0;background:#fff;border:1.5px solid #e2e8f0;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,.1);z-index:999;overflow:hidden;display:none;}
 .wph-sf2-cs-menu.open{display:block;}
+.wph-sf2-cs-menu-up{top:auto;bottom:calc(100% + 4px);}
 .wph-sf2-cs-opt{display:flex;align-items:center;gap:9px;padding:9px 14px;font-size:12.5px;font-weight:600;color:#334155;cursor:pointer;transition:background .12s;}
 .wph-sf2-cs-opt:hover{background:#f1f5f9;}
 .wph-sf2-cs-opt.selected{background:#eff6ff;color:#2563eb;}
@@ -224,7 +225,7 @@ function wph_spam_filter_page_layout() {
         <p style="margin:0;font-size:13.5px;color:#64748b;line-height:1.6;padding-left:58px;max-width:420px;"><?php esc_html_e( 'Bảo vệ form liên hệ khỏi bot và tin nhắn rác tự động.', 'whp' ); ?> <strong><?php esc_html_e( 'Tắt công tắc này sẽ vô hiệu hóa toàn bộ tính năng chặn spam', 'whp' ); ?></strong>, <?php esc_html_e( 'kể cả khi các mục bên dưới đang bật.', 'whp' ); ?></p>
         <div style="display:inline-flex;align-items:center;gap:10px;padding-left:58px;margin-top:6px;">
             <label class="wph-sf2-master-switch">
-                <input type="checkbox" id="sf2-active" <?php echo $active ? 'checked' : ''; ?> onchange="wphSf2ActiveChange(this)">
+                <input type="checkbox" id="sf2-active" autocomplete="off" <?php echo $active ? 'checked' : ''; ?> onchange="wphSf2ActiveChange(this)">
                 <span class="wph-sf2-master-slider"></span>
             </label>
             <span id="sf2-active-label" style="font-size:13px;font-weight:700;color:<?php echo $active ? '#22c55e' : '#ef4444'; ?>;"><?php echo $active ? esc_html__( 'Đang bật', 'whp' ) : esc_html__( 'Đang tắt', 'whp' ); ?></span>
@@ -492,7 +493,7 @@ foreach ( $scards as $c ) :
                 ?>
                 <span id="<?php echo $lbl_id; ?>" style="font-size:12.5px;font-weight:700;color:<?php echo $is_on ? '#22c55e' : '#94a3b8'; ?>;"><?php echo $is_on ? esc_html__( 'Bật', 'whp' ) : esc_html__( 'Tắt', 'whp' ); ?></span>
                 <label class="wph-sf2-toggle">
-                    <input type="checkbox" id="<?php echo esc_attr( $row['id'] ); ?>" <?php echo $is_on ? 'checked' : ''; ?> onchange="(function(cb){var l=document.getElementById('<?php echo $lbl_id; ?>');l.textContent=cb.checked?whpSfI18n.on:whpSfI18n.off;l.style.color=cb.checked?'#22c55e':'#94a3b8';})(this)">
+                    <input type="checkbox" id="<?php echo esc_attr( $row['id'] ); ?>" autocomplete="off" <?php echo $is_on ? 'checked' : ''; ?> onchange="(function(cb){var l=document.getElementById('<?php echo $lbl_id; ?>');l.textContent=cb.checked?whpSfI18n.on:whpSfI18n.off;l.style.color=cb.checked?'#22c55e':'#94a3b8';})(this)">
                     <span class="wph-sf2-toggle-slider"></span>
                 </label>
                 <?php elseif ( $row['ctrl'] === 'dnsbl' ) :
@@ -533,13 +534,13 @@ foreach ( $scards as $c ) :
                     $cd_lbl_id  = esc_attr( $row['id'] ) . '-lbl';
                 ?>
                 <input type="hidden" id="sf2-code-detect-level" value="<?php echo esc_attr( $cur_cd ); ?>">
-                <div class="wph-sf2-cs" id="sf2-cd-cs" style="<?php echo $cd_on ? '' : 'opacity:.45;pointer-events:none;'; ?>">
+                <div class="wph-sf2-cs" id="sf2-cd-cs">
                     <div class="wph-sf2-cs-trigger" id="sf2-cd-trigger" onclick="wphSf2CsToggle('sf2-cd-cs')">
                         <span class="wph-sf2-cs-dot" id="sf2-cd-dot" style="background:<?php echo esc_attr( $cur_cd_opt['color'] ); ?>;"></span>
                         <span id="sf2-cd-lbl"><?php echo esc_html( $cur_cd_opt['label'] ); ?></span>
                         <svg class="wph-sf2-cs-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </div>
-                    <div class="wph-sf2-cs-menu" id="sf2-cd-menu">
+                    <div class="wph-sf2-cs-menu wph-sf2-cs-menu-up" id="sf2-cd-menu">
                         <?php foreach ( $cd_opts as $cd_val => $cd_opt ) : ?>
                         <div class="wph-sf2-cs-opt <?php echo $cur_cd === $cd_val ? 'selected' : ''; ?>"
                              onclick="wphSf2CsSelect(this,'sf2-cd-cs','sf2-code-detect-level','sf2-cd-dot','sf2-cd-lbl','<?php echo esc_js($cd_val); ?>','<?php echo esc_js($cd_opt['label']); ?>','<?php echo esc_js($cd_opt['color']); ?>')">
@@ -551,8 +552,8 @@ foreach ( $scards as $c ) :
                 </div>
                 <span id="<?php echo $cd_lbl_id; ?>" style="font-size:12.5px;font-weight:700;color:<?php echo $cd_on ? '#22c55e' : '#94a3b8'; ?>;"><?php echo $cd_on ? esc_html__( 'Bật', 'whp' ) : esc_html__( 'Tắt', 'whp' ); ?></span>
                 <label class="wph-sf2-toggle">
-                    <input type="checkbox" id="<?php echo esc_attr( $row['id'] ); ?>" <?php echo $cd_on ? 'checked' : ''; ?>
-                        onchange="(function(cb){var l=document.getElementById('<?php echo $cd_lbl_id; ?>');l.textContent=cb.checked?whpSfI18n.on:whpSfI18n.off;l.style.color=cb.checked?'#22c55e':'#94a3b8';var cs=document.getElementById('sf2-cd-cs');if(cs){cs.style.opacity=cb.checked?'1':'0.45';cs.style.pointerEvents=cb.checked?'auto':'none';}})(this)">
+                    <input type="checkbox" id="<?php echo esc_attr( $row['id'] ); ?>" autocomplete="off" <?php echo $cd_on ? 'checked' : ''; ?>
+                        onchange="(function(cb){var l=document.getElementById('<?php echo $cd_lbl_id; ?>');l.textContent=cb.checked?whpSfI18n.on:whpSfI18n.off;l.style.color=cb.checked?'#22c55e':'#94a3b8';})(this)">
                     <span class="wph-sf2-toggle-slider"></span>
                 </label>
                 <?php endif; ?>
@@ -925,7 +926,7 @@ foreach ( $scards as $c ) :
 
 <script>
 (function(){
-var whpSfI18n = {
+window.whpSfI18n = {
     enabled:           '<?php echo esc_js( __( 'Đang bật', 'whp' ) ); ?>',
     disabled:          '<?php echo esc_js( __( 'Đang tắt', 'whp' ) ); ?>',
     on:                '<?php echo esc_js( __( 'Bật', 'whp' ) ); ?>',

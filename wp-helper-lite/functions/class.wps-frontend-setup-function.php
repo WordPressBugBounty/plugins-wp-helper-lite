@@ -302,6 +302,13 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
                     $action       = sanitize_key( $_GET['action'] ?? '' );
                     $skip_actions = [ 'logout', 'lostpassword', 'retrievepassword', 'resetpass', 'rp', 'postpass', 'register', 'confirm_admin_email' ];
                     $is_wp_admin  = ( $path === 'wp-admin' || strpos( $path, 'wp-admin/' ) === 0 );
+                    $is_ajax_post = ( $path === 'wp-admin/admin-ajax.php' || $path === 'wp-admin/admin-post.php' );
+
+                    // admin-ajax.php / admin-post.php phục vụ cả AJAX/form công khai cho khách
+                    // chưa đăng nhập (form liên hệ, popup, WooCommerce...) — luôn cho qua.
+                    if ( $is_ajax_post ) {
+                        return;
+                    }
 
                     if ( ! is_user_logged_in() ) {
 
@@ -318,9 +325,11 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
                             exit;
                         }
 
-                        // 2. /wp-admin và mọi sub-path → chuyển về custom login URL
+                        // 2. /wp-admin và mọi sub-path → chặn hẳn về trang chủ, KHÔNG
+                        //    chuyển qua custom login URL (nếu không sẽ tự lộ slug bí mật
+                        //    cho bất kỳ ai/bot chỉ cần gõ /wp-admin).
                         if ( $is_wp_admin ) {
-                            wp_safe_redirect( home_url( '/' . $login_slug . '/' ) );
+                            wp_safe_redirect( home_url( '/' ) );
                             exit;
                         }
 
