@@ -358,11 +358,8 @@ function wpaap_connection_page_layout() {
 .mb-conn-meta { font-size: 12px; color: #94a3b8; margin-top: 6px; display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap; }
 .mb-conn-meta span { display: inline-flex; align-items: center; gap: 4px; }
 .mb-conn-meta strong { color: #4f46e5; font-weight: 600; }
-/* Eye toggle */
 .mb-conn-input-wrap { position: relative; flex: 1; min-width: 0; }
-.mb-conn-eye { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #94a3b8; padding: 0; display: flex; align-items: center; }
-.mb-conn-eye:hover { color: #64748b; }
-.mb-conn-input-wrap .mb-conn-input { padding-right: 36px; width: 100%; }
+.mb-conn-input-wrap .mb-conn-input { width: 100%; }
 /* Security card */
 .mb-conn-security-card {
     background: #fff; border-radius: 12px;
@@ -475,17 +472,6 @@ function wpaap_connection_page_layout() {
     gap: 8px;
 }
 </style>
-<script>
-function mbToggleApiKey(btn) {
-    var i = btn.previousElementSibling;
-    var show = i.type === 'password';
-    i.type = show ? 'text' : 'password';
-    var svgOpen  = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
-    var svgSlash = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
-    btn.querySelector('svg').innerHTML = show ? svgSlash : svgOpen;
-}
-</script>
-
 <div class="mb-wph-page">
 
     <!-- Page Header -->
@@ -658,11 +644,13 @@ function mbToggleApiKey(btn) {
                             <input type="hidden" name="wpaap_provider" value="<?php echo esc_attr( $provider_key ); ?>" />
                             <input type="hidden" name="wpaap_conn_action" value="connect" />
                             <div style="display:flex;flex-direction:column;gap:5px;flex:1;min-width:0;">
+                                <?php
+                                $key_placeholder = ! empty( $prov['stored'] )
+                                    ? __( 'Đã lưu API Key — nhập key mới để thay đổi', 'whp' )
+                                    : __( 'Nhập API Key...', 'whp' );
+                                ?>
                                 <div class="mb-conn-input-wrap">
-                                    <input type="password" name="wpaap_api_key" value="<?php echo esc_attr( $prov['stored'] ); ?>" placeholder="<?php esc_attr_e( 'Nhập API Key...', 'whp' ); ?>" class="mb-conn-input" required />
-                                    <button type="button" class="mb-conn-eye" onclick="mbToggleApiKey(this)" title="<?php esc_attr_e( 'Hiện/Ẩn API Key', 'whp' ); ?>">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                                    </button>
+                                    <input type="password" name="wpaap_api_key" value="" placeholder="<?php echo esc_attr( $key_placeholder ); ?>" class="mb-conn-input" <?php echo empty( $prov['stored'] ) ? 'required' : ''; ?> autocomplete="off" />
                                 </div>
                                 <?php if ( ! empty( $prov['api_url'] ) ) : ?>
                                 <a href="<?php echo esc_url( $prov['api_url'] ); ?>" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:#3b82f6;text-decoration:none;">

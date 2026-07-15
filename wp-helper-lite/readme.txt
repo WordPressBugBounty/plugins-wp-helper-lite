@@ -4,7 +4,7 @@ Tags: contact button, SMTP, maintenance mode, security, woocommerce
 Requires at least: 6.7
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 4.7.2
+Stable tag: 4.7.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -169,6 +169,11 @@ Used to search and import free stock photos as an alternative image source when 
 10. Security & Optimization — individual security and performance toggles in one panel
 
 == Changelog ==
+
+= 4.7.3 =
+* Security: the AI connection form no longer pre-fills the saved API key (previously exposed via View Source despite password masking); the field stays empty and shows a placeholder hint when a key is already saved, so only pasting a new value updates the connection.
+* Fixed: broken image on the login logo preview and the real login page when the previously selected logo had been deleted from the media library; added a file-existence check with fallback to the plugin's default logo.
+* Improved: moved the maintenance-mode warning notice to the top of the Pop-up settings page so it's visible before scrolling.
 
 = 4.7.2 =
 * Security fix: unauthenticated `/wp-admin` requests were being redirected through the custom login URL slug, exposing it to anyone probing the default admin path and defeating the purpose of hiding the login URL. Blocked access now redirects to the homepage instead.

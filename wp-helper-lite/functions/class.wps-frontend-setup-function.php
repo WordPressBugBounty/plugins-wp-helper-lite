@@ -566,6 +566,7 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
 
             if ($whp_extention_custom_login_theme) {
 
+                $whp_extention_custom_login_logo = whp_get_valid_login_logo($whp_extention_custom_login_logo);
                 if ($whp_extention_custom_login_logo) {
 
                     add_action('login_head', function () use ($whp_extention_custom_login_logo) {

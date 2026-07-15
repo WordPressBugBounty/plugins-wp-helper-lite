@@ -760,6 +760,31 @@ function whp_get_image_url($name)
     $result = MB_WHP_URL . "assets/frontend/images/{$name}";
     return $result;
 }
+function whp_get_valid_login_logo($url = '')
+{
+    $default = MB_WHP_URL . 'assets/admin/images/icon.svg';
+    $url = trim((string) $url);
+
+    if ('' === $url || $url === $default) {
+        return $default;
+    }
+
+    // Chỉ đối chiếu file thật với đường dẫn nội bộ (uploads/plugin assets),
+    // bỏ qua URL ngoài vì không muốn gọi HTTP request để kiểm tra.
+    $path = null;
+    $upload_dir = wp_upload_dir();
+    if (!empty($upload_dir['baseurl']) && 0 === strpos($url, $upload_dir['baseurl'])) {
+        $path = $upload_dir['basedir'] . substr($url, strlen($upload_dir['baseurl']));
+    } elseif (0 === strpos($url, content_url())) {
+        $path = WP_CONTENT_DIR . substr($url, strlen(content_url()));
+    }
+
+    if (null !== $path && !file_exists($path)) {
+        return $default;
+    }
+
+    return $url;
+}
 function whp_get_setting($key)
 {
     $fields = whp_get_all_field();

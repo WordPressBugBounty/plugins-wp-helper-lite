@@ -1078,6 +1078,20 @@ $popup_preview_url = home_url('/') . '?wpaap_popup_preview=1&pt_ts=' . $pp_ts . 
 
 <div class="mb-wph-pp-wrap">
 
+    <!-- Lưu ý: chế độ bảo trì -->
+    <?php $maintenance_on = whp_get_option('whp_maintenance_active'); ?>
+    <?php if ($maintenance_on) : ?>
+    <div style="display:flex;align-items:flex-start;gap:10px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 16px;margin-bottom:16px;">
+        <span class="dashicons dashicons-warning" style="color:#d97706;font-size:18px;width:18px;height:18px;flex-shrink:0;margin-top:1px;"></span>
+        <div>
+            <strong style="font-size:13px;color:#92400e;"><?php esc_html_e('Chế độ bảo trì đang BẬT', 'whp'); ?></strong>
+            <p style="font-size:12.5px;color:#78350f;margin:2px 0 0;line-height:1.5;"><?php esc_html_e('Pop-up sẽ không hiển thị khi website đang ở chế độ bảo trì.', 'whp'); ?>
+                <a href="<?php echo admin_url('admin.php?page=mb-wphelper-ai&subtab=maintenance'); ?>" style="color:#d97706;font-weight:600;"><?php esc_html_e('Tắt bảo trì →', 'whp'); ?></a>
+            </p>
+        </div>
+    </div>
+    <?php endif; ?>
+
     <!-- Header -->
     <div class="mb-wph-pp-header-card">
         <div class="mb-wph-pp-header-left">
@@ -1900,21 +1914,6 @@ Bạn vừa có người dùng đăng ký nhận tin với email: {email}
             <?php esc_html_e('Lưu thông tin', 'whp'); ?>
         </button>
     </div>
-
-    <!-- Lưu ý -->
-    <?php $maintenance_on = whp_get_option('whp_maintenance_active'); ?>
-    <?php if ($maintenance_on) : ?>
-    <div style="display:flex;align-items:flex-start;gap:10px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 16px;margin-top:12px;">
-        <span class="dashicons dashicons-warning" style="color:#d97706;font-size:18px;width:18px;height:18px;flex-shrink:0;margin-top:1px;"></span>
-        <div>
-            <strong style="font-size:13px;color:#92400e;"><?php esc_html_e('Chế độ bảo trì đang BẬT', 'whp'); ?></strong>
-            <p style="font-size:12.5px;color:#78350f;margin:2px 0 0;line-height:1.5;"><?php esc_html_e('Pop-up sẽ không hiển thị khi website đang ở chế độ bảo trì.', 'whp'); ?>
-                <a href="<?php echo admin_url('admin.php?page=mb-wphelper-ai&subtab=maintenance'); ?>" style="color:#d97706;font-weight:600;"><?php esc_html_e('Tắt bảo trì →', 'whp'); ?></a>
-            </p>
-        </div>
-    </div>
-    <?php endif; ?>
-
 
 </div><!-- /.mb-wph-pp-wrap -->
 

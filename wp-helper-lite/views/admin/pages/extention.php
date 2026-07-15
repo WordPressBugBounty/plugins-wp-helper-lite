@@ -527,7 +527,7 @@
                                 <img src="<?php echo esc_url(MB_WHP_URL . '/assets/admin/images/remove.png'); ?>"
                                     class="preview-close img-responsive"
                                     style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;cursor:pointer;background:#fee2e2;border-radius:50%;padding:2px;"
-                                    data-default="<?php echo esc_url(MB_WHP_URL . '/assets/admin/images/placeholder-image.jpg'); ?>">
+                                    data-default="<?php echo esc_url(MB_WHP_URL . 'assets/admin/images/icon.svg'); ?>">
                                 <img src="<?php echo esc_url($whp_extention_custom_login_logo); ?>"
                                     class="preview-logo img-responsive"
                                     style="max-width:120px;max-height:60px;border-radius:6px;border:1px solid #e2e8f0;object-fit:contain;">

@@ -33,8 +33,7 @@ $toggle_fields = [
 foreach ($all_fields as $f) {
     $$f = isset($option[$f]) ? $option[$f] : '';
 }
-$whp_extention_custom_login_logo = $whp_extention_custom_login_logo
-    ?: MB_WHP_URL . '/assets/admin/images/placeholder-image.jpg';
+$whp_extention_custom_login_logo = whp_get_valid_login_logo($whp_extention_custom_login_logo);
 
 // Handle form submit
 $isSubmit = 0;
@@ -50,11 +49,12 @@ if (isset($_POST['submit'])) {
         $$f = $params[$f] ?? '';
     }
     // Không save placeholder URL — chỉ giữ giá trị DB cũ nếu POST không có logo thực
-    $placeholder_url = MB_WHP_URL . '/assets/admin/images/placeholder-image.jpg';
+    $placeholder_url = MB_WHP_URL . 'assets/admin/images/icon.svg';
     if (!$whp_extention_custom_login_logo || $whp_extention_custom_login_logo === $placeholder_url) {
         $whp_extention_custom_login_logo = $option['whp_extention_custom_login_logo'] ?? '';
         $params['whp_extention_custom_login_logo'] = $whp_extention_custom_login_logo;
     }
+    $whp_extention_custom_login_logo = whp_get_valid_login_logo($whp_extention_custom_login_logo);
     $allFields = whp_get_all_field();
     $params = $option ? array_merge($option, $params) : array_merge($allFields, $params);
     update_option('whp_setting', $params);
@@ -1263,7 +1263,7 @@ whp_get_shared('header');
                         <?php
                         $login_theme_configured = mb_seu_on($whp_extention_custom_login_theme)
                             && $whp_extention_custom_login_logo
-                            && strpos($whp_extention_custom_login_logo, 'placeholder-image') === false;
+                            && strpos($whp_extention_custom_login_logo, 'assets/admin/images/icon.svg') === false;
                         ?>
                         <?php if ($login_theme_configured): ?>
                         <button type="button" class="mb-seu-cfg-btn" data-popup="popup-login-theme">
@@ -1601,7 +1601,7 @@ whp_get_shared('header');
                             <div class="mb-lte-info-icon" style="background:#dbeafe;">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
                             </div>
-                            PNG, JPG, SVG, WebP
+                            <?php esc_html_e('PNG, JPG, WebP', 'whp'); ?>
                         </div>
                         <div class="mb-lte-info-item">
                             <div class="mb-lte-info-icon" style="background:#dcfce7;">
@@ -1619,7 +1619,7 @@ whp_get_shared('header');
 
                     <!-- Remove button -->
                     <button type="button" class="mb-lte-btn-remove" id="removeLogo"
-                            data-default="<?php echo esc_url(MB_WHP_URL . '/assets/admin/images/placeholder-image.jpg'); ?>">
+                            data-default="<?php echo esc_url(MB_WHP_URL . 'assets/admin/images/icon.svg'); ?>">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
                         <?php esc_html_e('Xóa logo hiện tại', 'whp'); ?>
                     </button>

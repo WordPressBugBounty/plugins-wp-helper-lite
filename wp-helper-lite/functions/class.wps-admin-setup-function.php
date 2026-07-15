@@ -522,7 +522,7 @@ if (!class_exists('MB_WHP_Admin_Setup_Function')) {
                     $$field = whp_get_option($field) ?? "";
                 }
                 if ($field == 'whp_extention_custom_login_logo') {
-                    $$field = $$field ? $$field : MB_WHP_URL . "/assets/admin/images/placeholder-image.jpg";
+                    $$field = whp_get_valid_login_logo($$field);
                 }
                 $fieldCheck = $field . "_check";
                 $fieldSelect = $field . "_select";
@@ -550,7 +550,7 @@ if (!class_exists('MB_WHP_Admin_Setup_Function')) {
                     $$fieldCheck = $$field == '1' ? "checked" : "no_checked";
                     $$fieldSelect = $$field == '1' ? "selected" : "";
                     if ($field == 'whp_extention_custom_login_logo') {
-                        $$field = $$field ? $$field : MB_WHP_URL . "/assets/admin/images/placeholder-image.jpg";
+                        $$field = whp_get_valid_login_logo($$field);
                     }
                 }
 
