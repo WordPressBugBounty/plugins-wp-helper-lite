@@ -211,6 +211,7 @@ if (!class_exists('MB_WHP_Admin_Setup_Function')) {
                 $whp_code_body = $params['whp_code_body'] ?? "";
                 $whp_code_footer = $params['whp_code_footer'] ?? "";
                 update_option('whp_setting', $params);
+                whp_purge_page_cache();
             }
             $itemInfo = $this->whp_current_tab;
             require_once($this->pathView . 'code.php');
@@ -559,6 +560,7 @@ if (!class_exists('MB_WHP_Admin_Setup_Function')) {
                 $params = $option ? array_merge($option, $params) : array_merge($allFields, $params);
 
                 update_option('whp_setting', $params);
+                whp_purge_page_cache();
             }
 
 

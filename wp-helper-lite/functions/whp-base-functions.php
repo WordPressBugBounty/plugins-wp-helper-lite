@@ -126,6 +126,32 @@ function whp_get_option($key = '')
     }
     return $result;
 }
+// Nhiều host (đặc biệt host chia sẻ của Mắt Bão) bật sẵn cache toàn trang
+// (LiteSpeed Cache, WP Super Cache, W3TC, WP Rocket, WP Fastest Cache, SG Optimizer, Breeze...).
+// Các tính năng bật/tắt qua toggle (Pop-up, Kênh liên hệ, Bảo trì...) đổi option nhưng
+// HTML trang chủ đã cache trước đó không tự làm mới -> khách vẫn thấy bản cũ dù đã bật.
+// Gọi hàm này ngay sau mỗi lần update_option ảnh hưởng tới frontend để purge cache liên quan.
+function whp_purge_page_cache()
+{
+    if (function_exists('rocket_clean_domain')) {
+        rocket_clean_domain();
+    }
+    if (function_exists('wp_cache_clear_cache')) {
+        wp_cache_clear_cache();
+    }
+    if (function_exists('sg_cachepress_purge_cache')) {
+        sg_cachepress_purge_cache();
+    }
+    if (function_exists('autoptimize_flush_pagecache')) {
+        autoptimize_flush_pagecache();
+    }
+    do_action('litespeed_purge_all');
+    do_action('w3tc_flush_all');
+    do_action('wpfc_clear_all_cache');
+    do_action('breeze_clear_all_cache');
+    do_action('swift_performance_clear_all_cache');
+    do_action('rocket_purge_cache');
+}
 function whp_get_option_old($key = '')
 {
     $option = get_option('mbwp_helper', []);
@@ -809,6 +835,7 @@ function whp_save_aipay_settings($posted_fields = [])
         }
     }
     update_option('whp_setting', $option);
+    whp_purge_page_cache();
 }
 
 function whp_format_currency_vnd($number, $suffix = '')

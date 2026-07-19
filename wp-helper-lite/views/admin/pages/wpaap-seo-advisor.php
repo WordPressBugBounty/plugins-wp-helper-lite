@@ -2079,6 +2079,10 @@ add_action('wp_ajax_wpaap_ai_seo_scan', 'wpaap_ajax_ai_seo_scan_handler');
 function wpaap_ajax_ai_seo_scan_handler()
 {
     check_ajax_referer('wpaap_seo_nonce', 'nonce');
+    if ( ! current_user_can( 'manage_options' ) ) {
+        wp_send_json_error( [ 'message' => __( 'Không có quyền thực hiện hành động này.', 'whp' ) ] );
+        return;
+    }
 
     // Kiểm tra kết nối AI trước mọi thứ — không cho bypass qua try/catch
     $ai_any_connected = false;

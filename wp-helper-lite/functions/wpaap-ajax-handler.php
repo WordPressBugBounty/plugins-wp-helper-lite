@@ -25,6 +25,10 @@ function wpaap_ajax_read_log() {
 add_action( 'wp_ajax_wpaap_generate_post', 'wpaap_ajax_generate_post_handler' );
 function wpaap_ajax_generate_post_handler() {
     check_ajax_referer( 'wpaap_generate_nonce', 'nonce' );
+    if ( ! current_user_can( 'publish_posts' ) ) {
+        wp_send_json_error( array( 'message' => 'Không có quyền thực hiện hành động này.' ) );
+        return;
+    }
 
     if ( function_exists( 'set_time_limit' ) ) {
         @set_time_limit( 300 );
@@ -339,6 +343,10 @@ function wpaap_ajax_reload_recent_posts_handler() {
 add_action( 'wp_ajax_wpaap_chat_ai', 'wpaap_ajax_chat_ai_handler' );
 function wpaap_ajax_chat_ai_handler() {
     check_ajax_referer( 'wpaap_generate_nonce', 'nonce' );
+    if ( ! current_user_can( 'manage_options' ) ) {
+        wp_send_json_error( array( 'message' => 'Không có quyền thực hiện hành động này.' ) );
+        return;
+    }
 
     // Kiểm tra kết nối AI
     $ai_connected = false;
@@ -384,6 +392,7 @@ function whp_ajax_maintenance_toggle_enable() {
     $setting['whp_maintenance_active'] = $active;
     update_option( 'whp_setting', $setting );
     update_option( 'whp_maintenance_active', $active );
+    whp_purge_page_cache();
     wp_send_json_success( [ 'active' => $active ] );
 }
 
@@ -416,6 +425,7 @@ function wpaap_ajax_save_maintenance_handler() {
     update_option( 'whp_setting', $option );
     // Đồng bộ xóa individual option cũ để tránh fallback sai
     update_option( 'whp_maintenance_active', $option['whp_maintenance_active'] );
+    whp_purge_page_cache();
 
     $is_active = $option['whp_maintenance_active'] === '1';
     wp_send_json_success( array(
@@ -493,6 +503,10 @@ function wpaap_ajax_get_maint_stats_handler() {
 add_action( 'wp_ajax_wpaap_test_connection', 'wpaap_ajax_test_connection_handler' );
 function wpaap_ajax_test_connection_handler() {
     check_ajax_referer( 'wpaap_generate_nonce', 'nonce' );
+    if ( ! current_user_can( 'manage_options' ) ) {
+        wp_send_json_error( array( 'message' => 'Không có quyền thực hiện hành động này.' ) );
+        return;
+    }
 
     $provider = isset( $_POST['provider'] ) ? sanitize_key( $_POST['provider'] ) : '';
 
@@ -1104,6 +1118,13 @@ function wpaap_ajax_frontend_ai_verify_handler() {
         wp_send_json_error( [ 'message' => 'Không có quyền xem đơn hàng này.' ] );
     }
 
+    // Chặn spam gọi AI Vision (tốn phí) lặp lại liên tục cho cùng 1 đơn hàng
+    $rate_key = 'wpaap_ai_verify_' . $order_id;
+    if ( get_transient( $rate_key ) ) {
+        wp_send_json_error( [ 'message' => 'Vui lòng đợi ít phút trước khi thử xác thực lại.' ] );
+    }
+    set_transient( $rate_key, 1, MINUTE_IN_SECONDS );
+
     $receipt_url = $order->get_meta( '_whp_transfer_receipt' );
     if ( empty( $receipt_url ) ) {
         wp_send_json_error( [ 'message' => 'Chưa có ảnh biên lai.' ] );
@@ -1384,6 +1405,10 @@ function wpaap_close_and_continue( array $data ) {
 add_action( 'wp_ajax_wpaap_queue_post_job', 'wpaap_ajax_queue_post_job' );
 function wpaap_ajax_queue_post_job() {
     check_ajax_referer( 'wpaap_generate_nonce', 'nonce' );
+    if ( ! current_user_can( 'publish_posts' ) ) {
+        wp_send_json_error( [ 'message' => 'Không có quyền thực hiện hành động này.' ] );
+        return;
+    }
 
     $user_prompt = sanitize_textarea_field( $_POST['prompt'] ?? '' );
     if ( ! $user_prompt ) {
@@ -1795,6 +1820,7 @@ function wpaap_ajax_aipay_toggle_enable_handler() {
     $option = get_option( 'whp_setting', [] );
     $option['whp_aipay_enable'] = $value;
     update_option( 'whp_setting', $option );
+    whp_purge_page_cache();
     $msg = $value === '1' ? __( 'Đã bật AI Thanh Toán', 'whp' ) : __( 'Đã tắt AI Thanh Toán', 'whp' );
     wp_send_json_success( [ 'message' => $msg, 'value' => $value ] );
 }

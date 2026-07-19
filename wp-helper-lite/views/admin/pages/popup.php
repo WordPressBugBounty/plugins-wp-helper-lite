@@ -1901,7 +1901,7 @@ Bạn vừa có người dùng đăng ký nhận tin với email: {email}
 
     <!-- Hidden type input -->
     <input type="hidden" name="whp_popup_type" id="mb_pp_type_hidden"
-           value="<?php echo esc_attr($whp_popup_type ?? '0'); ?>">
+           value="<?php echo esc_attr(($whp_popup_type === '' || $whp_popup_type === null) ? '0' : $whp_popup_type); ?>">
 
     <!-- Save bar -->
     <div id="mb-popup-save-bar" class="mb-wph-pp-save-bar">

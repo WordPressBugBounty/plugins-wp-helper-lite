@@ -151,6 +151,7 @@ function wpaap_aipay_config_layout()
             : ($params['whp_aipay_gemini_key'] ?? '');
 
         update_option('whp_setting', $params);
+        whp_purge_page_cache();
         $isSubmit = 1;
 
         $whp_aipay_enable         = $params['whp_aipay_enable'];

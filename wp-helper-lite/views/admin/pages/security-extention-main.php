@@ -58,6 +58,7 @@ if (isset($_POST['submit'])) {
     $allFields = whp_get_all_field();
     $params = $option ? array_merge($option, $params) : array_merge($allFields, $params);
     update_option('whp_setting', $params);
+    whp_purge_page_cache();
     $option = $params; // refresh để template render đúng trạng thái mới
 }
 

@@ -1956,6 +1956,12 @@ html,body{margin:0;padding:0;min-height:100vh;background:#f0f2f8;}
             foreach ($fields as $key => $field) {
                 $$field = whp_get_option($field);
             }
+            // Chưa từng lưu => giá trị mặc định là chuỗi rỗng (xem class.wps-admin-setup-function.php),
+            // không phải "0". Trên PHP 8, '' == 0 là false (khác PHP 7) nên phải chuẩn hoá về '0'
+            // (Newsletter) để tránh popup không hiện dù đã bật — xem thêm popup.php dòng check '0'/''.
+            if ($whp_popup_type === '' || $whp_popup_type === null) {
+                $whp_popup_type = '0';
+            }
             $whp_maintenance_active = whp_get_option('whp_maintenance_active');
             if ($whp_popup_active && !is_admin() && !$whp_maintenance_active) {
                 add_action('wp_enqueue_scripts', function () {

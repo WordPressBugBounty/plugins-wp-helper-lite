@@ -4,7 +4,7 @@
  * Plugin Name: WP Helper Premium
  * Plugin URI: https://www.matbao.net/hosting/wp-helper-plugin.html
  * Description: The best WordPress All-in-One plugin. ❤ Made in Vietnam by MWP Team.
- * Version: 4.7.3
+ * Version: 4.7.4
  * Requires at least: 6.7
  * Requires PHP: 7.4
  * Author: Mat Bao Corp
@@ -68,20 +68,6 @@ if (!class_exists('MB_WHP')) {
             require_once(MB_WHP_PATH . 'functions/wpaap-admin-menu.php');
             require_once(MB_WHP_PATH . 'functions/wpaap-ajax-handler.php');
 
-            // Serve /feedback/ and /feedback/api from inside plugin (bypasses volume shadow)
-            add_action('init', function() {
-                $uri = rtrim( parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ), '/' );
-                if ( $uri === '/feedback' ) {
-                    header( 'Content-Type: text/html; charset=utf-8' );
-                    readfile( MB_WHP_PATH . 'feedback/index.html' );
-                    exit;
-                }
-                if ( $uri === '/feedback/api' ) {
-                    include MB_WHP_PATH . 'feedback/api.php';
-                    exit;
-                }
-            }, 1 );
-
             require_once(MB_WHP_PATH . 'views/admin/pages/wpaap-dashboard.php');
             require_once(MB_WHP_PATH . 'views/admin/pages/wpaap-connection.php');
             require_once(MB_WHP_PATH . 'views/admin/pages/wpaap-limits.php');
@@ -97,7 +83,7 @@ if (!class_exists('MB_WHP')) {
             define('MB_WHP_PATH_SIDEBAR', plugin_dir_path(__FILE__) . "sidebar/");
             define('MB_WHP_URL', plugin_dir_url(__FILE__));
             define('MB_WHP_PATH_VIEW', plugin_dir_path(__FILE__) . "views/");
-            define('MB_WHP_VERSION', '4.7.3');
+            define('MB_WHP_VERSION', '4.7.4');
         }
         public static function activate()
         {

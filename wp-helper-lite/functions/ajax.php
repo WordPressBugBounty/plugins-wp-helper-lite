@@ -51,8 +51,11 @@ function whp_ajax_contact_toggle_active() {
     if ( ! current_user_can( 'manage_options' ) ) {
         wp_send_json_error( 'forbidden', 403 );
     }
-    $active = isset( $_POST['active'] ) && $_POST['active'] === '1' ? '1' : '0';
-    update_option( 'whp_contact_active', $active );
+    $active  = isset( $_POST['active'] ) && $_POST['active'] === '1' ? '1' : '0';
+    $setting = get_option( 'whp_setting', [] );
+    $setting['whp_contact_active'] = $active;
+    update_option( 'whp_setting', $setting );
+    whp_purge_page_cache();
     wp_send_json_success( [ 'active' => $active ] );
 }
 
@@ -70,6 +73,7 @@ function whp_ajax_thankyou_toggle_enable() {
     $setting = get_option( 'whp_setting', [] );
     $setting['whp_woo_thankyou_enable'] = $active;
     update_option( 'whp_setting', $setting );
+    whp_purge_page_cache();
     wp_send_json_success( [ 'active' => $active ] );
 }
 
@@ -87,6 +91,7 @@ function whp_ajax_smtp_toggle_enable() {
     $setting = get_option( 'whp_setting', [] );
     $setting['whp_smtp_active'] = $active;
     update_option( 'whp_setting', $setting );
+    whp_purge_page_cache();
     wp_send_json_success( [ 'active' => $active ] );
 }
 
@@ -102,5 +107,6 @@ function whp_ajax_popup_toggle_enable() {
     $setting = get_option( 'whp_setting', [] );
     $setting['whp_popup_active'] = $active;
     update_option( 'whp_setting', $setting );
+    whp_purge_page_cache();
     wp_send_json_success( [ 'active' => $active ] );
 }

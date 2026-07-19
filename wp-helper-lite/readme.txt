@@ -4,7 +4,7 @@ Tags: contact button, SMTP, maintenance mode, security, woocommerce
 Requires at least: 6.7
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 4.7.3
+Stable tag: 4.7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -169,6 +169,11 @@ Used to search and import free stock photos as an alternative image source when 
 10. Security & Optimization — individual security and performance toggles in one panel
 
 == Changelog ==
+
+= 4.7.4 =
+* Fix: Pop-up không hiển thị trên site mới cài (PHP 8) dù đã bật — do so sánh kiểu lỏng `'' == 0` trả về false trên PHP 8 (khác PHP 7), khiến điều kiện chọn mẫu Pop-up (Newsletter/Banner) không khớp. Đã chuẩn hoá giá trị mặc định, tự khắc phục kể cả với site đã bị lưu giá trị rỗng từ trước.
+* Fix: các toggle bật/tắt (Pop-up, Kênh liên hệ, SMTP, Bảo trì...) và nút Lưu cài đặt giờ chủ động xoá cache trang (LiteSpeed, WP Rocket, W3TC, WP Fastest Cache, Breeze, SG Optimizer, Swift Performance) ngay sau khi lưu, tránh tình trạng site có cache toàn trang không cập nhật giao diện dù đã đổi cài đặt.
+* Fix: gỡ route debug nội bộ `/feedback` và `/feedback/api` sót lại từ môi trường dev — có thể chặn nhầm nội dung thật của site khách nếu trùng đường dẫn.
 
 = 4.7.3 =
 * Security: the AI connection form no longer pre-fills the saved API key (previously exposed via View Source despite password masking); the field stays empty and shows a placeholder hint when a key is already saved, so only pasting a new value updates the connection.

@@ -34,7 +34,7 @@ $popup_active = $opt('whp_popup_active') === '1';
 $popup_title  = trim( $opt('whp_popup_title') );
 if ( empty( $popup_title ) ) $popup_title = __( 'Popup đăng ký', 'whp' );
 $popup_type_map = [ '0' => __( 'Form đăng ký', 'whp' ), '1' => __( 'Banner ảnh', 'whp' ), '2' => __( 'Mạng xã hội', 'whp' ) ];
-$popup_type_label = $popup_type_map[ $opt('whp_popup_type', '0') ] ?? 'Popup';
+$popup_type_label = $popup_type_map[ $opt('whp_popup_type') ?: '0' ] ?? 'Popup';
 
 // 4. Email & SMTP
 $smtp_active    = $opt('whp_smtp_active') === '1';
