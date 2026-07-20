@@ -118,6 +118,8 @@ $ocr_receipt_required = function_exists('whp_get_setting') && whp_get_setting('w
         <textarea class="whp-transfer-form__input whp-transfer-form__textarea" id="whp-tf-notes" name="notes" placeholder="Ví dụ: Tôi chuyển khoản vào lúc 14:30 ngày hôm nay..." rows="3"></textarea>
       </div>
 
+      <div class="whp-transfer-form__error whp-transfer-form__error--general" id="whp-tf-general-error" style="text-align:center;margin-bottom:4px"></div>
+
       <div class="whp-transfer-form__actions">
         <button type="submit" class="whp-ty__btn whp-ty__btn--primary" id="whp-transfer-form-submit" style="width:100%"
                 style="background:linear-gradient(90deg,var(--whp-accent),color-mix(in srgb,var(--whp-accent) 78%,#000));box-shadow:0 4px 14px color-mix(in srgb,var(--whp-accent) 35%,transparent)">

@@ -82,6 +82,10 @@ jQuery(function ($) {
     var $transferForm  = $('#whp-transfer-form');
     var receiptUrl     = '';
     var isUploading    = false;
+    // Xác nhận chuyển khoản thành công rồi mới cần reload khi đóng popup — để đồng bộ
+    // toàn bộ trang (badge trạng thái, Tình trạng đơn hàng...) theo dữ liệu server mới nhất,
+    // thay vì tự cập nhật tay từng phần tử một (dễ sót, như badge trạng thái ở đầu trang).
+    var _transferJustConfirmed = false;
 
     var SUBMIT_ICON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ';
 
@@ -90,6 +94,7 @@ jQuery(function ($) {
             $(document.body).append($transferModal);
         }
         // Reset form to clean state on every open
+        _transferJustConfirmed = false;
         $('#whp-transfer-form-success').hide();
         $('#whp-ai-verify-wrap').hide();
         $('#whp-ai-success').hide();
@@ -113,6 +118,9 @@ jQuery(function ($) {
     function closeTransferModal() {
         $transferModal.css('display', 'none');
         $('html, body').css('overflow', '');
+        if (_transferJustConfirmed) {
+            window.location.reload();
+        }
     }
 
     $('#whp-ty-transfer-btn').on('click', openTransferModal);
@@ -255,6 +263,17 @@ jQuery(function ($) {
             $('#whp-tf-last4').removeClass('whp--invalid');
             $('[data-for="whp-tf-last4"]').removeClass('whp--show');
         }
+        // Ảnh biên lai bắt buộc khi OCR bật: check receiptUrl (đã upload xong lên server),
+        // không chỉ file đã chọn — vì upload có thể fail sau khi chọn file.
+        var receiptRequired = $transferForm.attr('data-receipt-required') === '1';
+        if (receiptRequired && !receiptUrl) {
+            valid = false;
+            $uploadArea.css('border-color', '#ef4444');
+            $('[data-for="whp-tf-receipt"]').addClass('whp--show');
+        } else {
+            $uploadArea.css('border-color', '');
+            $('[data-for="whp-tf-receipt"]').removeClass('whp--show');
+        }
         if (!valid) return;
 
         if (isUploading) {
@@ -263,7 +282,9 @@ jQuery(function ($) {
         }
 
         var $btn = $('#whp-transfer-form-submit');
+        var $generalError = $('#whp-tf-general-error');
         $btn.prop('disabled', true).text('Đang gửi...');
+        $generalError.removeClass('whp--show').text('');
 
         $.post(cfg.ajax_url, {
             action       : 'whp_confirm_transfer',
@@ -287,15 +308,19 @@ jQuery(function ($) {
                     showTransferSuccess();
                 }
             } else {
+                var errMsg = (res && res.data && res.data.message) ? res.data.message : 'Có lỗi xảy ra, vui lòng thử lại.';
+                $generalError.text(errMsg).addClass('whp--show');
                 $btn.prop('disabled', false).html(SUBMIT_ICON + 'Xác nhận đã chuyển khoản');
             }
         }, 'json').fail(function () {
+            $generalError.text('Kết nối thất bại, vui lòng thử lại.').addClass('whp--show');
             $btn.prop('disabled', false).html(SUBMIT_ICON + 'Xác nhận đã chuyển khoản');
         });
     });
 
     // Cập nhật UI ngoài modal sau khi server lưu thành công
     function onTransferConfirmed() {
+        _transferJustConfirmed = true;
         $('#whp-ty-transfer-btn').hide();
         $('#whp-ty-transfer-success').show();
         if (countdownInterval) {

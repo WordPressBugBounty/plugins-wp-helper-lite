@@ -688,13 +688,13 @@ endif; ?>
 </div><!-- /wrap -->
 
 <script>
-var whpI18n = <?php echo wp_json_encode([
+window.whpI18n = Object.assign(window.whpI18n || {}, <?php echo wp_json_encode([
     'disabling'       => __( 'Đang tắt', 'whp' ),
     'enabling'        => __( 'Đang bật', 'whp' ),
     'saved'           => __( 'Đã lưu', 'whp' ),
     'saveFailed'      => __( 'Lưu thất bại', 'whp' ),
     'connectionError' => __( 'Lỗi kết nối, vui lòng thử lại', 'whp' ),
-]); ?>;
+]); ?>);
 (function(){
     // "Bật ngay" button in disabled notice → trigger header toggle
     var noticeBtn = document.getElementById('wpaap-notice-enable-btn');

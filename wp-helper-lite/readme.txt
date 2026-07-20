@@ -4,7 +4,7 @@ Tags: contact button, SMTP, maintenance mode, security, woocommerce
 Requires at least: 6.7
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 4.7.4
+Stable tag: 4.7.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -170,10 +170,21 @@ Used to search and import free stock photos as an alternative image source when 
 
 == Changelog ==
 
+= 4.7.5 =
+* Fix: the AI Payment page showed "undefined" in every label and verification result panel — caused by a duplicate i18n object where the wrapping tab overwrote the sub-tab's translation strings.
+* Fix: order-received (thank-you) page — a receipt image is now required before confirming a bank transfer when AI OCR is enabled; transfer confirmation is blocked on orders already processed by an admin; the page now syncs its state (button, banner, status badge) automatically right after confirmation instead of requiring a manual refresh.
+* Fix: the close icon on the "Contact support" popup on the thank-you page was visually distorted due to a missing CSS box-sizing rule.
+* Fix: the close (X) button on the "AI SEO Scan" confirmation popup was unclickable, hidden behind a decorative overlay.
+* Fix: AI SEO Scan no longer invents non-existent internal links — suggestions are now limited to real posts/pages/products on the site and re-validated before being shown.
+* Fix: AI SEO Scan no longer auto-inserts placeholder headings and content into a post when clicking Apply — suggested headings are shown for reference only, for the user to add manually.
+* Fix: AI SEO Scan for Products now reads the correct product category taxonomy (product_cat) instead of the post category taxonomy, improving suggestion quality.
+* Fix: corrected a malformed SVG icon that triggered a browser console error in the SEO scan confirmation popup.
+* Improve: AI Payment quick actions (Confirm / Suspect / Reject / Request receipt) now warn clearly when the customer notification email could not be sent (missing billing email), instead of silently reporting success.
+
 = 4.7.4 =
-* Fix: Pop-up không hiển thị trên site mới cài (PHP 8) dù đã bật — do so sánh kiểu lỏng `'' == 0` trả về false trên PHP 8 (khác PHP 7), khiến điều kiện chọn mẫu Pop-up (Newsletter/Banner) không khớp. Đã chuẩn hoá giá trị mặc định, tự khắc phục kể cả với site đã bị lưu giá trị rỗng từ trước.
-* Fix: các toggle bật/tắt (Pop-up, Kênh liên hệ, SMTP, Bảo trì...) và nút Lưu cài đặt giờ chủ động xoá cache trang (LiteSpeed, WP Rocket, W3TC, WP Fastest Cache, Breeze, SG Optimizer, Swift Performance) ngay sau khi lưu, tránh tình trạng site có cache toàn trang không cập nhật giao diện dù đã đổi cài đặt.
-* Fix: gỡ route debug nội bộ `/feedback` và `/feedback/api` sót lại từ môi trường dev — có thể chặn nhầm nội dung thật của site khách nếu trùng đường dẫn.
+* Fix: Pop-up not showing on freshly installed sites running PHP 8 even when enabled — a loose comparison (`'' == 0`) evaluates to false on PHP 8 (unlike PHP 7), so the Pop-up template selector (Newsletter/Banner) failed to match. Default values are now normalized, self-healing even on sites that already saved an empty value.
+* Fix: the on/off toggles (Pop-up, Contact Channels, SMTP, Maintenance...) and the Save button now proactively purge page cache (LiteSpeed, WP Rocket, W3TC, WP Fastest Cache, Breeze, SG Optimizer, Swift Performance) right after saving, preventing full-page-cache sites from showing stale settings.
+* Fix: removed leftover internal debug routes `/feedback` and `/feedback/api` from the dev environment, which could incorrectly intercept a client site's real content if the path collided.
 
 = 4.7.3 =
 * Security: the AI connection form no longer pre-fills the saved API key (previously exposed via View Source despite password masking); the field stays empty and shows a placeholder hint when a key is already saved, so only pasting a new value updates the connection.

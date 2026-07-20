@@ -2156,6 +2156,12 @@ html,body{margin:0;padding:0;min-height:100vh;background:#f0f2f8;}
             $order = wc_get_order($order_id);
             if (!$order) wp_send_json_error(['message' => 'Order not found']);
 
+            // Đơn đã được admin xử lý (processing/completed/...) thì không cho khách
+            // xác nhận chuyển khoản đè lên nữa — tránh vượt qua bước chờ admin kiểm tra.
+            if (!$order->has_status(['pending', 'on-hold'])) {
+                wp_send_json_error(['message' => 'Đơn hàng đã được xử lý, không thể xác nhận lại.']);
+            }
+
             $sender_name  = sanitize_text_field($_POST['sender_name'] ?? '');
             $bank         = sanitize_text_field($_POST['bank'] ?? '');
             $last4        = preg_replace('/\D/', '', $_POST['last4'] ?? '');
@@ -2164,6 +2170,11 @@ html,body{margin:0;padding:0;min-height:100vh;background:#f0f2f8;}
             $receipt_url  = esc_url_raw($_POST['receipt_url'] ?? '');
             if ( $receipt_url && ! wp_http_validate_url( $receipt_url ) ) {
                 $receipt_url = '';
+            }
+
+            // Ảnh biên lai bắt buộc khi AI OCR đang bật — chặn ở server phòng khi JS bị bypass.
+            if ( function_exists('whp_get_setting') && whp_get_setting('whp_aipay_ocr_enable') === '1' && empty($receipt_url) ) {
+                wp_send_json_error(['message' => 'Vui lòng đính kèm ảnh biên lai để xác nhận chuyển khoản.']);
             }
 
             // Save structured data as order meta

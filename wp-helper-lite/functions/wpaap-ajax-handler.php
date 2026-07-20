@@ -703,7 +703,7 @@ function wpaap_ajax_aipay_order_action_handler() {
                 $html     = wpaap_aipay_build_email( '#16a34a', $icon_svg, 'Thanh toán đã xác nhận!', $body, 'Xem đơn hàng', $order->get_view_order_url() );
                 wp_mail( $customer_email, sprintf( 'Xác nhận thanh toán — Đơn hàng #%d', $order_id ), $html, [ 'Content-Type: text/html; charset=UTF-8' ] );
             }
-            wp_send_json_success( [ 'message' => 'Đã xác nhận thanh toán.' ] );
+            wp_send_json_success( [ 'message' => 'Đã xác nhận thanh toán.', 'email_sent' => (bool) $customer_email ] );
             break;
 
         case 'suspect':
@@ -717,7 +717,7 @@ function wpaap_ajax_aipay_order_action_handler() {
                 $html     = wpaap_aipay_build_email( '#d97706', $icon_svg, 'Đơn hàng đang xem xét thanh toán', $body, 'Xem đơn hàng', $order->get_view_order_url() );
                 wp_mail( $customer_email, sprintf( 'Đơn hàng #%d đang được xem xét', $order_id ), $html, [ 'Content-Type: text/html; charset=UTF-8' ] );
             }
-            wp_send_json_success( [ 'message' => 'Đã đánh dấu nghi ngờ.' ] );
+            wp_send_json_success( [ 'message' => 'Đã đánh dấu nghi ngờ.', 'email_sent' => (bool) $customer_email ] );
             break;
 
         case 'reject':
@@ -731,7 +731,7 @@ function wpaap_ajax_aipay_order_action_handler() {
                 $html     = wpaap_aipay_build_email( '#dc2626', $icon_svg, 'Thanh toán bị từ chối', $body );
                 wp_mail( $customer_email, sprintf( 'Thông báo từ chối thanh toán — Đơn hàng #%d', $order_id ), $html, [ 'Content-Type: text/html; charset=UTF-8' ] );
             }
-            wp_send_json_success( [ 'message' => 'Đã từ chối thanh toán.' ] );
+            wp_send_json_success( [ 'message' => 'Đã từ chối thanh toán.', 'email_sent' => (bool) $customer_email ] );
             break;
 
         case 'request_receipt':
@@ -744,7 +744,7 @@ function wpaap_ajax_aipay_order_action_handler() {
             }
             $order->add_order_note( 'AI Payment: Đã gửi yêu cầu biên lai tới khách hàng.' );
             $order->save();
-            wp_send_json_success( [ 'message' => 'Đã gửi yêu cầu biên lai.' ] );
+            wp_send_json_success( [ 'message' => 'Đã gửi yêu cầu biên lai.', 'email_sent' => (bool) $customer_email ] );
             break;
 
         case 'note':

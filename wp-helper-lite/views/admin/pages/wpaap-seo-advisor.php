@@ -1149,8 +1149,8 @@ function wpaap_seo_page_layout()
                 <!-- Header gradient -->
                 <div style="background:linear-gradient(135deg,#16a34a 0%,#15803d 60%,#14532d 100%);padding:22px 24px 20px;position:relative;overflow:hidden;">
                     <!-- Background circles decoration -->
-                    <div style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.06);"></div>
-                    <div style="position:absolute;bottom:-30px;right:40px;width:70px;height:70px;border-radius:50%;background:rgba(255,255,255,0.04);"></div>
+                    <div style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.06);pointer-events:none;"></div>
+                    <div style="position:absolute;bottom:-30px;right:40px;width:70px;height:70px;border-radius:50%;background:rgba(255,255,255,0.04);pointer-events:none;"></div>
                     <div style="display:flex;align-items:center;gap:12px;">
                         <div style="width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,0.18);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid rgba(255,255,255,0.25);">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><polyline points="8 11 11 8 14 11"/><line x1="11" y1="8" x2="11" y2="14"/></svg>
@@ -1178,7 +1178,7 @@ function wpaap_seo_page_layout()
                             ['icon' => '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>', 'text' => __('Meta Description', 'whp')],
                             ['icon' => '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>', 'text' => __('Internal Link', 'whp')],
                             ['icon' => '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>', 'text' => __('Độ dài & mật độ', 'whp')],
-                            ['icon' => '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"><polyline points="22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>', 'text' => __('Điểm SEO dự kiến', 'whp')],
+                            ['icon' => '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>', 'text' => __('Điểm SEO dự kiến', 'whp')],
                         ];
                         foreach ($checklist as $item): ?>
                         <div style="display:flex;align-items:center;gap:8px;background:#f0fdf4;border:1px solid #dcfce7;border-radius:8px;padding:8px 10px;font-size:12px;color:#166534;font-weight:500;">
@@ -1322,6 +1322,7 @@ function wpaap_seo_page_layout()
                                 </div>
                                 <span style="font-size:12.5px;font-weight:700;color:#1e293b;"><?php esc_html_e('Tiêu đề H2 nên bổ sung', 'whp'); ?></span>
                             </div>
+                            <div style="font-size:11.5px;color:#94a3b8;margin:-6px 0 10px;"><?php esc_html_e('Chỉ là gợi ý — bạn tự viết nội dung và thêm vào bài viết, hệ thống không tự chèn.', 'whp'); ?></div>
                             <div id="wpaap-headings-list"></div>
                         </div>
                         <!-- Suggested internal links -->
@@ -1842,13 +1843,11 @@ function wpaap_seo_page_layout()
                 $hdList.empty();
                 if (data.suggested_headings && data.suggested_headings.length > 0) {
                     $.each(data.suggested_headings, function(i, hd) {
-                        var cbId = 'wpaap-hd-' + i;
                         var hdText = hd.replace(/^H[1-6]:\s*/i, '');
                         $hdList.append(
-                            '<label style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:#374151;padding:8px 10px;background:#faf5ff;border:1px solid #ede9fe;border-radius:7px;margin-bottom:6px;cursor:pointer;">' +
-                            '<input type="checkbox" class="wpaap-hd-cb" value="' + escAttr(hd) + '" id="' + cbId + '" style="accent-color:#7c3aed;flex-shrink:0;" checked>' +
+                            '<div style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:#374151;padding:8px 10px;background:#faf5ff;border:1px solid #ede9fe;border-radius:7px;margin-bottom:6px;">' +
                             '<span style="background:#7c3aed;color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px;flex-shrink:0;letter-spacing:0.03em;">H2</span>' +
-                            '<span style="flex:1;">' + escHtml(hdText) + '</span></label>'
+                            '<span style="flex:1;">' + escHtml(hdText) + '</span></div>'
                         );
                     });
                     $('#wpaap-headings-section').show();
@@ -1894,7 +1893,6 @@ function wpaap_seo_page_layout()
 
                 var svgMeta   = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="18" y2="18"/></svg>';
                 var svgKw     = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
-                var svgH2     = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>';
                 var svgLink   = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>';
 
                 function sectionCard(iconSvg, iconBg, title, body) {
@@ -1932,19 +1930,7 @@ function wpaap_seo_page_layout()
                     html += sectionCard(svgKw, '#16a34a', 'Từ khóa sẽ bổ sung vào cuối bài (' + selectedKws.length + ')', kwBody);
                 }
 
-                // Headings to add — strip "H2: " prefix if AI already included it
-                var selectedHds = [];
-                $('.wpaap-hd-cb:checked').each(function() { selectedHds.push($(this).val()); });
-                if (selectedHds.length > 0) {
-                    var hdBody = '';
-                    $.each(selectedHds, function(i, hd) {
-                        var hdText = hd.replace(/^H[1-6]:\s*/i, '');
-                        hdBody += '<div style="display:flex;align-items:center;gap:8px;background:#faf5ff;border:1px solid #ede9fe;border-radius:7px;padding:8px 12px;margin-bottom:6px;">' +
-                            '<span style="background:#7c3aed;color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px;flex-shrink:0;letter-spacing:0.03em;">H2</span>' +
-                            '<span style="font-size:12.5px;color:#374151;line-height:1.4;">' + escHtml(hdText) + '</span></div>';
-                    });
-                    html += sectionCard(svgH2, '#7c3aed', 'Tiêu đề H2 sẽ bổ sung vào cuối bài (' + selectedHds.length + ')', hdBody);
-                }
+                // Headings — chỉ là gợi ý tham khảo, KHÔNG tự chèn vào bài viết nên không tính vào preview "sẽ áp dụng"
 
                 // Links to add
                 var selectedLnks = [];
@@ -1959,7 +1945,7 @@ function wpaap_seo_page_layout()
                     html += sectionCard(svgLink, '#0891b2', 'Liên kết nội bộ sẽ bổ sung vào cuối bài (' + selectedLnks.length + ')', lnkBody);
                 }
 
-                if (!applyMeta && selectedKws.length === 0 && selectedHds.length === 0 && selectedLnks.length === 0) {
+                if (!applyMeta && selectedKws.length === 0 && selectedLnks.length === 0) {
                     html = '<div style="background:#fff;border-radius:12px;padding:28px 20px;text-align:center;border:1px solid #fef3c7;">' +
                         '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:10px;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>' +
                         '<div style="font-size:13.5px;font-weight:600;color:#92400e;margin-bottom:4px;">Không có thay đổi nào được chọn</div>' +
@@ -1991,9 +1977,6 @@ function wpaap_seo_page_layout()
                 var selectedKws = [];
                 $('.wpaap-kw-cb:checked').each(function() { selectedKws.push($(this).val()); });
 
-                var selectedHds = [];
-                $('.wpaap-hd-cb:checked').each(function() { selectedHds.push($(this).val()); });
-
                 var selectedLnks = [];
                 $('.wpaap-lnk-cb:checked').each(function() { selectedLnks.push($(this).val()); });
 
@@ -2011,7 +1994,6 @@ function wpaap_seo_page_layout()
                         meta_description: metaDesc,
                         focus_keyword: focusKw,
                         keywords: JSON.stringify(selectedKws),
-                        headings: JSON.stringify(selectedHds),
                         links: JSON.stringify(selectedLnks)
                     },
                     success: function(resp) {
@@ -2421,9 +2403,11 @@ function wpaap_ajax_ai_scan_post_seo_handler()
         $current_keyword = $rm_kw;
     }
 
-    // Categories & tags
-    $categories   = implode(', ', wp_get_post_terms($post_id, 'category', ['fields' => 'names']));
-    $tags         = implode(', ', wp_get_post_terms($post_id, 'post_tag', ['fields' => 'names']));
+    // Categories & tags — dùng đúng taxonomy theo post type (product dùng product_cat/product_tag, không phải category/post_tag)
+    $cat_taxonomy = $post->post_type === 'product' ? 'product_cat' : 'category';
+    $tag_taxonomy = $post->post_type === 'product' ? 'product_tag' : 'post_tag';
+    $categories   = taxonomy_exists($cat_taxonomy) ? implode(', ', wp_get_post_terms($post_id, $cat_taxonomy, ['fields' => 'names'])) : '';
+    $tags         = taxonomy_exists($tag_taxonomy) ? implode(', ', wp_get_post_terms($post_id, $tag_taxonomy, ['fields' => 'names'])) : '';
 
     // Internal link count
     preg_match_all('/<a\s[^>]*href=["\']' . preg_quote(home_url(), '/') . '/i', $post->post_content, $lm);
@@ -2438,6 +2422,43 @@ function wpaap_ajax_ai_scan_post_seo_handler()
         }
     }
     $headings_str = !empty($headings_list) ? implode("\n", $headings_list) : '(chưa có heading H2/H3)';
+
+    // Ứng viên internal link THẬT — AI chỉ được chọn từ danh sách này, không tự bịa URL.
+    // Ưu tiên bài cùng danh mục/loại nội dung, fallback sang bài mới nhất cùng post type.
+    $link_cand_args = [
+        'post_type'      => $post->post_type,
+        'post_status'    => 'publish',
+        'posts_per_page' => 12,
+        'post__not_in'   => [$post_id],
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+        'fields'         => 'ids',
+        'no_found_rows'  => true,
+    ];
+    if (taxonomy_exists($cat_taxonomy)) {
+        $cat_term_ids = wp_get_post_terms($post_id, $cat_taxonomy, ['fields' => 'ids']);
+        if (!empty($cat_term_ids) && !is_wp_error($cat_term_ids)) {
+            $link_cand_args['tax_query'] = [[
+                'taxonomy' => $cat_taxonomy,
+                'field'    => 'term_id',
+                'terms'    => $cat_term_ids,
+            ]];
+        }
+    }
+    $link_cand_ids = get_posts($link_cand_args);
+    if (empty($link_cand_ids) && isset($link_cand_args['tax_query'])) {
+        unset($link_cand_args['tax_query']);
+        $link_cand_ids = get_posts($link_cand_args);
+    }
+    $link_cand_urls  = [];
+    $link_cand_lines = [];
+    foreach ($link_cand_ids as $cid) {
+        $c_url = get_permalink($cid);
+        if (!$c_url) continue;
+        $link_cand_urls[]  = $c_url;
+        $link_cand_lines[] = '- ' . get_the_title($cid) . ' | ' . $c_url;
+    }
+    $link_candidates_str = !empty($link_cand_lines) ? implode("\n", $link_cand_lines) : '(không có nội dung nào khác trên site để liên kết tới)';
 
     // Build prompt
     $prompt = 'Bạn là chuyên gia SEO. Phân tích bài viết WordPress sau và trả về JSON (không có markdown, chỉ JSON thuần):
@@ -2455,6 +2476,9 @@ Cấu trúc heading:
 Nội dung (tối đa 3000 ký tự đầu):
 ' . $content_excerpt . '
 
+Danh sách nội dung khác trên site có thể liên kết tới (dùng cho suggested_internal_links):
+' . $link_candidates_str . '
+
 Hãy trả về JSON theo đúng cấu trúc sau (không thêm text nào ngoài JSON):
 {
   "seo_score": <số nguyên 0-100 đánh giá SEO hiện tại>,
@@ -2462,7 +2486,7 @@ Hãy trả về JSON theo đúng cấu trúc sau (không thêm text nào ngoài 
   "suggested_keywords": ["<kw1>", "<kw2>", "<kw3>"],
   "meta_description": "<meta description đề xuất, tối đa 160 ký tự, tiếng Việt>",
   "suggested_headings": ["<h2 heading 1>", "<h2 heading 2>"],
-  "suggested_internal_links": ["<url hoặc slug bài viết liên quan>"],
+  "suggested_internal_links": ["<URL đầy đủ, PHẢI lấy nguyên văn từ danh sách nội dung khác trên site ở trên — TUYỆT ĐỐI không tự tạo/đoán URL khác. Nếu không có mục nào thực sự liên quan thì trả về mảng rỗng []>"],
   "issues": ["<vấn đề SEO cần khắc phục 1>", "<vấn đề 2>"],
   "estimated_score_after": <số nguyên 0-100 điểm SEO dự kiến sau khi áp dụng>
 }';
@@ -2538,6 +2562,18 @@ Hãy trả về JSON theo đúng cấu trúc sau (không thêm text nào ngoài 
         wp_send_json_error(['message' => __('AI trả về dữ liệu không hợp lệ. Vui lòng thử lại.', 'whp')]);
     }
 
+    // Chặn link ảo: chỉ giữ lại internal link nào khớp CHÍNH XÁC với URL thật đã đưa cho AI ở trên —
+    // phòng trường hợp AI không tuân theo hướng dẫn và vẫn tự bịa URL.
+    if (!empty($parsed['suggested_internal_links']) && is_array($parsed['suggested_internal_links'])) {
+        $parsed['suggested_internal_links'] = array_values(array_filter(
+            $parsed['suggested_internal_links'],
+            function ($lnk) use ($link_cand_urls) {
+                $url = is_array($lnk) ? ($lnk['url'] ?? '') : $lnk;
+                return in_array(untrailingslashit($url), array_map('untrailingslashit', $link_cand_urls), true);
+            }
+        ));
+    }
+
     // Add extra context fields
     $parsed['post_title']        = $title;
     $parsed['current_meta']      = $current_meta;
@@ -2569,19 +2605,15 @@ function wpaap_ajax_ai_apply_post_seo_handler()
     $meta_desc       = isset($_POST['meta_description']) ? sanitize_textarea_field(wp_unslash($_POST['meta_description'])) : '';
     $focus_keyword   = isset($_POST['focus_keyword'])    ? sanitize_text_field(wp_unslash($_POST['focus_keyword']))   : '';
     $keywords_raw    = isset($_POST['keywords'])  ? wp_unslash($_POST['keywords'])  : '[]';
-    $headings_raw    = isset($_POST['headings'])  ? wp_unslash($_POST['headings'])  : '[]';
     $links_raw       = isset($_POST['links'])     ? wp_unslash($_POST['links'])     : '[]';
 
     $keywords = json_decode($keywords_raw, true);
-    $headings = json_decode($headings_raw, true);
     $links    = json_decode($links_raw, true);
 
     if (!is_array($keywords)) $keywords = [];
-    if (!is_array($headings)) $headings = [];
     if (!is_array($links))    $links    = [];
 
     $keywords = array_map('sanitize_text_field', $keywords);
-    $headings = array_map('sanitize_text_field', $headings);
 
     // Backup: create WP revision first
     wp_save_post_revision($post_id);
@@ -2613,10 +2645,8 @@ function wpaap_ajax_ai_apply_post_seo_handler()
         $content_append .= "\n\n<p><strong>Từ khóa liên quan:</strong> " . esc_html($kw_str) . '</p>';
     }
 
-    foreach ($headings as $hd) {
-        if (empty($hd)) continue;
-        $content_append .= "\n\n<h2>" . esc_html($hd) . "</h2>\n<p>[Nội dung cần bổ sung cho phần này]</p>";
-    }
+    // Lưu ý: heading gợi ý (H2/H3) CHỦ Ý không tự chèn vào bài viết — chỉ hiển thị gợi ý
+    // trong popup để người dùng tự viết nội dung thật rồi thêm thủ công.
 
     if (!empty($links)) {
         $link_parts = [];

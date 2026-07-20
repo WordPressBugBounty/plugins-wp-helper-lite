@@ -654,6 +654,7 @@ var whpI18n = <?php echo wp_json_encode([
     'paymentRejected'       => __( 'Đã từ chối thanh toán.', 'whp' ),
     'receiptRequestSent'    => __( 'Đã gửi yêu cầu biên lai tới khách!', 'whp' ),
     'actionSuccess'         => __( 'Thao tác thành công!', 'whp' ),
+    'emailNotSent'          => __( 'Lưu ý: KHÔNG gửi được email — đơn hàng thiếu email khách hàng.', 'whp' ),
     'noteSaved'             => __( 'Đã lưu ghi chú.', 'whp' ),
 ]); ?>;
 (function(){
@@ -789,7 +790,11 @@ function doAction(type, msg){
         jQuery.post(ajaxurl, {action:'wpaap_aipay_order_action', nonce:nonce, order_id:_oid2, type:type}, function(res){
             if (res && res.success) {
                 wpaapToast(successMsgs2[type] || whpI18n.actionSuccess, 'success');
-                setTimeout(function(){ location.reload(); }, 1500);
+                var _noEmail = res.data && res.data.email_sent === false;
+                if (_noEmail) {
+                    setTimeout(function(){ wpaapToast(whpI18n.emailNotSent, 'warning'); }, 400);
+                }
+                setTimeout(function(){ location.reload(); }, _noEmail ? 3200 : 1500);
             } else {
                 wpaapToast((res.data && res.data.message) ? res.data.message : whpI18n.errorOccurred, 'error');
             }
@@ -1021,8 +1026,12 @@ document.addEventListener('click', function(e) {
                 _popBtn.innerHTML = _popOrigHtml;
                 if (res && res.success) {
                     wpaapToast(_popSuccessMsgs[type] || whpI18n.actionSuccess, 'success');
+                    var _noEmail = res.data && res.data.email_sent === false;
+                    if (_noEmail) {
+                        setTimeout(function(){ wpaapToast(whpI18n.emailNotSent, 'warning'); }, 400);
+                    }
                     rskpLoadDetail(oid);
-                    setTimeout(function(){ location.reload(); }, 1500);
+                    setTimeout(function(){ location.reload(); }, _noEmail ? 3200 : 1500);
                 } else {
                     wpaapToast((res.data && res.data.message) ? res.data.message : whpI18n.errorOccurred, 'error');
                 }

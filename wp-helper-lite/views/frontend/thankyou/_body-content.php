@@ -414,9 +414,14 @@ defined('ABSPATH') || exit;
     <!-- ============================================================
          TRANSFER BUTTON — full width, outside card
          ============================================================ -->
+    <?php
+    // Khách đã bấm "Tôi đã chuyển khoản" trước đó chưa? Dùng để pre-render đúng trạng thái
+    // (ẩn nút, hiện banner cảm ơn) ngay khi tải trang — không phụ thuộc JS mới hiện đúng.
+    $transfer_confirmed = $order ? (bool) $order->get_meta( '_whp_transfer_confirmed_at' ) : false;
+    ?>
     <?php if ( $show_transfer && $has_wallet && $order && in_array( $order_status, [ 'pending', 'on-hold' ], true ) ) : ?>
     <div class="whp-ty__transfer-section" data-rp="transfer">
-        <button type="button" id="whp-ty-transfer-btn">
+        <button type="button" id="whp-ty-transfer-btn" style="display:<?php echo $transfer_confirmed ? 'none' : ''; ?>">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
                  stroke-linejoin="round" style="margin-right:8px" aria-hidden="true">
@@ -424,7 +429,7 @@ defined('ABSPATH') || exit;
             </svg>
             <?php esc_html_e( 'Tôi đã chuyển khoản', 'whp' ); ?>
         </button>
-        <div id="whp-ty-transfer-success" style="display:none">
+        <div id="whp-ty-transfer-success" style="display:<?php echo $transfer_confirmed ? 'block' : 'none'; ?>">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
                  stroke-linejoin="round" style="margin-right:6px" aria-hidden="true">

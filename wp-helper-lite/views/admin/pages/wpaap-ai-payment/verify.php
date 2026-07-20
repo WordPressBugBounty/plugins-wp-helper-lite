@@ -830,6 +830,7 @@ var whpI18n = <?php echo wp_json_encode([
     'statusSuspicious'         => __( '⚠ Nghi ngờ', 'whp' ),
     'confirmPaymentOrder'      => __( 'Xác nhận thanh toán đơn', 'whp' ),
     'rejectOrder'              => __( 'Từ chối đơn', 'whp' ),
+    'emailNotSent'             => __( 'Lưu ý: KHÔNG gửi được email — đơn hàng thiếu email khách hàng.', 'whp' ),
 ]); ?>;
 </script>
 <script>
@@ -1184,6 +1185,9 @@ var whpI18n = <?php echo wp_json_encode([
             $btn.prop('disabled', false).html(orig);
             if (resp.success) {
                 if (successMsg) wpaapToast(successMsg, 'success');
+                if (resp.data && resp.data.email_sent === false) {
+                    setTimeout(function(){ wpaapToast(whpI18n.emailNotSent, 'warning'); }, 400);
+                }
                 var $row = $rows.filter('[data-order-id="'+currentOrderId+'"]');
                 if (type==='confirm') $row.find('.aipv-order-verdict').removeClass('pending invalid suspicious').addClass('valid').text(whpI18n.statusConfirmed);
                 if (type==='reject')  $row.find('.aipv-order-verdict').removeClass('pending valid suspicious').addClass('invalid').text(whpI18n.statusRejected);
