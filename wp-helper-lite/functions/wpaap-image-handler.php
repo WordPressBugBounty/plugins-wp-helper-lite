@@ -111,7 +111,7 @@ function wpaap_search_google_image( $query, $timeout = 5 ) {
     return null;
 }
 
-// Download song song nhiều ảnh dùng curl_multi (nhanh hơn tuần tự)
+// Download song song nhiều ảnh dùng WP HTTP API (Requests::request_multiple) - nhanh hơn tuần tự
 // Trả về array indexed theo $ai_images: giá trị là đường dẫn tmp file hoặc null nếu thất bại
 function wpaap_parallel_download_images( array $ai_images ) {
     $count   = count( $ai_images );
@@ -121,9 +121,9 @@ function wpaap_parallel_download_images( array $ai_images ) {
         return $results;
     }
 
-    // Fallback tuần tự nếu curl_multi không khả dụng
-    if ( ! function_exists( 'curl_multi_init' ) ) {
-        wpaap_debug_log( 'PAR DL: curl_multi not available, falling back to sequential' );
+    // Fallback tuần tự nếu lớp Requests song song không khả dụng
+    if ( ! class_exists( '\WpOrg\Requests\Requests' ) ) {
+        wpaap_debug_log( 'PAR DL: WpOrg\Requests\Requests not available, falling back to sequential' );
         foreach ( $ai_images as $i => $image_data ) {
             $url = is_array( $image_data ) ? ( $image_data['ai_url'] ?? '' ) : (string) $image_data;
             if ( empty( $url ) ) continue;
@@ -135,67 +135,60 @@ function wpaap_parallel_download_images( array $ai_images ) {
         return $results;
     }
 
-    $mh      = curl_multi_init();
-    $handles = array();
-    $files   = array();
+    $user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
+
+    $requests = array();
 
     foreach ( $ai_images as $i => $image_data ) {
         $url = is_array( $image_data ) ? ( $image_data['ai_url'] ?? '' ) : (string) $image_data;
         if ( empty( $url ) ) continue;
 
-        $tmp = wp_tempnam( 'wpaap_par_' );
-        $fh  = @fopen( $tmp, 'wb' );
-        if ( ! $fh ) {
-            @unlink( $tmp );
+        $requests[ $i ] = array(
+            'url'     => $url,
+            'type'    => \WpOrg\Requests\Requests::GET,
+            'options' => array(
+                'timeout'          => 25,
+                'connect_timeout'  => 8,
+                'useragent'        => $user_agent,
+                'verify'           => true,
+                'follow_redirects' => true,
+                'redirects'        => 5,
+            ),
+        );
+    }
+
+    if ( empty( $requests ) ) {
+        return $results;
+    }
+
+    // Chạy song song qua WP HTTP API (Requests::request_multiple)
+    $responses = \WpOrg\Requests\Requests::request_multiple( $requests );
+
+    // Thu thập kết quả
+    foreach ( $responses as $i => $response ) {
+        if ( ! ( $response instanceof \WpOrg\Requests\Response ) ) {
+            $err_msg = ( $response instanceof \Throwable ) ? $response->getMessage() : 'unknown error';
+            wpaap_debug_log( 'PAR DL[' . $i . '] FAIL err=' . $err_msg );
             continue;
         }
 
-        $ch = curl_init( $url );
-        curl_setopt_array( $ch, array(
-            CURLOPT_FILE           => $fh,
-            CURLOPT_TIMEOUT        => 25,
-            CURLOPT_CONNECTTIMEOUT => 8,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_MAXREDIRS      => 5,
-            CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_USERAGENT      => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-        ) );
+        $http_code = $response->status_code;
+        $body_len  = strlen( (string) $response->body );
 
-        $handles[ $i ] = $ch;
-        $files[ $i ]   = array( 'path' => $tmp, 'fh' => $fh );
-        curl_multi_add_handle( $mh, $ch );
-    }
-
-    // Chạy song song
-    if ( ! empty( $handles ) ) {
-        $running = null;
-        do {
-            $status = curl_multi_exec( $mh, $running );
-            if ( $running > 0 ) {
-                curl_multi_select( $mh, 0.5 );
+        if ( $http_code === 200 && $body_len > 2000 ) {
+            $tmp = wp_tempnam( 'wpaap_par_' );
+            if ( false !== @file_put_contents( $tmp, $response->body ) ) {
+                $results[ $i ] = $tmp;
+                wpaap_debug_log( 'PAR DL[' . $i . '] OK size=' . $body_len . 'B' );
+            } else {
+                @unlink( $tmp );
+                wpaap_debug_log( 'PAR DL[' . $i . '] FAIL write tmp error' );
             }
-        } while ( $running > 0 && $status === CURLM_OK );
-    }
-
-    // Thu thập kết quả
-    foreach ( $handles as $i => $ch ) {
-        $http_code = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
-        curl_multi_remove_handle( $mh, $ch );
-        curl_close( $ch );
-
-        fclose( $files[ $i ]['fh'] );
-        $tmp = $files[ $i ]['path'];
-
-        if ( $http_code === 200 && file_exists( $tmp ) && filesize( $tmp ) > 2000 ) {
-            $results[ $i ] = $tmp;
-            wpaap_debug_log( 'PAR DL[' . $i . '] OK size=' . filesize( $tmp ) . 'B' );
         } else {
-            @unlink( $tmp );
             wpaap_debug_log( 'PAR DL[' . $i . '] FAIL http=' . $http_code );
         }
     }
 
-    curl_multi_close( $mh );
     return $results;
 }
 

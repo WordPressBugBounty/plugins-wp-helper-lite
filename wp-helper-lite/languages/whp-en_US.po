@@ -6975,3 +6975,24 @@ msgstr "Admin bypass — test in incognito window"
 
 msgid "Hỗ trợ"
 msgstr "Support"
+
+msgid "Tập tin SVG không có nội dung."
+msgstr "The SVG file has no content."
+
+msgid "Tập tin không phải là định dạng SVG hợp lệ."
+msgstr "The file is not a valid SVG format."
+
+msgid "Tập tin SVG chứa mã script không hợp lệ."
+msgstr "The SVG file contains invalid script code."
+
+msgid "Bạn không có quyền truy cập."
+msgstr "You do not have permission to access this."
+
+msgid "Đã xảy ra lỗi vui lòng thử lại!!!"
+msgstr "An error occurred, please try again!!!"
+
+msgid "Lỗi! Thao tác thất bại: "
+msgstr "Error! Operation failed: "
+
+msgid "Sao chép"
+msgstr "Copy"

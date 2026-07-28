@@ -4,7 +4,7 @@ Tags: contact button, SMTP, maintenance mode, security, woocommerce
 Requires at least: 6.7
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 4.7.5
+Stable tag: 4.7.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,7 +95,7 @@ Harden and speed up your site with individual toggles — enable only what you n
 
 == Privacy Policy ==
 
-This plugin does not track users, store personal data, or use cookies by default. Certain optional features transmit data to third-party services — see **External Services** below. All external calls are initiated server-side and occur only when the relevant feature is enabled and configured by a site administrator.
+This plugin does not track users, store personal data, or use cookies by default. Certain optional features transmit data to third-party services — see **External Services** below. All external calls are initiated server-side; most occur only when the relevant feature is enabled and configured with an API key by a site administrator, except the AI Writer image fallback (Pollinations.ai / Picsum.photos) described below, which requires no API key and runs automatically whenever AI Writer generates article images.
 
 == External Services ==
 
@@ -155,6 +155,76 @@ Used to search and import free stock photos as an alternative image source when 
 * Terms of Service: https://pixabay.com/service/terms/
 * Privacy Policy: https://pixabay.com/service/privacy/
 
+= Pollinations.ai =
+Used by AI Writer to automatically generate an article image from the article's own text prompt whenever Pexels/Pixabay are not configured or return no result. No API key is required — this call happens automatically as part of AI Writer's image step, with no separate toggle. Data sent: an AI-generated image prompt derived from the article content.
+* Service: https://pollinations.ai/
+* Terms of Service: https://pollinations.ai/
+* Privacy Policy: https://pollinations.ai/
+
+= Picsum.photos =
+Used by AI Writer as a final placeholder image source when no other image source (Pexels, Pixabay, Pollinations.ai) returns a usable image. No API key is required and no article content is sent — only a random seed value used to pick a placeholder photo.
+* Service: https://picsum.photos/
+* Terms of Service: https://picsum.photos/
+* Privacy Policy: https://picsum.photos/
+
+= online.gov.vn =
+Used by the Ministry of Industry and Trade (Bộ Công Thương) registration badge module, part of the WooCommerce Toolkit, to verify that a registration/notification link entered by the site administrator is a genuine online.gov.vn page and actually corresponds to the current website's domain. Data sent: the online.gov.vn URL provided by the administrator (or, as a fallback, a request to the site's own homepage to detect an existing badge link). No personal data is transmitted.
+* Service: https://online.gov.vn/
+* Terms of Service: https://online.gov.vn/
+* Privacy Policy: https://online.gov.vn/
+
+= Telegram Bot API =
+Used by the optional AI Payment module, when the administrator enables the Telegram notification channel and supplies their own bot token and chat ID, to alert staff about a customer's bank-transfer confirmation. Data sent: order number, customer name, phone number, order total, and — when provided by the customer — the sender name, bank, last 4 account digits, and receipt image URL.
+* Service: https://core.telegram.org/bots/api
+* Terms of Service: https://telegram.org/tos
+* Privacy Policy: https://telegram.org/privacy
+
+= Discord Webhook =
+Used by the optional AI Payment module, when the administrator enables the Discord notification channel and supplies their own channel webhook URL, to alert staff about a customer's bank-transfer confirmation. Data sent: order number, customer name, phone number, order total, and — when provided by the customer — the sender name, bank, last 4 account digits, and receipt image URL.
+* Service: https://discord.com/
+* Terms of Service: https://discord.com/terms
+* Privacy Policy: https://discord.com/privacy
+
+= Custom Webhook (AI Payment) =
+When the administrator configures a custom webhook URL under the AI Payment module, the same bank-transfer confirmation data (order ID, order number, customer name, phone, order total, sender name, bank, last 4 account digits, and receipt URL) is sent to that URL as JSON.
+* Service: administrator-supplied URL
+* Terms of Service: n/a (destination controlled by the site administrator)
+* Privacy Policy: n/a (destination controlled by the site administrator)
+
+== Frequently Asked Questions ==
+
+= Do I need to activate every module? =
+
+No. WP Helper is organized into independent modules (Contact Channels, Header & Footer, Pop-up, Maintenance Mode, Email & Contact, WooCommerce Toolkit, AI Hub, Protection & Optimization). Enable only the ones you need from the dashboard — disabled modules add no overhead.
+
+= Do I need an API key to use the plugin? =
+
+No, not for the core modules. AI-powered features (AI Writer, AI Security, AI SEO, AI Payment Verification, and AI-generated maintenance-page content) require you to connect your own Google Gemini, Anthropic Claude, or OpenAI API key under AI Hub. Everything else works without any external account.
+
+= Does the plugin send any data externally by default? =
+
+No. All external connections are optional and initiated server-side, occurring only when the relevant feature is used. Most also require the administrator to configure an API key, with the exception of AI Writer's Pollinations.ai / Picsum.photos image fallback, which needs no key and runs automatically as part of AI Writer's image step. See **External Services** above for the full list of third-party services and what is sent to each.
+
+= Which SMTP providers are supported? =
+
+Gmail, Outlook, Zoho Mail, Yahoo Mail, or any custom SMTP server via the SMTP Config module.
+
+= Which CAPTCHA providers can I use? =
+
+The built-in Math Quiz challenge requires no external service. You can also choose Google reCAPTCHA, Cloudflare Turnstile, or hCaptcha — each requires your own site key and secret from the respective provider.
+
+= Does the Wallet Payment module move money automatically? =
+
+No. It adds MoMo, ZaloPay, VNPay, and ShopeePay as bank-transfer-style payment options in WooCommerce and offers optional AI-assisted OCR verification of uploaded transfer receipts (requires AI Hub). You still configure the underlying gateway/bank details yourself.
+
+= What happens to my data when I uninstall the plugin? =
+
+Uninstalling removes the plugin's settings and the custom database tables it created (spam logs, CAPTCHA logs, email logs, form submissions, and related data).
+
+= Is the WooCommerce registration badge module only for Vietnamese stores? =
+
+The Ministry of Industry and Trade (Bộ Công Thương) registration badge module under the WooCommerce Toolkit is specific to Vietnamese e-commerce compliance. Other WooCommerce Toolkit features (Wallet Payment, E-commerce Links, Buy Now button, Thank You page customization) are not region-specific.
+
 == Screenshots ==
 
 1. Dashboard — module overview with live status indicators for all features
@@ -169,6 +239,35 @@ Used to search and import free stock photos as an alternative image source when 
 10. Security & Optimization — individual security and performance toggles in one panel
 
 == Changelog ==
+
+= 4.7.6 =
+* Security: fixed a server-side request forgery (SSRF) issue in the bank-transfer confirmation flow — a crafted receipt URL could previously cause the server to fetch internal or cloud-metadata addresses; URLs are now validated against private and link-local IP ranges both when the URL is saved and again right before the server fetches it.
+* Security: closed a residual SSRF path in the Ministry of Industry and Trade registration badge check — a redirect returned by the official endpoint could previously be followed to an external host; each redirect hop is now re-validated before it is followed.
+* Security: replaced a legacy parallel-download routine that disabled SSL certificate verification with the WordPress HTTP API, removing a man-in-the-middle exposure when fetching AI-suggested images.
+* Security: added a short-lived, single-use guard against request replay on the background AI Writer AJAX endpoint.
+* Security: all bundled third-party libraries (CodeMirror, Font Awesome, jQuery DirtyForms, SheetJS) are now shipped locally with the plugin instead of being loaded from external CDNs at runtime.
+* Security: the AI Payment Vision-based receipt verification endpoint now checks that AI Payment/OCR is actually enabled before running, instead of relying solely on the admin UI to hide the button.
+* Security: bank-transfer confirmation is now rejected for orders that aren't using a wallet or bank-transfer payment method.
+* Security: CSV/spreadsheet exports (Form Manager) now neutralize leading `=`, `+`, `-`, `@` characters in exported values to prevent formula injection when the file is opened in Excel or Google Sheets.
+* Security: the plugin's own admin pages no longer suppress admin notices from WordPress core or other plugins.
+* Improve: self-hosted the Google Fonts used on the Maintenance Mode and thank-you page templates — visitor IP addresses are no longer sent to Google when those pages are viewed.
+* Fix: removed a leftover Google Fonts CDN link that was still being enqueued alongside the self-hosted version on the thank-you page, which had kept sending visitor requests to Google.
+* Fix: the Pop-up module's stylesheet was loading a Google Fonts CDN link on every page — even with Pop-up disabled — instead of the font already bundled with the plugin; it now loads locally.
+* Fix: AI Payment receipt images stored in the site's own uploads folder are no longer incorrectly blocked by the SSRF safety check on local/dev/LAN environments.
+* Fix: the Ministry of Industry and Trade registration badge check no longer intermittently times out on sites where the official endpoint requires several redirect hops.
+* Fix: the Ministry of Industry and Trade badge "Check" action now saves the verified link together with the registration status, so the public badge always links to the link that was actually verified.
+* Fix: badge detection on the homepage now checks every online.gov.vn link found on the page instead of stopping at the first one, avoiding a false "not registered" result.
+* Fix: "Resend" on a logged email now includes its original attachments, which were previously dropped.
+* Fix: added a setting to actually disable email logging from the Email Log screen; it could previously only be turned off by editing the database directly.
+* Fix: the Email Log "maximum log count" setting is now enforced by the daily cleanup job, in addition to the existing retention-by-days setting.
+* Fix: the Email Log detail popup now escapes email subject/address/SMTP response before rendering, for consistency with the Spam Filter and CAPTCHA log popups.
+* Fix: the AI Payment Vision rate limit is now applied only once a receipt image has actually been fetched, instead of blocking retries after an early validation failure.
+* Fix: corrected inconsistent text-domain usage across several files so all translatable strings load under the plugin's own text domain.
+* Fix: uninstalling the plugin now also removes a leftover database table, four WooCommerce wallet options, remaining transients, and scheduled cron events (including a pending AI Writer background job), so no data is left behind.
+* Docs: added a Frequently Asked Questions section to this readme.
+* Docs: disclosed the Telegram, Discord, and custom-webhook notification channels used by the optional AI Payment module in the External Services section — these were previously undocumented.
+* Docs: disclosed Pollinations.ai and Picsum.photos, the no-API-key image fallback used automatically by AI Writer, in the External Services section — these were previously undocumented.
+* Docs: disclosed the online.gov.vn request made by the Ministry of Industry and Trade registration badge check in the External Services section.
 
 = 4.7.5 =
 * Fix: the AI Payment page showed "undefined" in every label and verification result panel — caused by a duplicate i18n object where the wrapping tab overwrote the sub-tab's translation strings.

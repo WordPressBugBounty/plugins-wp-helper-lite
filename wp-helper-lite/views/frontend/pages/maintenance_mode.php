@@ -9,10 +9,8 @@ $favicon_url = get_site_icon_url();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="<?php echo esc_url($favicon_url); ?>" type="image/x-icon">
     <title><?= $whp_maintenance_title != '' ? esc_html($whp_maintenance_title) : 'Bảo trì hệ thống' ?></title>
-    <!-- Be Vietnam Pro — Vietnamese-optimised font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Be Vietnam Pro — Vietnamese-optimised font (self-hosted) -->
+    <link rel="stylesheet" href="<?php echo esc_url( MB_WHP_URL . 'vendor/fonts/be-vietnam-pro/be-vietnam-pro.css' ); ?>">
     <style>
         :root {
             --bg-color: #0b0f19;

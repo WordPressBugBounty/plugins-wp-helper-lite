@@ -519,6 +519,10 @@ function wph_fm_export_csv( $rows ) {
             $detail = implode( ' | ', $parts );
         }
         $lines[] = implode( ',', array_map( function( $v ) {
+            $v = (string) $v;
+            if ( isset( $v[0] ) && in_array( $v[0], array( '=', '+', '-', '@' ), true ) ) {
+                $v = "'" . $v; // ngăn CSV/Formula Injection khi mở bằng Excel/Sheets
+            }
             return '"' . str_replace( '"', '""', $v ) . '"';
         }, array(
             $r->id, $r->form_title, $r->form_plugin,

@@ -5,6 +5,8 @@ function wph_email_log_page_layout() {
     $nonce    = wp_create_nonce( 'wph_el_nonce' );
     $ajax_url = admin_url( 'admin-ajax.php' );
     $settings = get_option( 'wph_el_settings', array() );
+    // Logging is active unless explicitly turned off (mirrors wph_el_capture_mail()).
+    $el_active = ! isset( $settings['active'] ) || $settings['active'] !== '0';
 
     // SMTP settings — detect from built-in plugin + popular 3rd-party plugins
     $smtp_info   = function_exists( 'wph_el_detect_smtp' ) ? wph_el_detect_smtp() : array( 'active' => false );
@@ -311,6 +313,12 @@ function wph_email_log_page_layout() {
 .wph-el2-select{border:1.5px solid #e2e8f0!important;border-radius:8px!important;padding:7px 10px;font-size:13px;height:36px;font-family:inherit;background:#fff!important;color:#374151!important;outline:none;cursor:pointer;transition:border-color .15s,box-shadow .15s;box-shadow:none!important;}
 .wph-el2-select:focus{border-color:#16a34a!important;box-shadow:0 0 0 2px rgba(22,163,74,.12)!important;outline:none!important;}
 .wph-el2-select:focus{border-color:#16a34a;box-shadow:0 0 0 3px rgba(22,163,74,.1);}
+.wph-el2-switch{position:relative;display:inline-block;width:40px;height:22px;flex-shrink:0;}
+.wph-el2-switch input{opacity:0;width:0;height:0;}
+.wph-el2-switch-slider{position:absolute;cursor:pointer;inset:0;background:#cbd5e1;border-radius:22px;transition:background .2s;}
+.wph-el2-switch-slider::after{content:"";position:absolute;width:16px;height:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:transform .2s;}
+.wph-el2-switch input:checked + .wph-el2-switch-slider{background:#16a34a;}
+.wph-el2-switch input:checked + .wph-el2-switch-slider::after{transform:translateX(18px);}
 /* custom dropdown */
 .wph-el2-dd{position:relative;user-select:none;flex-shrink:0;}
 .wph-el2-dd-trigger{display:flex;align-items:center;gap:7px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:0 10px;height:36px;cursor:pointer;font-size:13px;color:#374151;transition:border-color .2s,box-shadow .2s;min-width:140px;}
@@ -986,6 +994,23 @@ function wph_email_log_page_layout() {
             </div>
             <div style="padding:4px 16px 16px;display:flex;flex-direction:column;gap:10px;">
 
+                <!-- Active toggle -->
+                <div style="border:1.5px solid #f1f5f9;border-radius:11px;padding:13px 14px;background:#fafcff;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='#bfdbfe';this.style.boxShadow='0 0 0 3px rgba(59,130,246,.06)'" onmouseout="this.style.borderColor='#f1f5f9';this.style.boxShadow='none'">
+                    <div style="display:flex;align-items:center;gap:11px;">
+                        <div style="width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#eff6ff,#dbeafe);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 1px 4px rgba(59,130,246,.12);">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M21 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"/><path d="M3 8l9 6 9-6"/><path d="M3 8v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8"/></svg>
+                        </div>
+                        <div style="flex:1;min-width:0;">
+                            <div style="font-size:13px;font-weight:600;color:#1e293b;"><?php esc_html_e( 'Ghi log email', 'whp' ); ?></div>
+                            <div style="font-size:11.5px;color:#94a3b8;margin-top:2px;"><?php esc_html_e( 'Bật để lưu lại nội dung các email hệ thống gửi đi', 'whp' ); ?></div>
+                        </div>
+                        <label class="wph-el2-switch">
+                            <input type="checkbox" id="el2-active" <?php checked( $el_active ); ?>>
+                            <span class="wph-el2-switch-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
                 <!-- Retention -->
                 <div style="border:1.5px solid #f1f5f9;border-radius:11px;padding:13px 14px;background:#fafcff;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='#bfdbfe';this.style.boxShadow='0 0 0 3px rgba(59,130,246,.06)'" onmouseout="this.style.borderColor='#f1f5f9';this.style.boxShadow='none'">
                     <div style="display:flex;align-items:center;gap:11px;">
@@ -1101,6 +1126,8 @@ var whpElI18n = {
     var chartData = <?php echo wp_json_encode( $chart_data ); ?>;
 
     // ── Helpers ──────────────────────────────────────────────────────────────
+
+    function h(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
     function post(action, data, cb) {
         var fd = new FormData();
@@ -1320,13 +1347,13 @@ var whpElI18n = {
                     : '<span class="wph-el2-badge-pending">' + whpElI18n.statusPending + '</span>';
 
             var metaRows = [
-                [whpElI18n.labelTo, '<span style="color:#16a34a;font-weight:600;">' + d.to_email + '</span>'],
-                [whpElI18n.labelSubject, d.subject],
+                [whpElI18n.labelTo, '<span style="color:#16a34a;font-weight:600;">' + h(d.to_email) + '</span>'],
+                [whpElI18n.labelSubject, h(d.subject)],
                 [whpElI18n.labelStatus, statusBadge],
-                [whpElI18n.labelTime,  d.created_at],
+                [whpElI18n.labelTime,  h(d.created_at)],
             ];
             if (d.smtp_response && d.smtp_response !== '—') {
-                metaRows.push(['SMTP', '<span style="color:#64748b;font-size:12px;">' + d.smtp_response + '</span>']);
+                metaRows.push(['SMTP', '<span style="color:#64748b;font-size:12px;">' + h(d.smtp_response) + '</span>']);
             }
             var metaHtml = '';
             metaRows.forEach(function(row){
@@ -1645,10 +1672,11 @@ var whpElI18n = {
     // ── Log settings save ─────────────────────────────────────────────────────
 
     window.wphEl2SaveSettings = function() {
+        var active    = document.getElementById('el2-active');
         var retention = document.getElementById('el2-retention');
         var maxLogs   = document.getElementById('el2-max-logs');
         post('wph_el_save_settings', {
-            active:    '1',
+            active:    ( active && !active.checked ) ? '0' : '1',
             retention: retention ? retention.value : 0,
             max_logs:  maxLogs   ? maxLogs.value   : 50000,
         }, function(r){

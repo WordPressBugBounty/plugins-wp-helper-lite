@@ -21,9 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
     <?php endif; ?>
     <title><?php echo !empty($whp_maintenance_title) ? esc_html($whp_maintenance_title) : 'Site Under Maintenance'; ?></title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo esc_url( MB_WHP_URL . 'vendor/fonts/be-vietnam-pro/be-vietnam-pro.css' ); ?>">
 
     <style>
         *, *::before, *::after {

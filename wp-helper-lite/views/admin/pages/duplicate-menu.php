@@ -1,7 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) { exit; } ?>
 <div class="wrap">
     <div id="icon-options-general" class="icon32"><br /></div>
-    <h2><?php _e('Duplicate Menu'); ?></h2>
+    <h2><?php _e('Duplicate Menu', 'whp'); ?></h2>
 
     <?php if (!empty($_POST) && wp_verify_nonce($_POST['duplicate_menu_nonce'], 'duplicate_menu')) : ?>
         <?php
@@ -16,9 +16,9 @@
         <div id="message" class="updated">
             <p>
                 <?php if ($new_menu_id) : ?>
-                    <?php esc_html_e('Menu đã nhân bản', 'whp'); ?>. <a href="nav-menus.php?action=edit&amp;menu=<?php echo absint($new_menu_id); ?>"><?php _e('View') ?></a>
+                    <?php esc_html_e('Menu đã nhân bản', 'whp'); ?>. <a href="nav-menus.php?action=edit&amp;menu=<?php echo absint($new_menu_id); ?>"><?php _e('View', 'whp') ?></a>
                 <?php else : ?>
-                    <?php _e('There was a problem duplicating your menu. No action was taken.') ?>.
+                    <?php _e('There was a problem duplicating your menu. No action was taken.', 'whp') ?>.
                 <?php endif; ?>
             </p>
         </div>
@@ -27,7 +27,7 @@
 
 
     <?php if (empty($nav_menus)) : ?>
-        <p><?php _e("You haven't created any Menus yet."); ?></p>
+        <p><?php _e("You haven't created any Menus yet.", 'whp'); ?></p>
     <?php else : ?>
         <form method="post" action="">
             <?php wp_nonce_field('_token', '_token'); ?>

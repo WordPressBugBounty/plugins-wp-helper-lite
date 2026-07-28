@@ -18,7 +18,6 @@ if (!class_exists('MB_WHP_Admin_Setup_Function')) {
 
             add_action('admin_enqueue_scripts', [$this, 'include_style']);
             add_action('admin_enqueue_scripts', [$this, 'include_script']);
-            add_action('admin_head', [$this, 'suppress_admin_notices'], 1);
             add_action('admin_menu', [$this, 'whp_admin_menu']);
             add_action('admin_menu', function() {
                 global $submenu;
@@ -43,17 +42,6 @@ if (!class_exists('MB_WHP_Admin_Setup_Function')) {
         }
 
 
-        public function suppress_admin_notices()
-        {
-            $page = isset($_GET['page']) ? sanitize_text_field($_GET['page']) : '';
-            if (strpos($page, 'mb-wphelper') !== false || strpos($page, 'wp-ai-auto-poster') !== false) {
-                remove_all_actions('admin_notices');
-                remove_all_actions('all_admin_notices');
-                remove_all_actions('user_admin_notices');
-                remove_all_actions('network_admin_notices');
-            }
-        }
-
 
         public function include_style()
         {
@@ -62,8 +50,8 @@ if (!class_exists('MB_WHP_Admin_Setup_Function')) {
             wp_enqueue_style('responsive', $this->pathAsset . 'css/responsive.css', array(), time(), 'all');
             $page = isset($_GET['page']) ? sanitize_key($_GET['page']) : '';
             if ($page === 'mb-wphelper-reponsive') {
-                wp_enqueue_style('codemirror', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css', array(), '5.62.0', 'all');
-                wp_enqueue_style('codemirror-hint-css', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/addon/hint/show-hint.min.css', array(), '5.62.0', 'all');
+                wp_enqueue_style('codemirror', MB_WHP_URL . 'vendor/codemirror/lib/codemirror.min.css', array(), '5.62.0', 'all');
+                wp_enqueue_style('codemirror-hint-css', MB_WHP_URL . 'vendor/codemirror/addon/hint/show-hint.min.css', array(), '5.62.0', 'all');
             }
 
             // Load AI Auto Poster CSS
@@ -74,12 +62,12 @@ if (!class_exists('MB_WHP_Admin_Setup_Function')) {
             // Load frontend widget CSS + FontAwesome for Live Preview on contact settings page
             if ( $page === 'mb-wphelper-contact' ) {
                 wp_enqueue_style( 'whp-frontend-app', MB_WHP_URL . 'assets/frontend/css/app.css', array(), time(), 'all' );
-                wp_enqueue_style( 'whp-font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', array(), null, 'all' );
+                wp_enqueue_style( 'whp-font-awesome', MB_WHP_URL . 'vendor/font-awesome/css/all.min.css', array(), '5.15.4', 'all' );
             }
         }
         public function include_script()
         {
-            wp_enqueue_script('dirtyform', 'https://cdn.jsdelivr.net/jquery.dirtyforms/2.0.0/jquery.dirtyforms.min.js', array('jquery'), time(), true);
+            wp_enqueue_script('dirtyform', MB_WHP_URL . 'vendor/jquery-dirtyforms/jquery.dirtyforms.min.js', array('jquery'), time(), true);
             wp_enqueue_media();
             wp_enqueue_script('app', $this->pathAsset . 'js/app.js', array('jquery'), time(), true);
 
@@ -113,11 +101,19 @@ if (!class_exists('MB_WHP_Admin_Setup_Function')) {
             }
 
             if ($page === 'mb-wphelper-reponsive') {
-                wp_enqueue_script('codemirror', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js', array('jquery'), '5.62.0', true);
-                wp_enqueue_script('codemirror-mode-css', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/css/css.min.js', array('codemirror'), '5.62.0', true);
-                wp_enqueue_script('codemirror-hint-css', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/addon/hint/css-hint.min.js', array('codemirror'), '5.62.0', true);
-                wp_enqueue_script('codemirror-show-hint-css', 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/addon/hint/show-hint.min.js', array('codemirror'), '5.62.0', true);
+                wp_enqueue_script('codemirror', MB_WHP_URL . 'vendor/codemirror/lib/codemirror.min.js', array('jquery'), '5.62.0', true);
+                wp_enqueue_script('codemirror-mode-css', MB_WHP_URL . 'vendor/codemirror/mode/css/css.min.js', array('codemirror'), '5.62.0', true);
+                wp_enqueue_script('codemirror-hint-css', MB_WHP_URL . 'vendor/codemirror/addon/hint/css-hint.min.js', array('codemirror'), '5.62.0', true);
+                wp_enqueue_script('codemirror-show-hint-css', MB_WHP_URL . 'vendor/codemirror/addon/hint/show-hint.min.js', array('codemirror'), '5.62.0', true);
                 wp_enqueue_script('codemirror-config', $this->pathAsset . 'lib/codemirror/js/config.js', array('codemirror', 'codemirror-mode-css'), '1.0', true);
+            }
+
+            // Load SheetJS (xlsx) only on the Spam Filter sub-tab (Excel keyword import), local vendor copy.
+            if ($page === 'mb-wphelper-smtp') {
+                $subtab = isset($_GET['subtab']) ? sanitize_key($_GET['subtab']) : 'form-manager';
+                if ($subtab === 'spam-filter') {
+                    wp_enqueue_script('whp-sheetjs', MB_WHP_URL . 'vendor/sheetjs/xlsx.full.min.js', array(), '0.18.5', true);
+                }
             }
         }
         public function whp_admin_menu()
@@ -422,6 +418,11 @@ if (!class_exists('MB_WHP_Admin_Setup_Function')) {
                 $fields,
                 'woocommerce/thankyou',
             );
+        }
+
+        public function whp_woocommerce_bct_content()
+        {
+            require_once($this->pathView . 'woocommerce/bct.php');
         }
         public function checkPlugin(): bool
         {

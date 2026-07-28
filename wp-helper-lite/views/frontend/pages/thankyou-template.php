@@ -2,11 +2,14 @@
 defined('ABSPATH') || exit;
 
 // Get and validate the order
-$order_id = absint(get_query_var('order-received'));
-$order    = $order_id ? wc_get_order($order_id) : null;
+$order_id  = absint(get_query_var('order-received'));
+$order     = $order_id ? wc_get_order($order_id) : null;
+$order_key = isset($_GET['key']) ? wc_clean(wp_unslash($_GET['key'])) : '';
 
-if (!$order) {
-    wp_redirect(wc_get_page_permalink('shop'));
+// Bảo mật: chỉ hiển thị chi tiết đơn hàng khi order_key khớp hoặc người xem
+// đang đăng nhập đúng là chủ đơn — chặn IDOR đọc PII/đơn hàng người khác.
+if (!$order || !whp_thankyou_verify_order_access($order, $order_key)) {
+    wp_safe_redirect(wc_get_page_permalink('shop'));
     exit;
 }
 
@@ -132,19 +135,20 @@ $ty_inline_style = implode(';', [
     '--whp-gap:'     . $ty_gap_val,
 ]);
 
-// Enqueue Google Font into <head> for any layout that needs it
-$ty_gf_map = [
-    'inter'      => 'Inter:wght@400;500;600;700',
-    'roboto'     => 'Roboto:wght@400;500;700',
-    'be-vietnam' => 'Be+Vietnam+Pro:wght@400;500;600;700',
-    'montserrat' => 'Montserrat:wght@400;500;600;700',
+// Enqueue font into <head> for any layout that needs it.
+// All 4 choices are self-hosted locally (not fetched from Google at request
+// time) so frontend visitor IPs are never sent to fonts.googleapis.com /
+// fonts.gstatic.com.
+$ty_font_css_map = [
+    'be-vietnam' => 'vendor/fonts/be-vietnam-pro/be-vietnam-pro.css',
+    'inter'      => 'vendor/fonts/inter/inter.css',
+    'roboto'     => 'vendor/fonts/roboto/roboto.css',
+    'montserrat' => 'vendor/fonts/montserrat/montserrat.css',
 ];
-if ( isset( $ty_gf_map[ $ty_font_key ] ) ) {
-    $ty_gf_url = 'https://fonts.googleapis.com/css2?family=' . $ty_gf_map[ $ty_font_key ] . '&display=swap';
-    add_action( 'wp_head', function () use ( $ty_gf_url ) {
-        echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
-        echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
-        echo '<link rel="stylesheet" href="' . esc_url( $ty_gf_url ) . '">' . "\n";
+if ( isset( $ty_font_css_map[ $ty_font_key ] ) ) {
+    $ty_font_css_url = MB_WHP_URL . $ty_font_css_map[ $ty_font_key ];
+    add_action( 'wp_head', function () use ( $ty_font_css_url ) {
+        echo '<link rel="stylesheet" href="' . esc_url( $ty_font_css_url ) . '">' . "\n";
     }, 1 );
 }
 ?><!DOCTYPE html>

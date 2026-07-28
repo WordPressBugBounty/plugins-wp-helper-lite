@@ -14,8 +14,8 @@ if (!class_exists('MB_WHP_Wallet_MoMo')) {
             $this->id                 = 'MB_WHP_Wallet_MoMo';
             $this->icon               = whp_get_icon('logo-momo.svg');
             $this->has_fields         = false;
-            $this->method_title       = __('Ví điện tử MoMo', 'wphp-wc');
-            $this->method_description = __('Cho phép thanh toán qua ví điện tử MoMo', 'wphp-wc');
+            $this->method_title       = __('Ví điện tử MoMo', 'whp');
+            $this->method_description = __('Cho phép thanh toán qua ví điện tử MoMo', 'whp');
 
             $this->init_form_fields();
             $this->init_settings();
@@ -35,37 +35,37 @@ if (!class_exists('MB_WHP_Wallet_MoMo')) {
         {
             $this->form_fields = [
                 'enabled' => [
-                    'title'   => __('Bật/Tắt', 'wphp-wc'),
+                    'title'   => __('Bật/Tắt', 'whp'),
                     'type'    => 'checkbox',
-                    'label'   => __('Bật phương thức thanh toán', 'wphp-wc'),
+                    'label'   => __('Bật phương thức thanh toán', 'whp'),
                     'default' => 'yes',
                 ],
                 'title' => [
-                    'title'    => __('Tiêu đề', 'wphp-wc'),
+                    'title'    => __('Tiêu đề', 'whp'),
                     'type'     => 'text',
-                    'default'  => __('Thanh toán qua MoMo', 'wphp-wc'),
+                    'default'  => __('Thanh toán qua MoMo', 'whp'),
                     'desc_tip' => true,
-                    'description' => __('Hiển thị ở trang thanh toán', 'wphp-wc'),
+                    'description' => __('Hiển thị ở trang thanh toán', 'whp'),
                 ],
                 'description' => [
-                    'title'    => __('Mô tả', 'wphp-wc'),
+                    'title'    => __('Mô tả', 'whp'),
                     'type'     => 'textarea',
-                    'default'  => __('Thanh toán qua ví điện tử MoMo. An toàn và nhanh chóng!', 'wphp-wc'),
+                    'default'  => __('Thanh toán qua ví điện tử MoMo. An toàn và nhanh chóng!', 'whp'),
                     'desc_tip' => true,
-                    'description' => __('Nhập mô tả của phương thức.', 'wphp-wc'),
+                    'description' => __('Nhập mô tả của phương thức.', 'whp'),
                 ],
                 'account_number' => [
-                    'title'       => __('Số điện thoại MoMo', 'wphp-wc'),
+                    'title'       => __('Số điện thoại MoMo', 'whp'),
                     'type'        => 'text',
                     'desc_tip'    => true,
-                    'description' => __('Nhập số điện thoại nhận tiền', 'wphp-wc'),
+                    'description' => __('Nhập số điện thoại nhận tiền', 'whp'),
                 ],
                 'account_name' => [
-                    'title' => __('Tên tài khoản MoMo', 'wphp-wc'),
+                    'title' => __('Tên tài khoản MoMo', 'whp'),
                     'type'  => 'text',
                 ],
                 'button_upload' => [
-                    'title' => __('Hình QR Code', 'wphp-wc'),
+                    'title' => __('Hình QR Code', 'whp'),
                     'type'  => 'button',
                     'class' => 'button-upload-qrcode',
                 ],
@@ -91,9 +91,9 @@ if (!class_exists('MB_WHP_Wallet_MoMo')) {
         public function email_instructions($order, $sent_to_admin, $plain_text = false)
         {
             if (!$sent_to_admin && $this->id === $order->get_payment_method() && $order->has_status('pending')) {
-                echo '<p><strong>' . __('Thanh toán qua MoMo', 'wphp-wc') . '</strong><br>';
-                echo esc_html__('Tên tài khoản: ', 'wphp-wc') . esc_html($this->account_name) . '<br>';
-                echo esc_html__('Số điện thoại: ', 'wphp-wc') . esc_html($this->account_number) . '</p>';
+                echo '<p><strong>' . __('Thanh toán qua MoMo', 'whp') . '</strong><br>';
+                echo esc_html__('Tên tài khoản: ', 'whp') . esc_html($this->account_name) . '<br>';
+                echo esc_html__('Số điện thoại: ', 'whp') . esc_html($this->account_number) . '</p>';
             }
         }
 
@@ -112,7 +112,7 @@ if (!class_exists('MB_WHP_Wallet_MoMo')) {
         public function process_payment($order_id)
         {
             $order = wc_get_order($order_id);
-            $order->update_status('pending', __('Chờ thanh toán qua MoMo', 'wphp-wc'));
+            $order->update_status('pending', __('Chờ thanh toán qua MoMo', 'whp'));
             WC()->cart->empty_cart();
             return [
                 'result'   => 'success',
@@ -222,30 +222,30 @@ if (!function_exists('whp_wallet_render_payment_info')) {
             </div>
             <div class="whp-wallet-info__body">
                 <p class="whp-wallet-info__notice">
-                    <?php esc_html_e('Vui lòng chuyển tiền đến tài khoản bên dưới và nhập đúng nội dung chuyển khoản.', 'wphp-wc'); ?>
+                    <?php esc_html_e('Vui lòng chuyển tiền đến tài khoản bên dưới và nhập đúng nội dung chuyển khoản.', 'whp'); ?>
                 </p>
                 <?php if ($account_name) : ?>
                 <div class="whp-wallet-info__row">
-                    <span class="whp-wallet-info__label"><?php esc_html_e('Tên tài khoản', 'wphp-wc'); ?></span>
+                    <span class="whp-wallet-info__label"><?php esc_html_e('Tên tài khoản', 'whp'); ?></span>
                     <span class="whp-wallet-info__value"><?php echo esc_html($account_name); ?></span>
                 </div>
                 <?php endif; ?>
                 <?php if ($account_number) : ?>
                 <div class="whp-wallet-info__row">
-                    <span class="whp-wallet-info__label"><?php esc_html_e('Số điện thoại', 'wphp-wc'); ?></span>
+                    <span class="whp-wallet-info__label"><?php esc_html_e('Số điện thoại', 'whp'); ?></span>
                     <span class="whp-wallet-info__value"><?php echo esc_html($account_number); ?></span>
                 </div>
                 <?php endif; ?>
                 <?php if ($transfer_content) : ?>
                 <div class="whp-wallet-info__row whp-wallet-info__row--highlight">
-                    <span class="whp-wallet-info__label"><?php esc_html_e('Nội dung CK', 'wphp-wc'); ?></span>
+                    <span class="whp-wallet-info__label"><?php esc_html_e('Nội dung CK', 'whp'); ?></span>
                     <span class="whp-wallet-info__value whp-wallet-info__transfer-code"><?php echo esc_html($transfer_content); ?></span>
                 </div>
                 <?php endif; ?>
                 <?php if ($image_url) : ?>
                 <div class="whp-wallet-info__qr">
                     <img src="<?php echo esc_url($image_url); ?>" alt="QR Code <?php echo esc_attr($wallet_name); ?>">
-                    <p><?php esc_html_e('Quét mã QR để thanh toán', 'wphp-wc'); ?></p>
+                    <p><?php esc_html_e('Quét mã QR để thanh toán', 'whp'); ?></p>
                 </div>
                 <?php endif; ?>
             </div>

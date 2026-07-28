@@ -24,9 +24,10 @@ jQuery(function ($) {
                 $('#whp-ty-countdown').hide();
                 $('#whp-ty-expired-msg').show();
                 $.post(cfg.ajax_url, {
-                    action   : 'whp_cancel_order_expired',
-                    nonce    : cfg.cancel_nonce,
-                    order_id : cfg.order_id
+                    action    : 'whp_cancel_order_expired',
+                    nonce     : cfg.cancel_nonce,
+                    order_id  : cfg.order_id,
+                    order_key : cfg.order_key
                 }).always(function () {
                     setTimeout(function () { location.reload(); }, 1500);
                 });
@@ -186,10 +187,11 @@ jQuery(function ($) {
         $progressText.text('Đang tải lên...');
 
         var fd = new FormData();
-        fd.append('action',   'whp_upload_receipt');
-        fd.append('nonce',    cfg.transfer_nonce);
-        fd.append('order_id', cfg.order_id);
-        fd.append('receipt',  file);
+        fd.append('action',    'whp_upload_receipt');
+        fd.append('nonce',     cfg.transfer_nonce);
+        fd.append('order_id',  cfg.order_id);
+        fd.append('order_key', cfg.order_key);
+        fd.append('receipt',   file);
 
         $.ajax({
             url         : cfg.ajax_url,
@@ -290,6 +292,7 @@ jQuery(function ($) {
             action       : 'whp_confirm_transfer',
             nonce        : cfg.transfer_nonce,
             order_id     : cfg.order_id,
+            order_key    : cfg.order_key,
             sender_name  : senderName,
             bank         : bank,
             last4        : last4,
@@ -362,9 +365,10 @@ jQuery(function ($) {
         }, 250);
 
         $.post(cfg.ajax_url, {
-            action   : 'wpaap_frontend_ai_verify',
-            nonce    : cfg.transfer_nonce,
-            order_id : cfg.order_id,
+            action    : 'wpaap_frontend_ai_verify',
+            nonce     : cfg.transfer_nonce,
+            order_id  : cfg.order_id,
+            order_key : cfg.order_key,
         }, function (res) {
             clearInterval(aiTimer);
             $fill.css('width', '100%');
@@ -429,9 +433,10 @@ jQuery(function ($) {
         }, 250);
 
         $.post(cfg.ajax_url, {
-            action   : 'wpaap_frontend_ai_verify',
-            nonce    : cfg.transfer_nonce,
-            order_id : cfg.order_id,
+            action    : 'wpaap_frontend_ai_verify',
+            nonce     : cfg.transfer_nonce,
+            order_id  : cfg.order_id,
+            order_key : cfg.order_key,
         }, function (res) {
             clearInterval(pageAiTimer);
             $pageAiPending.hide();

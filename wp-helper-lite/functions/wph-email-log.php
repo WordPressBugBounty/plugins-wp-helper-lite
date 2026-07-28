@@ -348,8 +348,9 @@ function wph_el_resend( $id ) {
     $log = wph_el_get_log( $id );
     if ( ! $log ) return new WP_Error( 'not_found', 'Không tìm thấy email' );
 
-    $headers = $log->headers ? explode( "\n", $log->headers ) : array();
-    $result  = wp_mail( $log->to_email, $log->subject, $log->message, $headers );
+    $headers     = $log->headers ? explode( "\n", $log->headers ) : array();
+    $attachments = $log->attachments ? explode( ', ', $log->attachments ) : array();
+    $result      = wp_mail( $log->to_email, $log->subject, $log->message, $headers, $attachments );
     return $result;
 }
 
@@ -376,6 +377,13 @@ function wph_el_cleanup() {
             "DELETE FROM {$wpdb->prefix}wph_email_logs WHERE created_at < %s",
             date( 'Y-m-d H:i:s', strtotime( "-{$r} days" ) )
         ) );
+    }
+    $max = absint( $s['max_logs'] ?? 0 );
+    if ( $max > 0 ) {
+        $min_id = $wpdb->get_var( $wpdb->prepare( "SELECT MIN(id) FROM (SELECT id FROM {$wpdb->prefix}wph_email_logs ORDER BY id DESC LIMIT %d) t", $max ) );
+        if ( $min_id ) {
+            $wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->prefix}wph_email_logs WHERE id < %d", $min_id ) );
+        }
     }
 }
 if ( ! wp_next_scheduled( 'wph_el_daily_cleanup' ) ) {

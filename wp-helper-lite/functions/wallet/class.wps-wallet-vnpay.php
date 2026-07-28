@@ -14,8 +14,8 @@ if (!class_exists('MB_WHP_Wallet_VNPAY')) {
             $this->id                 = 'MB_WHP_Wallet_VNPAY';
             $this->icon               = whp_get_icon('vnpay.svg');
             $this->has_fields         = false;
-            $this->method_title       = __('Ví điện tử VNPAY', 'wphp-wc');
-            $this->method_description = __('Cho phép thanh toán qua ví điện tử VNPAY', 'wphp-wc');
+            $this->method_title       = __('Ví điện tử VNPAY', 'whp');
+            $this->method_description = __('Cho phép thanh toán qua ví điện tử VNPAY', 'whp');
 
             $this->init_form_fields();
             $this->init_settings();
@@ -35,37 +35,37 @@ if (!class_exists('MB_WHP_Wallet_VNPAY')) {
         {
             $this->form_fields = [
                 'enabled' => [
-                    'title'   => __('Bật/Tắt', 'wphp-wc'),
+                    'title'   => __('Bật/Tắt', 'whp'),
                     'type'    => 'checkbox',
-                    'label'   => __('Bật phương thức thanh toán', 'wphp-wc'),
+                    'label'   => __('Bật phương thức thanh toán', 'whp'),
                     'default' => 'yes',
                 ],
                 'title' => [
-                    'title'       => __('Tiêu đề', 'wphp-wc'),
+                    'title'       => __('Tiêu đề', 'whp'),
                     'type'        => 'text',
-                    'default'     => __('Thanh toán qua VNPAY', 'wphp-wc'),
+                    'default'     => __('Thanh toán qua VNPAY', 'whp'),
                     'desc_tip'    => true,
-                    'description' => __('Hiển thị ở trang thanh toán', 'wphp-wc'),
+                    'description' => __('Hiển thị ở trang thanh toán', 'whp'),
                 ],
                 'description' => [
-                    'title'       => __('Mô tả', 'wphp-wc'),
+                    'title'       => __('Mô tả', 'whp'),
                     'type'        => 'textarea',
-                    'default'     => __('Thanh toán qua ví điện tử VNPAY. An toàn và nhanh chóng!', 'wphp-wc'),
+                    'default'     => __('Thanh toán qua ví điện tử VNPAY. An toàn và nhanh chóng!', 'whp'),
                     'desc_tip'    => true,
-                    'description' => __('Nhập mô tả của phương thức.', 'wphp-wc'),
+                    'description' => __('Nhập mô tả của phương thức.', 'whp'),
                 ],
                 'number_vnpay' => [
-                    'title'       => __('Số điện thoại VNPAY', 'wphp-wc'),
+                    'title'       => __('Số điện thoại VNPAY', 'whp'),
                     'type'        => 'text',
                     'desc_tip'    => true,
-                    'description' => __('Nhập số điện thoại nhận tiền', 'wphp-wc'),
+                    'description' => __('Nhập số điện thoại nhận tiền', 'whp'),
                 ],
                 'name_vnpay' => [
-                    'title' => __('Tên tài khoản VNPAY', 'wphp-wc'),
+                    'title' => __('Tên tài khoản VNPAY', 'whp'),
                     'type'  => 'text',
                 ],
                 'button_upload' => [
-                    'title' => __('Hình QR Code', 'wphp-wc'),
+                    'title' => __('Hình QR Code', 'whp'),
                     'type'  => 'button',
                     'class' => 'button-upload-qrcode',
                 ],
@@ -91,9 +91,9 @@ if (!class_exists('MB_WHP_Wallet_VNPAY')) {
         public function email_instructions($order, $sent_to_admin, $plain_text = false)
         {
             if (!$sent_to_admin && $this->id === $order->get_payment_method() && $order->has_status('pending')) {
-                echo '<p><strong>' . __('Thanh toán qua VNPAY', 'wphp-wc') . '</strong><br>';
-                echo esc_html__('Tên tài khoản: ', 'wphp-wc') . esc_html($this->account_name) . '<br>';
-                echo esc_html__('Số điện thoại: ', 'wphp-wc') . esc_html($this->account_number) . '</p>';
+                echo '<p><strong>' . __('Thanh toán qua VNPAY', 'whp') . '</strong><br>';
+                echo esc_html__('Tên tài khoản: ', 'whp') . esc_html($this->account_name) . '<br>';
+                echo esc_html__('Số điện thoại: ', 'whp') . esc_html($this->account_number) . '</p>';
             }
         }
 
@@ -112,7 +112,7 @@ if (!class_exists('MB_WHP_Wallet_VNPAY')) {
         public function process_payment($order_id)
         {
             $order = wc_get_order($order_id);
-            $order->update_status('pending', __('Chờ thanh toán qua VNPAY', 'wphp-wc'));
+            $order->update_status('pending', __('Chờ thanh toán qua VNPAY', 'whp'));
             WC()->cart->empty_cart();
             return [
                 'result'   => 'success',

@@ -612,6 +612,28 @@ function whp_get_woo_thankyou_fields()
         'whp_woo_thankyou_contact_email_val',
     ];
 }
+function whp_get_woo_bct_fields()
+{
+    return [
+        'whp_bct_status',
+        'whp_bct_link',
+        'whp_bct_verified_name',
+        'whp_bct_verified_date',
+        'whp_bct_logo_mode',
+        'whp_bct_logo_url',
+        'whp_bct_pos_shortcode',
+        'whp_bct_align',
+        'whp_bct_width',
+        'whp_bct_max_width',
+        'whp_bct_margin_top',
+        'whp_bct_margin_bottom',
+        'whp_bct_fx_hover_scale',
+        'whp_bct_fx_hover_shadow',
+        'whp_bct_fx_rounded',
+        'whp_bct_fx_none',
+        'whp_bct_custom_html',
+    ];
+}
 function whp_get_aipay_fields()
 {
     return [
@@ -820,6 +842,206 @@ function whp_get_setting($key)
     $result = $fieldNew != ""  ? $fieldNew : $fieldOld;
     return $result;
 }
+// ─── BỘ CÔNG THƯƠNG — đăng ký/thông báo website TMĐT ─────────────────────────
+
+// Kiểm tra host có đúng (subdomain của) online.gov.vn không — dùng chung cho check-link & combined check
+function whp_bct_is_official_host($host)
+{
+    if (!$host) return false;
+    $host = strtolower($host);
+    return $host === 'online.gov.vn' || substr($host, -strlen('.online.gov.vn')) === '.online.gov.vn';
+}
+
+// Wrapper an toàn quanh wp_remote_get() cho mọi request tới online.gov.vn — chặn
+// SSRF residual qua redirect: wp_remote_get() với 'redirection' => N tự follow
+// redirect và chỉ trả về response cuối cùng, KHÔNG re-validate host ở từng hop.
+// Nếu online.gov.vn (hoặc subdomain hợp lệ) có 1 open-redirect, request có thể bị
+// dẫn ra domain bất kỳ (kể cả nội bộ) mà code không hề hay biết. Hàm này tự lo
+// follow redirect (redirection => 0 ở tầng HTTP) và validate host ở MỌI hop.
+function whp_bct_safe_remote_get($url, $max_redirects = 5)
+{
+    $host = wp_parse_url($url, PHP_URL_HOST);
+    if (!whp_bct_is_official_host($host)) {
+        return new WP_Error('bct_unsafe_host', __('Domain không hợp lệ.', 'whp'));
+    }
+
+    // Ngân sách thời gian tổng cho cả chuỗi redirect — nếu không có, mỗi hop có
+    // thể tốn tới timeout riêng (8s) và 4-5 hop hợp lệ liên tiếp có thể cộng dồn
+    // ~40s, dễ vượt max_execution_time mặc định (30s) của PHP khi chạy qua AJAX.
+    $deadline = microtime(true) + 12;
+
+    for ($i = 0; $i < $max_redirects; $i++) {
+        $remaining = $deadline - microtime(true);
+        if ($remaining <= 0) {
+            return new WP_Error('bct_timeout_budget', __('Quá thời gian chờ phản hồi từ online.gov.vn.', 'whp'));
+        }
+        $hop_timeout = min(8, max(1, (int) ceil($remaining)));
+        $response = wp_remote_get($url, whp_bct_http_args(['redirection' => 0, 'timeout' => $hop_timeout]));
+        if (is_wp_error($response)) {
+            return $response;
+        }
+
+        $code = wp_remote_retrieve_response_code($response);
+        $location = wp_remote_retrieve_header($response, 'location');
+        if (in_array($code, [301, 302, 303, 307, 308], true) && $location) {
+            $next_url = WP_Http::make_absolute_url($location, $url);
+            $next_host = wp_parse_url($next_url, PHP_URL_HOST);
+            if (!whp_bct_is_official_host($next_host)) {
+                return new WP_Error('bct_unsafe_redirect', __('Redirect trỏ ra ngoài domain cho phép.', 'whp'));
+            }
+            $url = $next_url;
+            continue;
+        }
+
+        return $response;
+    }
+
+    return new WP_Error('bct_too_many_redirects', __('Quá nhiều lần chuyển hướng.', 'whp'));
+}
+
+// Domain của website hiện tại (bỏ tiền tố "www." để so khớp lỏng hơn) — dùng để
+// đối chiếu với nội dung trang liên kết online.gov.vn, tránh trường hợp dán nhầm
+// (hoặc cố tình dán) liên kết đăng ký của một website khác.
+function whp_bct_current_site_host()
+{
+    $host = wp_parse_url(home_url('/'), PHP_URL_HOST);
+    $host = strtolower((string) $host);
+    if (strpos($host, 'www.') === 0) {
+        $host = substr($host, 4);
+    }
+    return $host;
+}
+
+// Trang online.gov.vn có thực sự nhắc tới domain của website hiện tại không.
+// Best-effort: không parse cấu trúc HTML cụ thể (dễ vỡ nếu online.gov.vn đổi giao
+// diện), chỉ tìm domain xuất hiện dạng chuỗi thô trong nội dung trang trả về.
+function whp_bct_link_body_matches_site($body)
+{
+    $host = whp_bct_current_site_host();
+    if (!$host || !$body) return false;
+    return stripos($body, $host) !== false;
+}
+
+// Trích TẤT CẢ href trong HTML trỏ thật sự tới online.gov.vn (thẻ <a href>),
+// thay vì chỉ tìm chuỗi "online.gov.vn" xuất hiện bất kỳ đâu — tránh bị qua mặt
+// bởi text/comment nhắc tới cụm từ này mà không phải badge/link thật. Trả về
+// mảng theo đúng thứ tự xuất hiện trong HTML: nếu link online.gov.vn đầu tiên
+// trên trang không phải badge thật (vd link tham khảo ở footer), caller vẫn có
+// thể thử các href còn lại thay vì dừng ngay ở link sai.
+function whp_bct_extract_official_link($body)
+{
+    if (!$body || !preg_match_all('/href=["\']([^"\']+)["\']/i', $body, $matches)) {
+        return [];
+    }
+    $links = [];
+    foreach ($matches[1] as $href) {
+        $host = wp_parse_url($href, PHP_URL_HOST);
+        if (whp_bct_is_official_host($host)) {
+            $links[] = $href;
+        }
+    }
+    return $links;
+}
+
+function whp_bct_badge_detected()
+{
+    $detected = get_transient('whp_bct_badge_detected');
+    if ($detected === false) {
+        $detected = '0';
+        $resp = wp_remote_get( home_url('/'), ['timeout' => 5] );
+        if ( ! is_wp_error($resp) ) {
+            $body        = wp_remote_retrieve_body($resp);
+            $badge_links = whp_bct_extract_official_link($body);
+            foreach ($badge_links as $badge_link) {
+                // Badge trên trang chủ trỏ tới 1 link online.gov.vn thật — xác minh
+                // luôn link đó có đúng là trang đăng ký của domain hiện tại không,
+                // cùng mức kiểm tra như khi user dán link thủ công. Nếu link này
+                // không khớp domain (vd link online.gov.vn khác xuất hiện trước
+                // badge thật trong HTML), thử tiếp các href còn lại thay vì kết
+                // luận "chưa đăng ký" ngay.
+                $link_resp = whp_bct_safe_remote_get($badge_link);
+                if (
+                    ! is_wp_error($link_resp)
+                    && in_array(wp_remote_retrieve_response_code($link_resp), [200, 301, 302], true)
+                    && whp_bct_link_body_matches_site(wp_remote_retrieve_body($link_resp))
+                ) {
+                    $detected = '1';
+                    break;
+                }
+            }
+        }
+        set_transient('whp_bct_badge_detected', $detected, DAY_IN_SECONDS);
+    }
+    return $detected;
+}
+
+// Kiểm tra kết hợp: ưu tiên link online.gov.vn (truyền vào $link_override nếu có,
+// ví dụ link vừa gõ nhưng chưa lưu — hoặc lấy link đã lưu nếu không truyền), domain
+// + HTTP 200/301/302; fallback quét trang chủ website hiện tại tìm badge. Cập nhật
+// whp_bct_status theo kết quả. Trả về ['registered' => bool, 'method' => 'link'|'homepage'|'none'].
+function whp_bct_run_combined_check($link_override = null)
+{
+    $registered = false;
+    $method     = 'none';
+
+    $link = ($link_override !== null && $link_override !== '') ? $link_override : whp_get_setting('whp_bct_link');
+    if ($link) {
+        $host = wp_parse_url($link, PHP_URL_HOST);
+        if (whp_bct_is_official_host($host)) {
+            $resp = whp_bct_safe_remote_get($link);
+            if (!is_wp_error($resp) && in_array(wp_remote_retrieve_response_code($resp), [200, 301, 302], true)) {
+                // Liên kết online.gov.vn hợp lệ chưa đủ — phải đúng domain của website
+                // hiện tại, tránh dán nhầm/dán liên kết đăng ký của một website khác.
+                if (whp_bct_link_body_matches_site(wp_remote_retrieve_body($resp))) {
+                    $registered = true;
+                    $method     = 'link';
+                } else {
+                    $method = 'domain_mismatch';
+                }
+            }
+        }
+    }
+
+    if (!$registered) {
+        delete_transient('whp_bct_badge_detected');
+        if (whp_bct_badge_detected() === '1') {
+            $registered = true;
+            $method     = 'homepage';
+        }
+    }
+
+    $setting = get_option('whp_setting', []);
+    $setting['whp_bct_status'] = $registered ? 'registered' : '';
+    // Khi xác thực thành công qua liên kết (kể cả $link_override — link vừa gõ nhưng
+    // chưa bấm "Lưu cấu hình") thì lưu luôn liên kết đó vào whp_bct_link ngay tại đây.
+    // Nếu không, whp_bct_status='registered' có thể được ghi trong khi whp_bct_link
+    // vẫn là giá trị cũ/rỗng, khiến badge công khai (whp_bct_render_badge_html) hiện
+    // "Đã đăng ký" nhưng trỏ sai liên kết. Link ở đây đã qua cùng kiểm tra domain/HTTP
+    // như luồng "Lưu cấu hình" nên lưu ngay là an toàn.
+    if ($method === 'link') {
+        $setting['whp_bct_link'] = $link;
+    }
+    update_option('whp_setting', $setting);
+
+    return ['registered' => $registered, 'method' => $method];
+}
+
+// Trạng thái xác thực từ subtab "Bộ Công Thương" — chỉ 2 giá trị: '' (chưa đăng ký) / 'registered'
+function whp_bct_get_status()
+{
+    // Lưu ý: KHÔNG fallback về field cũ "whp_bct_registered" (đã bỏ, không còn
+    // nơi nào ghi vào nữa) khi $status rỗng — trước đây làm vậy khiến kết quả
+    // "chưa đăng ký" hợp lệ (rỗng) từ lần kiểm tra mới nhất luôn bị field rác cũ
+    // đè thành "đã đăng ký", vô hiệu hoá hoàn toàn nút "Kiểm tra"/"Kiểm tra lại".
+    $status = whp_get_setting('whp_bct_status');
+    return $status === 'registered' ? 'registered' : '';
+}
+
+function whp_bct_is_registered()
+{
+    return whp_bct_get_status() === 'registered';
+}
+
 function whp_save_aipay_settings($posted_fields = [])
 {
     if (empty($posted_fields)) {
@@ -843,4 +1065,84 @@ function whp_format_currency_vnd($number, $suffix = '')
     if (!empty($number)) {
         return number_format($number, 0, ',', '.') . "{$suffix}";
     }
+}
+
+// ─── BẢO MẬT: kiểm tra quyền xem/thao tác trên đơn hàng ở trang "Đơn hàng thành công" ──
+// Hợp lệ nếu order_key khớp đúng đơn (khách vãng lai có link từ WooCommerce/email),
+// HOẶC người dùng đang đăng nhập chính là chủ đơn. Dùng chung cho template render lẫn
+// mọi AJAX handler liên quan (confirm_transfer, upload_receipt, cancel_expired,
+// support_request, ai_verify) để tránh IDOR/broken access control.
+function whp_thankyou_verify_order_access($order, $submitted_key = '')
+{
+    if (!$order) {
+        return false;
+    }
+
+    if ($submitted_key === '') {
+        $submitted_key = isset($_REQUEST['key']) ? wc_clean(wp_unslash($_REQUEST['key'])) : '';
+    }
+
+    $real_key = (string) $order->get_order_key();
+    if ($submitted_key !== '' && $real_key !== '' && hash_equals($real_key, (string) $submitted_key)) {
+        return true;
+    }
+
+    if (is_user_logged_in() && (int) $order->get_customer_id() > 0 && (int) $order->get_customer_id() === get_current_user_id()) {
+        return true;
+    }
+
+    return false;
+}
+
+/**
+ * Trả về true nếu $url an toàn để server fetch (chặn SSRF tới mạng nội bộ/cloud metadata).
+ * Dùng filter_var() với FILTER_FLAG_NO_PRIV_RANGE (chặn 10/8, 172.16/12, 192.168/16)
+ * + FILTER_FLAG_NO_RES_RANGE (chặn 127/8, 0/8, 169.254/16 - cloud metadata, và các dải reserved khác)
+ * — đây là 2 cờ built-in của PHP, được test kỹ, bao phủ đúng dải 169.254.0.0/16 mà
+ * wp_http_validate_url() của WP core KHÔNG chặn.
+ */
+function whp_is_ssrf_safe_url( $url ) {
+    if ( ! is_string( $url ) || $url === '' ) {
+        return false;
+    }
+    $parts = wp_parse_url( $url );
+    if ( empty( $parts['scheme'] ) || ! in_array( strtolower( $parts['scheme'] ), array( 'http', 'https' ), true ) ) {
+        return false;
+    }
+    if ( empty( $parts['host'] ) ) {
+        return false;
+    }
+    $host = $parts['host'];
+    if ( filter_var( $host, FILTER_VALIDATE_IP ) ) {
+        $ip = $host;
+    } else {
+        $resolved = gethostbyname( $host );
+        if ( $resolved === $host ) {
+            // gethostbyname() trả nguyên host nếu không resolve được -> coi là không an toàn.
+            return false;
+        }
+        $ip = $resolved;
+    }
+    return (bool) filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE );
+}
+
+/**
+ * Trả về true nếu $url trỏ vào đúng thư mục wp-uploads của chính site hiện tại.
+ * Dùng để MIỄN whp_is_ssrf_safe_url() cho URL biên lai do wp_handle_upload() của
+ * chính site sinh ra — tránh site chạy trên domain LAN/dev/loopback (resolve ra IP
+ * private/reserved) bị chặn nhầm chính ảnh thật của mình. Cùng cách prefix-match
+ * (bỏ qua protocol) đã dùng ở wpaap_aipay_fetch_image_base64() để nhất quán.
+ */
+function whp_is_own_upload_url( $url ) {
+    if ( ! is_string( $url ) || $url === '' ) {
+        return false;
+    }
+    $upload_dir      = wp_upload_dir();
+    $upload_url      = rtrim( $upload_dir['baseurl'], '/' );
+    if ( $upload_url === '' ) {
+        return false;
+    }
+    $url_no_proto    = preg_replace( '#^https?://#i', '//', $url );
+    $upload_no_proto = preg_replace( '#^https?://#i', '//', $upload_url );
+    return strpos( $url_no_proto, $upload_no_proto ) === 0;
 }

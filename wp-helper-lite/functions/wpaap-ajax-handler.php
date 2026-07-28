@@ -867,7 +867,11 @@ function wpaap_aipay_fetch_image_base64( $url ) {
     }
 
     // Fallback: HTTP download (cho URL ngoài wp-uploads)
-    $response = wp_remote_get( $url, [ 'timeout' => 30, 'sslverify' => true ] );
+    // Re-validate ngay trước khi fetch thật (chống TOCTOU/DNS-rebinding giữa lúc lưu và lúc fetch).
+    if ( ! function_exists( 'whp_is_ssrf_safe_url' ) || ! whp_is_ssrf_safe_url( $url ) ) {
+        return new WP_Error( 'unsafe_url', 'URL ảnh không hợp lệ hoặc không an toàn.' );
+    }
+    $response = wp_safe_remote_get( $url, [ 'timeout' => 30, 'sslverify' => true ] );
     if ( is_wp_error( $response ) ) {
         return new WP_Error( 'download_failed', 'Không tải được ảnh: ' . $response->get_error_message() );
     }
@@ -1099,6 +1103,11 @@ EOT;
 // Frontend AI Verify — khách hàng tự kích hoạt sau khi xác nhận chuyển khoản
 // ──────────────────────────────────────────────────────────────────────────────
 function wpaap_ajax_frontend_ai_verify_handler() {
+    // Chặn gọi AI Vision (tốn phí API) nếu admin đã tắt AI Payment / AI OCR.
+    if ( ! whp_get_setting( 'whp_aipay_enable' ) || whp_get_setting( 'whp_aipay_ocr_enable' ) !== '1' ) {
+        wp_send_json_error( [ 'message' => 'Tính năng AI xác thực chưa được kích hoạt.' ] );
+    }
+
     $order_id = absint( $_POST['order_id'] ?? 0 );
     if ( ! $order_id ) {
         wp_send_json_error( [ 'message' => 'Thiếu order_id.' ] );
@@ -1113,8 +1122,10 @@ function wpaap_ajax_frontend_ai_verify_handler() {
         wp_send_json_error( [ 'message' => 'Không tìm thấy đơn hàng.' ] );
     }
 
-    // Kiểm tra quyền sở hữu đơn hàng với user đã đăng nhập
-    if ( is_user_logged_in() && (int) $order->get_customer_id() !== get_current_user_id() ) {
+    // Kiểm tra quyền sở hữu đơn hàng — order_key khớp HOẶC đăng nhập đúng chủ đơn.
+    // (Check cũ chỉ chặn được khi kẻ tấn công đã đăng nhập — khách vãng lai lọt qua.)
+    $order_key = isset( $_POST['order_key'] ) ? wc_clean( wp_unslash( $_POST['order_key'] ) ) : '';
+    if ( ! function_exists( 'whp_thankyou_verify_order_access' ) || ! whp_thankyou_verify_order_access( $order, $order_key ) ) {
         wp_send_json_error( [ 'message' => 'Không có quyền xem đơn hàng này.' ] );
     }
 
@@ -1123,7 +1134,6 @@ function wpaap_ajax_frontend_ai_verify_handler() {
     if ( get_transient( $rate_key ) ) {
         wp_send_json_error( [ 'message' => 'Vui lòng đợi ít phút trước khi thử xác thực lại.' ] );
     }
-    set_transient( $rate_key, 1, MINUTE_IN_SECONDS );
 
     $receipt_url = $order->get_meta( '_whp_transfer_receipt' );
     if ( empty( $receipt_url ) ) {
@@ -1134,6 +1144,9 @@ function wpaap_ajax_frontend_ai_verify_handler() {
     if ( is_wp_error( $image_data ) ) {
         wp_send_json_error( [ 'message' => $image_data->get_error_message() ] );
     }
+
+    // Chỉ khoá rate-limit khi đã có ảnh hợp lệ và sắp thực sự gọi AI Vision (tốn phí)
+    set_transient( $rate_key, 1, MINUTE_IN_SECONDS );
 
     // Lấy số tài khoản nhận tiền và tên phương thức thanh toán của shop
     $method_id       = $order->get_payment_method();
@@ -1728,6 +1741,17 @@ function wpaap_bg_run_ai_handler() {
     if ( ! $job_id || wp_hash( 'wpaap_ai_bg_' . $job_id ) !== $secret ) {
         wp_die( 'forbidden', '', [ 'response' => 403 ] );
     }
+
+    // Single-use guard: chặn replay lặp lại cùng cặp job_id+secret (defense-in-depth,
+    // không phải access-control). TTL 5s đủ để hấp thụ 2 tầng fallback (loopback +
+    // external admin-ajax) vô tình cùng lọt qua trong 1 khoảng ngắn.
+    $hit_key = 'wpaap_bg_hit_' . $job_id;
+    if ( get_transient( $hit_key ) ) {
+        wpaap_log( "BG HANDLER replay blocked by single-use guard job=$job_id" );
+        wp_die( 'forbidden', '', [ 'response' => 429 ] );
+    }
+    set_transient( $hit_key, '1', 5 );
+
     wpaap_execute_ai_job_step( $job_id );
     wp_die( 'ok' );
 }

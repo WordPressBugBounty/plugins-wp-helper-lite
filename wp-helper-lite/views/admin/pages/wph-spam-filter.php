@@ -1281,15 +1281,11 @@ window.wphSf2KwParseFile=function(file){
         reader.readAsText(file,'UTF-8');
 
     }else if(name.endsWith('.xlsx')||name.endsWith('.xls')){
-        // Excel — lazy-load SheetJS from CDN
+        // Excel — SheetJS (xlsx) is enqueued locally via wp_enqueue_script (see admin_enqueue_scripts / whp-sheetjs handle)
         if(typeof XLSX!=='undefined'){
             wphSf2KwParseXlsx(file);
         }else{
-            var script=document.createElement('script');
-            script.src='https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
-            script.onload=function(){wphSf2KwParseXlsx(file);};
-            script.onerror=function(){wphSf2KwShowFileErr('Không tải được thư viện đọc Excel. Vui lòng kiểm tra kết nối mạng.');};
-            document.head.appendChild(script);
+            wphSf2KwShowFileErr('Không tải được thư viện đọc Excel.');
         }
     }else{
         wphSf2KwShowFileErr('Định dạng không hỗ trợ. Chỉ nhận .csv, .xlsx, .xls');
