@@ -30,6 +30,7 @@ if (!class_exists('MB_WHP_Frontend_Setup_Function')) {
                 $this->whp_woo_admin_ecommerce();
                 $this->whp_checkout();
                 $this->whp_gateway_wallet();
+                $this->whp_gateway_wallet_blocks();
                 $this->whp_woo_thankyou();
             }
             // $this->whp_maintenance();
@@ -1255,6 +1256,36 @@ body.login { background-color: #f0f0f1; }
         public function whp_checkout()
         {
             add_filter('woocommerce_checkout_fields', [$this, 'whp_checkout_setting'], 30, 1);
+            $this->whp_checkout_blocks_field_sync();
+        }
+
+        // WooCommerce Checkout Block không đọc filter woocommerce_checkout_fields
+        // ở trên. Trong lõi WooCommerce chỉ 3 field (Company, Address line 2,
+        // Phone) có cơ chế ẩn/hiện chính thức cho Block Checkout — thông qua 2
+        // option woocommerce_checkout_company_field / woocommerce_checkout_address_2_field
+        // (xem CheckoutFields::get_core_fields() trong WooCommerce core). Đồng
+        // bộ 2 option này theo đúng 2 toggle tương ứng đang có.
+        // Lưu ý: Quốc gia/Khu vực, Mã bưu điện, Tỉnh/Thành phố và việc gộp
+        // Họ+Tên bị WooCommerce hardcode "hidden => false" ngay trong core,
+        // KHÔNG có filter nào can thiệp được — 4 toggle đó không thể đồng bộ
+        // sang Block Checkout bằng bất kỳ cách chính thức nào.
+        public function whp_checkout_blocks_field_sync()
+        {
+            $sync = function ($value, $whp_flag_key) {
+                return whp_get_option($whp_flag_key) ? 'hidden' : $value;
+            };
+            add_filter('option_woocommerce_checkout_company_field', function ($value) use ($sync) {
+                return $sync($value, 'whp_woocommerce_payment_company');
+            });
+            add_filter('default_option_woocommerce_checkout_company_field', function ($value) use ($sync) {
+                return $sync($value, 'whp_woocommerce_payment_company');
+            });
+            add_filter('option_woocommerce_checkout_address_2_field', function ($value) use ($sync) {
+                return $sync($value, 'whp_woocommerce_payment_address');
+            });
+            add_filter('default_option_woocommerce_checkout_address_2_field', function ($value) use ($sync) {
+                return $sync($value, 'whp_woocommerce_payment_address');
+            });
         }
         public function whp_checkout_setting($fields)
         {
@@ -1663,6 +1694,36 @@ body.login { background-color: #f0f0f1; }
             return $gateways;
         }
         // end gateway wallet
+
+        // start gateway wallet — WooCommerce Checkout Block
+        public function whp_gateway_wallet_blocks()
+        {
+            add_action('woocommerce_blocks_payment_method_type_registration', function ($payment_method_registry) {
+                if (!class_exists('\Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType')) {
+                    return;
+                }
+
+                require_once plugin_dir_path(__FILE__) . 'wallet/class.wps-wallet-blocks-integration.php';
+
+                $fields = whp_get_woo_wallet_fields();
+                foreach ($fields as $field) {
+                    $$field = whp_get_setting($field);
+                }
+
+                $wallets = [
+                    'whp_woocommerce_wallet_momo'      => ['MB_WHP_Wallet_MoMo', MB_WHP_URL . 'assets/admin/images/logo-momo.svg'],
+                    'whp_woocommerce_wallet_zalopay'   => ['MB_WHP_Wallet_ZaloPay', MB_WHP_URL . 'assets/admin/images/zalopay.svg'],
+                    'whp_woocommerce_wallet_vnpay'     => ['MB_WHP_Wallet_VNPAY', MB_WHP_URL . 'assets/admin/images/vnpay.svg'],
+                    'whp_woocommerce_wallet_shopeepay' => ['MB_WHP_Wallet_ShopeePay', MB_WHP_URL . 'assets/admin/images/shopeepay.svg'],
+                ];
+                foreach ($wallets as $flagField => $cfg) {
+                    if ($$flagField) {
+                        $payment_method_registry->register(new MB_WHP_Wallet_Blocks_Integration($cfg[0], $cfg[1]));
+                    }
+                }
+            });
+        }
+        // end gateway wallet — WooCommerce Checkout Block
 
         // maintenance
 

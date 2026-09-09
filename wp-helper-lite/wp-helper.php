@@ -4,7 +4,7 @@
  * Plugin Name: WP Helper Premium
  * Plugin URI: https://www.matbao.net/hosting/wp-helper-plugin.html
  * Description: The best WordPress All-in-One plugin. ❤ Made in Vietnam by MWP Team.
- * Version: 4.7.6
+ * Version: 4.7.8
  * Requires at least: 6.7
  * Requires PHP: 7.4
  * Author: Mat Bao Corp
@@ -84,7 +84,7 @@ if (!class_exists('MB_WHP')) {
             define('MB_WHP_PATH_SIDEBAR', plugin_dir_path(__FILE__) . "sidebar/");
             define('MB_WHP_URL', plugin_dir_url(__FILE__));
             define('MB_WHP_PATH_VIEW', plugin_dir_path(__FILE__) . "views/");
-            define('MB_WHP_VERSION', '4.7.6');
+            define('MB_WHP_VERSION', '4.7.8');
         }
         public static function activate()
         {
@@ -112,4 +112,9 @@ if (class_exists('MB_WHP')) {
         global $mb_whp;
         $mb_whp = new MB_WHP();
     }, 0);
+    add_action('before_woocommerce_init', function() {
+        if (class_exists('\Automattic\WooCommerce\Utilities\FeaturesUtil')) {
+            \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('cart_checkout_blocks', __FILE__, true);
+        }
+    });
 }

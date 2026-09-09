@@ -6996,3 +6996,779 @@ msgstr "Error! Operation failed: "
 
 msgid "Sao chép"
 msgstr "Copy"
+
+# --- 4.7.7: i18n bổ sung bản dịch tiếng Anh còn thiếu (Security/SEO Advisor, AI Payment, Wallet, BCT...) ---
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: wp-helper.php
+msgid "https://www.matbao.net/hosting/wp-helper-plugin.html"
+msgstr "https://www.matbao.net/hosting/wp-helper-plugin.html"
+
+#. Description of the plugin
+#: wp-helper.php
+msgid "The best WordPress All-in-One plugin. ❤ Made in Vietnam by MWP Team."
+msgstr "The best WordPress All-in-One plugin. ❤ Made in Vietnam by MWP Team."
+
+#. Author of the plugin
+#: wp-helper.php
+msgid "Mat Bao Corp"
+msgstr "Mat Bao Corp"
+
+#: functions/class.wps-frontend-setup-function.php:1014
+msgid "No post to duplicate has been supplied!"
+msgstr "No post to duplicate has been supplied!"
+
+#: functions/class.wps-frontend-setup-function.php:1300
+#: functions/class.wps-frontend-setup-function.php:1307
+msgid "Họ và tên"
+msgstr "Full name"
+
+#: functions/class.wps-frontend-setup-function.php:1301
+msgid "Nhập đầy đủ họ và tên của bạn"
+msgstr "Enter your full name"
+
+#: functions/class.wps-frontend-setup-function.php:1308
+msgid "Nhập đầy đủ họ và tên của người nhận"
+msgstr "Enter the recipient's full name"
+
+#: functions/class.wps-frontend-setup-function.php:1339
+msgid "Nhập số điện thoại"
+msgstr "Enter phone number"
+
+#: functions/class.wps-frontend-setup-function.php:1445
+msgid "Hãy nhập tên công ty"
+msgstr "Please enter the company name"
+
+#: functions/class.wps-frontend-setup-function.php:1448
+msgid "Hãy nhập mã số thuế"
+msgstr "Please enter the tax code"
+
+#: functions/class.wps-frontend-setup-function.php:1451
+msgid "Hãy nhập địa chỉ công ty"
+msgstr "Please enter the company address"
+
+#: functions/class.wps-frontend-setup-function.php:2210
+msgid "Tự động hủy: hết thời gian thanh toán."
+msgstr "Automatically canceled: payment time expired."
+
+#: functions/wallet/class.wps-wallet-momo.php:17
+msgid "Ví điện tử MoMo"
+msgstr "MoMo E-Wallet"
+
+#: functions/wallet/class.wps-wallet-momo.php:18
+msgid "Cho phép thanh toán qua ví điện tử MoMo"
+msgstr "Allow payment via MoMo e-wallet"
+
+#: functions/wallet/class.wps-wallet-momo.php:38
+#: functions/wallet/class.wps-wallet-shopeepay.php:38
+#: functions/wallet/class.wps-wallet-vnpay.php:38
+#: functions/wallet/class.wps-wallet-zalopay.php:38
+msgid "Bật/Tắt"
+msgstr "Enable/Disable"
+
+#: functions/wallet/class.wps-wallet-momo.php:40
+#: functions/wallet/class.wps-wallet-shopeepay.php:40
+#: functions/wallet/class.wps-wallet-vnpay.php:40
+#: functions/wallet/class.wps-wallet-zalopay.php:40
+msgid "Bật phương thức thanh toán"
+msgstr "Enable payment method"
+
+#: functions/wallet/class.wps-wallet-momo.php:46
+#: functions/wallet/class.wps-wallet-momo.php:94
+msgid "Thanh toán qua MoMo"
+msgstr "Pay via MoMo"
+
+#: functions/wallet/class.wps-wallet-momo.php:48
+#: functions/wallet/class.wps-wallet-shopeepay.php:48
+#: functions/wallet/class.wps-wallet-vnpay.php:48
+#: functions/wallet/class.wps-wallet-zalopay.php:48
+msgid "Hiển thị ở trang thanh toán"
+msgstr "Show on the checkout page"
+
+#: functions/wallet/class.wps-wallet-momo.php:53
+msgid "Thanh toán qua ví điện tử MoMo. An toàn và nhanh chóng!"
+msgstr "Pay via MoMo e-wallet. Safe and fast!"
+
+#: functions/wallet/class.wps-wallet-momo.php:55
+#: functions/wallet/class.wps-wallet-shopeepay.php:55
+#: functions/wallet/class.wps-wallet-vnpay.php:55
+#: functions/wallet/class.wps-wallet-zalopay.php:55
+msgid "Nhập mô tả của phương thức."
+msgstr "Enter the payment method's description."
+
+#: functions/wallet/class.wps-wallet-momo.php:58
+msgid "Số điện thoại MoMo"
+msgstr "MoMo phone number"
+
+#: functions/wallet/class.wps-wallet-momo.php:61
+#: functions/wallet/class.wps-wallet-shopeepay.php:61
+#: functions/wallet/class.wps-wallet-vnpay.php:61
+#: functions/wallet/class.wps-wallet-zalopay.php:61
+msgid "Nhập số điện thoại nhận tiền"
+msgstr "Enter the phone number to receive payment"
+
+#: functions/wallet/class.wps-wallet-momo.php:64
+msgid "Tên tài khoản MoMo"
+msgstr "MoMo account name"
+
+#: functions/wallet/class.wps-wallet-momo.php:68
+#: functions/wallet/class.wps-wallet-shopeepay.php:68
+#: functions/wallet/class.wps-wallet-vnpay.php:68
+#: functions/wallet/class.wps-wallet-zalopay.php:68
+msgid "Hình QR Code"
+msgstr "QR code image"
+
+#: functions/wallet/class.wps-wallet-momo.php:95
+#: functions/wallet/class.wps-wallet-shopeepay.php:95
+#: functions/wallet/class.wps-wallet-vnpay.php:95
+#: functions/wallet/class.wps-wallet-zalopay.php:95
+msgid "Tên tài khoản: "
+msgstr "Account name: "
+
+#: functions/wallet/class.wps-wallet-momo.php:96
+#: functions/wallet/class.wps-wallet-shopeepay.php:96
+#: functions/wallet/class.wps-wallet-vnpay.php:96
+#: functions/wallet/class.wps-wallet-zalopay.php:96
+msgid "Số điện thoại: "
+msgstr "Phone number: "
+
+#: functions/wallet/class.wps-wallet-momo.php:115
+msgid "Chờ thanh toán qua MoMo"
+msgstr "Awaiting payment via MoMo"
+
+#: functions/wallet/class.wps-wallet-momo.php:225
+msgid ""
+"Vui lòng chuyển tiền đến tài khoản bên dưới và nhập đúng nội dung chuyển "
+"khoản."
+msgstr ""
+"Please transfer the payment to the account below and enter the correct "
+"transfer note."
+
+#: functions/wallet/class.wps-wallet-momo.php:248
+msgid "Quét mã QR để thanh toán"
+msgstr "Scan the QR code to pay"
+
+#: functions/wallet/class.wps-wallet-shopeepay.php:17
+msgid "Ví điện tử ShopeePay"
+msgstr "ShopeePay E-Wallet"
+
+#: functions/wallet/class.wps-wallet-shopeepay.php:18
+msgid "Cho phép thanh toán qua ví điện tử ShopeePay"
+msgstr "Allow payment via ShopeePay e-wallet"
+
+#: functions/wallet/class.wps-wallet-shopeepay.php:46
+#: functions/wallet/class.wps-wallet-shopeepay.php:94
+msgid "Thanh toán qua ShopeePay"
+msgstr "Pay via ShopeePay"
+
+#: functions/wallet/class.wps-wallet-shopeepay.php:53
+msgid "Thanh toán qua ví điện tử ShopeePay. An toàn và nhanh chóng!"
+msgstr "Pay via ShopeePay e-wallet. Safe and fast!"
+
+#: functions/wallet/class.wps-wallet-shopeepay.php:58
+msgid "Số điện thoại ShopeePay"
+msgstr "ShopeePay phone number"
+
+#: functions/wallet/class.wps-wallet-shopeepay.php:64
+msgid "Tên tài khoản ShopeePay"
+msgstr "ShopeePay account name"
+
+#: functions/wallet/class.wps-wallet-shopeepay.php:115
+msgid "Chờ thanh toán qua ShopeePay"
+msgstr "Awaiting payment via ShopeePay"
+
+#: functions/wallet/class.wps-wallet-vnpay.php:17
+msgid "Ví điện tử VNPAY"
+msgstr "VNPAY E-Wallet"
+
+#: functions/wallet/class.wps-wallet-vnpay.php:18
+msgid "Cho phép thanh toán qua ví điện tử VNPAY"
+msgstr "Allow payment via VNPAY e-wallet"
+
+#: functions/wallet/class.wps-wallet-vnpay.php:46
+#: functions/wallet/class.wps-wallet-vnpay.php:94
+msgid "Thanh toán qua VNPAY"
+msgstr "Pay via VNPAY"
+
+#: functions/wallet/class.wps-wallet-vnpay.php:53
+msgid "Thanh toán qua ví điện tử VNPAY. An toàn và nhanh chóng!"
+msgstr "Pay via VNPAY e-wallet. Safe and fast!"
+
+#: functions/wallet/class.wps-wallet-vnpay.php:58
+msgid "Số điện thoại VNPAY"
+msgstr "VNPAY phone number"
+
+#: functions/wallet/class.wps-wallet-vnpay.php:64
+msgid "Tên tài khoản VNPAY"
+msgstr "VNPAY account name"
+
+#: functions/wallet/class.wps-wallet-vnpay.php:115
+msgid "Chờ thanh toán qua VNPAY"
+msgstr "Awaiting payment via VNPAY"
+
+#: functions/wallet/class.wps-wallet-zalopay.php:17
+msgid "Ví điện tử ZaloPay"
+msgstr "ZaloPay E-Wallet"
+
+#: functions/wallet/class.wps-wallet-zalopay.php:18
+msgid "Cho phép thanh toán qua ví điện tử ZaloPay"
+msgstr "Allow payment via ZaloPay e-wallet"
+
+#: functions/wallet/class.wps-wallet-zalopay.php:46
+#: functions/wallet/class.wps-wallet-zalopay.php:94
+msgid "Thanh toán qua ZaloPay"
+msgstr "Pay via ZaloPay"
+
+#: functions/wallet/class.wps-wallet-zalopay.php:53
+msgid "Thanh toán qua ví điện tử ZaloPay. An toàn và nhanh chóng!"
+msgstr "Pay via ZaloPay e-wallet. Safe and fast!"
+
+#: functions/wallet/class.wps-wallet-zalopay.php:58
+msgid "Số điện thoại ZaloPay"
+msgstr "ZaloPay phone number"
+
+#: functions/wallet/class.wps-wallet-zalopay.php:64
+msgid "Tên tài khoản ZaloPay"
+msgstr "ZaloPay account name"
+
+#: functions/wallet/class.wps-wallet-zalopay.php:115
+msgid "Chờ thanh toán qua ZaloPay"
+msgstr "Awaiting payment via ZaloPay"
+
+#: functions/whp-base-functions.php:865
+msgid "Domain không hợp lệ."
+msgstr "Invalid domain."
+
+#: functions/whp-base-functions.php:876
+msgid "Quá thời gian chờ phản hồi từ online.gov.vn."
+msgstr "Timed out waiting for a response from online.gov.vn."
+
+#: functions/whp-base-functions.php:890
+msgid "Redirect trỏ ra ngoài domain cho phép."
+msgstr "The redirect points outside the allowed domain."
+
+#: functions/whp-base-functions.php:899
+msgid "Quá nhiều lần chuyển hướng."
+msgstr "Too many redirects."
+
+#: functions/wpaap-ajax-handler.php:1840
+msgid "Cần kết nối AI trước khi bật AI Thanh Toán."
+msgstr "AI must be connected before enabling AI Payment."
+
+#: functions/wph-bct.php:25 functions/wph-bct.php:79 functions/wph-bct.php:161
+msgid "Phiên làm việc hết hạn, vui lòng tải lại trang."
+msgstr "Session expired, please reload the page."
+
+#: functions/wph-bct.php:33
+msgid "Đường dẫn không hợp lệ."
+msgstr "Invalid URL."
+
+#: functions/wph-bct.php:38
+msgid "Đường dẫn không hợp lệ — phải là liên kết xác thực từ online.gov.vn."
+msgstr "Invalid URL — it must be a verification link from online.gov.vn."
+
+#: functions/wph-bct.php:43 views/admin/pages/woocommerce/bct.php:742
+#: views/admin/pages/woocommerce/bct.php:743
+msgid "Không thể truy cập đường dẫn."
+msgstr "Unable to access the URL."
+
+#: functions/wph-bct.php:48
+msgid "Website chưa được xác thực (đường dẫn trả về lỗi)."
+msgstr "The website has not been verified (the URL returned an error)."
+
+#. translators: %s: tên miền website hiện tại
+#: functions/wph-bct.php:58
+#, php-format
+msgid ""
+"Liên kết hợp lệ nhưng không khớp với tên miền website này (%s). Vui lòng "
+"dùng đúng liên kết đăng ký của website hiện tại."
+msgstr ""
+"The link is valid but does not match this website's domain (%s). Please use "
+"the correct registration link for this website."
+
+#: functions/wph-bct.php:99
+msgid ""
+"Liên kết không hợp lệ — phải là liên kết xác thực từ online.gov.vn. Vui lòng"
+" bấm \"Kiểm tra\" trước khi lưu."
+msgstr ""
+"Invalid link — it must be a verification link from online.gov.vn. Please "
+"click \"Check\" before saving."
+
+#. translators: %s: tên miền website hiện tại
+#: functions/wph-bct.php:109
+#, php-format
+msgid ""
+"Không thể lưu — liên kết không khớp với tên miền website này (%s) hoặc chưa "
+"xác thực được. Vui lòng bấm \"Kiểm tra\" để xác nhận trước khi lưu."
+msgstr ""
+"Cannot save — the link does not match this website's domain (%s) or could "
+"not be verified. Please click \"Check\" to confirm before saving."
+
+#: functions/wph-bct.php:176
+msgid "Đã đăng ký/thông báo Bộ Công Thương"
+msgstr "Registered/notified with the Ministry of Industry and Trade"
+
+#: views/admin/pages/duplicate-menu.php:4
+msgid "Duplicate Menu"
+msgstr "Duplicate Menu"
+
+#: views/admin/pages/duplicate-menu.php:19
+msgid "View"
+msgstr "View"
+
+#: views/admin/pages/duplicate-menu.php:21
+msgid "There was a problem duplicating your menu. No action was taken."
+msgstr "There was a problem duplicating your menu. No action was taken."
+
+#: views/admin/pages/duplicate-menu.php:30
+msgid "You haven't created any Menus yet."
+msgstr "You haven't created any Menus yet."
+
+#: views/admin/pages/security-extention-main.php:1605
+msgid "PNG, JPG, WebP"
+msgstr "PNG, JPG, WebP"
+
+#: views/admin/pages/woocommerce-main.php:124
+#: views/admin/pages/woocommerce-main.php:205
+#: views/admin/pages/woocommerce/bct.php:220
+msgid "Bộ Công Thương"
+msgstr "Ministry of Industry and Trade"
+
+#: views/admin/pages/woocommerce-main.php:195
+msgid "Lưu ý pháp lý"
+msgstr "Legal notice"
+
+#: views/admin/pages/woocommerce-main.php:197
+msgid "Đăng ký/Thông báo Bộ Công Thương"
+msgstr "Register/Notify with the Ministry of Industry and Trade"
+
+#. translators: %s: "Bộ Công Thương" được in đậm
+#: views/admin/pages/woocommerce-main.php:204
+#, php-format
+msgid ""
+"Nếu website có chức năng bán hàng/thanh toán trực tuyến, theo Nghị định "
+"52/2013/NĐ-CP (sửa đổi, bổ sung bởi Nghị định 85/2021/NĐ-CP) về thương mại "
+"điện tử, chủ website cần thông báo hoặc đăng ký với %s trước khi vận hành."
+msgstr ""
+"If your website has online sales/payment functionality, under Decree "
+"52/2013/NĐ-CP (amended by Decree 85/2021/NĐ-CP) on e-commerce, the website "
+"owner must notify or register with %s before operating."
+
+#: views/admin/pages/woocommerce-main.php:215
+msgid "Đối tượng áp dụng"
+msgstr "Who this applies to"
+
+#: views/admin/pages/woocommerce-main.php:216
+msgid ""
+"Áp dụng cho website có chức năng đặt hàng, thanh toán trực tuyến hoặc cung "
+"cấp dịch vụ thương mại điện tử."
+msgstr ""
+"Applies to websites with order placement, online payment, or e-commerce "
+"service functionality."
+
+#: views/admin/pages/woocommerce-main.php:223
+#: views/admin/pages/woocommerce/bct.php:548
+msgid "Đăng ký bộ công thương ngay"
+msgstr "Register with the Ministry of Industry and Trade now"
+
+#: views/admin/pages/woocommerce-main.php:224
+msgid "Hướng dẫn đăng ký chi tiết"
+msgstr "Detailed registration guide"
+
+#: views/admin/pages/woocommerce-main.php:228
+msgid "Đi đến Cấu hình Bộ Công Thương"
+msgstr "Go to Ministry of Industry and Trade Settings"
+
+#: views/admin/pages/woocommerce-main.php:229
+msgid "Thiết lập & kiểm tra thông báo"
+msgstr "Set up & check the notification"
+
+#: views/admin/pages/woocommerce-main.php:235
+msgid "Thông tin của bạn được bảo mật và chỉ sử dụng cho mục đích xác thực."
+msgstr ""
+"Your information is kept confidential and used only for verification "
+"purposes."
+
+#: views/admin/pages/woocommerce/bct.php:38
+msgid "Chưa đăng ký Bộ Công Thương"
+msgstr "Not registered with the Ministry of Industry and Trade"
+
+#: views/admin/pages/woocommerce/bct.php:39
+msgid "Đã đăng ký Bộ Công Thương"
+msgstr "Registered with the Ministry of Industry and Trade"
+
+#: views/admin/pages/woocommerce/bct.php:222
+msgid ""
+"Hỗ trợ cấu hình và hiển thị logo Bộ Công Thương đúng quy định cho website "
+"thương mại điện tử."
+msgstr ""
+"Helps configure and display the Ministry of Industry and Trade badge "
+"correctly for e-commerce websites."
+
+#: views/admin/pages/woocommerce/bct.php:290
+msgid "Trạng thái xác thực"
+msgstr "Verification status"
+
+#: views/admin/pages/woocommerce/bct.php:291
+msgid "Cho biết website hiện đang ở trạng thái nào với Bộ Công Thương"
+msgstr ""
+"Shows the website's current status with the Ministry of Industry and Trade"
+
+#: views/admin/pages/woocommerce/bct.php:323
+msgid "Liên kết Bộ Công Thương"
+msgstr "Ministry of Industry and Trade link"
+
+#: views/admin/pages/woocommerce/bct.php:324
+msgid "Dán liên kết xác thực từ online.gov.vn để hệ thống kiểm tra"
+msgstr ""
+"Paste the verification link from online.gov.vn for the system to check"
+
+#: views/admin/pages/woocommerce/bct.php:339
+msgid "Dán liên kết xác thực từ online.gov.vn"
+msgstr "Paste the verification link from online.gov.vn"
+
+#: views/admin/pages/woocommerce/bct.php:355
+msgid "Logo hiển thị"
+msgstr "Displayed logo"
+
+#: views/admin/pages/woocommerce/bct.php:356
+msgid "Chọn cách lấy logo hiển thị lên website"
+msgstr "Choose how the displayed logo is sourced"
+
+#: views/admin/pages/woocommerce/bct.php:362
+msgid "Mặc định (ảnh chính thức)"
+msgstr "Default (official image)"
+
+#: views/admin/pages/woocommerce/bct.php:366
+msgid "Upload logo"
+msgstr "Upload logo"
+
+#: views/admin/pages/woocommerce/bct.php:373
+#: views/admin/pages/woocommerce/bct.php:756
+msgid ""
+"Dùng ảnh logo chính thức có sẵn của plugin. Nếu muốn dùng ảnh khác, chọn "
+"\"Upload logo\"."
+msgstr ""
+"Use the plugin's built-in official logo image. To use a different image, "
+"choose \"Upload logo\"."
+
+#: views/admin/pages/woocommerce/bct.php:378
+msgid "Hỗ trợ PNG, JPG, WEBP"
+msgstr "Supports PNG, JPG, WEBP"
+
+#: views/admin/pages/woocommerce/bct.php:393
+msgid "Chọn nơi hiển thị logo trên website"
+msgstr "Choose where the logo is displayed on the website"
+
+#: views/admin/pages/woocommerce/bct.php:397
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: views/admin/pages/woocommerce/bct.php:397
+msgid "Chèn thủ công vào trang/bài viết bất kỳ"
+msgstr "Manually insert into any page/post"
+
+#: views/admin/pages/woocommerce/bct.php:402
+msgid "Copy"
+msgstr "Copy"
+
+#: views/admin/pages/woocommerce/bct.php:415
+msgid "Mã HTML để chèn thủ công"
+msgstr "HTML code for manual insertion"
+
+#: views/admin/pages/woocommerce/bct.php:416
+msgid "Copy mã bên dưới rồi tự dán vào footer/khối HTML tuỳ chỉnh của theme"
+msgstr ""
+"Copy the code below and paste it into your theme's footer/custom HTML block"
+
+#: views/admin/pages/woocommerce/bct.php:420
+msgid "Mã HTML sẵn sàng dùng — copy và dán trực tiếp"
+msgstr "Ready-to-use HTML code — copy and paste directly"
+
+#: views/admin/pages/woocommerce/bct.php:422
+msgid "Copy mã HTML"
+msgstr "Copy HTML code"
+
+#: views/admin/pages/woocommerce/bct.php:426
+msgid "Tuỳ chỉnh cấu trúc HTML (nâng cao)"
+msgstr "Customize HTML structure (advanced)"
+
+#: views/admin/pages/woocommerce/bct.php:428
+#, php-format
+msgid ""
+"Mã đã tự động điền sẵn liên kết và logo hiện tại của bạn — có thể chỉnh sửa "
+"trực tiếp (đổi liên kết, đổi ảnh, thêm class...) nếu có nhu cầu khác. Muốn "
+"mã tự cập nhật mỗi khi đổi liên kết/logo ở trên, dùng %1$s và %2$s thay cho "
+"giá trị thật."
+msgstr ""
+"The code is pre-filled with your current link and logo — you can edit it "
+"directly (change the link, change the image, add classes...) if needed. To "
+"have the code update automatically whenever you change the link/logo above, "
+"use %1$s and %2$s instead of the actual values."
+
+#: views/admin/pages/woocommerce/bct.php:440
+msgid "Giao diện hiển thị"
+msgstr "Display appearance"
+
+#: views/admin/pages/woocommerce/bct.php:441
+msgid "Căn chỉnh kích thước và vị trí logo"
+msgstr "Adjust the logo's size and position"
+
+#: views/admin/pages/woocommerce/bct.php:445
+msgid "Left"
+msgstr "Left"
+
+#: views/admin/pages/woocommerce/bct.php:445
+msgid "Center"
+msgstr "Center"
+
+#: views/admin/pages/woocommerce/bct.php:445
+msgid "Right"
+msgstr "Right"
+
+#: views/admin/pages/woocommerce/bct.php:459
+msgid "Width (px)"
+msgstr "Width (px)"
+
+#: views/admin/pages/woocommerce/bct.php:460
+msgid "Max Width (px)"
+msgstr "Max Width (px)"
+
+#: views/admin/pages/woocommerce/bct.php:461
+msgid "Height"
+msgstr "Height"
+
+#: views/admin/pages/woocommerce/bct.php:462
+msgid "Margin Top (px)"
+msgstr "Margin Top (px)"
+
+#: views/admin/pages/woocommerce/bct.php:463
+msgid "Margin Bottom (px)"
+msgstr "Margin Bottom (px)"
+
+#: views/admin/pages/woocommerce/bct.php:476
+msgid "Hiệu ứng"
+msgstr "Effect"
+
+#: views/admin/pages/woocommerce/bct.php:477
+msgid "Tùy chọn hiệu ứng tương tác cho logo"
+msgstr "Interactive effect options for the logo"
+
+#: views/admin/pages/woocommerce/bct.php:481
+msgid "Hover Scale"
+msgstr "Hover Scale"
+
+#: views/admin/pages/woocommerce/bct.php:485
+msgid "Hover Shadow"
+msgstr "Hover Shadow"
+
+#: views/admin/pages/woocommerce/bct.php:493
+msgid "Không hiệu ứng"
+msgstr "No effect"
+
+#: views/admin/pages/woocommerce/bct.php:510
+msgid "Cập nhật theo thời gian thực"
+msgstr "Updates in real time"
+
+#: views/admin/pages/woocommerce/bct.php:535
+msgid "Đăng ký website tại online.gov.vn"
+msgstr "Register the website at online.gov.vn"
+
+#: views/admin/pages/woocommerce/bct.php:537
+msgid "Sao chép liên kết xác thực"
+msgstr "Copy the verification link"
+
+#: views/admin/pages/woocommerce/bct.php:538
+msgid "Dán vào plugin và bấm \"Kiểm tra\""
+msgstr "Paste it into the plugin and click \"Check\""
+
+#: views/admin/pages/woocommerce/bct.php:539
+msgid "Chọn logo (mặc định hoặc tự upload)"
+msgstr "Choose a logo (default or your own upload)"
+
+#: views/admin/pages/woocommerce/bct.php:540
+msgid "Chọn vị trí hiển thị"
+msgstr "Choose the display position"
+
+#: views/admin/pages/woocommerce/bct.php:561
+msgid "Cập nhật ngay, không cần tải lại trang"
+msgstr "Updates instantly, no page reload needed"
+
+#: views/admin/pages/woocommerce/bct.php:680
+msgid "Đã xác thực qua liên kết Bộ Công Thương!"
+msgstr "Verified via the Ministry of Industry and Trade link!"
+
+#: views/admin/pages/woocommerce/bct.php:681
+msgid "Đã phát hiện badge trên trang chủ website!"
+msgstr "Badge detected on the website's homepage!"
+
+#: views/admin/pages/woocommerce/bct.php:682
+msgid ""
+"Liên kết hợp lệ nhưng không khớp tên miền website này — vui lòng dùng đúng "
+"liên kết đăng ký của website hiện tại."
+msgstr ""
+"The link is valid but does not match this website's domain — please use the "
+"correct registration link for this website."
+
+#: views/admin/pages/woocommerce/bct.php:683
+msgid ""
+"Chưa xác thực được — kiểm tra lại liên kết, hoặc badge đã gắn lên trang chủ "
+"chưa."
+msgstr ""
+"Not verified yet — check the link again, or whether the badge has been added"
+" to the homepage."
+
+#: views/admin/pages/woocommerce/bct.php:687
+#: views/admin/pages/woocommerce/bct.php:694
+msgid "Không thể kiểm tra, vui lòng thử lại."
+msgstr "Unable to check, please try again."
+
+#: views/admin/pages/woocommerce/bct.php:723
+msgid "Liên kết hợp lệ"
+msgstr "Valid link"
+
+#: views/admin/pages/woocommerce/bct.php:725
+msgid "Tên website:"
+msgstr "Website name:"
+
+#: views/admin/pages/woocommerce/bct.php:729
+msgid "Liên kết hợp lệ!"
+msgstr "Valid link!"
+
+#: views/admin/pages/woocommerce/bct.php:731
+msgid "Không thể kiểm tra liên kết."
+msgstr "Unable to check the link."
+
+#: views/admin/pages/woocommerce/bct.php:757
+msgid ""
+"Chưa có logo tuỳ chỉnh — bấm \"Chọn ảnh\" bên dưới để tải logo của bạn lên."
+msgstr "No custom logo yet — click \"Select image\" below to upload your logo."
+
+#: views/admin/pages/woocommerce/bct.php:758
+msgid "Đây là logo tuỳ chỉnh bạn đã tải lên. Bấm \"Chọn ảnh\" để đổi ảnh khác."
+msgstr ""
+"This is the custom logo you uploaded. Click \"Select image\" to change it."
+
+#: views/admin/pages/woocommerce/bct.php:782
+msgid "Chọn logo Bộ Công Thương"
+msgstr "Select Ministry of Industry and Trade logo"
+
+#: views/admin/pages/woocommerce/bct.php:804
+msgid "Đã sao chép shortcode!"
+msgstr "Shortcode copied!"
+
+#: views/admin/pages/woocommerce/bct.php:843
+msgid "Đã sao chép mã HTML!"
+msgstr "HTML code copied!"
+
+#: views/admin/pages/woocommerce/bct.php:954
+#: views/admin/pages/woocommerce/bct.php:960
+msgid "Lưu thất bại, vui lòng thử lại."
+msgstr "Save failed, please try again."
+
+#: views/admin/pages/woocommerce/thankyou.php:131
+msgid "Vừa"
+msgstr "Just now"
+
+#: views/admin/pages/woocommerce/wallet.php:417
+msgid ""
+"Sau khi nhập số điện thoại, tên tài khoản và ảnh QR, hãy đặt thử một đơn "
+"hàng thật để xác nhận thông tin hiển thị đúng ở trang thanh toán."
+msgstr ""
+"After entering the phone number, account name, and QR image, place a real "
+"test order to confirm the information displays correctly on the checkout "
+"page."
+
+#: views/admin/pages/woocommerce/wallet.php:463
+msgid "Chưa thể mở Cài đặt"
+msgstr "Settings not available yet"
+
+#: views/admin/pages/woocommerce/wallet.php:464
+msgid ""
+"Cổng này cần được Bật và Lưu thông tin trước, sau đó mới bấm \"Cài đặt\" — "
+"nếu không trang sẽ trống vì phương thức chưa được đăng ký."
+msgstr ""
+"This gateway needs to be enabled and saved first before clicking "
+"\"Settings\" — otherwise the page will be blank because the method hasn't "
+"been registered yet."
+
+#: views/admin/pages/wpaap-ai-payment-tab.php:299
+msgid "AI Thanh Toán chưa thể bật — cần kết nối AI trước"
+msgstr "AI Payment can't be enabled yet — connect AI first"
+
+#: views/admin/pages/wpaap-ai-payment-tab.php:300
+msgid "Cấu hình API Key trong phần Kết nối AI để kích hoạt tính năng này."
+msgstr ""
+"Configure the API key in the AI Connection section to enable this feature."
+
+#: views/admin/pages/wpaap-ai-payment-tab.php:339
+msgid "Cần kết nối AI trước khi bật tính năng này"
+msgstr "AI must be connected before enabling this feature"
+
+#: views/admin/pages/wpaap-ai-payment-tab.php:340
+msgid "Cần kết nối AI trước"
+msgstr "AI connection required first"
+
+#: views/admin/pages/wpaap-ai-payment-tab.php:737
+msgid ""
+"Cần kết nối AI trước khi bật AI Thanh Toán. Đến trang kết nối để cấu hình "
+"API Key."
+msgstr ""
+"AI must be connected before enabling AI Payment. Go to the connection page "
+"to configure the API key."
+
+#: views/admin/pages/wpaap-ai-payment-tab.php:739
+msgid "Đến AI Connection"
+msgstr "Go to AI Connection"
+
+#: views/admin/pages/wpaap-ai-payment/queue.php:649
+#: views/admin/pages/wpaap-ai-payment/risk.php:657
+#: views/admin/pages/wpaap-ai-payment/verify.php:833
+msgid "Lưu ý: KHÔNG gửi được email — đơn hàng thiếu email khách hàng."
+msgstr ""
+"Note: email could NOT be sent — the order is missing the customer's email."
+
+#: views/admin/pages/wpaap-connection.php:649
+msgid "Đã lưu API Key — nhập key mới để thay đổi"
+msgstr "API key saved — enter a new key to change it"
+
+#: views/admin/pages/wpaap-maintenance-tab.php:1068
+msgid ""
+"✓ Đã lưu thành công.  ⚠ Chế độ bảo trì đang TẮT — website vẫn hoạt động bình"
+" thường. Bật toggle để kích hoạt bảo trì."
+msgstr ""
+"✓ Saved successfully.  ⚠ Maintenance mode is OFF — the website is still "
+"running normally. Turn on the toggle to activate maintenance mode."
+
+#: views/admin/pages/wpaap-security-advisor.php:981
+#: views/admin/pages/wpaap-seo-advisor.php:2065
+msgid "Không có quyền thực hiện hành động này."
+msgstr "You don't have permission to perform this action."
+
+#: views/admin/pages/wpaap-seo-advisor.php:1325
+msgid ""
+"Chỉ là gợi ý — bạn tự viết nội dung và thêm vào bài viết, hệ thống không tự "
+"chèn."
+msgstr ""
+"This is just a suggestion — you write the content yourself and add it to the"
+" post; the system doesn't insert it automatically."
+
+#: views/admin/pages/wph-email-log.php:1004
+msgid "Ghi log email"
+msgstr "Log emails"
+
+#: views/admin/pages/wph-email-log.php:1005
+msgid "Bật để lưu lại nội dung các email hệ thống gửi đi"
+msgstr "Enable to save the content of outgoing system emails"
+
+#: views/admin/pages/wph-email-log.php:1108
+msgid "Không tìm thấy"
+msgstr "Not found"
+
+#: views/frontend/thankyou/_body-content.php:455
+msgid "Free ship"
+msgstr "Free ship"
+
+#: views/frontend/thankyou/_body-content.php:463
+msgid "24/7"
+msgstr "24/7"

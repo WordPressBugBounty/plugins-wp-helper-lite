@@ -2,9 +2,9 @@
 Contributors: matbao
 Tags: contact button, SMTP, maintenance mode, security, woocommerce
 Requires at least: 6.7
-Tested up to: 6.8
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 4.7.6
+Stable tag: 4.7.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -239,6 +239,17 @@ The Ministry of Industry and Trade (Bộ Công Thương) registration badge modu
 10. Security & Optimization — individual security and performance toggles in one panel
 
 == Changelog ==
+
+= 4.7.8 =
+* i18n: added the missing English (en_US) translation for 161 strings introduced since the last full translation pass — mainly in Security Advisor, SEO Advisor, AI Payment, the e-wallet gateways (MoMo, ZaloPay, VNPay, ShopeePay), and the Ministry of Industry and Trade (Bộ Công Thương) module. English-locale sites previously saw Vietnamese text for these strings.
+
+= 4.7.7 =
+* New: e-wallet payment methods (MoMo, ZaloPay, VNPay, ShopeePay) are now registered with the WooCommerce Checkout Block (Cart & Checkout blocks), not just the classic shortcode checkout.
+* Fixed: an e-wallet enabled from the plugin's own Wallet settings page could silently be missing from the Block Checkout — while still showing on the classic checkout — because the block integration didn't fall back to the gateway's default "enabled" state the same way WooCommerce's classic settings API does when the gateway's dedicated settings page has never been saved.
+* Fixed: two "Company"/"Address line 2" checkout-field visibility toggles are now synced to the Checkout Block as well as the classic checkout.
+* Fixed: corrected inaccurate help text on the Wallet settings page that referenced an API key, even though these gateways only use an account name/phone number and a QR code image.
+* Fixed: clicking "Settings" for a wallet gateway that hasn't been saved as enabled yet used to open a blank WooCommerce settings page; it now shows an inline warning instead.
+* Confirmed compatibility with WordPress 7.1.
 
 = 4.7.6 =
 * Security: fixed a server-side request forgery (SSRF) issue in the bank-transfer confirmation flow — a crafted receipt URL could previously cause the server to fetch internal or cloud-metadata addresses; URLs are now validated against private and link-local IP ranges both when the URL is saved and again right before the server fetches it.

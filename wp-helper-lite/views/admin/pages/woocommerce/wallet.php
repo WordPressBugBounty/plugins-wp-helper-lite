@@ -178,6 +178,29 @@ $gateway_sections = [
     display: inline-flex; align-items: center; gap: 7px;
 }
 .mb-wph-save-btn:hover { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); transform: translateY(-1px); }
+
+/* ── Toast: chưa lưu mà bấm Cài đặt ── */
+.mb-wallet-toast {
+    position: fixed; top: 46px; right: 24px; z-index: 100000;
+    display: flex; align-items: flex-start; gap: 10px;
+    max-width: 360px; padding: 14px 16px;
+    background: #fff7ed; border: 1px solid #fed7aa; border-left: 4px solid #f97316;
+    border-radius: 10px; box-shadow: 0 8px 24px rgba(15,23,42,0.12);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    opacity: 0; transform: translateY(-8px); pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.mb-wallet-toast.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.mb-wallet-toast-icon {
+    width: 20px; height: 20px; border-radius: 50%; background: #f97316;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+}
+.mb-wallet-toast-text { font-size: 12.5px; color: #7c2d12; line-height: 1.5; }
+.mb-wallet-toast-text strong { display: block; font-size: 13px; color: #7c2d12; margin-bottom: 2px; }
+.mb-wallet-toast-close {
+    margin-left: auto; background: none; border: none; cursor: pointer;
+    color: #c2410c; font-size: 16px; line-height: 1; padding: 0 0 0 8px; flex-shrink: 0;
+}
 </style>
 
 <form method="post" id="mb-woo-wallet-form">
@@ -391,7 +414,7 @@ $gateway_sections = [
                     </span>
                     <div>
                         <strong style="font-size:12px;color:#7c2d12;display:block;margin-bottom:1px;"><?php esc_html_e('Kiểm tra sau cài đặt', 'whp'); ?></strong>
-                        <span style="font-size:11.5px;color:#c2410c;line-height:1.4;display:block;"><?php esc_html_e('Sau khi nhập API key, hãy thử thanh toán thật để xác nhận kết nối hoạt động đúng.', 'whp'); ?></span>
+                        <span style="font-size:11.5px;color:#c2410c;line-height:1.4;display:block;"><?php esc_html_e('Sau khi nhập số điện thoại, tên tài khoản và ảnh QR, hãy đặt thử một đơn hàng thật để xác nhận thông tin hiển thị đúng ở trang thanh toán.', 'whp'); ?></span>
                     </div>
                 </div>
             </div>
@@ -422,14 +445,62 @@ $gateway_sections = [
 <script>
 (function() {
     var whpWooI18n={on:'<?php echo esc_js(__("Bật","whp")); ?>',off:'<?php echo esc_js(__("Tắt","whp")); ?>'};
+
+    // Toast cảnh báo khi bấm "Cài đặt" trong lúc cổng ví CHƯA ĐƯỢC LƯU ở trạng
+    // thái Bật. Trang "Cài đặt" là 1 request admin khác (wc-settings), nó đọc
+    // lại option từ DB — không quan tâm switch trên trang này đang hiển thị gì
+    // — nên dù mới bật (chưa lưu) hay chưa từng bật lần nào, WooCommerce đều
+    // chưa đăng ký gateway đó và trang Cài đặt sẽ trống.
+    var toastTimer = null;
+    var toast = document.createElement('div');
+    toast.className = 'mb-wallet-toast';
+    toast.setAttribute('role', 'alert');
+    toast.innerHTML =
+        '<span class="mb-wallet-toast-icon">' +
+            '<svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M12 9v4m0 4h.01" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>' +
+        '</span>' +
+        '<span class="mb-wallet-toast-text">' +
+            '<strong><?php echo esc_js(__("Chưa thể mở Cài đặt", "whp")); ?></strong>' +
+            '<?php echo esc_js(__("Cổng này cần được Bật và Lưu thông tin trước, sau đó mới bấm \"Cài đặt\" — nếu không trang sẽ trống vì phương thức chưa được đăng ký.", "whp")); ?>' +
+        '</span>' +
+        '<button type="button" class="mb-wallet-toast-close" aria-label="<?php echo esc_attr__("Đóng", "whp"); ?>">&times;</button>';
+    document.body.appendChild(toast);
+    toast.querySelector('.mb-wallet-toast-close').addEventListener('click', hideToast);
+
+    function hideToast() {
+        toast.classList.remove('is-visible');
+        if (toastTimer) { clearTimeout(toastTimer); toastTimer = null; }
+    }
+    function showToast() {
+        toast.classList.add('is-visible');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(hideToast, 5000);
+    }
+
     document.querySelectorAll('.mb-wph-wallet-actions .mb-wph-switch input').forEach(function(input) {
-        var label = input.closest('.mb-wph-wallet-actions').querySelector('.mb-wph-toggle-label');
+        var actions = input.closest('.mb-wph-wallet-actions');
+        var label = actions.querySelector('.mb-wph-toggle-label');
+        var settingsLink = actions.querySelector('.mb-wph-wallet-settings-btn');
+
         input.addEventListener('change', function() {
             if (label) {
                 label.textContent = this.checked ? whpWooI18n.on : whpWooI18n.off;
                 label.classList.toggle('active', this.checked);
             }
         });
+
+        if (settingsLink) {
+            settingsLink.addEventListener('click', function(e) {
+                // input.defaultChecked phản ánh trạng thái ĐÃ LƯU (render từ
+                // server) — đây mới là cái quyết định trang Cài đặt có nội
+                // dung hay không, bất kể switch trên trang này đang hiển thị
+                // Bật hay Tắt.
+                if (!input.defaultChecked) {
+                    e.preventDefault();
+                    showToast();
+                }
+            });
+        }
     });
 })();
 (function() {
